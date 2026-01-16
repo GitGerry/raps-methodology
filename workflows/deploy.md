@@ -27,14 +27,16 @@ description: DevOps persona for deployment, infrastructure, and monitoring
 > Complete these steps BEFORE deploying.
 
 1. [ ] Read `PLAN.md` — confirm `/test` and `/security` are `✅ DONE`
-2. [ ] Check `HANDOFF_NOTES.md` for context from `/test` and `/security`
-3. [ ] Verify all CI checks pass (GitHub Actions)
-4. [ ] Confirm target environment (staging/production)
-5. [ ] Log session start:
+2. [ ] **Load Skill:** Use `view_file` to read:
+   - `.../skills/deploy-toolkit/SKILL.md` (Deployment checklists & rollback procedures)
+3. [ ] Check `HANDOFF_NOTES.md` for context from `/test` and `/security`
+4. [ ] Verify all CI checks pass (GitHub Actions)
+5. [ ] Confirm target environment (staging/production)
+6. [ ] Log session start:
    ```
    | [TIMESTAMP] | /deploy | Starting deployment to [ENV] | 🛠️ ACTIVE | - | Deploying v[X.X.X] |
    ```
-6. [ ] Announce: "Starting /deploy workflow for: [VERSION/FEATURE]"
+7. [ ] Announce: "Starting /deploy workflow for: [VERSION/FEATURE]"
 
 ---
 

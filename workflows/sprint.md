@@ -32,13 +32,15 @@ This workflow is recommended by other personas when:
 > Complete these steps BEFORE starting work.
 
 1. [ ] Confirm current sprint is complete (all Stories DONE or moved)
-2. [ ] Read `PLAN.md` — review Active Sprint status
-3. [ ] Check Product Backlog for available Stories
-4. [ ] Log session start to `SESSION_LOG.md`:
+2. [ ] **Load Skill:** Use `view_file` to read:
+   - `.../skills/agile-toolkit/SKILL.md` (DoR, velocity tracking, sprint planning)
+3. [ ] Read `PLAN.md` — review Active Sprint status
+4. [ ] Check Product Backlog for available Stories
+5. [ ] Log session start to `SESSION_LOG.md`:
    ```
    | [TIMESTAMP] | /sprint | Starting Sprint Planning | 🛠️ ACTIVE | - | - |
    ```
-5. [ ] Announce: "Starting /sprint workflow for Sprint [N+1] planning"
+6. [ ] Announce: "Starting /sprint workflow for Sprint [N+1] planning"
 
 ---
 

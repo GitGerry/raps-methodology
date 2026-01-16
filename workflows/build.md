@@ -27,14 +27,16 @@ description: The Build archetype does all the building
 > Complete these steps BEFORE starting work.
 
 1. [ ] Read `PLAN.md` — confirm a `[BUILD]` task is assigned with status `🛠️ ACTIVE`
-2. [ ] Verify `/docs/SPECS.md` exists with your feature specification
-3. [ ] Check `HANDOFF_NOTES.md` for context from `/architect`
-4. [ ] Note current git commit for rollback: `git rev-parse HEAD`
-5. [ ] Log session start to `SESSION_LOG.md`:
+2. [ ] **Load Skill:** Use `view_file` to read:
+   - `.../skills/agile-toolkit/SKILL.md` (DoR/DoD checklists for story completion)
+3. [ ] Verify `/docs/SPECS.md` exists with your feature specification
+4. [ ] Check `HANDOFF_NOTES.md` for context from `/architect`
+5. [ ] Note current git commit for rollback: `git rev-parse HEAD`
+6. [ ] Log session start to `SESSION_LOG.md`:
    ```
    | [TIMESTAMP] | /build | Starting implementation of [FEATURE] | 🛠️ ACTIVE | - | Commit: [SHA] |
    ```
-6. [ ] Announce: "Starting /build workflow for: [TASK NAME]"
+7. [ ] Announce: "Starting /build workflow for: [TASK NAME]"
 
 ---
 

@@ -27,15 +27,17 @@ description: The design archetype does all the designing
 > Complete these steps BEFORE starting work.
 
 1. [ ] Read `PLAN.md` — confirm a `[DESIGN]` task is assigned with status `🛠️ ACTIVE`
-2. [ ] Verify `/docs/SPECS.md` exists with UI/flow requirements
-3. [ ] Check `HANDOFF_NOTES.md` for context from `/architect` or `/build`
-4. [ ] Note current git commit for rollback: `git rev-parse HEAD`
-5. [ ] Check if backend API is ready (if needed)
-6. [ ] Log session start to `SESSION_LOG.md`:
+2. [ ] **Load Skill:** Use `view_file` to read:
+   - `.../skills/agile-toolkit/SKILL.md` (DoR/DoD checklists for story completion)
+3. [ ] Verify `/docs/SPECS.md` exists with UI/flow requirements
+4. [ ] Check `HANDOFF_NOTES.md` for context from `/architect` or `/build`
+5. [ ] Note current git commit for rollback: `git rev-parse HEAD`
+6. [ ] Check if backend API is ready (if needed)
+7. [ ] Log session start to `SESSION_LOG.md`:
    ```
    | [TIMESTAMP] | /design | Starting UI for [FEATURE] | 🛠️ ACTIVE | - | Commit: [SHA] |
    ```
-7. [ ] Announce: "Starting /design workflow for: [TASK NAME]"
+8. [ ] Announce: "Starting /design workflow for: [TASK NAME]"
 
 ---
 

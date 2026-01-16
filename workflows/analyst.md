@@ -97,5 +97,10 @@ description: Technical/Functional Analyst for requirements definition and user s
 | Outcome | Next Agent | Command |
 |---------|------------|---------|
 | ✅ Requirements complete | `/architect` | Run `/architect` |
-| ⏳ Need more research | Use `research-toolkit` skill | Load `.../skills/research-toolkit/SKILL.md` |
+| ⏳ Need API research | Use `research-api` skill | Load `.../skills/research-api/SKILL.md` |
+| ⏳ Need competitor research | Use `research-competitor` skill | Load `.../skills/research-competitor/SKILL.md` |
+| ⏳ Need tech evaluation | Use `research-technology` skill | Load `.../skills/research-technology/SKILL.md` |
+| ⏳ Need market research | Use `research-market` skill | Load `.../skills/research-market/SKILL.md` |
+| ⏳ Need feasibility study | Use `research-feasibility` skill | Load `.../skills/research-feasibility/SKILL.md` |
+| ⏳ Need general research | Use `research-toolkit` skill | Load `.../skills/research-toolkit/SKILL.md` |
 | 🚨 Requirements unclear | USER | Ask clarification |

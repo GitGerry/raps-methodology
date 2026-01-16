@@ -29,6 +29,19 @@ Specialized instruction sets that extend AI capabilities for RAPS workflows.
 | **Market Research** | `/research-market` | TAM/SAM/SOM, trends, user demographics |
 | **Feasibility Study** | `/research-feasibility` | Technical, operational, economic assessment |
 | **Summarize** | `/research-summarize` | Condense documents into structured findings |
+| **Research Toolkit** | `/research-toolkit` | Evidence standards & quality ratings |
+
+### Persona Toolkits
+| Skill | Used By | Description |
+|-------|---------|-------------|
+| **Agile Toolkit** | `/build`, `/design`, `/review`, `/sprint`, `/retro`, `/test` | DoR/DoD, sprint planning, retrospectives |
+| **Project Scaffolding** | `/initialize` | Project structure templates |
+| **Analyst Toolkit** | `/analyst` | Requirements standards & templates |
+| **Architecture Toolkit** | `/architect` | Spec templates, ADR format, auto-mode |
+| **QA Toolkit** | `/test` | Test protocols & coverage standards |
+| **Security Toolkit** | `/security` | OWASP checklists & vulnerability templates |
+| **UX Toolkit** | `/ux` | Heuristics, UAT templates |
+| **Deploy Toolkit** | `/deploy` | Deployment runbooks, rollback procedures |
 
 ## How to Use
 

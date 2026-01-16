@@ -28,9 +28,11 @@ Run `/retro` after:
 > Complete these steps BEFORE starting.
 
 1. [ ] Confirm a milestone or project phase is complete
-2. [ ] Read `SESSION_LOG.md` for activity history
-3. [ ] Read `PLAN.md` for completed vs planned tasks
-4. [ ] Log session start:
+2. [ ] **Load Skill:** Use `view_file` to read:
+   - `.../skills/agile-toolkit/SKILL.md` (Retrospective template, section 5)
+3. [ ] Read `SESSION_LOG.md` for activity history
+4. [ ] Read `PLAN.md` for completed vs planned tasks
+5. [ ] Log session start:
    ```
    | [TIMESTAMP] | /retro | Starting retrospective for [MILESTONE] | 🛠️ ACTIVE | - | - |
    ```

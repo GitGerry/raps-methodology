@@ -33,13 +33,15 @@ description: Code review protocol - quality check between build and test (sugges
 > Complete these steps BEFORE starting review.
 
 1. [ ] Read `PLAN.md` — confirm task is `[READY FOR REVIEW]` or `/build` just completed
-2. [ ] Check `HANDOFF_NOTES.md` for context from `/build`
-3. [ ] Identify files to review from Artifact Registry
-4. [ ] Log session start:
+2. [ ] **Load Skill:** Use `view_file` to read:
+   - `.../skills/agile-toolkit/SKILL.md` (DoD checklist for review criteria)
+3. [ ] Check `HANDOFF_NOTES.md` for context from `/build`
+4. [ ] Identify files to review from Artifact Registry
+5. [ ] Log session start:
    ```
    | [TIMESTAMP] | /review | Starting code review for [FEATURE] | 🛠️ ACTIVE | - | Reviewing X files |
    ```
-5. [ ] Announce: "Starting /review workflow for: [TASK NAME]"
+6. [ ] Announce: "Starting /review workflow for: [TASK NAME]"
 
 ---
 

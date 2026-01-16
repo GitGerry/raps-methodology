@@ -65,7 +65,7 @@ Run `/status` anytime to get a quick snapshot of:
    Run: /[next-agent] to [reason]
 
 🛠️ DASHBOARD SYNC
-   Run: `/update-dashboard` to keep `dashboard.html` visual status up to date.
+
 
 📚 DOC CHECK
    PLAN.md: [Fresh / Stale]

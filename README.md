@@ -43,11 +43,11 @@ RAPS is a **persona-based development framework** where each AI agent has a spec
   ║                                        PLANNING PHASE                                              ║
   ╚═══════════════════════════════════════════════════════════════════════════════════════════════════╝
   
-       /initialize          /research              /analyst              /architect
-    ┌─────────┐          ┌─────────────┐       ┌─────────────┐        ┌─────────────┐
-    │ 🏗️ Setup │────────▶│ 🔍 Research  │──────▶│ 📋 Stories  │───────▶│ 📐 Specs    │
-    │ PLAN.md │          │ APIs, Tech  │       │ User Flows  │        │ Tech Design │
-    └─────────┘          └─────────────┘       └─────────────┘        └──────┬──────┘
+       /initialize          /analyst              /architect
+    ┌─────────┐          ┌─────────────┐        ┌─────────────┐
+    │ 🏗️ Setup │────────▶│ 📋 Stories  │───────▶│ 📐 Specs    │
+    │ PLAN.md │          │ & Research  │        │ Tech Design │
+    └─────────┘          └─────────────┘        └──────┬──────┘
                                                                               │
   ════════════════════════════════════════════════════════════════════════════╧════════════════════════
   
@@ -148,8 +148,7 @@ Shows current active agent, task, blockers, and next recommended action.
 
 ### 3. Follow the Flow
 After `/initialize`, the workflow will guide you:
-- `/research` → gather data
-- `/analyst` → define requirements
+- `/analyst` → gather requirements & research
 - `/architect` → write specs
 - `/build` → implement backend
 - `/design` → implement UI
@@ -171,7 +170,7 @@ See the [Sprint Planning Skill](skills/sprint-plan/SKILL.md) for sprint planning
 
 ---
 
-## 👥 The Ten Personas
+## 👥 The Nine Personas
 
 ### 🏗️ /initialize - The Founder
 **Mission:** Initialize project structure (powered by **Project Scaffolding Skill**)
@@ -189,39 +188,21 @@ See the [Sprint Planning Skill](skills/sprint-plan/SKILL.md) for sprint planning
 
 ---
 
-### 🔍 /research - The Data Strategist
-**Mission:** Gather market intelligence and technical feasibility data
-
-| Aspect | Details |
-|--------|---------|
-| **Command** | `/research` |
-| **Lane** | Owner of `/research` folder |
-| **Outputs** | Research files (`COMPETITORS.md`, `TECH_FEASIBILITY.md`) |
-| **Hands off to** | `/architect` |
-
-**When to use:**
-- Competitor analysis needed
-- API/library documentation research
-- Unclear technical requirements
-
-**Prohibitions:**
-- ❌ No code writing
-- ❌ No spec writing (provide data only)
-
 ---
 
 ### 📋 /analyst - The Requirements Specialist
-**Mission:** Translate business requirements into structured stories (powered by **Analyst Toolkit Skill**)
+**Mission:** Translate business requirements into structured stories (powered by **Analyst & Research Toolkits**)
 
 | Aspect | Details |
 |--------|--------|
 | **Command** | `/analyst` |
 | **Lane** | Owner of `/docs/requirements/` |
-| **Outputs** | `REQUIREMENTS.md`, user stories, acceptance criteria |
+| **Outputs** | `REQUIREMENTS.md`, user stories, research data |
 | **Hands off to** | `/architect` |
 
 **When to use:**
 - Complex requirements need clarification
+- Researching API feasibility or competitors
 - User stories and acceptance criteria needed
 - Gap analysis between research and specs
 
@@ -710,14 +691,11 @@ When multiple agents are active:
 2. `/build` — Code blocks design
 3. `/design` — UI blocks testing
 4. `/architect` — Specs block build/design
-5. `/analyst` — Requirements block specs
-6. `/research` — Data blocks requirements
 7. `/initialize` — Only at project start
 
 ### Task Tags
 | Tag | Meaning |
 |-----|--------|
-| `[RESEARCH]` | Assigned to /research |
 | `[ANALYST]` | Assigned to /analyst |
 | `[ARCHITECT]` | Assigned to /architect |
 | `[BUILD]` | Assigned to /build |
@@ -745,8 +723,7 @@ When multiple agents are active:
 
 ### Main Workflows
 ```
-/research        # Gather data
-/analyst         # Define requirements
+/analyst         # Define requirements & Research
 /architect       # Write specs
 /architect --auto # AI-generated draft spec
 /build           # Backend code

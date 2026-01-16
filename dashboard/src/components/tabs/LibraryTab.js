@@ -254,6 +254,7 @@ export function renderLibraryTab(projectPath = 'C:/Users/gerry/OneDrive/Desktop/
                     <h3>📁 Templates & Assets</h3>
                     <ul class="artifact-list">
                         ${docLink('README', '', '/README.md', '📖', 'Main documentation', true)}
+                        ${docLink('Docs Guide', '', '/docs/PROJECT_DOCUMENTATION_GUIDE.md', '📚', 'Documentation Standards & Tiers', true)}
                         ${folderLink('Dashboard', '', '/dashboard', '🎛️', 'Mission Control app')}
                         ${folderLink('All Workflows', '', '/workflows', '📋', 'Workflow definitions')}
                         ${folderLink('All Skills', '', '/skills', '🎯', 'Skill toolkits')}

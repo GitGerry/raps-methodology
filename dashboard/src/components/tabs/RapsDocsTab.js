@@ -40,6 +40,30 @@ export function renderRapsDocsTab() {
                 </div>
             </div>
         </div>
+
+        <!-- Documentation Standards -->
+        <div class="card">
+            <h2>📚 Documentation Standards</h2>
+            <p style="color: var(--text-secondary); margin-bottom: 1rem;">RAPS uses a <strong>Dynamic Tier System</strong> to right-size documentation overhead.</p>
+            <div class="grid-4" style="grid-template-columns: repeat(4, 1fr); gap: 0.5rem;">
+                <div style="padding: 0.75rem; background: rgba(34, 197, 94, 0.1); border: 1px solid rgba(34, 197, 94, 0.3); border-radius: 4px; text-align: center;">
+                    <strong style="color: #22c55e; display: block; font-size: 1.1rem; margin-bottom: 0.25rem;">🟢 Tier 1</strong>
+                    <span style="font-size: 0.8rem; color: var(--text-secondary);">Prototype</span>
+                </div>
+                <div style="padding: 0.75rem; background: rgba(59, 130, 246, 0.1); border: 1px solid rgba(59, 130, 246, 0.3); border-radius: 4px; text-align: center;">
+                    <strong style="color: #3b82f6; display: block; font-size: 1.1rem; margin-bottom: 0.25rem;">🔵 Tier 2</strong>
+                    <span style="font-size: 0.8rem; color: var(--text-secondary);">Project</span>
+                </div>
+                <div style="padding: 0.75rem; background: rgba(168, 85, 247, 0.1); border: 1px solid rgba(168, 85, 247, 0.3); border-radius: 4px; text-align: center;">
+                    <strong style="color: #a855f7; display: block; font-size: 1.1rem; margin-bottom: 0.25rem;">🟣 Tier 3</strong>
+                    <span style="font-size: 0.8rem; color: var(--text-secondary);">Product</span>
+                </div>
+                <div style="padding: 0.75rem; background: rgba(239, 68, 68, 0.1); border: 1px solid rgba(239, 68, 68, 0.3); border-radius: 4px; text-align: center;">
+                    <strong style="color: #ef4444; display: block; font-size: 1.1rem; margin-bottom: 0.25rem;">🔴 Tier 4</strong>
+                    <span style="font-size: 0.8rem; color: var(--text-secondary);">Enterprise</span>
+                </div>
+            </div>
+        </div>
         
         <!-- Feature Production Line Visual -->
         <div class="card">

@@ -111,13 +111,15 @@ See `templates/MEMORY.md` for full template.
 3. [ ] Create `PLAN.md` from template
 4. [ ] Create `SESSION_LOG.md`
 5. [ ] Create `HANDOFF_NOTES.md`
-6. [ ] Create `MEMORY.md`
-7. [ ] Create project `README.md`
-8. [ ] Initialize git repository
-9. [ ] Log session to `SESSION_LOG.md`
+6. [ ] Create `DECISION_LOG.md` from template
+7. [ ] Create `MEMORY.md`
+8. [ ] Create project `README.md`
+9. [ ] Initialize git repository
+10. [ ] Log session to `SESSION_LOG.md`
 
 ### Post-Initialization
 - [ ] Update `PLAN.md` with initial tasks
+- [ ] Log any initial decisions to `DECISION_LOG.md`
 - [ ] Set Squad Status (/initialize → ✅ DONE)
 - [ ] Handoff to next persona (/research or /analyst)
 

@@ -256,6 +256,41 @@ Proposed / Accepted / Deprecated / Superseded
 
 ---
 
+## 4. Sequence Diagram Standards
+
+> **REQUIRED** for complex interactions between components
+
+### When to Create
+- Multi-component interactions (API → Service → DB)
+- Authentication/authorization flows
+- Async processing or message queues
+- Error handling across boundaries
+
+### Format (Mermaid)
+```mermaid
+sequenceDiagram
+    actor User
+    participant CLI
+    participant Service
+    participant DB
+
+    User->>CLI: expense add --amount 50
+    CLI->>Service: createExpense(data)
+    Service->>DB: INSERT INTO expenses
+    DB-->>Service: { id: 1 }
+    Service-->>CLI: Expense created
+    CLI-->>User: ✅ Expense added [ID: 1]
+```
+
+### Checklist
+- [ ] All participants labeled clearly
+- [ ] Message names match function/method names
+- [ ] Response arrows use dashed lines (--)
+- [ ] Alt/Opt blocks for conditional flows
+- [ ] Notes for complex logic
+
+---
+
 ## How to Verify
 
 - [ ] SPECS.md covers all requirements
@@ -263,3 +298,5 @@ Proposed / Accepted / Deprecated / Superseded
 - [ ] Data model defined with relationships
 - [ ] Security considerations addressed
 - [ ] Non-functional requirements specified
+- [ ] Sequence diagrams for complex flows
+- [ ] Major decisions logged to DECISION_LOG.md

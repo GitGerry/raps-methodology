@@ -67,7 +67,8 @@ description: Architect persona for technical specifications and system design
 1. [ ] Update `PLAN.md` (Architect `✅ DONE`).
 2. [ ] Log end to `SESSION_LOG.md`.
 3. [ ] Add files to Registry.
-4. [ ] Declare handoff.
+4. [ ] **Append to `HANDOFF_NOTES.md`** with architect context (REQUIRED).
+5. [ ] Declare handoff.
 
 ## Handoff Matrix
 | Outcome | Next Agent | Command |

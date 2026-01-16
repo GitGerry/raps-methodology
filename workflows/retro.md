@@ -66,8 +66,10 @@ Run `/retro` after:
    - Include metrics if available
 
 4. **Archive:**
-   - Save to `/docs/RETROSPECTIVE.md`
+   - Use template from `templates/RETROSPECTIVE.md`
+   - Save to `/docs/retrospectives/RETRO_Sprint_N.md` (or milestone name)
    - Add entry to Artifact Registry in `PLAN.md`
+   - **Update `DECISION_LOG.md`** with any retrospective decisions
 
 ---
 

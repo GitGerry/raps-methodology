@@ -149,7 +149,44 @@ Provide standards for writing requirements, user stories, and maintaining tracea
 
 ---
 
-## 5. Use Case Standards
+## 5. State Machine Diagram Standards
+
+> **REQUIRED** for any entity with multiple states (e.g., Order, Lead, Ticket)
+
+### When to Create
+- Entity has a `status` or `state` field
+- Transitions between states have conditions
+- Different actions available per state
+
+### Format (Mermaid)
+```mermaid
+stateDiagram-v2
+    [*] --> Draft: Create
+    Draft --> Pending: Submit
+    Pending --> Approved: Approve
+    Pending --> Rejected: Reject
+    Approved --> [*]: Complete
+    Rejected --> Draft: Revise
+```
+
+### State Definition Table
+| State | Description | Allowed Transitions | Triggers |
+|-------|-------------|---------------------|----------|
+| Draft | Initial state | Submit | User action |
+| Pending | Awaiting review | Approve, Reject | Reviewer |
+| Approved | Accepted | Complete | System |
+| Rejected | Declined | Revise | System |
+
+### Checklist
+- [ ] All states documented with descriptions
+- [ ] All transitions have triggers defined
+- [ ] Guard conditions specified (if applicable)
+- [ ] Entry/exit actions noted (if applicable)
+- [ ] Terminal states marked
+
+---
+
+## 6. Use Case Standards
 
 ### Format
 ```markdown

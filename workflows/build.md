@@ -29,6 +29,7 @@ description: The Build archetype does all the building
 1. [ ] Read `PLAN.md` — confirm a `[BUILD]` task is assigned with status `🛠️ ACTIVE`
 2. [ ] **Load Skill:** Use `view_file` to read:
    - `.../skills/agile-toolkit/SKILL.md` (DoR/DoD checklists for story completion)
+   - **Verify:** Confirm you have read and understood the Definition of Done
 3. [ ] Verify `/docs/SPECS.md` exists with your feature specification
 4. [ ] Check `HANDOFF_NOTES.md` for context from `/architect`
 5. [ ] Note current git commit for rollback: `git rev-parse HEAD`

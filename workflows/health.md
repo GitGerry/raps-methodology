@@ -63,12 +63,24 @@ Run `/health` to validate:
 - [ ] `/research` folder exists
 - [ ] `/docs` folder exists
 - [ ] `/docs/requirements` folder exists
+- [ ] `/docs/diagrams` folder exists
 - [ ] `/backend` folder exists (if applicable)
 - [ ] `/frontend` folder exists (if applicable)
 - [ ] `/tests` folder exists
 - [ ] `PLAN.md` exists
 - [ ] `SESSION_LOG.md` exists
 - [ ] `HANDOFF_NOTES.md` exists
+- [ ] `DECISION_LOG.md` exists
+- [ ] `README.md` exists
+
+### 1b. 📄 Documentation Completeness
+> Reference: `templates/DOCUMENTATION_CHECKLIST.md`
+
+- [ ] Requirements phase docs exist (if past /analyst)
+- [ ] Architecture phase docs exist (if past /architect)
+- [ ] State Machine diagrams for stateful entities
+- [ ] Sequence diagrams for complex flows
+- [ ] BPMN diagrams for key processes
 
 ### 2. 📋 PLAN.md Integrity
 - [ ] Squad Status table exists with all personas

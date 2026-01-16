@@ -76,11 +76,12 @@ Run `/health` to validate:
 ### 1b. 📄 Documentation Completeness
 > Reference: `templates/DOCUMENTATION_CHECKLIST.md`
 
-- [ ] Requirements phase docs exist (if past /analyst)
-- [ ] Architecture phase docs exist (if past /architect)
-- [ ] State Machine diagrams for stateful entities
-- [ ] Sequence diagrams for complex flows
-- [ ] BPMN diagrams for key processes
+**Determine Project Tier first (T1=Proto, T2=Project, T3=Product, T4=Enterprise)**
+
+- [ ] **Tier 1+**: PLAN.md, SESSION_LOG.md, README.md
+- [ ] **Tier 2+**: REQUIREMENTS.md, SPECS.md, ER Diagram, Test Cases
+- [ ] **Tier 3+**: Architecture Diagrams, Test Plan, Deployment Runbook
+- [ ] **Tier 4**: System Architecture (SAD), Security Assessment, Disaster Recovery, ROADMAP.md
 
 ### 2. 📋 PLAN.md Integrity
 - [ ] Squad Status table exists with all personas

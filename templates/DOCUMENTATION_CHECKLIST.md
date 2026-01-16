@@ -1,83 +1,67 @@
 # Documentation Checklist
 
-> Ensure all required documentation is created and maintained throughout the project lifecycle.
+> **Tier Legend:**
+> 🟢 **T1+**: All Projects | 🔵 **T2+**: Production Apps | 🟣 **T3+**: Products | 🔴 **T4**: Enterprise
 
 ---
 
 ## Phase 1: Initialization (/initialize)
 
-| Document | Required | Path | Status |
-|----------|----------|------|--------|
-| PLAN.md | ✅ Required | `./PLAN.md` | [ ] |
-| SESSION_LOG.md | ✅ Required | `./SESSION_LOG.md` | [ ] |
-| HANDOFF_NOTES.md | ✅ Required | `./HANDOFF_NOTES.md` | [ ] |
-| DECISION_LOG.md | ✅ Required | `./DECISION_LOG.md` | [ ] |
-| MEMORY.md | ⚠️ Recommended | `./MEMORY.md` | [ ] |
-| README.md | ✅ Required | `./README.md` | [ ] |
-| .gitignore | ✅ Required | `./.gitignore` | [ ] |
+| Document | Tier | Required | Status |
+|----------|------|----------|--------|
+| PLAN.md | 🟢 | ✅ Yes | [ ] |
+| SESSION_LOG.md | 🟢 | ✅ Yes | [ ] |
+| README.md | 🟢 | ✅ Yes | [ ] |
+| DECISION_LOG.md | 🔵 | ⚠️ T2+ | [ ] |
+| MEMORY.md | 🔵 | ⚠️ T2+ | [ ] |
 
 ---
 
 ## Phase 2: Requirements (/analyst)
 
-| Document | Required | Path | Status |
-|----------|----------|------|--------|
-| REQUIREMENTS.md | ✅ Required | `docs/requirements/REQUIREMENTS.md` | [ ] |
-| Use Case Diagram | ✅ Required | `docs/diagrams/use_case_*.mmd` | [ ] |
-| State Machine Diagram | ⚠️ If stateful | `docs/diagrams/state_*.mmd` | [ ] |
-| BPMN Process Diagrams | ⚠️ Per feature | `docs/diagrams/bpmn_*.mmd` | [ ] |
+| Document | Tier | Required | Status |
+|----------|------|----------|--------|
+| REQUIREMENTS.md | 🔵 | ✅ T2+ | [ ] |
+| Use Case Diagram | 🔵 | ✅ T2+ | [ ] |
+| Process Flows (BPMN) | 🟣 | ✅ T3+ | [ ] |
+| Traceability Matrix | 🔴 | ✅ T4 | [ ] |
 
 ---
 
 ## Phase 3: Architecture (/architect)
 
-| Document | Required | Path | Status |
-|----------|----------|------|--------|
-| SPECS.md | ✅ Required | `docs/SPECS.md` | [ ] |
-| ER Diagram | ✅ Required | `docs/diagrams/entity_relationship.mmd` | [ ] |
-| Component Diagram | ✅ Required | `docs/diagrams/architecture_*.mmd` | [ ] |
-| Sequence Diagrams | ⚠️ Per complex flow | `docs/diagrams/sequence_*.mmd` | [ ] |
-| ADR (if major decision) | ⚠️ Recommended | `docs/adr/ADR-*.md` | [ ] |
+| Document | Tier | Required | Status |
+|----------|------|----------|--------|
+| SPECS.md | 🔵 | ✅ T2+ | [ ] |
+| ER Diagram | 🔵 | ✅ T2+ | [ ] |
+| Architecture Diagram | 🟣 | ✅ T3+ | [ ] |
+| Sequence Diagrams | 🟣 | ✅ T3+ | [ ] |
+| ADRs | 🔵 | ⚠️ As needed | [ ] |
+| **System Architecture Doc (SAD)** | 🔴 | ✅ T4 | [ ] |
 
 ---
 
-## Phase 4: Implementation (/build, /design)
+## Phase 4: Implementation (/build)
 
-| Document | Required | Path | Status |
-|----------|----------|------|--------|
-| Code Docstrings | ✅ Required | In source files | [ ] |
-| API Documentation | ⚠️ If API exists | `docs/API.md` or OpenAPI | [ ] |
-| package.json / deps | ✅ Required | `./package.json` | [ ] |
-
----
-
-## Phase 5: Quality (/test, /security, /review)
-
-| Document | Required | Path | Status |
-|----------|----------|------|--------|
-| Test Plan | ⚠️ Recommended | `docs/TEST_PLAN.md` | [ ] |
-| Test Cases | ✅ Required | `tests/*.test.ts` | [ ] |
-| Security Assessment | ⚠️ Recommended | `docs/SECURITY_ASSESSMENT.md` | [ ] |
-| Code Review Notes | ⚠️ Per PR | In HANDOFF_NOTES.md | [ ] |
+| Document | Tier | Required | Status |
+|----------|------|----------|--------|
+| Code Docstrings | 🟢 | ✅ Yes | [ ] |
+| API Docs (OpenAPI) | 🟣 | ✅ T3+ | [ ] |
+| **Change Management Log** | 🔴 | ✅ T4 | [ ] |
 
 ---
 
-## Phase 6: User Acceptance (/ux)
+## Phase 5: Quality & Ops (/test, /deploy)
 
-| Document | Required | Path | Status |
-|----------|----------|------|--------|
-| UAT Report | ⚠️ Recommended | `docs/UAT_REPORT.md` | [ ] |
-| User Feedback Log | ⚠️ Recommended | `docs/USER_FEEDBACK.md` | [ ] |
-
----
-
-## Phase 7: Deployment (/deploy)
-
-| Document | Required | Path | Status |
-|----------|----------|------|--------|
-| Deployment Runbook | ⚠️ Recommended | `docs/RUNBOOK.md` | [ ] |
-| Release Notes | ✅ Required | `CHANGELOG.md` or `docs/RELEASE_NOTES.md` | [ ] |
-| Environment Config | ⚠️ Recommended | `docs/ENVIRONMENTS.md` | [ ] |
+| Document | Tier | Required | Status |
+|----------|------|----------|--------|
+| Test Cases | 🔵 | ✅ T2+ | [ ] |
+| Test Plan | 🟣 | ✅ T3+ | [ ] |
+| Security Assessment | 🔴 | ✅ T4 | [ ] |
+| Deployment Runbook | 🟣 | ✅ T3+ | [ ] |
+| Disaster Recovery Plan | 🔴 | ✅ T4 | [ ] |
+| SLA/SLO Definitions | 🔴 | ✅ T4 | [ ] |
+| Release Notes | 🔵 | ✅ T2+ | [ ] |
 
 ---
 

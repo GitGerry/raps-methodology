@@ -97,6 +97,38 @@ See `templates/MEMORY.md` for full template.
 
 ---
 
+## 2. Project Sizing & Documentation Tiers
+
+> **CRITICAL:** Before generating artifacts, determine the **Project Tier**. Do not over-document prototypes or under-document enterprise systems.
+
+### 🏁 Step 1: Determine Tier
+
+| Tier | Profile | Characteristics | Duration | Examples |
+|------|---------|-----------------|----------|----------|
+| **Tier 1** | **Prototype** | Solo dev, throwaway code, speed is everything. | < 2 weeks | Hackathon entry, script, POC |
+| **Tier 2** | **Project** | Small team, production use, long-term maintenance. | 1-6 mos | Internal tool, feature add-on, MVP |
+| **Tier 3** | **Product** | Public facing, paying users, reliability critical. | 6-12 mos | SaaS app, mobile app, core service |
+| **Tier 4** | **Enterprise** | Mission critical, compliance reqs, distributed teams. | > 1 year | Banking system, healthcare platform, OS |
+
+### 📑 Step 2: Select Documentation Profile
+
+| Document | Tier 1 | Tier 2 | Tier 3 | Tier 4 |
+|----------|:------:|:------:|:------:|:------:|
+| `README.md` | ✅ | ✅ | ✅ | ✅ |
+| `PLAN.md` | ✅ | ✅ | ✅ | ✅ |
+| `SESSION_LOG.md` | ✅ | ✅ | ✅ | ✅ |
+| `REQUIREMENTS.md` | ❌ | Simplified | ✅ | ✅ |
+| `SPECS.md` | ❌ | ✅ | ✅ | ✅ |
+| `DECISION_LOG.md` | ❌ | ⚠️ | ✅ | ✅ |
+| **Diagrams** | ❌ | Core Flows | Architecture | Full UML/BPMN |
+| **Security Risk Assessment** | ❌ | ❌ | ⚠️ | ✅ |
+| **Test Plan** | ❌ | ❌ | ✅ | ✅ |
+| **Disaster Recovery Plan** | ❌ | ❌ | ❌ | ✅ |
+| **SLA / SLO Definitions** | ❌ | ❌ | ❌ | ✅ |
+| **Change Management Log** | ❌ | ❌ | ⚠️ | ✅ |
+
+---
+
 ## 3. Project Initialization Checklist
 
 ### Pre-Initialization

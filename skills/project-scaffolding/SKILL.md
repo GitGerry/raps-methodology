@@ -148,6 +148,11 @@ See `templates/MEMORY.md` for full template.
 8. [ ] Create project `README.md`
 9. [ ] Initialize git repository
 10. [ ] Log session to `SESSION_LOG.md`
+11. [ ] **Register project in Dashboard:**
+    ```bash
+    # Run from project root
+    node C:/Users/gerry/OneDrive/Desktop/LLM/RAPS/raps-methodology/skills/project-scaffolding/scripts/register-project.js "C:/Users/gerry/OneDrive/Desktop/LLM/RAPS/raps-methodology/dashboard/projects.json" "[project-id]" "[Project Name]" "$(pwd)"
+    ```
 
 ### Post-Initialization
 - [ ] Update `PLAN.md` with initial tasks

@@ -157,10 +157,8 @@ After `/initialize`, the workflow will guide you:
 - `/ux` → validate usability
 
 ### 4. View the Dashboard
-Open in your browser:
-```
-C:\Users\gerry\.gemini\antigravity\global_workflows\templates\dashboard.html
-```
+The legacy dashboard is in `templates/dashboard.html`, or use the Vite-based Mission Control in `/dashboard`.
+
 Or copy to your project and customize!
 
 ### 5. Understand the Agile Workflow
@@ -169,7 +167,7 @@ RAPS uses an **Agile-first** approach with Epics, Stories, and Sprints:
 - **Stories** = User-value units (1-3 days), must pass INVEST criteria
 - **Tasks** = Technical steps (<1 day)
 
-See the [Agile Toolkit](../skills/agile_toolkit/SKILL.md) for sizing, velocity tracking, and quality gates.
+See the [Sprint Planning Skill](skills/sprint-plan/SKILL.md) for sprint planning, and check the [Skills README](skills/README.md) for all available toolkits.
 
 ---
 
@@ -569,25 +567,26 @@ A beautiful glassmorphism dashboard to visualize your project state!
 
 ### How to Access
 
-**Option 1: Direct Open**
+**Option 1: Mission Control (Vite App)**
+The modern dashboard is in the `/dashboard` folder. Clone the repo and run:
+```bash
+cd dashboard
+npm install
+npm run dev
 ```
-file:///C:/Users/gerry/.gemini/antigravity/global_workflows/templates/dashboard.html
-```
-Open this path in any browser.
 
-**Option 2: Copy to Project**
-```powershell
-# Copy to your project root
-copy "C:\Users\gerry\.gemini\antigravity\global_workflows\templates\dashboard.html" ".\dashboard.html"
+**Option 2: Legacy Static Dashboard**
+Open `templates/dashboard.html` in any browser.
+
+**Option 3: Copy to Project**
+```bash
+# Copy the template to your project root
+cp templates/dashboard.html ./dashboard.html
 
 # Open in browser
-start dashboard.html
+open dashboard.html  # macOS
+start dashboard.html # Windows
 ```
-
-**Option 3: VS Code**
-1. Open `dashboard.html` in VS Code
-2. Right-click → "Open with Live Server" (if extension installed)
-3. Or just open the file path in browser
 
 ### Dashboard Features
 

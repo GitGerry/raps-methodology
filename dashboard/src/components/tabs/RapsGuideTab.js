@@ -1,6 +1,8 @@
 // RAPS Mission Control - RAPS Guide Tab Component
 // Full whitepaper/technical manual on the RAPS methodology
 
+import { personaData, phaseConfig, personaOrder } from '../../data/personas.js';
+
 export function renderRapsGuideTab() {
     return `
     <div id="raps-guide" class="tab-content">
@@ -8,7 +10,7 @@ export function renderRapsGuideTab() {
             <!-- Header -->
             <div class="guide-header">
                 <h1>📖 RAPS Methodology</h1>
-                <p class="guide-subtitle">Research • Architect • Programming • Styling</p>
+                <p class="guide-subtitle">Requirements • Architecture • Production • Shipping</p>
                 <p class="guide-version">Technical Manual v1.0</p>
             </div>
             
@@ -20,6 +22,8 @@ export function renderRapsGuideTab() {
                     <li><a href="#core-principles">Core Principles</a></li>
                     <li><a href="#production-line">Feature Production Line</a></li>
                     <li><a href="#personas">Persona Reference</a></li>
+                    <li><a href="#persona-directory">Interactive Persona Directory</a></li>
+                    <li><a href="#handoff-matrix">Handoff Matrix</a></li>
                     <li><a href="#release-gates">Release Gates</a></li>
                     <li><a href="#artifacts">Key Artifacts</a></li>
                     <li><a href="#workflows">Workflow Reference</a></li>
@@ -30,29 +34,29 @@ export function renderRapsGuideTab() {
             <section id="what-is-raps" class="guide-section">
                 <h2>1. What is RAPS?</h2>
                 <p>
-                    <strong>RAPS</strong> (Research, Architect, Programming, Styling) is an integrated framework 
+                    <strong>RAPS</strong> (Requirements, Architecture, Production, Shipping) is an integrated framework 
                     designed to streamline the entire software development lifecycle. It focuses on four key pillars:
                 </p>
                 <div class="pillar-grid">
-                    <div class="pillar-card research">
-                        <div class="pillar-icon">🔍</div>
-                        <h4>Research</h4>
-                        <p>Market intelligence, feasibility studies, competitor analysis, and technical evaluations before any code is written.</p>
+                    <div class="pillar-card requirements">
+                        <div class="pillar-icon">📋</div>
+                        <h4>Requirements</h4>
+                        <p>Market research, user feedback analysis, functional requirements, acceptance criteria, and user stories that define what to build.</p>
                     </div>
-                    <div class="pillar-card architect">
+                    <div class="pillar-card architecture">
                         <div class="pillar-icon">📐</div>
-                        <h4>Architect</h4>
-                        <p>System design, API contracts, data modeling, and technical specifications that serve as the blueprint.</p>
+                        <h4>Architecture</h4>
+                        <p>System design, API contracts, database schemas, and technical specifications that serve as the blueprint.</p>
                     </div>
-                    <div class="pillar-card programming">
-                        <div class="pillar-icon">💻</div>
-                        <h4>Programming</h4>
-                        <p>Backend development, API implementation, database management, and business logic execution.</p>
+                    <div class="pillar-card production">
+                        <div class="pillar-icon">🔨</div>
+                        <h4>Production</h4>
+                        <p>Backend and frontend development, building components, implementing business logic, and creating the working software.</p>
                     </div>
-                    <div class="pillar-card styling">
-                        <div class="pillar-icon">🎨</div>
-                        <h4>Styling</h4>
-                        <p>Frontend development, UI/UX design, visual aesthetics, and user experience optimization.</p>
+                    <div class="pillar-card shipping">
+                        <div class="pillar-icon">🚀</div>
+                        <h4>Shipping</h4>
+                        <p>Testing, security audits, user acceptance, deployment, and release management – getting quality software to users.</p>
                     </div>
                 </div>
                 <p>
@@ -76,7 +80,7 @@ export function renderRapsGuideTab() {
                             <tr><th>Persona</th><th>Write Access</th><th>Domain Focus</th></tr>
                         </thead>
                         <tbody>
-                            <tr><td>/init</td><td>PLAN.md</td><td>Scaffolding, Roadmap</td></tr>
+                            <tr><td>/initialize</td><td>PLAN.md</td><td>Scaffolding, Roadmap</td></tr>
                             <tr><td>/research</td><td>/research, /docs</td><td>Intelligence, Benchmarks</td></tr>
                             <tr><td>/architect</td><td>PLAN.md, /docs, SPECS.md</td><td>System Design</td></tr>
                             <tr><td>/build</td><td>/backend, /api, /lib</td><td>API Logic, Database</td></tr>
@@ -135,7 +139,7 @@ export function renderRapsGuideTab() {
                     <div class="phase-block planning">
                         <div class="phase-header">📋 Planning Phase</div>
                         <div class="phase-flow">
-                            <span class="flow-node">/init</span>
+                            <span class="flow-node">/initialize</span>
                             <span class="flow-arrow">→</span>
                             <span class="flow-node">/research</span>
                             <span class="flow-arrow">→</span>
@@ -207,7 +211,7 @@ export function renderRapsGuideTab() {
                         </thead>
                         <tbody>
                             <tr>
-                                <td><code>/init</code></td>
+                                <td><code>/initialize</code></td>
                                 <td>Project Founder</td>
                                 <td>Scaffolding, directory structure, PLAN.md creation, Git initialization</td>
                             </tr>
@@ -325,9 +329,115 @@ export function renderRapsGuideTab() {
                 </div>
             </section>
             
-            <!-- Section 5: Release Gates -->
+            <!-- Section 5: Interactive Persona Directory -->
+            <section id="persona-directory" class="guide-section">
+                <h2>5. Interactive Persona Directory</h2>
+                <p>Click any persona card to view detailed information about their role and responsibilities.</p>
+                
+                <div class="persona-phases">
+                ${Object.entries(phaseConfig).map(([phase, config]) => `
+                    <div class="phase-section">
+                        <div class="phase-label" style="color: ${config.color};">
+                            ${config.label}
+                        </div>
+                        <div class="persona-row">
+                            ${personaOrder
+            .filter(name => personaData[name].phase === phase)
+            .map(name => {
+                const p = personaData[name];
+                return `
+                                    <div class="persona-card" onclick="showPersonaModal('${name}')">
+                                        <div class="persona-emoji">${p.emoji}</div>
+                                        <div class="persona-name">${name}</div>
+                                        <div class="persona-role">${p.subtitle}</div>
+                                    </div>
+                                    `;
+            }).join('')}
+                        </div>
+                    </div>
+                `).join('')}
+                </div>
+            </section>
+            
+            <!-- Section 6: Handoff Matrix -->
+            <section id="handoff-matrix" class="guide-section">
+                <h2>6. Handoff Matrix</h2>
+                <p>
+                    The handoff matrix defines the formal transitions between personas. Each handoff includes 
+                    context passing via <code>HANDOFF_NOTES.md</code> and status updates in <code>PLAN.md</code>.
+                </p>
+                
+                <table class="handoff-table">
+                    <thead>
+                        <tr>
+                            <th>From</th>
+                            <th>To</th>
+                            <th>Trigger Condition</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><span class="agent-badge">/initialize</span></td>
+                            <td><span class="agent-badge">/research</span></td>
+                            <td>Project scaffolded, needs market research</td>
+                        </tr>
+                        <tr>
+                            <td><span class="agent-badge">/research</span></td>
+                            <td><span class="agent-badge">/analyst</span></td>
+                            <td>Research complete, ready for requirements</td>
+                        </tr>
+                        <tr>
+                            <td><span class="agent-badge">/analyst</span></td>
+                            <td><span class="agent-badge">/architect</span></td>
+                            <td>Requirements complete, ready for specs</td>
+                        </tr>
+                        <tr>
+                            <td><span class="agent-badge">/architect</span></td>
+                            <td><span class="agent-badge">/build</span></td>
+                            <td>SPECS.md approved, ready for implementation</td>
+                        </tr>
+                        <tr>
+                            <td><span class="agent-badge">/architect</span></td>
+                            <td><span class="agent-badge">/design</span></td>
+                            <td>SPECS.md approved, UI work can begin</td>
+                        </tr>
+                        <tr>
+                            <td><span class="agent-badge">/build</span></td>
+                            <td><span class="agent-badge">/review</span></td>
+                            <td>Feature code complete (optional review)</td>
+                        </tr>
+                        <tr>
+                            <td><span class="agent-badge">/build</span></td>
+                            <td><span class="agent-badge">/test</span></td>
+                            <td>Feature code complete, ready for QA</td>
+                        </tr>
+                        <tr>
+                            <td><span class="agent-badge">/design</span></td>
+                            <td><span class="agent-badge">/test</span></td>
+                            <td>UI implementation complete, ready for QA</td>
+                        </tr>
+                        <tr>
+                            <td><span class="agent-badge">/test</span></td>
+                            <td><span class="agent-badge">/security</span></td>
+                            <td>All tests passing, ready for security audit</td>
+                        </tr>
+                        <tr>
+                            <td><span class="agent-badge">/security</span></td>
+                            <td><span class="agent-badge">/ux</span></td>
+                            <td>Security cleared, ready for UAT</td>
+                        </tr>
+                        <tr>
+                            <td><span class="agent-badge">/ux</span></td>
+                            <td><span class="agent-badge">/deploy</span></td>
+                            <td>UAT approved, ready for deployment</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+            
+            <!-- Section 7: Release Gates -->
             <section id="release-gates" class="guide-section">
-                <h2>5. Release Gates</h2>
+                <h2>7. Release Gates</h2>
                 <p>
                     Every feature must pass through 6 quality gates before reaching production. 
                     No exceptions are permitted - each gate has specific pass/fail criteria.
@@ -421,7 +531,7 @@ export function renderRapsGuideTab() {
             
             <!-- Section 6: Key Artifacts -->
             <section id="artifacts" class="guide-section">
-                <h2>6. Key Artifacts</h2>
+                <h2>8. Key Artifacts</h2>
                 <p>Standard documents maintained across all RAPS projects:</p>
                 
                 <table class="artifacts-table">
@@ -465,7 +575,7 @@ export function renderRapsGuideTab() {
             
             <!-- Section 7: Workflows -->
             <section id="workflows" class="guide-section">
-                <h2>7. Workflow Reference</h2>
+                <h2>9. Workflow Reference</h2>
                 <p>Key workflows available via slash commands:</p>
                 
                 <div class="workflow-grid">

@@ -1485,19 +1485,19 @@ body {
     text-align: center;
 }
 
-.pillar-card.research {
+.pillar-card.requirements {
     border-color: var(--accent-blue);
 }
 
-.pillar-card.architect {
+.pillar-card.architecture {
     border-color: var(--accent-purple);
 }
 
-.pillar-card.programming {
+.pillar-card.production {
     border-color: var(--accent-green);
 }
 
-.pillar-card.styling {
+.pillar-card.shipping {
     border-color: var(--accent-yellow);
 }
 
@@ -1765,6 +1765,148 @@ body {
     font-size: 0.9rem;
     border-top: 1px solid var(--border);
     margin-top: 2rem;
+}
+
+/* Library Action Buttons */
+.artifact-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-left: auto;
+}
+
+.action-btn {
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border);
+    border-radius: 0.375rem;
+    padding: 0.375rem 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 0.9rem;
+}
+
+.action-btn:hover {
+    background: rgba(59, 130, 246, 0.2);
+    border-color: var(--accent-blue);
+    transform: translateY(-1px);
+}
+
+.github-btn:hover {
+    background: rgba(139, 92, 246, 0.2);
+    border-color: #8b5cf6;
+}
+
+.vscode-btn:hover {
+    background: rgba(16, 185, 129, 0.2);
+    border-color: var(--accent-green);
+}
+
+.preview-btn:hover {
+    background: rgba(245, 158, 11, 0.2);
+    border-color: var(--accent-yellow);
+}
+
+/* Document Preview Modal */
+.doc-preview-content {
+    max-width: 800px;
+    max-height: 80vh;
+}
+
+.doc-preview-body {
+    overflow-y: auto;
+    max-height: 60vh;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 0.5rem;
+}
+
+.markdown-content {
+    line-height: 1.6;
+    color: var(--text-primary);
+}
+
+.markdown-content h1,
+.markdown-content h2,
+.markdown-content h3 {
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: var(--accent-blue);
+}
+
+.markdown-content h1 {
+    font-size: 1.5rem;
+}
+
+.markdown-content h2 {
+    font-size: 1.25rem;
+}
+
+.markdown-content h3 {
+    font-size: 1.1rem;
+}
+
+.markdown-content code {
+    background: rgba(59, 130, 246, 0.15);
+    color: var(--accent-blue);
+    padding: 0.1rem 0.3rem;
+    border-radius: 0.25rem;
+    font-family: 'Consolas', monospace;
+}
+
+.markdown-content pre {
+    background: rgba(0, 0, 0, 0.4);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    overflow-x: auto;
+    margin: 1rem 0;
+}
+
+.markdown-content pre code {
+    background: none;
+    padding: 0;
+}
+
+.markdown-content li {
+    margin-bottom: 0.25rem;
+}
+
+/* Session Table */
+.session-table .timestamp {
+    font-family: 'Consolas', monospace;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+}
+
+/* Grid-4 layout */
+.grid-4 {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+
+/* Metric Card compact */
+.metric-card {
+    background: var(--glass);
+    border: 1px solid var(--border);
+    border-radius: 0.75rem;
+    padding: 1.25rem;
+    text-align: center;
+}
+
+.metric-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.metric-value {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--accent-blue);
+}
+
+.metric-label {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-top: 0.25rem;
 }
 
 /* Responsive adjustments */

@@ -1,7 +1,5 @@
-// RAPS Mission Control - Squad Tab Component (Redesigned)
-// Active agents table + Persona directory grid
-
-import { personaData, phaseConfig, personaOrder } from '../../data/personas.js';
+// RAPS Mission Control - Squad Tab Component (Simplified)
+// Active agents table only - Persona Directory moved to RAPS Guide
 
 export function renderSquadTab() {
     return `
@@ -9,6 +7,7 @@ export function renderSquadTab() {
         <!-- Active Agents Table -->
         <div class="card">
             <h2>🔄 Active Agents</h2>
+            <p style="color: var(--text-secondary); margin-bottom: 1rem;">Real-time status of AI agents working on the current project</p>
             <table class="squad-table">
                 <thead>
                     <tr>
@@ -55,91 +54,91 @@ export function renderSquadTab() {
                         <td>Awaiting test completion for audit</td>
                         <td class="last-active">—</td>
                     </tr>
+                    <tr>
+                        <td><span class="agent-name">/ux</span></td>
+                        <td class="agent-role">User Advocate</td>
+                        <td><span class="status status-waiting">⏳ WAITING</span></td>
+                        <td>Awaiting security clearance for UAT</td>
+                        <td class="last-active">—</td>
+                    </tr>
+                    <tr>
+                        <td><span class="agent-name">/deploy</span></td>
+                        <td class="agent-role">DevOps Engineer</td>
+                        <td><span class="status status-waiting">⏳ WAITING</span></td>
+                        <td>Pending all gates for release</td>
+                        <td class="last-active">—</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
         
-        <!-- Persona Directory -->
+        <!-- Session History -->
         <div class="card">
-            <h2>👥 Persona Directory</h2>
-            <p style="color: var(--text-secondary); margin-bottom: 1rem;">Click any persona to view details</p>
-            
-            <div class="persona-phases">
-                ${Object.entries(phaseConfig).map(([phase, config]) => `
-                    <div class="phase-section">
-                        <div class="phase-label" style="color: ${config.color};">
-                            ${config.label}
-                        </div>
-                        <div class="persona-row">
-                            ${personaOrder
-            .filter(name => personaData[name].phase === phase)
-            .map(name => {
-                const p = personaData[name];
-                return `
-                                        <div class="persona-card" onclick="showPersonaModal('${name}')">
-                                            <div class="persona-emoji">${p.emoji}</div>
-                                            <div class="persona-name">${name}</div>
-                                            <div class="persona-role">${p.subtitle}</div>
-                                        </div>
-                                    `;
-            }).join('')
-        }
-                        </div>
-                    </div>
-                `).join('')}
-            </div>
-        </div>
-        
-        <!-- Handoff Matrix -->
-        <div class="card">
-            <h2 class="collapsible" onclick="toggleCollapse(this)">🤝 Handoff Matrix</h2>
+            <h2 class="collapsible" onclick="toggleCollapse(this)">📜 Session History</h2>
             <div class="collapse-content">
-                <table class="handoff-table">
+                <table class="squad-table session-table">
                     <thead>
                         <tr>
-                            <th>From</th>
-                            <th>To</th>
-                            <th>Trigger</th>
+                            <th>Timestamp</th>
+                            <th>Agent</th>
+                            <th>Action</th>
+                            <th>Result</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            <td><span class="agent-badge">/init</span></td>
-                            <td><span class="agent-badge">/research</span></td>
-                            <td>Project scaffolded, needs market research</td>
+                            <td class="timestamp">2026-01-15 22:00</td>
+                            <td><span class="agent-badge">/test</span></td>
+                            <td>Started v1.1 feature test execution</td>
+                            <td><span class="status status-active">🛠️ IN PROGRESS</span></td>
                         </tr>
                         <tr>
+                            <td class="timestamp">2026-01-15 20:30</td>
+                            <td><span class="agent-badge">/build</span></td>
+                            <td>Completed v1.1 schema fixes</td>
+                            <td><span class="status status-done">✅ DONE</span></td>
+                        </tr>
+                        <tr>
+                            <td class="timestamp">2026-01-15 18:00</td>
+                            <td><span class="agent-badge">/architect</span></td>
+                            <td>Updated SPECS.md for v1.1</td>
+                            <td><span class="status status-done">✅ DONE</span></td>
+                        </tr>
+                        <tr>
+                            <td class="timestamp">2026-01-14 16:00</td>
                             <td><span class="agent-badge">/analyst</span></td>
-                            <td><span class="agent-badge">/architect</span></td>
-                            <td>Requirements complete, ready for specs</td>
-                        </tr>
-                        <tr>
-                            <td><span class="agent-badge">/architect</span></td>
-                            <td><span class="agent-badge">/build</span></td>
-                            <td>SPECS.md approved, ready for implementation</td>
-                        </tr>
-                        <tr>
-                            <td><span class="agent-badge">/build</span></td>
-                            <td><span class="agent-badge">/test</span></td>
-                            <td>Feature code complete, ready for QA</td>
-                        </tr>
-                        <tr>
-                            <td><span class="agent-badge">/test</span></td>
-                            <td><span class="agent-badge">/security</span></td>
-                            <td>All tests passing, ready for security audit</td>
-                        </tr>
-                        <tr>
-                            <td><span class="agent-badge">/security</span></td>
-                            <td><span class="agent-badge">/ux</span></td>
-                            <td>Security cleared, ready for UAT</td>
-                        </tr>
-                        <tr>
-                            <td><span class="agent-badge">/ux</span></td>
-                            <td><span class="agent-badge">/deploy</span></td>
-                            <td>UAT approved, ready for deployment</td>
+                            <td>Finalized v1.1 requirements</td>
+                            <td><span class="status status-done">✅ DONE</span></td>
                         </tr>
                     </tbody>
                 </table>
+            </div>
+        </div>
+        
+        <!-- Quick Stats -->
+        <div class="card">
+            <h2>📊 Agent Statistics</h2>
+            <div class="grid-4">
+                <div class="metric-card">
+                    <div class="metric-icon">🔄</div>
+                    <div class="metric-value">1</div>
+                    <div class="metric-label">Active Agents</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-icon">✅</div>
+                    <div class="metric-value">3</div>
+                    <div class="metric-label">Completed Tasks</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-icon">⏳</div>
+                    <div class="metric-value">3</div>
+                    <div class="metric-label">Waiting</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-icon">📈</div>
+                    <div class="metric-value">7</div>
+                    <div class="metric-label">Total Handoffs</div>
+                </div>
             </div>
         </div>
     </div>
@@ -147,5 +146,5 @@ export function renderSquadTab() {
 }
 
 export function initSquadTab() {
-    // Persona modal is handled globally
+    // Session history data could be loaded dynamically
 }

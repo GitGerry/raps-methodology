@@ -102,21 +102,18 @@ description: Initialize a new RAPS project with scaffolding and Master Ledger
 4. [ ] Declare handoff to `/analyst` or `/architect`.
 
 ## Handoff Decision Logic
-> Use this logic to determine the `Next Agent` in the matrix below.
+> **RAPS Philosophy:** innovation requires intelligence. Research is the default starting point.
 
-### Path A: To /analyst (Needs Research)
-**Trigger condition:** The "What" is unclear.
-- User goal is abstract (e.g., "Make a cool game").
-- Unknown technical feasibility or 3rd party API capabilities.
-- Competition or market research is requested.
-- User requirements contain "I don't know" or "We need to figure out".
+### Path A: To /analyst (Standard/Recommended)
+**Trigger condition:** Always, unless research is already provided.
+- Default path for all new projects.
+- Ensures market fit, competitive analysis, and tech feasibility are validated.
+- Generates "Ideas for Improvement" before specs are written.
 
-### Path B: To /architect (Ready for Specs)
-**Trigger condition:** The "What" is clear; the "How" needs definition.
-- Requirements are specific (e.g., "Build a Todo App with React").
-- Tech stack is known or standard.
-- Core features are listed.
-- Feasibility is not in question.
+### Path B: To /architect (Fast Track)
+**Trigger condition:** Research is **already complete** and supplied.
+- User provides specific requirements AND competitive analysis.
+- Project is a simple utility or clone with no need for innovation.
 
 ---
 

@@ -159,7 +159,7 @@ After `/initialize`, the workflow will guide you:
 ### 4. View the Dashboard
 The Mission Control Dashboard is a Vite-based application located in `/raps_dashboard` (or `/dashboard` in the repository).
 
-Or copy to your project and customize!
+
 
 ### 5. Understand the Agile Workflow
 RAPS uses an **Agile-first** approach with Epics, Stories, and Sprints:
@@ -575,18 +575,7 @@ npm install
 npm run dev
 ```
 
-**Option 2: Legacy Static Dashboard**
-Open `templates/dashboard.html` in any browser.
 
-**Option 3: Copy to Project**
-```bash
-# Copy the template to your project root
-cp templates/dashboard.html ./dashboard.html
-
-# Open in browser
-open dashboard.html  # macOS
-start dashboard.html # Windows
-```
 
 ### Dashboard Features
 

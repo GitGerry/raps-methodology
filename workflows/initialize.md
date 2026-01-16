@@ -54,7 +54,6 @@ description: Initialize a new RAPS project with scaffolding and Master Ledger
     - Initialize Git (`git init`, `.gitignore`).
     - Generate Artifacts using templates from SKILL.md:
         - `PLAN.md` (Master Ledger)
-
         - `README.md`
         - `raps.config.json`
         - `.github/workflows/ci.yml`
@@ -88,7 +87,6 @@ description: Initialize a new RAPS project with scaffolding and Master Ledger
 ## Quality Gate
 - [ ] All 6 RAPS folders exist.
 - [ ] `PLAN.md` exists with Backlog.
-
 - [ ] `README.md` is descriptive.
 - [ ] Git is initialized.
 - [ ] Project registered in Mission Control (`projects.json`).

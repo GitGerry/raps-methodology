@@ -97,6 +97,19 @@ See `templates/MEMORY.md` for full template.
 
 ---
 
+## 3. Additional Templates
+The following templates are available in the `templates/` directory:
+- `CHARTER_TEMPLATE.md` (Project Charter)
+- `CONTRIBUTING_TEMPLATE.md` (Contribution Guidelines)
+- `SECURITY_TEMPLATE.md` (Security Policy)
+- `PULL_REQUEST_TEMPLATE.md` (PR Description)
+- `ADR_TEMPLATE.md` (Architecture Decision Record)
+- `ENV_TEMPLATE.example` (.env example)
+- `CONFIG_TEMPLATE.json` (raps.config.json)
+- `CI_TEMPLATE.yml` (GitHub Actions CI)
+
+---
+
 ## 2. Project Sizing & Documentation Tiers
 
 > **CRITICAL:** Before generating artifacts, determine the **Project Tier**. Do not over-document prototypes or under-document enterprise systems.
@@ -151,7 +164,8 @@ See `templates/MEMORY.md` for full template.
 11. [ ] **Register project in Dashboard:**
     ```bash
     # Run from project root
-    node C:/Users/gerry/OneDrive/Desktop/LLM/RAPS/raps-methodology/skills/project-scaffolding/scripts/register-project.js "C:/Users/gerry/OneDrive/Desktop/LLM/RAPS/raps-methodology/dashboard/projects.json" "[project-id]" "[Project Name]" "$(pwd)"
+    # Ensure $RAPS_ROOT is defined (e.g. C:\Users\gerry\OneDrive\Desktop\LLM\RAPS\raps-methodology)
+    node "$RAPS_ROOT/skills/project-scaffolding/scripts/register-project.js" "$RAPS_ROOT/dashboard/projects.json" "[project-id]" "[Project Name]" "$(pwd)"
     ```
 
 ### Post-Initialization
@@ -164,32 +178,7 @@ See `templates/MEMORY.md` for full template.
 
 ## 4. README.md Template
 
-```markdown
-# [Project Name]
-
-## Overview
-[Brief description of the project]
-
-## Status
-🟡 In Development / 🟢 Active / 🔴 On Hold
-
-## Quick Links
-- [PLAN.md](./PLAN.md) — Master Ledger
-- [Requirements](./docs/requirements/REQUIREMENTS.md)
-- [Specifications](./docs/SPECS.md)
-
-## Getting Started
-[Setup instructions]
-
-## Team
-| Role | Owner |
-|------|-------|
-| Lead | [Name] |
-| AI Personas | RAPS Framework |
-
-## License
-[License type]
-```
+See `templates/README_TEMPLATE.md` for full template.
 
 ---
 
@@ -200,15 +189,8 @@ See `templates/MEMORY.md` for full template.
 git init
 
 # Create .gitignore
-cat > .gitignore << EOF
-node_modules/
-.env
-.env.local
-*.log
-.DS_Store
-dist/
-build/
-EOF
+# Copy .gitignore from template
+cp "$RAPS_ROOT/skills/project-scaffolding/templates/GITIGNORE_TEMPLATE.gitignore" .gitignore
 
 # Initial commit
 git add -A

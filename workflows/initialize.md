@@ -54,15 +54,22 @@ description: Initialize a new RAPS project with scaffolding and Master Ledger
     - Initialize Git (`git init`, `.gitignore`).
     - Generate Artifacts using templates from SKILL.md:
         - `PLAN.md` (Master Ledger)
-        - `dashboard.html`
         - `README.md`
         - `raps.config.json`
         - `.github/workflows/ci.yml`
     - Copy RAPS Guide: `/docs/RAPS_METHODOLOGY.md`.
     - Create Initial Backlog.
     - **Register Project in Mission Control:**
+      ```bash
+      # Option A: Run registration script (Recommended)
+      # Ensure $RAPS_ROOT is set to your raps-methodology location
+      node "$RAPS_ROOT/skills/project-scaffolding/scripts/register-project.js" "$RAPS_ROOT/dashboard/projects.json" "<project-id>" "<Project Name>" "$(pwd)"
+      ```
+      
+      OR
+
       ```json
-      // Add to ~/.gemini/antigravity/raps_dashboard/projects.json
+      // Option B: Manually add to $RAPS_ROOT/dashboard/projects.json
       {
         "id": "<project-slug>",
         "name": "<Project Name>",
@@ -80,7 +87,6 @@ description: Initialize a new RAPS project with scaffolding and Master Ledger
 ## Quality Gate
 - [ ] All 6 RAPS folders exist.
 - [ ] `PLAN.md` exists with Backlog.
-- [ ] `dashboard.html` works.
 - [ ] `README.md` is descriptive.
 - [ ] Git is initialized.
 - [ ] Project registered in Mission Control (`projects.json`).

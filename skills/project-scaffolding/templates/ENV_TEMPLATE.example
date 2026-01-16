@@ -1,0 +1,6 @@
+# ⚠️ DO NOT PUT REAL SECRETS HERE.
+# Copy this file to .env and fill in values.
+
+DATABASE_URL="postgresql://user:password@localhost:5432/mydb"
+API_KEY="your-api-key-here"
+PORT=3000

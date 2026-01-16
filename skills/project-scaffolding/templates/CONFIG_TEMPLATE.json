@@ -1,0 +1,12 @@
+{
+    "projectName": "[Name]",
+    "version": "0.1.0",
+    "created": "[Date]",
+    "techStack": {
+        "frontend": "[F]",
+        "backend": "[B]"
+    },
+    "raps": {
+        "version": "2.0"
+    }
+}

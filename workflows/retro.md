@@ -172,11 +172,15 @@ _End of Retrospective_
 
 1. [ ] Save retrospective to `/docs/RETROSPECTIVE.md`
 2. [ ] Add to Artifact Registry in `PLAN.md`
-3. [ ] Log session end:
+3. [ ] **Update `MEMORY.md`:**
+   - Add lessons learned to **Pattern Memory**
+   - Update **Decision Memory** with key decisions made
+   - Prune stale entries
+4. [ ] Log session end:
    ```
    | [TIMESTAMP] | /retro | Completed retrospective | ✅ DONE | /docs/RETROSPECTIVE.md | [Key insight] |
    ```
-4. [ ] Announce: "Retrospective complete. Key learnings documented."
+5. [ ] Announce: "Retrospective complete. Key learnings documented."
 
 ---
 

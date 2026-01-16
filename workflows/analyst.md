@@ -31,13 +31,14 @@ description: Technical/Functional Analyst for requirements definition and user s
    - `.../skills/analyst-toolkit/SKILL.md` (Requirements Standards)
    - `.../skills/analyst-toolkit/templates.md` (Output Templates)
    - `.../skills/research-toolkit/SKILL.md` (Evidence Standards for validating research)
-3. [ ] Check `/docs` folder exists
-4. [ ] Read any `/research` files if available (verify evidence quality using research-toolkit standards)
-5. [ ] Log session start to `SESSION_LOG.md`:
+3. [ ] **Read `MEMORY.md`** — check Entity Memory for stakeholders, concepts
+4. [ ] Check `/docs` folder exists
+5. [ ] Read any `/research` files if available (verify evidence quality using research-toolkit standards)
+6. [ ] Log session start to `SESSION_LOG.md`:
    ```
    | [TIMESTAMP] | /analyst | Starting requirements analysis | 🛠️ ACTIVE | - | [Task] |
    ```
-6. [ ] Announce: "Starting /analyst workflow for: [TASK NAME]"
+7. [ ] Announce: "Starting /analyst workflow for: [TASK NAME]"
 
 ---
 

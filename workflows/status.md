@@ -71,6 +71,11 @@ Run `/status` anytime to get a quick snapshot of:
    PLAN.md: [Fresh / Stale]
    CHARTER.md: [Fresh / Stale]
 
+🧠 MEMORY CONTEXT
+   Entities: [X tracked]
+   Decisions: [X logged]
+   Patterns: [X recorded]
+   Open Questions: [List any]
 
 ═══════════════════════════════════════════════════════
 ```

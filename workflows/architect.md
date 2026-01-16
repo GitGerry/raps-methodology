@@ -30,8 +30,9 @@ description: Architect persona for technical specifications and system design
 3. [ ] **Load Skill:** Use `view_file` to read:
    - `.../skills/architecture-toolkit/SKILL.md` (Logic & Auto-Mode)
    - `.../skills/architecture-toolkit/templates.md` (Templates)
-4. [ ] Log session start to `SESSION_LOG.md`.
-5. [ ] Announce: "Starting /architect workflow..."
+4. [ ] **Read `MEMORY.md`** — check Decision Memory for prior architectural choices
+5. [ ] Log session start to `SESSION_LOG.md`.
+6. [ ] Announce: "Starting /architect workflow..."
 
 ---
 

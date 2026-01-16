@@ -30,13 +30,14 @@ description: Research persona for market intelligence and technical feasibility
 2. [ ] **Load Skill:** Use `view_file` to read:
    - `.../skills/research-toolkit/SKILL.md` (Evidence Standards & Frameworks)
    - `.../skills/research-toolkit/templates.md` (Output Templates)
-3. [ ] Verify your Squad Status shows `🛠️ ACTIVE`
-4. [ ] Check `/research` folder exists
-5. [ ] Log session start to `SESSION_LOG.md`:
+3. [ ] **Read `MEMORY.md`** — check Entity Memory for existing context on topic
+4. [ ] Verify your Squad Status shows `🛠️ ACTIVE`
+5. [ ] Check `/research` folder exists
+6. [ ] Log session start to `SESSION_LOG.md`:
    ```
    | [TIMESTAMP] | /research | Starting research on [TOPIC] | 🛠️ ACTIVE | - | [Task from PLAN.md] |
    ```
-6. [ ] Announce: "Starting /research workflow for: [TASK NAME]"
+7. [ ] Announce: "Starting /research workflow for: [TASK NAME]"
 
 ---
 

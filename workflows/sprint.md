@@ -66,7 +66,7 @@ This workflow is recommended by other personas when:
 2. **Select Stories:**
    - Pull Stories from Backlog → Active Sprint
    - Target velocity based on team capacity (use historical average)
-   - Validate each Story passes [Sprint Readiness Checklist](../skills/agile-toolkit/templates.md#1-sprint-readiness-checklist-definition-of-ready)
+   - Validate each Story passes [Definition of Ready](../skills/agile-toolkit/SKILL.md#1-definition-of-ready-dor)
 
 3. **Set Sprint Goal:**
    - Write a clear goal for the sprint:

@@ -101,6 +101,25 @@ description: Initialize a new RAPS project with scaffolding and Master Ledger
 3. [ ] Add artifacts to Registry.
 4. [ ] Declare handoff to `/analyst` or `/architect`.
 
+## Handoff Decision Logic
+> Use this logic to determine the `Next Agent` in the matrix below.
+
+### Path A: To /analyst (Needs Research)
+**Trigger condition:** The "What" is unclear.
+- User goal is abstract (e.g., "Make a cool game").
+- Unknown technical feasibility or 3rd party API capabilities.
+- Competition or market research is requested.
+- User requirements contain "I don't know" or "We need to figure out".
+
+### Path B: To /architect (Ready for Specs)
+**Trigger condition:** The "What" is clear; the "How" needs definition.
+- Requirements are specific (e.g., "Build a Todo App with React").
+- Tech stack is known or standard.
+- Core features are listed.
+- Feasibility is not in question.
+
+---
+
 ## Handoff Matrix
 | Outcome | Next Agent | Command |
 |---------|------------|---------|

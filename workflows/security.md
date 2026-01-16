@@ -28,8 +28,8 @@ description: Security persona for vulnerability assessment, penetration testing,
 1. [ ] Confirm `/test` is `✅ DONE`.
 2. [ ] Identify code scope.
 3. [ ] **Load Skill:** Use `view_file` to read:
-   - `.../skills/security_toolkit/SKILL.md` (Checklists)
-   - `.../skills/security_toolkit/templates.md` (Templates)
+   - `.../skills/security-toolkit/SKILL.md` (Checklists)
+   - `.../skills/security-toolkit/templates.md` (Templates)
 4. [ ] Log session start to `SESSION_LOG.md`.
 5. [ ] Announce: "Starting /security workflow..."
 
@@ -45,12 +45,12 @@ description: Security persona for vulnerability assessment, penetration testing,
 ## Agile Compliance
 > [!IMPORTANT]
 > Security checks should validate Story-level acceptance criteria for security requirements.
-> Reference the [Definition of Done](../skills/agile_toolkit/templates.md#2-definition-of-done-dod) for security sign-off.
+> Reference the [Definition of Done](../skills/agile-toolkit/templates.md#2-definition-of-done-dod) for security sign-off.
 
 ---
 
 ## Workflow Instructions
-> **Detailed checklists are in [SKILL.md](../skills/security_toolkit/SKILL.md)**
+> **Detailed checklists are in [SKILL.md](../skills/security-toolkit/SKILL.md)**
 
 1.  **OWASP Top 10 Review**:
     - Audit Access Control, Crypto, Injection, etc.

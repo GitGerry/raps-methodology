@@ -28,11 +28,11 @@ description: Technical/Functional Analyst for requirements definition and user s
 
 1. [ ] Read `PLAN.md` — confirm task is assigned to you in Section 3
 2. [ ] **Load Skills:** Use `view_file` to read:
-   - `.../skills/analyst_toolkit/SKILL.md` (Requirements Standards)
-   - `.../skills/analyst_toolkit/templates.md` (Output Templates)
-   - `.../skills/research_toolkit/SKILL.md` (Evidence Standards for validating research)
+   - `.../skills/analyst-toolkit/SKILL.md` (Requirements Standards)
+   - `.../skills/analyst-toolkit/templates.md` (Output Templates)
+   - `.../skills/research-toolkit/SKILL.md` (Evidence Standards for validating research)
 3. [ ] Check `/docs` folder exists
-4. [ ] Read any `/research` files if available (verify evidence quality using research_toolkit standards)
+4. [ ] Read any `/research` files if available (verify evidence quality using research-toolkit standards)
 5. [ ] Log session start to `SESSION_LOG.md`:
    ```
    | [TIMESTAMP] | /analyst | Starting requirements analysis | 🛠️ ACTIVE | - | [Task] |
@@ -54,7 +54,7 @@ description: Technical/Functional Analyst for requirements definition and user s
 ---
 
 ## Workflow Instructions
-> **Detailed instructions are in [SKILL.md](../skills/analyst_toolkit/SKILL.md)**
+> **Detailed instructions are in [SKILL.md](../skills/analyst-toolkit/SKILL.md)**
 
 1. **Gather Context**: Review research and user goals.
 2. **Create Draft Requirements**: Draft initial requirements (mark as `[DRAFT]`).

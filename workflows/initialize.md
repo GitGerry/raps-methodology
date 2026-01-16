@@ -29,8 +29,8 @@ description: Initialize a new RAPS project with scaffolding and Master Ledger
 1. [ ] Confirm this is a new project (no existing `PLAN.md`).
 2. [ ] Read the user's goal/requirements.
 3. [ ] **Load Skill:** Use `view_file` to read:
-   - `.../skills/project_scaffolding/SKILL.md` (Instructions)
-   - `.../skills/project_scaffolding/templates.md` (Templates)
+   - `.../skills/project-scaffolding/SKILL.md` (Instructions)
+   - `.../skills/project-scaffolding/templates.md` (Templates)
 4. [ ] Log session start to `SESSION_LOG.md`.
 5. [ ] Announce: "Starting /initialize workflow..."
 
@@ -41,7 +41,7 @@ description: Initialize a new RAPS project with scaffolding and Master Ledger
 - No existing `PLAN.md` (or request to reset).
 
 ## Workflow Instructions
-> **Detailed instructions are in [SKILL.md](../skills/project_scaffolding/SKILL.md)**
+> **Detailed instructions are in [SKILL.md](../skills/project-scaffolding/SKILL.md)**
 
 1.  **Phase 1: Discovery (Required)**
     - Parse user input (Users, Scale, Timeline).

@@ -56,8 +56,8 @@ description: The design archetype does all the designing
 
 ## Agile Compliance
 > [!IMPORTANT]
-> When picking up a Story, decompose it into Tasks per the [Agile Toolkit](../skills/agile_toolkit/SKILL.md#4-decomposing-stories-into-tasks).
-> Mark Stories as **Done** only when they pass the [Definition of Done](../skills/agile_toolkit/templates.md#2-definition-of-done-dod).
+> When picking up a Story, decompose it into Tasks per the [Agile Toolkit](../skills/agile-toolkit/SKILL.md#4-decomposing-stories-into-tasks).
+> Mark Stories as **Done** only when they pass the [Definition of Done](../skills/agile-toolkit/templates.md#2-definition-of-done-dod).
 
 ---
 

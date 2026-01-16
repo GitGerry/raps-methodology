@@ -28,8 +28,8 @@ description: The Test archetype does all the testing
 
 1. [ ] Confirm tasks are `[READY FOR TEST]` in `PLAN.md`.
 2. [ ] **Load Skill:** Use `view_file` to read:
-   - `.../skills/qa_toolkit/SKILL.md` (Protocols)
-   - `.../skills/qa_toolkit/templates.md` (Templates)
+   - `.../skills/qa-toolkit/SKILL.md` (Protocols)
+   - `.../skills/qa-toolkit/templates.md` (Templates)
 3. [ ] Log session start to `SESSION_LOG.md`.
 4. [ ] Announce: "Starting /test workflow..."
 
@@ -43,13 +43,13 @@ description: The Test archetype does all the testing
 
 ## Agile Compliance
 > [!IMPORTANT]
-> Before testing, verify the Story passes the [Definition of Ready](../skills/agile_toolkit/templates.md#1-sprint-readiness-checklist-definition-of-ready).
-> Mark Stories as **Done** only when they pass the [Definition of Done](../skills/agile_toolkit/templates.md#2-definition-of-done-dod).
+> Before testing, verify the Story passes the [Definition of Ready](../skills/agile-toolkit/templates.md#1-sprint-readiness-checklist-definition-of-ready).
+> Mark Stories as **Done** only when they pass the [Definition of Done](../skills/agile-toolkit/templates.md#2-definition-of-done-dod).
 
 ---
 
 ## Workflow Instructions
-> **Detailed instructions are in [SKILL.md](../skills/qa_toolkit/SKILL.md)**
+> **Detailed instructions are in [SKILL.md](../skills/qa-toolkit/SKILL.md)**
 
 1.  **Sync**: Check PLAN and Specs.
 2.  **Verify**: Run code, check against specs.

@@ -1,0 +1,265 @@
+---
+name: Architecture Toolkit
+description: SPECS templates, decision records, and technical design patterns
+---
+
+# Architecture Toolkit
+
+## Purpose
+Provide templates and standards for technical specifications, architecture decision records (ADRs), and system design documentation.
+
+## When to Use
+- Writing technical specifications (SPECS.md)
+- Making architectural decisions
+- Designing system components
+- Documenting API contracts
+
+---
+
+## Tool Interface
+
+### Inputs
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `action` | enum | ✅ | `"create_spec"` \| `"create_adr"` \| `"design_api"` |
+| `feature_name` | string | ❌ | Feature being specified |
+
+### Outputs
+- **Type:** Markdown
+- **Structure:** SPECS.md section or ADR document
+
+---
+
+## 1. SPECS.md Template
+
+```markdown
+# Technical Specifications
+
+## Document Control
+| Attribute | Value |
+|-----------|-------|
+| Version | 1.0 |
+| Author | /architect |
+| Date | [TIMESTAMP] |
+| Status | Draft / Review / Approved |
+
+---
+
+## 1. Overview
+
+### 1.1 Purpose
+[What this system/feature does]
+
+### 1.2 Scope
+[What is included and excluded]
+
+### 1.3 Requirements Traceability
+| Requirement | Description |
+|-------------|-------------|
+| FREQ0000001 | [Summary] |
+| STRY0000001 | [Summary] |
+
+---
+
+## 2. System Architecture
+
+### 2.1 High-Level Design
+[Architecture diagram or description]
+
+### 2.2 Component Overview
+| Component | Responsibility |
+|-----------|----------------|
+| [Component] | [What it does] |
+
+### 2.3 Technology Stack
+| Layer | Technology | Rationale |
+|-------|------------|-----------|
+| Frontend | [Tech] | [Why] |
+| Backend | [Tech] | [Why] |
+| Database | [Tech] | [Why] |
+
+---
+
+## 3. Data Model
+
+### 3.1 Entity Definitions
+| Entity | Description | Key Attributes |
+|--------|-------------|----------------|
+| [Entity] | [Description] | [Attributes] |
+
+### 3.2 Database Schema
+```sql
+CREATE TABLE [table_name] (
+    id UUID PRIMARY KEY,
+    -- fields
+);
+```
+
+### 3.3 Relationships
+[ERD or relationship description]
+
+---
+
+## 4. API Specification
+
+### 4.1 Endpoints Overview
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | /api/v1/resource | List resources |
+| POST | /api/v1/resource | Create resource |
+
+### 4.2 Endpoint Details
+
+#### GET /api/v1/resource
+**Description:** [What it does]
+**Auth:** Required / Optional
+**Request:**
+```json
+{
+  "query_param": "value"
+}
+```
+**Response (200):**
+```json
+{
+  "data": [],
+  "meta": {}
+}
+```
+**Errors:**
+| Code | Meaning |
+|------|---------|
+| 400 | Invalid request |
+| 401 | Unauthorized |
+| 404 | Not found |
+
+---
+
+## 5. Security Considerations
+
+### 5.1 Authentication
+[Auth mechanism]
+
+### 5.2 Authorization
+[RBAC or permission model]
+
+### 5.3 Data Protection
+[Encryption, PII handling]
+
+---
+
+## 6. Non-Functional Requirements
+
+| Requirement | Target | Measurement |
+|-------------|--------|-------------|
+| Response Time | < 200ms | P95 latency |
+| Availability | 99.9% | Monthly uptime |
+| Throughput | 1000 RPS | Load test |
+
+---
+
+## 7. Dependencies
+
+| Dependency | Version | Purpose |
+|------------|---------|---------|
+| [Library] | ^X.Y.Z | [Why] |
+
+---
+
+## 8. Deployment & Operations
+
+### 8.1 Environments
+| Environment | Purpose | URL |
+|-------------|---------|-----|
+| Development | Testing | localhost |
+| Staging | Pre-prod | staging.example.com |
+| Production | Live | example.com |
+
+### 8.2 Configuration
+| Variable | Description | Default |
+|----------|-------------|---------|
+| DATABASE_URL | DB connection | - |
+
+---
+
+## 9. Open Questions
+
+| ID | Question | Impact | Status |
+|----|----------|--------|--------|
+| Q1 | [Question] | [Impact] | Open |
+```
+
+---
+
+## 2. Architecture Decision Record (ADR) Template
+
+```markdown
+# ADR-[NUMBER]: [Title]
+
+## Status
+Proposed / Accepted / Deprecated / Superseded
+
+## Context
+[What is the issue that we're seeing that motivates this decision?]
+
+## Decision
+[What is the change that we're proposing and/or doing?]
+
+## Consequences
+### Positive
+- [Benefit 1]
+- [Benefit 2]
+
+### Negative
+- [Trade-off 1]
+- [Trade-off 2]
+
+### Neutral
+- [Side effect]
+
+## Alternatives Considered
+| Option | Pros | Cons | Decision |
+|--------|------|------|----------|
+| [Option 1] | [Pros] | [Cons] | Rejected |
+| [Option 2] | [Pros] | [Cons] | **Selected** |
+
+## References
+- [Link to relevant docs]
+```
+
+---
+
+## 3. API Design Standards
+
+### RESTful Conventions
+| Action | Method | Endpoint | Status Code |
+|--------|--------|----------|-------------|
+| List | GET | /resources | 200 |
+| Create | POST | /resources | 201 |
+| Read | GET | /resources/:id | 200 |
+| Update | PUT | /resources/:id | 200 |
+| Partial Update | PATCH | /resources/:id | 200 |
+| Delete | DELETE | /resources/:id | 204 |
+
+### Error Response Format
+```json
+{
+  "error": {
+    "code": "VALIDATION_ERROR",
+    "message": "Invalid input",
+    "details": [
+      { "field": "email", "message": "Invalid format" }
+    ]
+  }
+}
+```
+
+---
+
+## How to Verify
+
+- [ ] SPECS.md covers all requirements
+- [ ] API endpoints documented with examples
+- [ ] Data model defined with relationships
+- [ ] Security considerations addressed
+- [ ] Non-functional requirements specified

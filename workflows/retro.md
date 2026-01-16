@@ -20,7 +20,7 @@ Run `/retro` after:
 - Team retrospective session
 
 > [!TIP]
-> For Sprint-specific retrospectives, use the **Sprint Retrospective Template** from the [Agile Toolkit](../skills/agile_toolkit/templates.md#3-sprint-retrospective).
+> For Sprint-specific retrospectives, use the **Sprint Retrospective Template** from the [Agile Toolkit](../skills/agile-toolkit/templates.md#3-sprint-retrospective).
 
 ---
 

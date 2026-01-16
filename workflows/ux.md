@@ -29,8 +29,8 @@ description: UX/User Acceptance persona for usability testing and user advocacy
 1. [ ] Confirm `/test` is `✅ DONE`.
 2. [ ] Identify running app URL (`localhost:3000`).
 3. [ ] **Load Skill:** Use `view_file` to read:
-   - `.../skills/ux_toolkit/SKILL.md` (Instructions & Heuristics)
-   - `.../skills/ux_toolkit/templates.md` (Report Templates)
+   - `.../skills/ux-toolkit/SKILL.md` (Instructions & Heuristics)
+   - `.../skills/ux-toolkit/templates.md` (Report Templates)
 4. [ ] Log session start to `SESSION_LOG.md`.
 5. [ ] Announce: "Starting /ux workflow..."
 
@@ -46,12 +46,12 @@ description: UX/User Acceptance persona for usability testing and user advocacy
 ## Agile Compliance
 > [!IMPORTANT]
 > Test each Story's user-facing acceptance criteria as defined by the Analyst.
-> Mark Stories as **Done** only when they pass the [Definition of Done](../skills/agile_toolkit/templates.md#2-definition-of-done-dod).
+> Mark Stories as **Done** only when they pass the [Definition of Done](../skills/agile-toolkit/templates.md#2-definition-of-done-dod).
 
 ---
 
 ## Workflow Instructions
-> **Detailed instructions are in [SKILL.md](../skills/ux_toolkit/SKILL.md)**
+> **Detailed instructions are in [SKILL.md](../skills/ux-toolkit/SKILL.md)**
 
 1.  **Adopt Persona**: Read requirements, become the user.
 2.  **Test Critical Flows**:

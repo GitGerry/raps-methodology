@@ -28,8 +28,8 @@ description: Architect persona for technical specifications and system design
 1. [ ] Confirm task assigned in `PLAN.md`.
 2. [ ] Check `/research` or `/docs/requirements` for input.
 3. [ ] **Load Skill:** Use `view_file` to read:
-   - `.../skills/architecture_toolkit/SKILL.md` (Logic & Auto-Mode)
-   - `.../skills/architecture_toolkit/templates.md` (Templates)
+   - `.../skills/architecture-toolkit/SKILL.md` (Logic & Auto-Mode)
+   - `.../skills/architecture-toolkit/templates.md` (Templates)
 4. [ ] Log session start to `SESSION_LOG.md`.
 5. [ ] Announce: "Starting /architect workflow..."
 
@@ -40,7 +40,7 @@ description: Architect persona for technical specifications and system design
 - `PLAN.md` exists.
 
 ## Workflow Instructions
-> **Detailed instructions are in [SKILL.md](../skills/architecture_toolkit/SKILL.md)**
+> **Detailed instructions are in [SKILL.md](../skills/architecture-toolkit/SKILL.md)**
 
 1.  **Synthesize**: Read inputs (`HANDOFF_NOTES.md`, Research).
 2.  **Pre-Flight**: Check if `SPECS.md` exists.

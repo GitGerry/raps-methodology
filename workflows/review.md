@@ -53,7 +53,7 @@ description: Code review protocol - quality check between build and test (sugges
 ## Agile Compliance
 > [!IMPORTANT]
 > When reviewing, verify the implementation addresses the Story acceptance criteria.
-> Reference the [Definition of Done](../skills/agile_toolkit/templates.md#2-definition-of-done-dod) checklist.
+> Reference the [Definition of Done](../skills/agile-toolkit/templates.md#2-definition-of-done-dod) checklist.
 
 ---
 

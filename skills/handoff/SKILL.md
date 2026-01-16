@@ -273,6 +273,31 @@ Append the generated handoff to the project's handoff notes file.
 
 ---
 
+## Validation Requirements
+
+Before finalizing any handoff, run through the validation checklist.
+
+### Universal Checks
+- [ ] All required sections present (no empty placeholders)
+- [ ] Dates are accurate (use current timestamp)
+- [ ] File paths exist and are correct
+- [ ] Next steps are specific and actionable
+
+### Content Quality
+- [ ] No `[TBD]`, `[TODO]`, or `...` placeholders
+- [ ] Sources have clickable URLs
+- [ ] Evidence ratings assigned where applicable
+
+### Exception Handling
+If a required section cannot be completed:
+1. Mark as `**INCOMPLETE:** [reason]`
+2. Add to Open Questions section
+3. Flag in handoff summary
+
+> See `templates/handoff-validation.md` for the complete checklist.
+
+---
+
 ## How to Verify
 - Handoff appended to HANDOFF_NOTES.md
 - All sections filled with specific content

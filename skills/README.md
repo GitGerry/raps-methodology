@@ -47,6 +47,18 @@ skills/
     └── resources/     # Templates, assets (optional)
 ```
 
+### Required SKILL.md Sections
+
+Every SKILL.md should include these sections in order:
+
+1. **YAML Frontmatter** — `name` and `description`
+2. **Purpose** — What this skill does and when to use it
+3. **Tool Interface** (NEW) — Standardized inputs, outputs, and implementation
+4. **Instructions** — Step-by-step workflow
+5. **How to Verify** — Validation checklist
+
+See `templates/tool-interface-template.md` for the Tool Interface format.
+
 ## Adding New Skills
 
 1. Create a folder in `skills/[skill-name]/`

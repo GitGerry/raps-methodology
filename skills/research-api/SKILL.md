@@ -16,6 +16,47 @@ Conduct thorough API investigations including authentication, rate limits, prici
 
 ---
 
+## Tool Interface
+
+### Inputs
+| Parameter | Type | Required | Description |
+|-----------|------|----------|-------------|
+| `api_name` | string | ✅ | Name of the API to research |
+| `provider` | string | ✅ | Company providing the API |
+| `purpose` | string | ✅ | Why we're considering this API |
+| `depth` | enum | ❌ | `"quick"` \| `"standard"` \| `"deep"` (default: standard) |
+| `output_file` | path | ❌ | Custom output path (default: `/research/API_[NAME].md`) |
+
+### Outputs
+- **Type:** Markdown file
+- **Structure:** Executive summary, auth details, rate limits, pricing, reliability, integration complexity, gotchas
+- **Location:** `/research/API_[NAME].md` or custom path
+
+### Implementation
+
+Uses `mcp_firecrawl-mcp_firecrawl_scrape` for official docs:
+```json
+{
+  "url": "{api_docs_url}",
+  "formats": ["markdown"],
+  "onlyMainContent": true
+}
+```
+
+Uses `mcp_firecrawl-mcp_firecrawl_search` for community intelligence:
+```json
+{
+  "query": "{api_name} integration issues site:stackoverflow.com OR site:reddit.com",
+  "limit": 10
+}
+```
+
+### Example
+> **Input:** `api_name="Stripe"`, `provider="Stripe Inc"`, `purpose="Payment processing"`, `depth="deep"`
+> **Output:** `/research/API_STRIPE.md` with full auth flow, pricing tiers, rate limits, and 10+ community sources
+
+---
+
 ## Instructions
 
 ### 1. Identify Research Scope

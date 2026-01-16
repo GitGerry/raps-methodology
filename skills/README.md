@@ -18,7 +18,7 @@ Specialized instruction sets that extend AI capabilities for RAPS workflows.
 | **Estimate** | `/estimate` | Effort estimation using story points |
 | **Document Gen** | `/document-gen` | Auto-generate documentation |
 | **Onboard** | `/onboard` | Create onboarding docs for new team members |
-| **Update Dashboard** | `/update-dashboard` | Update `dashboard.html` with real-time status |
+
 
 ### Research Skills
 | Skill | Command | Description |

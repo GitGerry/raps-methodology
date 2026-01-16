@@ -244,7 +244,7 @@ See: `/docs/RAPS_METHODOLOGY.md`
 ### Internal
 - [PLAN.md](./PLAN.md) - Master Ledger
 - [SPECS.md](./docs/SPECS.md) - Technical specs
-- [Dashboard](./dashboard.html) - Visual status
+- [Dashboard](./raps_dashboard) - Visual status
 
 ### External
 - [Design System]([URL])

@@ -156,9 +156,9 @@ After `/initialize`, the workflow will guide you:
 - `/ux` → validate usability
 
 ### 4. View the Dashboard
-The legacy dashboard is in `templates/dashboard.html`, or use the Vite-based Mission Control in `/dashboard`.
+The Mission Control Dashboard is a Vite-based application located in `/raps_dashboard` (or `/dashboard` in the repository).
 
-Or copy to your project and customize!
+
 
 ### 5. Understand the Agile Workflow
 RAPS uses an **Agile-first** approach with Epics, Stories, and Sprints:
@@ -571,18 +571,7 @@ npm install
 npm run dev
 ```
 
-**Option 2: Legacy Static Dashboard**
-Open `templates/dashboard.html` in any browser.
 
-**Option 3: Copy to Project**
-```bash
-# Copy the template to your project root
-cp templates/dashboard.html ./dashboard.html
-
-# Open in browser
-open dashboard.html  # macOS
-start dashboard.html # Windows
-```
 
 ### Dashboard Features
 
@@ -599,7 +588,7 @@ start dashboard.html # Windows
 
 The dashboard is a static template. To reflect your actual project:
 
-1. Open `dashboard.html` in your editor
+1. Open the RAPS Dashboard (Vite App)
 2. Update the Squad Status badges
 3. Update the Kanban items
 4. Update the Activity list

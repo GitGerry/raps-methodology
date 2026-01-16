@@ -97,6 +97,6 @@ description: Initialize a new RAPS project with scaffolding and Master Ledger
 ## Handoff Matrix
 | Outcome | Next Agent | Command |
 |---------|------------|---------|
-| ✅ Needs Research | `/research` | Run `/research` |
+| ✅ Needs Research | `/analyst` | Run `/analyst` (use research-toolkit skill) |
 | ✅ Ready for Specs | `/architect` | Run `/architect` |
 | 🚨 Unclear | USER | Ask Questions |

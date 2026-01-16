@@ -114,7 +114,7 @@ This workflow is recommended by other personas when:
 | Outcome | Next Agent | Command | Trigger |
 |---------|------------|---------|---------|
 | ✅ Sprint closed, ready for lessons learned | `/retro` | Run `/retro` | Capture retrospective before planning |
-| ✅ Sprint planned, new Stories need research | `/research` | Run `/research` | Unknown APIs/tech in Stories |
+| ✅ Sprint planned, new Stories need research | `/analyst` | Run `/analyst` (use research-toolkit) | Unknown APIs/tech in Stories |
 | ✅ Sprint planned, Stories well-defined | `/analyst` | Run `/analyst` | Refine requirements |
 | ✅ Sprint planned, specs already exist | `/architect` | Run `/architect` | Promote to /build |
 | 🚨 Backlog empty | USER | Discuss roadmap | Need new Epics/Stories |
@@ -149,6 +149,6 @@ Example:
 - Review the Product Backlog and select Stories for the next sprint.
 - Ensure all selected Stories pass the Sprint Readiness Checklist.
 - Update PLAN.md with the new Active Sprint and clear goal.
-- Hand off to /research, /analyst, or /architect to begin execution.
+- Hand off to /analyst or /architect to begin execution.
 
 **Exit Statement:** 'Sprint [N] closed with velocity [X] points. Sprint [N+1] planned with [Y] Stories. Recommended next step: Run /analyst to refine requirements.'"

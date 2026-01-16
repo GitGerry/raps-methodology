@@ -17,35 +17,14 @@ export const personaData = {
             'Configure version control and initial commit'
         ],
         lanes: ['PLAN.md'],
-        handoff: 'After scaffolding is complete, hands off to /research for market and technical investigation.',
+        handoff: 'After scaffolding is complete, hands off to /analyst for requirements analysis.',
         entryChecklist: [
             'User has provided project requirements or vision',
             'Working directory is available and writable',
             'No existing conflicting project structure'
         ]
     },
-    research: {
-        emoji: '🔍',
-        name: '/research',
-        subtitle: 'Data Strategist',
-        phase: 'planning',
-        description: 'The Data Strategist investigates APIs, technologies, market trends, and competitor solutions. They produce intelligence reports that inform architectural decisions.',
-        responsibilities: [
-            'Research third-party API integrations (Marketo, HubSpot, etc.)',
-            'Investigate technology stack options',
-            'Benchmark competitor solutions',
-            'Document findings in /research folder',
-            'Conduct feasibility assessments',
-            'Use Firecrawl for web scraping when needed'
-        ],
-        lanes: ['/research', '/docs', '/strategy'],
-        handoff: 'After research is complete, hands off to /analyst to translate findings into user stories.',
-        entryChecklist: [
-            'PLAN.md exists with [RESEARCH] tasks assigned',
-            '/research folder created',
-            'Research objectives are clearly defined'
-        ]
-    },
+    // NOTE: /research was demoted to a skill - use skills/research-toolkit instead
     analyst: {
         emoji: '📋',
         name: '/analyst',
@@ -63,7 +42,7 @@ export const personaData = {
         lanes: ['/docs', '/requirements'],
         handoff: 'After requirements are finalized, hands off to /architect for technical specification.',
         entryChecklist: [
-            'Research findings are available',
+            'Research findings are available (use research-toolkit skill if needed)',
             'Stakeholder input has been gathered',
             'Project scope is understood'
         ]
@@ -281,10 +260,10 @@ export const personaData = {
             'Pull stories from Product Backlog to Active Sprint',
             'Validate Sprint Readiness Checklist for each story',
             'Set sprint goal in PLAN.md',
-            'Hand off to /research, /analyst, or /architect'
+            'Hand off to /analyst or /architect'
         ],
         lanes: ['PLAN.md'],
-        handoff: 'After sprint planning, hands off to /research for investigation or /analyst for requirements refinement.',
+        handoff: 'After sprint planning, hands off to /analyst for requirements or /architect for technical spec.',
         entryChecklist: [
             'Current sprint stories are complete or moved',
             'Product Backlog has available stories',
@@ -385,7 +364,7 @@ export const phaseConfig = {
 // Order of personas for display
 export const personaOrder = [
     // Planning
-    'initialize', 'research', 'analyst', 'architect',
+    'initialize', 'analyst', 'architect',
     // Building
     'build', 'design',
     // Quality

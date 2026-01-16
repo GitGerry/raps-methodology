@@ -47,7 +47,7 @@ Run `/status` anytime to get a quick snapshot of:
 
 📋 SQUAD STATUS
    /init      → [status]
-   /research  → [status]  
+   /analyst   → [status]
    /architect → [status]
    /build     → [status]
    /design    → [status]
@@ -88,8 +88,7 @@ Run `/status` anytime to get a quick snapshot of:
 
 | Current State | Recommendation |
 |---------------|----------------|
-| No active agents | "Run `/architect` to pick up next task from Backlog" |
-| `/research` is DONE | "Run `/architect` to synthesize into specs" |
+| No active agents | "Run `/analyst` to pick up next task from Backlog" |
 | `/architect` is DONE | "Run `/build` or `/design` based on task type" |
 | `/build` is DONE | "Run `/review` for code review OR `/test` for QA" |
 | `/design` is DONE | "Run `/test` for QA verification" |
@@ -113,7 +112,7 @@ Run `/status` anytime to get a quick snapshot of:
 
 📋 SQUAD STATUS
    /init      → ✅ DONE
-   /research  → ✅ DONE
+   /analyst   → ✅ DONE
    /architect → ✅ DONE
    /build     → 🛠️ ACTIVE
    /design    → 💤 IDLE

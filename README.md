@@ -180,7 +180,7 @@ See the [Sprint Planning Skill](skills/sprint-plan/SKILL.md) for sprint planning
 | **Command** | `/initialize` |
 | **Lane** | Creates all folders, `PLAN.md` |
 | **Outputs** | Folder structure, `PLAN.md`, `SESSION_LOG.md`, `HANDOFF_NOTES.md` |
-| **Hands off to** | `/research` or `/architect` |
+| **Hands off to** | `/analyst` or `/architect` |
 
 **When to use:**
 - Starting a new project
@@ -691,7 +691,8 @@ When multiple agents are active:
 2. `/build` — Code blocks design
 3. `/design` — UI blocks testing
 4. `/architect` — Specs block build/design
-7. `/initialize` — Only at project start
+5. `/analyst` — Requirements block specs
+6. `/initialize` — Only at project start
 
 ### Task Tags
 | Tag | Meaning |

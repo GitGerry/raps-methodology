@@ -9,6 +9,8 @@ This workflow synchronizes your local Antigravity environment (Brain) with the m
 
 ## Usage
 - **Auto (Smart Sync)**: `// turbo` enabled for one-click synchronization.
+  - Now includes a **visual timestamp graph** comparing Brain vs. Repo.
+  - Displays a **detailed summary** of all synced files.
 - **Interactive**: Run the script manually if you need to choose a specific sync direction.
 
 ## Workflow

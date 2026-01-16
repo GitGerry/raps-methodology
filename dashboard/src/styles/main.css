@@ -1935,3 +1935,85 @@ body {
         grid-template-columns: repeat(2, 1fr);
     }
 }
+
+/* ============================================
+   LIBRARY TAB - SEPARATED SECTIONS
+   ============================================ */
+
+.library-section {
+    margin-bottom: 2rem;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 1.5rem;
+    border-radius: 0.75rem;
+    margin-bottom: 1rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+}
+
+.section-icon {
+    font-size: 1.5rem;
+}
+
+.section-badge {
+    margin-left: auto;
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+/* Project Files Section */
+.project-header {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(147, 51, 234, 0.15));
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    color: var(--text-primary);
+}
+
+.project-header .section-badge {
+    background: rgba(59, 130, 246, 0.3);
+    color: var(--accent-blue);
+}
+
+.library-card.project-card {
+    border-left: 3px solid var(--accent-blue);
+}
+
+.library-card.project-card h3 {
+    color: var(--accent-blue);
+}
+
+/* RAPS Documentation Section */
+.raps-header {
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.15), rgba(16, 185, 129, 0.15));
+    border: 1px solid rgba(34, 197, 94, 0.3);
+    color: var(--text-primary);
+}
+
+.raps-header .section-badge.raps-badge {
+    background: rgba(34, 197, 94, 0.3);
+    color: var(--accent-green);
+}
+
+.library-card.raps-card {
+    border-left: 3px solid var(--accent-green);
+}
+
+.library-card.raps-card h3 {
+    color: var(--accent-green);
+}
+
+/* Library card common styles */
+.library-card h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}

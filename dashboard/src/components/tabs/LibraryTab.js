@@ -1,5 +1,5 @@
 // RAPS Mission Control - Library Tab Component (Redesigned)
-// Unified document access with GitHub + Preview options
+// Separated Project Files from RAPS Documentation
 
 const GITHUB_BASE = 'https://github.com/GitGerry/raps-methodology/blob/main';
 
@@ -31,6 +31,25 @@ function docLink(name, localPath, githubPath, icon, description, canPreview = fa
     </li>`;
 }
 
+// Project-specific document (no GitHub, just VS Code)
+function projectDocLink(name, localPath, icon, description) {
+    const vscodeUrl = `vscode://file${localPath}`;
+
+    return `
+    <li class="artifact-item">
+        <div class="artifact-icon">${icon}</div>
+        <div class="artifact-info">
+            <div class="artifact-name">${name}</div>
+            <div class="artifact-path">${description}</div>
+        </div>
+        <div class="artifact-actions">
+            <button class="action-btn vscode-btn" onclick="window.open('${vscodeUrl}', '_blank')" title="Open in VS Code">
+                <span>📂</span>
+            </button>
+        </div>
+    </li>`;
+}
+
 // Folder link (no preview option)
 function folderLink(name, localPath, githubPath, icon, description) {
     const vscodeUrl = `vscode://file${localPath}`;
@@ -54,6 +73,25 @@ function folderLink(name, localPath, githubPath, icon, description) {
     </li>`;
 }
 
+// Project folder link (VS Code only)
+function projectFolderLink(name, localPath, icon, description) {
+    const vscodeUrl = `vscode://file${localPath}`;
+
+    return `
+    <li class="artifact-item">
+        <div class="artifact-icon">${icon}</div>
+        <div class="artifact-info">
+            <div class="artifact-name">${name}</div>
+            <div class="artifact-path">${description}</div>
+        </div>
+        <div class="artifact-actions">
+            <button class="action-btn vscode-btn" onclick="window.open('${vscodeUrl}', '_blank')" title="Open in VS Code">
+                <span>📂</span>
+            </button>
+        </div>
+    </li>`;
+}
+
 export function renderLibraryTab(projectPath = 'C:/Users/gerry/OneDrive/Desktop/LLM/TAPAS') {
     return `
     <div id="library" class="tab-content">
@@ -62,103 +100,165 @@ export function renderLibraryTab(projectPath = 'C:/Users/gerry/OneDrive/Desktop/
             <span>Click <strong>🔗</strong> to view on GitHub, <strong>📂</strong> to open in VS Code, or <strong>👁️</strong> to preview inline</span>
         </div>
         
-        <div class="grid-3">
-            <!-- Requirements & Specs -->
-            <div class="card library-card">
-                <h2>📋 Requirements & Specs</h2>
-                <ul class="artifact-list">
-                    ${docLink('REQUIREMENTS.md', `${projectPath}/docs/requirements/REQUIREMENTS.md`, '/workflows/README.md', '📋', 'Functional requirements', true)}
-                    ${docLink('SPECS.md', `${projectPath}/docs/SPECS.md`, '/workflows/architect.md', '📐', 'Technical specifications', true)}
-                    ${docLink('v1.1 Requirements', `${projectPath}/docs/requirements/v1.1_REQUIREMENTS.md`, '/workflows/analyst.md', '📊', 'Upgrade requirements', true)}
-                    ${docLink('User Feedback', `${projectPath}/docs/v1.1_USER_FEEDBACK.md`, '/workflows/ux.md', '💬', 'Consolidated feedback', true)}
-                </ul>
-            </div>
+        <!-- Section 1: Project Files -->
+        <div class="library-section">
+            <h2 class="section-header project-header">
+                <span class="section-icon">📁</span>
+                Project Files
+                <span class="section-badge">TAPAS</span>
+            </h2>
+            <div class="grid-3">
+                <!-- Requirements & Specs (Project) -->
+                <div class="card library-card project-card">
+                    <h3>📋 Requirements & Specs</h3>
+                    <ul class="artifact-list">
+                        ${projectDocLink('REQUIREMENTS.md', `${projectPath}/docs/requirements/REQUIREMENTS.md`, '📋', 'Functional requirements')}
+                        ${projectDocLink('SPECS.md', `${projectPath}/docs/SPECS.md`, '📐', 'Technical specifications')}
+                        ${projectDocLink('v1.1 Requirements', `${projectPath}/docs/requirements/v1.1_REQUIREMENTS.md`, '📊', 'Upgrade requirements')}
+                        ${projectDocLink('User Feedback', `${projectPath}/docs/v1.1_USER_FEEDBACK.md`, '💬', 'Consolidated feedback')}
+                    </ul>
+                </div>
 
-            <!-- Project Management -->
-            <div class="card library-card">
-                <h2>🛠️ Project Management</h2>
-                <ul class="artifact-list">
-                    ${docLink('PLAN.md', `${projectPath}/PLAN.md`, '/workflows/initialize.md', '📝', 'Master Ledger', true)}
-                    ${docLink('SESSION_LOG.md', `${projectPath}/SESSION_LOG.md`, '/workflows/status.md', '📜', 'Activity history', true)}
-                    ${docLink('README.md', `${projectPath}/README.md`, '/README.md', '📖', 'Project overview', true)}
-                    ${docLink('HANDOFF_NOTES.md', `${projectPath}/HANDOFF_NOTES.md`, '/workflows/sprint.md', '🤝', 'Agent handoffs', true)}
-                </ul>
-            </div>
+                <!-- Project Management -->
+                <div class="card library-card project-card">
+                    <h3>🛠️ Project Management</h3>
+                    <ul class="artifact-list">
+                        ${projectDocLink('PLAN.md', `${projectPath}/PLAN.md`, '📝', 'Master Ledger')}
+                        ${projectDocLink('SESSION_LOG.md', `${projectPath}/SESSION_LOG.md`, '📜', 'Activity history')}
+                        ${projectDocLink('README.md', `${projectPath}/README.md`, '📖', 'Project overview')}
+                        ${projectDocLink('HANDOFF_NOTES.md', `${projectPath}/HANDOFF_NOTES.md`, '🤝', 'Agent handoffs')}
+                    </ul>
+                </div>
 
-            <!-- Diagrams -->
-            <div class="card library-card">
-                <h2>📊 Diagrams</h2>
-                <ul class="artifact-list">
-                    <li class="artifact-item">
-                        <div class="artifact-icon">🎯</div>
-                        <div class="artifact-info">
-                            <div class="artifact-name">Use Case Diagram</div>
-                            <div class="artifact-path">System interactions</div>
-                        </div>
-                        <div class="artifact-actions">
-                            <button class="action-btn preview-btn" onclick="showDiagramModal('useCaseDiagram')" title="View diagram">
-                                <span>👁️</span>
-                            </button>
-                        </div>
-                    </li>
-                    <li class="artifact-item">
-                        <div class="artifact-icon">🔄</div>
-                        <div class="artifact-info">
-                            <div class="artifact-name">State Machines</div>
-                            <div class="artifact-path">Entity lifecycles</div>
-                        </div>
-                        <div class="artifact-actions">
-                            <button class="action-btn preview-btn" onclick="showDiagramModal('stateMachine')" title="View diagram">
-                                <span>👁️</span>
-                            </button>
-                        </div>
-                    </li>
-                    <li class="artifact-item">
-                        <div class="artifact-icon">📈</div>
-                        <div class="artifact-info">
-                            <div class="artifact-name">Process Flows</div>
-                            <div class="artifact-path">Business workflows</div>
-                        </div>
-                        <div class="artifact-actions">
-                            <button class="action-btn preview-btn" onclick="showDiagramModal('processFlow')" title="View diagram">
-                                <span>👁️</span>
-                            </button>
-                        </div>
-                    </li>
-                </ul>
-            </div>
+                <!-- Source Code (Project) -->
+                <div class="card library-card project-card">
+                    <h3>💻 Source Code</h3>
+                    <ul class="artifact-list">
+                        ${projectFolderLink('Backend', `${projectPath}/backend`, '⚙️', 'API routes & middleware')}
+                        ${projectFolderLink('Frontend', `${projectPath}/frontend`, '🎨', 'Next.js components')}
+                        ${projectFolderLink('Dashboard', `${projectPath}/dashboard`, '🎛️', 'Project dashboard')}
+                        ${projectFolderLink('Tests', `${projectPath}/tests`, '🧪', 'Test suites')}
+                    </ul>
+                </div>
 
-            <!-- Source Code -->
-            <div class="card library-card">
-                <h2>💻 Source Code</h2>
-                <ul class="artifact-list">
-                    ${folderLink('Dashboard', `${projectPath}/dashboard`, '/dashboard', '🎛️', 'Mission Control app')}
-                    ${folderLink('Backend', `${projectPath}/backend`, '/dashboard/src', '⚙️', 'API routes & middleware')}
-                    ${folderLink('Frontend', `${projectPath}/frontend`, '/dashboard/src/components', '🎨', 'React components')}
-                    ${folderLink('Workflows', `${projectPath}/.agent/workflows`, '/workflows', '📋', 'All persona workflows')}
-                </ul>
+                <!-- Diagrams (Project-specific) -->
+                <div class="card library-card project-card">
+                    <h3>📊 Diagrams</h3>
+                    <ul class="artifact-list">
+                        <li class="artifact-item">
+                            <div class="artifact-icon">🎯</div>
+                            <div class="artifact-info">
+                                <div class="artifact-name">Use Case Diagram</div>
+                                <div class="artifact-path">System interactions</div>
+                            </div>
+                            <div class="artifact-actions">
+                                <button class="action-btn preview-btn" onclick="showDiagramModal('useCaseDiagram')" title="View diagram">
+                                    <span>👁️</span>
+                                </button>
+                            </div>
+                        </li>
+                        <li class="artifact-item">
+                            <div class="artifact-icon">🔄</div>
+                            <div class="artifact-info">
+                                <div class="artifact-name">State Machines</div>
+                                <div class="artifact-path">Entity lifecycles</div>
+                            </div>
+                            <div class="artifact-actions">
+                                <button class="action-btn preview-btn" onclick="showDiagramModal('stateMachine')" title="View diagram">
+                                    <span>👁️</span>
+                                </button>
+                            </div>
+                        </li>
+                        <li class="artifact-item">
+                            <div class="artifact-icon">📈</div>
+                            <div class="artifact-info">
+                                <div class="artifact-name">Process Flows</div>
+                                <div class="artifact-path">Business workflows</div>
+                            </div>
+                            <div class="artifact-actions">
+                                <button class="action-btn preview-btn" onclick="showDiagramModal('processFlow')" title="View diagram">
+                                    <span>👁️</span>
+                                </button>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
+        </div>
 
-            <!-- Research -->
-            <div class="card library-card">
-                <h2>🔍 Research</h2>
-                <ul class="artifact-list">
-                    ${docLink('Research Workflow', `${projectPath}/.agent/workflows/research.md`, '/workflows/research.md', '🔍', 'Data Strategist guide', true)}
-                    ${docLink('Build Workflow', `${projectPath}/.agent/workflows/build.md`, '/workflows/build.md', '💻', 'Lead Developer guide', true)}
-                    ${docLink('Design Workflow', `${projectPath}/.agent/workflows/design.md`, '/workflows/design.md', '🎨', 'UI/UX Designer guide', true)}
-                    ${docLink('Test Workflow', `${projectPath}/.agent/workflows/test.md`, '/workflows/test.md', '🧪', 'QA Engineer guide', true)}
-                </ul>
-            </div>
+        <!-- Section 2: RAPS Documentation -->
+        <div class="library-section">
+            <h2 class="section-header raps-header">
+                <span class="section-icon">📖</span>
+                RAPS Framework Documentation
+                <span class="section-badge raps-badge">Methodology</span>
+            </h2>
+            <div class="grid-3">
+                <!-- Core Workflows -->
+                <div class="card library-card raps-card">
+                    <h3>🚀 Core Workflows</h3>
+                    <ul class="artifact-list">
+                        ${docLink('Initialize', '', '/workflows/initialize.md', '🏗️', 'Project scaffolding', true)}
+                        ${docLink('Research', '', '/workflows/research.md', '🔍', 'Data gathering', true)}
+                        ${docLink('Analyst', '', '/workflows/analyst.md', '📋', 'Requirements definition', true)}
+                        ${docLink('Architect', '', '/workflows/architect.md', '📐', 'Technical specs', true)}
+                    </ul>
+                </div>
 
-            <!-- Testing & QA -->
-            <div class="card library-card">
-                <h2>🧪 Testing & QA</h2>
-                <ul class="artifact-list">
-                    ${docLink('Test Workflow', `${projectPath}/.agent/workflows/test.md`, '/workflows/test.md', '📊', 'Test procedure', true)}
-                    ${docLink('Security Workflow', `${projectPath}/.agent/workflows/security.md`, '/workflows/security.md', '🔒', 'Security audit guide', true)}
-                    ${docLink('Review Workflow', `${projectPath}/.agent/workflows/review.md`, '/workflows/review.md', '👀', 'Code review process', true)}
-                    ${docLink('Release Workflow', `${projectPath}/.agent/workflows/release.md`, '/workflows/release.md', '🚦', 'Release gates', true)}
-                </ul>
+                <!-- Build & Design -->
+                <div class="card library-card raps-card">
+                    <h3>💻 Build & Design</h3>
+                    <ul class="artifact-list">
+                        ${docLink('Build', '', '/workflows/build.md', '⚙️', 'Backend development', true)}
+                        ${docLink('Design', '', '/workflows/design.md', '🎨', 'Frontend & UI/UX', true)}
+                        ${docLink('Review', '', '/workflows/review.md', '👀', 'Code review', true)}
+                        ${docLink('Sprint', '', '/workflows/sprint.md', '🏃', 'Sprint planning', true)}
+                    </ul>
+                </div>
+
+                <!-- Quality & Release -->
+                <div class="card library-card raps-card">
+                    <h3>✅ Quality & Release</h3>
+                    <ul class="artifact-list">
+                        ${docLink('Test', '', '/workflows/test.md', '🧪', 'QA verification', true)}
+                        ${docLink('Security', '', '/workflows/security.md', '🔒', 'Security audit', true)}
+                        ${docLink('UX', '', '/workflows/ux.md', '🎭', 'User acceptance', true)}
+                        ${docLink('Release', '', '/workflows/release.md', '🚦', 'Release gates', true)}
+                    </ul>
+                </div>
+
+                <!-- Utilities -->
+                <div class="card library-card raps-card">
+                    <h3>🛠️ Utilities</h3>
+                    <ul class="artifact-list">
+                        ${docLink('Status', '', '/workflows/status.md', '📊', 'Project status check', true)}
+                        ${docLink('Health', '', '/workflows/health.md', '🏥', 'Project validator', true)}
+                        ${docLink('Retro', '', '/workflows/retro.md', '📝', 'Retrospectives', true)}
+                        ${docLink('Deploy', '', '/workflows/deploy.md', '🚀', 'Deployment', true)}
+                    </ul>
+                </div>
+
+                <!-- Skills -->
+                <div class="card library-card raps-card">
+                    <h3>🎯 Skills</h3>
+                    <ul class="artifact-list">
+                        ${docLink('Skills README', '', '/skills/README.md', '📚', 'All skill toolkits', true)}
+                        ${docLink('Sprint Planning', '', '/skills/sprint-plan/SKILL.md', '🏃', 'Sprint skill', true)}
+                        ${docLink('Debug Assist', '', '/skills/debug-assist/SKILL.md', '🔧', 'Debugging workflow', true)}
+                        ${docLink('Estimate', '', '/skills/estimate/SKILL.md', '📏', 'Effort estimation', true)}
+                    </ul>
+                </div>
+
+                <!-- Templates -->
+                <div class="card library-card raps-card">
+                    <h3>📁 Templates & Assets</h3>
+                    <ul class="artifact-list">
+                        ${docLink('README', '', '/README.md', '📖', 'Main documentation', true)}
+                        ${folderLink('Dashboard', '', '/dashboard', '🎛️', 'Mission Control app')}
+                        ${folderLink('All Workflows', '', '/workflows', '📋', 'Workflow definitions')}
+                        ${folderLink('All Skills', '', '/skills', '🎯', 'Skill toolkits')}
+                    </ul>
+                </div>
             </div>
         </div>
         

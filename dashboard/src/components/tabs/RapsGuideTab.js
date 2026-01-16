@@ -81,7 +81,7 @@ export function renderRapsGuideTab() {
                         </thead>
                         <tbody>
                             <tr><td>/initialize</td><td>PLAN.md</td><td>Scaffolding, Roadmap</td></tr>
-                            <tr><td>/research</td><td>/research, /docs</td><td>Intelligence, Benchmarks</td></tr>
+                            <tr><td>/analyst</td><td>/docs/requirements</td><td>Requirements, User Stories</td></tr>
                             <tr><td>/architect</td><td>PLAN.md, /docs, SPECS.md</td><td>System Design</td></tr>
                             <tr><td>/build</td><td>/backend, /api, /lib</td><td>API Logic, Database</td></tr>
                             <tr><td>/design</td><td>/frontend, /components</td><td>UI/UX, Styling</td></tr>
@@ -141,14 +141,13 @@ export function renderRapsGuideTab() {
                         <div class="phase-flow">
                             <span class="flow-node">/initialize</span>
                             <span class="flow-arrow">→</span>
-                            <span class="flow-node">/research</span>
-                            <span class="flow-arrow">→</span>
                             <span class="flow-node">/analyst</span>
+                            <span class="flow-note">(use research-toolkit skill)</span>
                             <span class="flow-arrow">→</span>
                             <span class="flow-node">/architect</span>
                         </div>
                         <p class="phase-desc">
-                            Project initialization, market research, requirements gathering, and technical specifications.
+                            Project initialization, requirements gathering, and technical specifications.
                         </p>
                     </div>
                     
@@ -216,14 +215,9 @@ export function renderRapsGuideTab() {
                                 <td>Scaffolding, directory structure, PLAN.md creation, Git initialization</td>
                             </tr>
                             <tr>
-                                <td><code>/research</code></td>
-                                <td>Data Strategist</td>
-                                <td>Market intelligence, competitor analysis, feasibility studies, API research</td>
-                            </tr>
-                            <tr>
                                 <td><code>/analyst</code></td>
                                 <td>Business Analyst</td>
-                                <td>User stories, acceptance criteria, INVEST compliance, requirements documentation</td>
+                                <td>User stories, acceptance criteria, INVEST compliance, requirements documentation, research (via research-toolkit skill)</td>
                             </tr>
                             <tr>
                                 <td><code>/architect</code></td>
@@ -378,13 +372,8 @@ export function renderRapsGuideTab() {
                     <tbody>
                         <tr>
                             <td><span class="agent-badge">/initialize</span></td>
-                            <td><span class="agent-badge">/research</span></td>
-                            <td>Project scaffolded, needs market research</td>
-                        </tr>
-                        <tr>
-                            <td><span class="agent-badge">/research</span></td>
                             <td><span class="agent-badge">/analyst</span></td>
-                            <td>Research complete, ready for requirements</td>
+                            <td>Project scaffolded, needs requirements (use research-toolkit if research needed)</td>
                         </tr>
                         <tr>
                             <td><span class="agent-badge">/analyst</span></td>

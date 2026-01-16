@@ -73,8 +73,6 @@ export function renderOverviewTab() {
                     <div class="phase-nodes">
                         <span class="flow-node done">/init</span>
                         <span class="flow-arrow">→</span>
-                        <span class="flow-node done">/research</span>
-                        <span class="flow-arrow">→</span>
                         <span class="flow-node done">/analyst</span>
                         <span class="flow-arrow">→</span>
                         <span class="flow-node done">/architect</span>

@@ -21,7 +21,8 @@ export function renderRapsGuideTab() {
                     <li><a href="#what-is-raps">What is RAPS?</a></li>
                     <li><a href="#core-principles">Core Principles</a></li>
                     <li><a href="#production-line">Feature Production Line</a></li>
-                    <li><a href="#persona-directory">Persona Directory</a></li>
+                    <li><a href="#personas">Persona Reference</a></li>
+                    <li><a href="#persona-directory">Interactive Persona Directory</a></li>
                     <li><a href="#handoff-matrix">Handoff Matrix</a></li>
                     <li><a href="#release-gates">Release Gates</a></li>
                     <li><a href="#artifacts">Key Artifacts</a></li>
@@ -80,7 +81,7 @@ export function renderRapsGuideTab() {
                         </thead>
                         <tbody>
                             <tr><td>/initialize</td><td>PLAN.md</td><td>Scaffolding, Roadmap</td></tr>
-                            <tr><td>/research</td><td>/research, /docs</td><td>Intelligence, Benchmarks</td></tr>
+                            <tr><td>/analyst</td><td>/docs/requirements</td><td>Requirements, User Stories</td></tr>
                             <tr><td>/architect</td><td>PLAN.md, /docs, SPECS.md</td><td>System Design</td></tr>
                             <tr><td>/build</td><td>/backend, /api, /lib</td><td>API Logic, Database</td></tr>
                             <tr><td>/design</td><td>/frontend, /components</td><td>UI/UX, Styling</td></tr>
@@ -126,98 +127,206 @@ export function renderRapsGuideTab() {
                 </div>
             </section>
             
-            <!-- Section 3: Feature Production Line (Interactive) -->
+            <!-- Section 3: Feature Production Line -->
             <section id="production-line" class="guide-section">
                 <h2>3. Feature Production Line</h2>
                 <p>
-                    Features flow through the RAPS pipeline in a structured sequence. <strong>Click any phase</strong> to see 
-                    detailed information about the personas and their responsibilities.
+                    Features flow through the RAPS pipeline in a structured sequence. Each phase has designated 
+                    personas who execute specific responsibilities.
                 </p>
                 
-                <div class="production-line interactive">
-                    <div class="phase-block planning clickable" onclick="togglePhaseDetails('planning')">
-                        <div class="phase-header">📋 Planning Phase <span class="expand-icon">▼</span></div>
+                <div class="production-line">
+                    <div class="phase-block planning">
+                        <div class="phase-header">📋 Planning Phase</div>
                         <div class="phase-flow">
-                            <span class="flow-node" onclick="event.stopPropagation(); openPersonaModal('initialize')">/initialize</span>
+                            <span class="flow-node">/initialize</span>
                             <span class="flow-arrow">→</span>
-                            <span class="flow-node" onclick="event.stopPropagation(); openPersonaModal('research')">/research</span>
+                            <span class="flow-node">/analyst</span>
+                            <span class="flow-note">(use research-toolkit skill)</span>
                             <span class="flow-arrow">→</span>
-                            <span class="flow-node" onclick="event.stopPropagation(); openPersonaModal('analyst')">/analyst</span>
-                            <span class="flow-arrow">→</span>
-                            <span class="flow-node" onclick="event.stopPropagation(); openPersonaModal('architect')">/architect</span>
+                            <span class="flow-node">/architect</span>
                         </div>
-                        <div id="planning-details" class="phase-details">
-                            <table class="phase-table">
-                                <tr><td><strong>/initialize</strong></td><td>Project Founder</td><td>Creates PLAN.md, scaffolds directory structure, initializes Git</td></tr>
-                                <tr><td><strong>/research</strong></td><td>Data Strategist</td><td>Market research, competitor analysis, API feasibility studies</td></tr>
-                                <tr><td><strong>/analyst</strong></td><td>Business Analyst</td><td>User stories, acceptance criteria, functional requirements</td></tr>
-                                <tr><td><strong>/architect</strong></td><td>Solution Architect</td><td>SPECS.md, API contracts, database schema, system design</td></tr>
-                            </table>
-                        </div>
+                        <p class="phase-desc">
+                            Project initialization, requirements gathering, and technical specifications.
+                        </p>
                     </div>
                     
                     <div class="phase-arrow">↓</div>
                     
-                    <div class="phase-block building clickable" onclick="togglePhaseDetails('building')">
-                        <div class="phase-header">🔨 Building Phase <span class="expand-icon">▼</span></div>
+                    <div class="phase-block building">
+                        <div class="phase-header">🔨 Building Phase</div>
                         <div class="phase-flow">
-                            <span class="flow-node" onclick="event.stopPropagation(); openPersonaModal('build')">/build</span>
+                            <span class="flow-node">/build</span>
                             <span class="flow-arrow">⟷</span>
-                            <span class="flow-node" onclick="event.stopPropagation(); openPersonaModal('design')">/design</span>
+                            <span class="flow-node">/design</span>
                         </div>
-                        <div id="building-details" class="phase-details">
-                            <table class="phase-table">
-                                <tr><td><strong>/build</strong></td><td>Lead Developer</td><td>Backend API, database migrations, server-side logic, middleware</td></tr>
-                                <tr><td><strong>/design</strong></td><td>UI/UX Engineer</td><td>Frontend components, styling, animations, responsive layouts</td></tr>
-                            </table>
-                            <p class="phase-note">💡 Build and Design work in parallel with continuous integration.</p>
-                        </div>
+                        <p class="phase-desc">
+                            Backend and frontend development work in parallel, with continuous integration.
+                        </p>
                     </div>
                     
                     <div class="phase-arrow">↓</div>
                     
-                    <div class="phase-block quality clickable" onclick="togglePhaseDetails('quality')">
-                        <div class="phase-header">✅ Quality Phase <span class="expand-icon">▼</span></div>
+                    <div class="phase-block quality">
+                        <div class="phase-header">✅ Quality Phase</div>
                         <div class="phase-flow">
-                            <span class="flow-node" onclick="event.stopPropagation(); openPersonaModal('review')">/review</span>
+                            <span class="flow-node">/review</span>
                             <span class="flow-arrow">→</span>
-                            <span class="flow-node" onclick="event.stopPropagation(); openPersonaModal('test')">/test</span>
+                            <span class="flow-node">/test</span>
                             <span class="flow-arrow">→</span>
-                            <span class="flow-node" onclick="event.stopPropagation(); openPersonaModal('security')">/security</span>
+                            <span class="flow-node">/security</span>
                             <span class="flow-arrow">→</span>
-                            <span class="flow-node" onclick="event.stopPropagation(); openPersonaModal('ux')">/ux</span>
+                            <span class="flow-node">/ux</span>
                         </div>
-                        <div id="quality-details" class="phase-details">
-                            <table class="phase-table">
-                                <tr><td><strong>/review</strong></td><td>Code Reviewer</td><td>Pull request reviews, code standards, best practices (optional)</td></tr>
-                                <tr><td><strong>/test</strong></td><td>QA Engineer</td><td>Unit tests, integration tests, edge cases, regression testing</td></tr>
-                                <tr><td><strong>/security</strong></td><td>Security Analyst</td><td>OWASP compliance, vulnerability scanning, penetration testing</td></tr>
-                                <tr><td><strong>/ux</strong></td><td>UX Specialist</td><td>User acceptance testing, accessibility audits, usability feedback</td></tr>
-                            </table>
-                        </div>
+                        <p class="phase-desc">
+                            Code review, automated testing, security audits, and user acceptance testing.
+                        </p>
                     </div>
                     
                     <div class="phase-arrow">↓</div>
                     
-                    <div class="phase-block release clickable" onclick="togglePhaseDetails('release')">
-                        <div class="phase-header">🚀 Release Phase <span class="expand-icon">▼</span></div>
+                    <div class="phase-block release">
+                        <div class="phase-header">🚀 Release Phase</div>
                         <div class="phase-flow">
-                            <span class="flow-node" onclick="event.stopPropagation(); openPersonaModal('deploy')">/deploy</span>
+                            <span class="flow-node">/deploy</span>
                         </div>
-                        <div id="release-details" class="phase-details">
-                            <table class="phase-table">
-                                <tr><td><strong>/deploy</strong></td><td>DevOps Engineer</td><td>CI/CD pipelines, staging/production deployment, monitoring</td></tr>
-                            </table>
-                            <p class="phase-note">🎯 Only proceeds after all 6 Release Gates have passed.</p>
-                        </div>
+                        <p class="phase-desc">
+                            Deployment to staging, production release, and post-deployment monitoring.
+                        </p>
                     </div>
                 </div>
             </section>
             
-            <!-- Section 4: Interactive Persona Directory (Merged from old sections 4 and 5) -->
+            <!-- Section 4: Persona Reference -->
+            <section id="personas" class="guide-section">
+                <h2>4. Persona Reference</h2>
+                <p>Each persona is an AI agent specialized for a specific role in the development process.</p>
+                
+                <div class="persona-table-section">
+                    <h4>📋 Planning Phase Personas</h4>
+                    <table class="persona-ref-table">
+                        <thead>
+                            <tr><th>Persona</th><th>Role</th><th>Key Responsibilities</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>/initialize</code></td>
+                                <td>Project Founder</td>
+                                <td>Scaffolding, directory structure, PLAN.md creation, Git initialization</td>
+                            </tr>
+                            <tr>
+                                <td><code>/analyst</code></td>
+                                <td>Business Analyst</td>
+                                <td>User stories, acceptance criteria, INVEST compliance, requirements documentation, research (via research-toolkit skill)</td>
+                            </tr>
+                            <tr>
+                                <td><code>/architect</code></td>
+                                <td>Solution Architect</td>
+                                <td>SPECS.md, API contracts, database schema, system design</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="persona-table-section">
+                    <h4>🔨 Building Phase Personas</h4>
+                    <table class="persona-ref-table">
+                        <thead>
+                            <tr><th>Persona</th><th>Role</th><th>Key Responsibilities</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>/build</code></td>
+                                <td>Lead Developer</td>
+                                <td>Backend implementation, API routes, database migrations, middleware</td>
+                            </tr>
+                            <tr>
+                                <td><code>/design</code></td>
+                                <td>UI/UX Engineer</td>
+                                <td>Frontend components, styling, animations, responsive design</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="persona-table-section">
+                    <h4>✅ Quality Phase Personas</h4>
+                    <table class="persona-ref-table">
+                        <thead>
+                            <tr><th>Persona</th><th>Role</th><th>Key Responsibilities</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>/review</code></td>
+                                <td>Code Reviewer</td>
+                                <td>Pull request review, code standards, best practices enforcement</td>
+                            </tr>
+                            <tr>
+                                <td><code>/test</code></td>
+                                <td>QA Engineer</td>
+                                <td>Unit tests, integration tests, edge case validation, regression testing</td>
+                            </tr>
+                            <tr>
+                                <td><code>/security</code></td>
+                                <td>Security Analyst</td>
+                                <td>OWASP compliance, vulnerability scanning, penetration testing</td>
+                            </tr>
+                            <tr>
+                                <td><code>/ux</code></td>
+                                <td>UX Specialist</td>
+                                <td>User acceptance testing, accessibility audits, usability feedback</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="persona-table-section">
+                    <h4>🚀 Release Phase Personas</h4>
+                    <table class="persona-ref-table">
+                        <thead>
+                            <tr><th>Persona</th><th>Role</th><th>Key Responsibilities</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>/deploy</code></td>
+                                <td>DevOps Engineer</td>
+                                <td>CI/CD pipelines, infrastructure, staging/production deployment, monitoring</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                
+                <div class="persona-table-section">
+                    <h4>🔧 Support Personas</h4>
+                    <table class="persona-ref-table">
+                        <thead>
+                            <tr><th>Persona</th><th>Role</th><th>Key Responsibilities</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><code>/sprint</code></td>
+                                <td>Scrum Master</td>
+                                <td>Sprint planning, velocity tracking, retrospectives, backlog grooming</td>
+                            </tr>
+                            <tr>
+                                <td><code>/health</code></td>
+                                <td>Project Doctor</td>
+                                <td>Health checks, documentation audits, consistency validation</td>
+                            </tr>
+                            <tr>
+                                <td><code>/retro</code></td>
+                                <td>Retrospective Lead</td>
+                                <td>Sprint retrospectives, lessons learned, process improvements</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+            
+            <!-- Section 5: Interactive Persona Directory -->
             <section id="persona-directory" class="guide-section">
-                <h2>4. Persona Directory</h2>
-                <p>Click any persona card to view detailed information about their role, responsibilities, and lane restrictions.</p>
+                <h2>5. Interactive Persona Directory</h2>
+                <p>Click any persona card to view detailed information about their role and responsibilities.</p>
                 
                 <div class="persona-phases">
                 ${Object.entries(phaseConfig).map(([phase, config]) => `
@@ -231,7 +340,7 @@ export function renderRapsGuideTab() {
             .map(name => {
                 const p = personaData[name];
                 return `
-                                    <div class="persona-card" onclick="openPersonaModal('${name}')">
+                                    <div class="persona-card" onclick="showPersonaModal('${name}')">
                                         <div class="persona-emoji">${p.emoji}</div>
                                         <div class="persona-name">${name}</div>
                                         <div class="persona-role">${p.subtitle}</div>
@@ -244,9 +353,9 @@ export function renderRapsGuideTab() {
                 </div>
             </section>
             
-            <!-- Section 5: Handoff Matrix -->
+            <!-- Section 6: Handoff Matrix -->
             <section id="handoff-matrix" class="guide-section">
-                <h2>5. Handoff Matrix</h2>
+                <h2>6. Handoff Matrix</h2>
                 <p>
                     The handoff matrix defines the formal transitions between personas. Each handoff includes 
                     context passing via <code>HANDOFF_NOTES.md</code> and status updates in <code>PLAN.md</code>.
@@ -263,13 +372,8 @@ export function renderRapsGuideTab() {
                     <tbody>
                         <tr>
                             <td><span class="agent-badge">/initialize</span></td>
-                            <td><span class="agent-badge">/research</span></td>
-                            <td>Project scaffolded, needs market research</td>
-                        </tr>
-                        <tr>
-                            <td><span class="agent-badge">/research</span></td>
                             <td><span class="agent-badge">/analyst</span></td>
-                            <td>Research complete, ready for requirements</td>
+                            <td>Project scaffolded, needs requirements (use research-toolkit if research needed)</td>
                         </tr>
                         <tr>
                             <td><span class="agent-badge">/analyst</span></td>
@@ -320,9 +424,9 @@ export function renderRapsGuideTab() {
                 </table>
             </section>
             
-            <!-- Section 6: Release Gates -->
+            <!-- Section 7: Release Gates -->
             <section id="release-gates" class="guide-section">
-                <h2>6. Release Gates</h2>
+                <h2>7. Release Gates</h2>
                 <p>
                     Every feature must pass through 6 quality gates before reaching production. 
                     No exceptions are permitted - each gate has specific pass/fail criteria.
@@ -414,9 +518,9 @@ export function renderRapsGuideTab() {
                 </div>
             </section>
             
-            <!-- Section 7: Key Artifacts -->
+            <!-- Section 6: Key Artifacts -->
             <section id="artifacts" class="guide-section">
-                <h2>7. Key Artifacts</h2>
+                <h2>8. Key Artifacts</h2>
                 <p>Standard documents maintained across all RAPS projects:</p>
                 
                 <table class="artifacts-table">
@@ -458,9 +562,9 @@ export function renderRapsGuideTab() {
                 </table>
             </section>
             
-            <!-- Section 8: Workflows -->
+            <!-- Section 7: Workflows -->
             <section id="workflows" class="guide-section">
-                <h2>8. Workflow Reference</h2>
+                <h2>9. Workflow Reference</h2>
                 <p>Key workflows available via slash commands:</p>
                 
                 <div class="workflow-grid">
@@ -498,29 +602,4 @@ export function renderRapsGuideTab() {
         </div>
     </div>
     `;
-}
-
-// Initialize RAPS Guide tab interactivity
-export function initRapsGuideTab() {
-    // Global function to toggle phase details in Feature Production Line
-    window.togglePhaseDetails = function (phase) {
-        const details = document.getElementById(`${phase}-details`);
-        const block = details.closest('.phase-block');
-        const icon = block.querySelector('.expand-icon');
-
-        if (details.classList.contains('expanded')) {
-            details.classList.remove('expanded');
-            icon.textContent = '▼';
-        } else {
-            // Close all other expanded details first
-            document.querySelectorAll('.phase-details.expanded').forEach(el => {
-                el.classList.remove('expanded');
-                const otherIcon = el.closest('.phase-block').querySelector('.expand-icon');
-                if (otherIcon) otherIcon.textContent = '▼';
-            });
-            // Open this one
-            details.classList.add('expanded');
-            icon.textContent = '▲';
-        }
-    };
 }

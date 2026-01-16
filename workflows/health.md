@@ -83,7 +83,7 @@ Run `/health` to validate:
 - [ ] If `/build` is `🛠️ ACTIVE`, `/docs/SPECS.md` exists
 - [ ] If `/design` is `🛠️ ACTIVE`, `/docs/SPECS.md` has UI requirements
 - [ ] If `/test` is `🛠️ ACTIVE`, tasks are marked `[READY FOR TEST]`
-- [ ] If `/analyst` is `🛠️ ACTIVE`, `/research` files exist
+- [ ] If `/analyst` is `🛠️ ACTIVE`, `/research` folder has files (or analyst is gathering via research-toolkit)
 - [ ] No agent is `🛠️ ACTIVE` without a task in Current Trajectory
 
 ### 4. ⏰ Staleness Detection

@@ -199,7 +199,7 @@ export function renderLibraryTab(projectPath = 'C:/Users/gerry/OneDrive/Desktop/
                     <h3>🚀 Core Workflows</h3>
                     <ul class="artifact-list">
                         ${docLink('Initialize', '', '/workflows/initialize.md', '🏗️', 'Project scaffolding', true)}
-                        ${docLink('Research', '', '/workflows/research.md', '🔍', 'Data gathering', true)}
+                        ${docLink('Research Toolkit', '', '/skills/research-toolkit/SKILL.md', '🔍', 'Research capability (skill)', true)}
                         ${docLink('Analyst', '', '/workflows/analyst.md', '📋', 'Requirements definition', true)}
                         ${docLink('Architect', '', '/workflows/architect.md', '📐', 'Technical specs', true)}
                     </ul>

@@ -29,8 +29,7 @@ description: Initialize a new RAPS project with scaffolding and Master Ledger
 1. [ ] Confirm this is a new project (no existing `PLAN.md`).
 2. [ ] Read the user's goal/requirements.
 3. [ ] **Load Skill:** Use `view_file` to read:
-   - `.../skills/project-scaffolding/SKILL.md` (Instructions)
-   - `.../skills/project-scaffolding/templates.md` (Templates)
+   - `.../skills/project-scaffolding/SKILL.md` (Instructions & Templates)
 4. [ ] Log session start to `SESSION_LOG.md`.
 5. [ ] Announce: "Starting /initialize workflow..."
 
@@ -53,7 +52,7 @@ description: Initialize a new RAPS project with scaffolding and Master Ledger
     - Define Tech Stack.
     - Create Directory Structure (`/research`, `/backend`, etc.).
     - Initialize Git (`git init`, `.gitignore`).
-    - Generate Artifacts using `templates.md`:
+    - Generate Artifacts using templates from SKILL.md:
         - `PLAN.md` (Master Ledger)
         - `dashboard.html`
         - `README.md`
@@ -92,7 +91,7 @@ description: Initialize a new RAPS project with scaffolding and Master Ledger
 1. [ ] Update `PLAN.md` (Founder `✅ DONE`).
 2. [ ] Log session end to `SESSION_LOG.md`.
 3. [ ] Add artifacts to Registry.
-4. [ ] Declare handoff to `/research` or `/architect`.
+4. [ ] Declare handoff to `/analyst` or `/architect`.
 
 ## Handoff Matrix
 | Outcome | Next Agent | Command |

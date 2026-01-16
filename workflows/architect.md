@@ -28,8 +28,7 @@ description: Architect persona for technical specifications and system design
 1. [ ] Confirm task assigned in `PLAN.md`.
 2. [ ] Check `/research` or `/docs/requirements` for input.
 3. [ ] **Load Skill:** Use `view_file` to read:
-   - `.../skills/architecture-toolkit/SKILL.md` (Logic & Auto-Mode)
-   - `.../skills/architecture-toolkit/templates.md` (Templates)
+   - `.../skills/architecture-toolkit/SKILL.md` (Logic, Templates & Auto-Mode)
 4. [ ] **Read `MEMORY.md`** — check Decision Memory for prior architectural choices
 5. [ ] Log session start to `SESSION_LOG.md`.
 6. [ ] Announce: "Starting /architect workflow..."
@@ -47,7 +46,7 @@ description: Architect persona for technical specifications and system design
 2.  **Pre-Flight**: Check if `SPECS.md` exists.
 3.  **Write Specs**:
     - Define Logic Flow, Data Schema, API Contracts.
-    - Use `templates.md` for consistent format.
+    - Use templates from SKILL.md for consistent format.
     - **Pro Tip**: Use `--auto` for AI Draft (`SPECS_DRAFT.md`).
 4.  **Trajectory Promotion**:
     - Move task to **Current Trajectory** in `PLAN.md`.
@@ -74,5 +73,5 @@ description: Architect persona for technical specifications and system design
 | Outcome | Next Agent | Command |
 |---------|------------|---------|
 | ✅ Spec Ready | `/build` / `/design` | Run Agent |
-| ⏳ Need Research | `/research` | Run `/research` |
+| ⏳ Need Research | Use `research-toolkit` skill | Load `.../skills/research-toolkit/SKILL.md` |
 | 🚨 Unclear | USER | Ask Questions |

@@ -7,7 +7,7 @@ description: Technical/Functional Analyst for requirements definition and user s
 ## Context
 - **Persona:** Technical/Functional Analyst
 - **Mission:** Translate business requirements into structured, testable requirements.
-- **Lane:** **Owner of `/docs/requirements/`**. Read access to `/research`.
+- **Lane:** **Owner of `/docs/requirements/`**. Read access to `/research` folder.
 
 ---
 
@@ -28,9 +28,8 @@ description: Technical/Functional Analyst for requirements definition and user s
 
 1. [ ] Read `PLAN.md` — confirm task is assigned to you in Section 3
 2. [ ] **Load Skills:** Use `view_file` to read:
-   - `.../skills/analyst-toolkit/SKILL.md` (Requirements Standards)
-   - `.../skills/analyst-toolkit/templates.md` (Output Templates)
-   - `.../skills/research-toolkit/SKILL.md` (Evidence Standards for validating research)
+   - `.../skills/analyst-toolkit/SKILL.md` (Requirements Standards & Templates)
+   - `.../skills/research-toolkit/SKILL.md` (For conducting research when needed)
 3. [ ] **Read `MEMORY.md`** — check Entity Memory for stakeholders, concepts
 4. [ ] Check `/docs` folder exists
 5. [ ] Read any `/research` files if available (verify evidence quality using research-toolkit standards)
@@ -44,7 +43,7 @@ description: Technical/Functional Analyst for requirements definition and user s
 
 ## Prerequisites
 - [ ] `PLAN.md` exists with task.
-- [ ] `/research` findings available.
+- [ ] `/research` folder findings available (or use research-toolkit skill to gather).
 - [ ] No upstream blockers.
 
 ## Prohibitions
@@ -62,14 +61,14 @@ description: Technical/Functional Analyst for requirements definition and user s
 3. **User Verification (REQUIRED)**: Ask directed, clarifying questions.
 4. **Incorporate Feedback**: Finalize requirements based on answers.
 5. **Write User Stories**: Create stories with acceptance criteria.
-6. **Create Diagram Files**: Generate diagrams in `/docs/diagrams/` using templates from `templates.md`.
+6. **Create Diagram Files**: Generate diagrams in `/docs/diagrams/` using templates from SKILL.md.
    - `use_case_[feature].mmd` (or .drawio)
    - `lifecycle_[feature].mmd` (**Required** for stateful features)
    - `process_flow_[feature].mmd` (or .drawio)
    - `entity_relationship_[feature].mmd`
 7. **Define Permissions (RBAC)**: Map actors to permissions.
 8. **Gap Analysis**: Identify missing items and assumptions.
-9. **Create Document**: Save to `REQUIREMENTS.md` using the template in `templates.md`.
+9. **Create Document**: Save to `REQUIREMENTS.md` using the template in SKILL.md.
 10. **Update Ledger**: Mark task `[DONE]` and activate `/architect`.
 
 ---
@@ -89,7 +88,7 @@ description: Technical/Functional Analyst for requirements definition and user s
 1. [ ] Update `PLAN.md` (Task `[DONE]`, Status `✅ DONE`, /architect `🛠️ ACTIVE`).
 2. [ ] Log session end to `SESSION_LOG.md`.
 3. [ ] Add created files to Artifact Registry in `PLAN.md`.
-4. [ ] Append notes to `HANDOFF_NOTES.md` using template in `templates.md`.
+4. [ ] Append notes to `HANDOFF_NOTES.md` using handoff template.
 5. [ ] Declare handoff to `/architect`.
 
 ---
@@ -98,5 +97,5 @@ description: Technical/Functional Analyst for requirements definition and user s
 | Outcome | Next Agent | Command |
 |---------|------------|---------|
 | ✅ Requirements complete | `/architect` | Run `/architect` |
-| ⏳ Need more research | `/research` | Run `/research` |
+| ⏳ Need more research | Use `research-toolkit` skill | Load `.../skills/research-toolkit/SKILL.md` |
 | 🚨 Requirements unclear | USER | Ask clarification |

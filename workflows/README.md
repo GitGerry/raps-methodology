@@ -10,7 +10,7 @@ A structured methodology for AI-assisted software development with clear handoff
 
 - [Overview](#-overview)
 - [Quick Start](#-quick-start)
-- [The Ten Personas](#-the-ten-personas)
+- [The Nine Personas](#-the-nine-personas)
 - [Utility Workflows](#-utility-workflows)
 - [Visual Dashboard](#-visual-dashboard)
 - [Core Artifacts](#-core-artifacts)
@@ -43,12 +43,12 @@ RAPS is a **persona-based development framework** where each AI agent has a spec
   ║                                        PLANNING PHASE                                              ║
   ╚═══════════════════════════════════════════════════════════════════════════════════════════════════╝
   
-       /initialize          /research              /analyst              /architect
-    ┌─────────┐          ┌─────────────┐       ┌─────────────┐        ┌─────────────┐
-    │ 🏗️ Setup │────────▶│ 🔍 Research  │──────▶│ 📋 Stories  │───────▶│ 📐 Specs    │
-    │ PLAN.md │          │ APIs, Tech  │       │ User Flows  │        │ Tech Design │
-    └─────────┘          └─────────────┘       └─────────────┘        └──────┬──────┘
-                                                                              │
+       /initialize                            /analyst              /architect
+    ┌─────────┐                            ┌─────────────┐        ┌─────────────┐
+    │ 🏗️ Setup │────────────────────────────▶│ 📋 Stories  │───────▶│ 📐 Specs    │
+    │ PLAN.md │                            │ User Flows  │        │ Tech Design │
+    └─────────┘                            └─────────────┘        └──────┬──────┘
+                  ↑ (use research-toolkit skill)                          │
   ════════════════════════════════════════════════════════════════════════════╧════════════════════════
   
   ╔═══════════════════════════════════════════════════════════════════════════════════════════════════╗
@@ -148,8 +148,7 @@ Shows current active agent, task, blockers, and next recommended action.
 
 ### 3. Follow the Flow
 After `/initialize`, the workflow will guide you:
-- `/research` → gather data
-- `/analyst` → define requirements
+- `/analyst` → define requirements (use research-toolkit skill if needed)
 - `/architect` → write specs
 - `/build` → implement backend
 - `/design` → implement UI
@@ -171,7 +170,7 @@ See the [Agile Toolkit](skills/sprint-plan/SKILL.md) for sprint planning, and ch
 
 ---
 
-## 👥 The Ten Personas
+## 👥 The Nine Personas
 
 ### 🏗️ /initialize - The Founder
 **Mission:** Initialize project structure (powered by **Project Scaffolding Skill**)
@@ -181,7 +180,7 @@ See the [Agile Toolkit](skills/sprint-plan/SKILL.md) for sprint planning, and ch
 | **Command** | `/initialize` |
 | **Lane** | Creates all folders, `PLAN.md` |
 | **Outputs** | Folder structure, `PLAN.md`, `SESSION_LOG.md`, `HANDOFF_NOTES.md` |
-| **Hands off to** | `/research` or `/architect` |
+| **Hands off to** | `/analyst` or `/architect` |
 
 **When to use:**
 - Starting a new project
@@ -189,24 +188,21 @@ See the [Agile Toolkit](skills/sprint-plan/SKILL.md) for sprint planning, and ch
 
 ---
 
-### 🔍 /research - The Data Strategist
-**Mission:** Gather market intelligence and technical feasibility data
+### 🔍 Research Capability
+**Note:** Research is now available as a **skill toolkit** rather than a dedicated persona.
 
 | Aspect | Details |
 |--------|---------|
-| **Command** | `/research` |
-| **Lane** | Owner of `/research` folder |
-| **Outputs** | Research files (`COMPETITORS.md`, `TECH_FEASIBILITY.md`) |
-| **Hands off to** | `/architect` |
+| **Skill** | `skills/research-toolkit/SKILL.md` |
+| **Used by** | `/analyst` or `/architect` |
+| **Outputs** | Research files (`COMPETITORS.md`, `TECH_FEASIBILITY.md`) in `/research` folder |
 
 **When to use:**
 - Competitor analysis needed
 - API/library documentation research
 - Unclear technical requirements
 
-**Prohibitions:**
-- ❌ No code writing
-- ❌ No spec writing (provide data only)
+**Invoked by:** `/analyst` or `/architect` when research is needed during their workflows.
 
 ---
 
@@ -257,7 +253,7 @@ See the [Agile Toolkit](skills/sprint-plan/SKILL.md) for sprint planning, and ch
 ```
 /architect --auto
 ```
-Generates a draft spec from `/research` files. Human review required!
+Generates a draft spec from `/research` folder files. Human review required!
 
 **Prohibitions:**
 - ❌ No production code
@@ -665,8 +661,8 @@ The dashboard is a static template. To reflect your actual project:
 **Notes passed between personas.**
 
 ```markdown
-## /research → /architect
-Key findings...
+## /analyst → /architect
+Research findings and key requirements...
 
 ## /architect → /build
 Spec summary, important edge cases...
@@ -711,13 +707,13 @@ When multiple agents are active:
 3. `/design` — UI blocks testing
 4. `/architect` — Specs block build/design
 5. `/analyst` — Requirements block specs
-6. `/research` — Data blocks requirements
-7. `/initialize` — Only at project start
+5. `/analyst` — Requirements block specs
+6. `/initialize` — Only at project start
 
 ### Task Tags
 | Tag | Meaning |
 |-----|--------|
-| `[RESEARCH]` | Assigned to /research |
+| `[ANALYST]` | Assigned to /analyst (may invoke research-toolkit) |
 | `[ANALYST]` | Assigned to /analyst |
 | `[ARCHITECT]` | Assigned to /architect |
 | `[BUILD]` | Assigned to /build |
@@ -745,8 +741,7 @@ When multiple agents are active:
 
 ### Main Workflows
 ```
-/research        # Gather data
-/analyst         # Define requirements
+/analyst         # Define requirements (use research-toolkit skill as needed)
 /architect       # Write specs
 /architect --auto # AI-generated draft spec
 /build           # Backend code

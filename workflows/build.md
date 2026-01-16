@@ -57,7 +57,7 @@ description: The Build archetype does all the building
 ## Agile Compliance
 > [!IMPORTANT]
 > When picking up a Story, decompose it into Tasks per the [Agile Toolkit](../skills/agile-toolkit/SKILL.md#4-decomposing-stories-into-tasks).
-> Mark Stories as **Done** only when they pass the [Definition of Done](../skills/agile-toolkit/templates.md#2-definition-of-done-dod).
+> Mark Stories as **Done** only when they pass the [Definition of Done](../skills/agile-toolkit/SKILL.md#2-definition-of-done-dod).
 
 ---
 
@@ -184,7 +184,7 @@ If implementation needs to be undone:
 
 ## Conflict Resolution
 **Priority Order (if multiple agents active):**
-1. `/test` → 2. `/build` → 3. `/design` → 4. `/architect` → 5. `/research` → 6. `/init`
+1. `/test` → 2. `/build` → 3. `/design` → 4. `/architect` → 5. `/analyst` → 6. `/init`
 
 As `/build`, you have second-highest priority. If `/test` needs attention, pause and support them.
 

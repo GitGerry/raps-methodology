@@ -83,7 +83,7 @@ export function renderLibraryTab(projectPath = 'C:/Users/gerry/OneDrive/Desktop/
                 <ul class="artifact-list">
                     ${fileLink('Agile Toolkit', 'C:/Users/gerry/.gemini/antigravity/skills/agile_toolkit/SKILL.md', '📚', 'Sprint cycles, INVEST, DoD')}
                     ${fileLink('Sprint Retros', `${projectPath}/docs/retro`, '🔄', 'Sprint retrospective notes')}
-                    ${fileLink('Research Toolkit', 'C:/Users/gerry/.gemini/antigravity/skills/research_toolkit/SKILL.md', '🔍', 'Research templates & standards')}
+                    ${fileLink('Research Toolkit', 'C:/Users/gerry/OneDrive/Desktop/LLM/RAPS/raps-methodology/skills/research-toolkit/SKILL.md', '🔍', 'Research templates & standards (skill)')}
                 </ul>
             </div>
         </div>

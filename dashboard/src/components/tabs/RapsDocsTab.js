@@ -7,7 +7,7 @@ export function renderRapsDocsTab() {
         <div class="card">
             <h2>🎯 What is RAPS?</h2>
             <p style="color: var(--text-secondary); line-height: 1.8; font-size: 1.05rem;">
-                <strong style="color: var(--accent-blue);">RAPS</strong> (Research, Architect, Programming, Styling) 
+                <strong style="color: var(--accent-blue);">RAPS</strong> (Requirements, Architecture, Production, Shipping) 
                 is a structured framework for AI-assisted software development. It ensures <strong>separation of concerns</strong>, 
                 <strong>traceability</strong>, <strong>quality assurance</strong>, and <strong>context preservation</strong> 
                 across the entire development lifecycle.
@@ -49,8 +49,6 @@ export function renderRapsDocsTab() {
                     <div class="phase-label">📋 Planning Phase</div>
                     <div class="phase-nodes">
                         <span class="flow-node" onclick="openPersonaModal('initialize')">🏗️ /init</span>
-                        <span class="flow-arrow">→</span>
-                        <span class="flow-node" onclick="openPersonaModal('research')">🔍 /research</span>
                         <span class="flow-arrow">→</span>
                         <span class="flow-node" onclick="openPersonaModal('analyst')">📋 /analyst</span>
                         <span class="flow-arrow">→</span>
@@ -105,14 +103,9 @@ export function renderRapsDocsTab() {
                             <td><code>PLAN.md</code>, folder structure</td>
                         </tr>
                         <tr>
-                            <td><span class="flow-node small" onclick="openPersonaModal('research')">🔍 /research</span></td>
-                            <td>Data Strategist</td>
-                            <td>Research reports, API docs</td>
-                        </tr>
-                        <tr>
                             <td><span class="flow-node small" onclick="openPersonaModal('analyst')">📋 /analyst</span></td>
                             <td>Requirements Analyst</td>
-                            <td>User Stories, <code>REQUIREMENTS.md</code></td>
+                            <td>User Stories, <code>REQUIREMENTS.md</code>, research (via research-toolkit)</td>
                         </tr>
                         <tr>
                             <td><span class="flow-node small" onclick="openPersonaModal('architect')">📐 /architect</span></td>

@@ -30,7 +30,7 @@ description: UX/User Acceptance persona for usability testing and user advocacy
 2. [ ] Identify running app URL (`localhost:3000`).
 3. [ ] **Load Skill:** Use `view_file` to read:
    - `.../skills/ux-toolkit/SKILL.md` (Instructions & Heuristics)
-   - `.../skills/ux-toolkit/templates.md` (Report Templates)
+   - `.../skills/ux-toolkit/SKILL.md` (Report Templates)
 4. [ ] Log session start to `SESSION_LOG.md`.
 5. [ ] Announce: "Starting /ux workflow..."
 
@@ -46,7 +46,7 @@ description: UX/User Acceptance persona for usability testing and user advocacy
 ## Agile Compliance
 > [!IMPORTANT]
 > Test each Story's user-facing acceptance criteria as defined by the Analyst.
-> Mark Stories as **Done** only when they pass the [Definition of Done](../skills/agile-toolkit/templates.md#2-definition-of-done-dod).
+> Mark Stories as **Done** only when they pass the [Definition of Done](../skills/agile-toolkit/SKILL.md#2-definition-of-done-dod).
 
 ---
 
@@ -62,7 +62,7 @@ description: UX/User Acceptance persona for usability testing and user advocacy
     - **MEDIUM**: Workaround exists (Release w/ Note).
     - **LOW**: Nice to have (Backlog).
 4.  **Document Findings**:
-    - Create `/docs/ux_feedback/UAT_[DATE].md` using `templates.md`.
+    - Create `/docs/ux_feedback/UAT_[DATE].md` using `SKILL.md`.
 5.  **Declare Verdict**: PASS / FAIL / PASS WITH ISSUES.
 
 ---
@@ -80,7 +80,7 @@ description: UX/User Acceptance persona for usability testing and user advocacy
 1. [ ] Update `PLAN.md` (Status matches Verdict).
 2. [ ] Log end to `SESSION_LOG.md`.
 3. [ ] Add report to Artifact Registry.
-4. [ ] Create `HANDOFF_NOTES.md` using `templates.md`.
+4. [ ] Create `HANDOFF_NOTES.md` using `SKILL.md`.
 5. [ ] Announce outcome.
 
 ## Handoff Matrix

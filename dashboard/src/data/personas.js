@@ -24,7 +24,6 @@ export const personaData = {
             'No existing conflicting project structure'
         ]
     },
-    // NOTE: /research was demoted to a skill - use skills/research-toolkit instead
     analyst: {
         emoji: '📋',
         name: '/analyst',

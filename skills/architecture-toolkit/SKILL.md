@@ -26,7 +26,7 @@ Provide templates and standards for technical specifications, architecture decis
 
 ### Outputs
 - **Type:** Markdown
-- **Structure:** SPECS.md section or ADR document
+- **Structure:** SPECS.md section or ADR document in `/docs/technical/`
 
 ---
 
@@ -195,6 +195,7 @@ CREATE TABLE [table_name] (
 
 ```markdown
 # ADR-[NUMBER]: [Title]
+> **File Location:** `/docs/technical/ADR-[000]-[Title].md`
 
 ## Status
 Proposed / Accepted / Deprecated / Superseded

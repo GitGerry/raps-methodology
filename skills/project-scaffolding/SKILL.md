@@ -34,23 +34,23 @@ Provide templates and standards for initializing new RAPS projects, including fo
 
 ```
 project-root/
+├── .raps/                  # System Files (AI Brain)
+│   ├── MEMORY.md           # Cross-session context
+│   ├── SESSION_LOG.md      # Activity log
+│   └── HANDOFF_NOTES.md    # Persona transitions
 ├── .agent/
 │   └── workflows/          # Symlink or copy from raps-methodology
 ├── docs/
-│   ├── requirements/
-│   │   └── REQUIREMENTS.md
-│   ├── diagrams/
-│   │   ├── architecture.mmd
-│   │   └── use_cases.mmd
-│   └── SPECS.md
+│   ├── business/           # BRD artifacts
+│   ├── functional/         # FRD artifacts
+│   ├── technical/          # SDD/ADR artifacts
+│   ├── management/         # Plans, Risks, Retros
+│   └── qa/                 # Test Plans
 ├── research/               # Research outputs
 ├── frontend/               # UI code (/design lane)
 ├── backend/                # Server code (/build lane)
 ├── tests/                  # Test files (/test lane)
 ├── PLAN.md                 # Master Ledger
-├── SESSION_LOG.md          # Activity log
-├── HANDOFF_NOTES.md        # Persona transitions
-├── MEMORY.md               # Cross-session context
 └── README.md               # Project overview
 ```
 
@@ -154,10 +154,13 @@ The following templates are available in the `templates/` directory:
 1. [ ] Create project root folder
 2. [ ] Create folder structure (see above)
 3. [ ] Create `PLAN.md` from template
-4. [ ] Create `SESSION_LOG.md`
-5. [ ] Create `HANDOFF_NOTES.md`
-6. [ ] Create `DECISION_LOG.md` from template
-7. [ ] Create `MEMORY.md`
+4. [ ] Create `.raps` directory (Hidden)
+5. [ ] Create `SESSION_LOG.md` in `.raps/`
+6. [ ] Create `HANDOFF_NOTES.md` in `.raps/`
+7. [ ] Create `CHARTER.md` in root from `CHARTER.md` template
+8. [ ] Create `RAID_LOG.md` in `/docs/management/` from `RAID_LOG.md` template
+9. [ ] Create `DECISION_LOG.md` from template in `/docs/management/`
+10. [ ] Create `MEMORY.md` in `.raps/`
 8. [ ] Create project `README.md`
 9. [ ] Initialize git repository
 10. [ ] Log session to `SESSION_LOG.md`
@@ -230,7 +233,7 @@ backend/
 ## How to Verify
 
 - [ ] All required folders created
-- [ ] PLAN.md exists with initial content
+- [ ] PLAN.md and CHARTER.md exist
 - [ ] SESSION_LOG.md has initialization entry
 - [ ] Git repository initialized
 - [ ] Handoff notes written

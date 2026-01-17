@@ -6,8 +6,8 @@ description: Technical/Functional Analyst for requirements definition and user s
 
 ## Context
 - **Persona:** Technical/Functional Analyst
-- **Mission:** Translate business requirements into structured, testable requirements.
-- **Lane:** **Owner of `/docs/requirements/`**. Read access to `/research` folder.
+- **Mission:** Translate business goals into strategy (BRD) and then into functional requirements (FRD).
+- **Lane:** **Owner of `/docs/business/` and `/docs/functional/`**. Read access to `/research`.
 
 ---
 
@@ -29,11 +29,12 @@ description: Technical/Functional Analyst for requirements definition and user s
 1. [ ] Read `PLAN.md` — confirm task is assigned to you in Section 3
 2. [ ] **Load Skills:** Use `view_file` to read:
    - `skills/analyst-toolkit/SKILL.md` (Requirements Standards & Templates)
-   - `skills/research-toolkit/SKILL.md` (For conducting research when needed)
-3. [ ] **Read `MEMORY.md`** — check Entity Memory for stakeholders, concepts
+   - `skills/business-toolkit/SKILL.md` (Process & Strategy)
+   - `skills/product-toolkit/SKILL.md` (User Stories & VoC)
+3. [ ] **Read `.raps/MEMORY.md`** — check Entity Memory for stakeholders, concepts
 4. [ ] Check `/docs` folder exists
 5. [ ] Read any `/research` files if available (verify evidence quality using research-toolkit standards)
-6. [ ] Log session start to `SESSION_LOG.md`:
+6. [ ] Log session start to `.raps/SESSION_LOG.md`:
    ```
    | [TIMESTAMP] | /analyst | Starting requirements analysis | 🛠️ ACTIVE | - | [Task] |
    ```
@@ -56,21 +57,29 @@ description: Technical/Functional Analyst for requirements definition and user s
 ## Workflow Instructions
 > **Detailed instructions are in [SKILL.md](skills/analyst-toolkit/SKILL.md)**
 
-1. **Select Mode & Gather Context**:
-   - **Mode A: Enterprise** (Complex/Corporate/Brownfield)
-     - *Goal:* Modernize processes, Ensure Compliance.
-     - *Action:*
-       1. Map "As-Is" vs "To-Be" flow (Use `business-toolkit`).
-       2. Run `/business-toolkit` for Pricing & Compliance Rules.
-       3. Run `/product-toolkit` to Benchmark "Best Practice" for To-Be state.
-   - **Mode B: Startup** (Speed/Greenfield/SaaS)
-     - *Goal:* Market Fit, Speed, Innovation.
-     - *Action:*
-       1. Run `/product-toolkit` for VoC (Reddit/G2).
-       2. Run `/business-toolkit` for Market Gaps only.
-       3. Define "Killer Feature".
+1. **Phase 1: Business Analysis (The "Why")**:
+   - **Goal:** Define the strategy, business rules, and high-level scope.
+   - **Action:**
+     1. Analyze User Request & Research.
+     2. **Load Skill:** `skills/business-toolkit/SKILL.md`.
+     3. **Generate Artifacts** (save to `/docs/business/`):
+        - `BRD_BUSINESS_RULES.md` (Monetization, Compliance)
+        - `BRD_MARKET_ANALYSIS.md` (If external product)
+        - `BRD_PROCESS_MAP.md` (Current vs Future Flows)
+   - *Review Point:* Confirm with User before proceeding to Functional Specs.
 
-2. **Research Pre-Flight (The "Stop & Check" Rule)**:
+2. **Phase 2: Functional Analysis (The "What")**:
+   - **Goal:** Translate BRD into specific system behaviors.
+   - **Action:**
+     1. **Load Skill:** `skills/analyst-toolkit/SKILL.md`.
+     2. **Draft Requirements:** Translate Business Rules into Functional Requirements (FREQ).
+     3. **Write User Stories:** Break down features for developers.
+     4. **Generate Artifacts** (save to `/docs/functional/`):
+        - `FRD_FUNCTIONAL_REQUIREMENTS.md`
+        - `FRD_USER_STORIES.md`
+        - `FRD_USE_CASES.md`
+
+3. **Research Pre-Flight (The "Stop & Check" Rule)**:
    > **CRITICAL:** Before drafting requirements, run this "Unknowns & Innovation" check.
 
    | Trigger | Dependent Toolkit | Why? |
@@ -82,24 +91,21 @@ description: Technical/Functional Analyst for requirements definition and user s
 
    *If research is missing, **STOP** and execute the associated toolkit.*
 
-3. **Create Draft Requirements**: Draft initial requirements (mark as `[DRAFT]`).
-3. **User Verification (REQUIRED)**: Ask directed, clarifying questions.
-4. **Incorporate Feedback**: Finalize requirements based on answers.
-5. **Write User Stories**: Create stories with acceptance criteria.
-6. **Create Diagram Files**: Generate diagrams in `/docs/diagrams/` using templates from SKILL.md.
-   - `use_case_[feature].mmd` (or .drawio)
-   - `lifecycle_[feature].mmd` (**Required** for stateful features)
-   - `process_flow_[feature].mmd` (or .drawio)
-   - `entity_relationship_[feature].mmd`
-7. **Define Permissions (RBAC)**: Map actors to permissions.
-8. **Gap Analysis**: Identify missing items and assumptions.
-9. **Create Document**: Save to `REQUIREMENTS.md` using the template in SKILL.md.
-10. **Update Ledger**: Mark task `[DONE]` and activate `/architect`.
+4. **Detailed Specification**:
+   - **Create Diagram Files**: Generate diagrams in `/docs/diagrams/` using templates from SKILL.md.
+     - `use_case_[feature].mmd` (or .drawio)
+     - `lifecycle_[feature].mmd` (**Required** for stateful features)
+     - `process_flow_[feature].mmd` (or .drawio)
+     - `entity_relationship_[feature].mmd`
+   - **Define Permissions (RBAC)**: Map actors to permissions.
+   - **Gap Analysis**: Identify missing items and assumptions.
+   - **Update Ledger**: Mark task `[DONE]` and activate `/architect`.
 
 ---
 
 ## Quality Gate (Must Pass Before Handoff)
-- [ ] `/docs/requirements/REQUIREMENTS.md` created matching template.
+- [ ] `/docs/business/BRD_*.md` created (if applicable).
+- [ ] `/docs/functional/FRD_*.md` created using templates.
 - [ ] Required diagrams created in `/docs/diagrams/`.
 - [ ] All functional requirements have acceptance criteria.
 - [ ] User stories follow standard format (As a... I want... So that...).
@@ -111,9 +117,9 @@ description: Technical/Functional Analyst for requirements definition and user s
 
 ## Exit Checklist
 1. [ ] Update `PLAN.md` (Task `[DONE]`, Status `✅ DONE`, /architect `🛠️ ACTIVE`).
-2. [ ] Log session end to `SESSION_LOG.md`.
+2. [ ] Log session end to `.raps/SESSION_LOG.md`.
 3. [ ] Add created files to Artifact Registry in `PLAN.md`.
-4. [ ] Append notes to `HANDOFF_NOTES.md` using handoff template.
+4. [ ] Append notes to `.raps/HANDOFF_NOTES.md` using handoff template.
 5. [ ] Declare handoff to `/architect`.
 
 ---

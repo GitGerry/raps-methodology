@@ -7,7 +7,7 @@ description: Retrospective protocol for capturing lessons learned after mileston
 ## Context
 - **Persona:** Retrospective Facilitator
 - **Mission:** Capture lessons learned after project completion or major milestones to improve future performance.
-- **Lane:** Creates/updates `/docs/RETROSPECTIVE.md`. Read access to all files.
+- **Lane:** Creates `/docs/management/retrospectives/YYYY-MM-DD_RETRO.md`. Read access to all files.
 
 ---
 
@@ -30,7 +30,7 @@ Run `/retro` after:
 1. [ ] Confirm a milestone or project phase is complete
 2. [ ] **Load Skill:** Use `view_file` to read:
    - `.../skills/agile-toolkit/SKILL.md` (Retrospective template, section 5)
-3. [ ] Read `SESSION_LOG.md` for activity history
+3. [ ] Read `.raps/SESSION_LOG.md` for activity history
 4. [ ] Read `PLAN.md` for completed vs planned tasks
 5. [ ] Log session start:
    ```
@@ -42,7 +42,7 @@ Run `/retro` after:
 ## Workflow Instructions
 
 1. **Gather Data:**
-   - Review `SESSION_LOG.md` entries since last retro
+   - Review `.raps/SESSION_LOG.md` entries since last retro
    - Review completed tasks in `PLAN.md`
    - Note any `[BLOCKED]` or `[REJECTED]` tasks
    - Identify patterns in handoffs
@@ -67,7 +67,7 @@ Run `/retro` after:
 
 4. **Archive:**
    - Use template from `templates/RETROSPECTIVE.md`
-   - Save to `/docs/retrospectives/RETRO_Sprint_N.md` (or milestone name)
+   - Save to `/docs/management/retrospectives/YYYY-MM-DD_RETRO_Milestone.md`
    - Add entry to Artifact Registry in `PLAN.md`
    - **Update `DECISION_LOG.md`** with any retrospective decisions
 
@@ -174,21 +174,22 @@ _End of Retrospective_
 ## Exit Checklist
 > Complete these steps AFTER finishing.
 
-1. [ ] Save retrospective to `/docs/RETROSPECTIVE.md`
+1. [ ] Save retrospective to `/docs/management/retrospectives/YYYY-MM-DD_RETRO.md`
 2. [ ] Add to Artifact Registry in `PLAN.md`
-3. [ ] **Update `MEMORY.md`:**
+3. [ ] **Update `.raps/MEMORY.md`:**
    - Add lessons learned to **Pattern Memory**
    - Update **Decision Memory** with key decisions made
    - Prune stale entries
 4. [ ] Log session end:
    ```
-   | [TIMESTAMP] | /retro | Completed retrospective | ✅ DONE | /docs/RETROSPECTIVE.md | [Key insight] |
+   | [TIMESTAMP] | /retro | Completed retrospective | ✅ DONE | /docs/management/retrospectives/... | [Key insight] |
    ```
 5. [ ] Announce: "Retrospective complete. Key learnings documented."
 
 ---
 
 ## Appending to Existing Retrospective
+(Deprecated: RAPS now uses individual files in `/docs/management/retrospectives/`)
 
 If `/docs/RETROSPECTIVE.md` already exists:
 1. Add a horizontal rule `---`
@@ -227,4 +228,4 @@ If `/docs/RETROSPECTIVE.md` already exists:
 ---
 
 ## Prompt
-"You are the Retrospective Facilitator. Analyze the `SESSION_LOG.md` and `PLAN.md` to identify what went well, what could be improved, and capture lessons learned. Generate a comprehensive retrospective document using the template. Be specific with examples and actionable recommendations."
+"You are the Retrospective Facilitator. Analyze the `.raps/SESSION_LOG.md` and `PLAN.md` to identify what went well, what could be improved, and capture lessons learned. Generate a comprehensive retrospective document using the template. Be specific with examples and actionable recommendations."

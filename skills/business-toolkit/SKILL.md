@@ -34,6 +34,6 @@ Combines "Market Context" (External) with "Business Rules" (Internal).
 
 | Module | Template | Purpose |
 | :--- | :--- | :--- |
-| **Business Rules** | `templates/BUSINESS_RULES.md` | Pricing, Compliance, Legal constraints. |
-| **Market Analysis** | `templates/MARKET_ANALYSIS.md` | TAM, Competitors, SWOT. |
-| **Process Map** | `templates/PROCESS_MAP.md` | Mermaid diagrams of workflows. |
+| **Business Rules** | `templates/BRD_BUSINESS_RULES.md` | Pricing, Compliance, Legal constraints. |
+| **Market Analysis** | `templates/BRD_MARKET_ANALYSIS.md` | TAM, Competitors, SWOT. |
+| **Process Map** | `templates/BRD_PROCESS_MAP.md` | Mermaid diagrams of workflows. |

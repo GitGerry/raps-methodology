@@ -50,10 +50,18 @@ description: Initialize a new RAPS project with scaffolding and Master Ledger
 
 2.  **Phase 2: Scaffolding**
     - Define Tech Stack.
-    - Create Directory Structure (`/research`, `/backend`, etc.).
+    - Create Directory Structure:
+      - `/.raps` (Hidden System Folder)
+      - `/docs` ({business, functional, technical, management, qa})
+      - `/research`, `/backend`, `/frontend`
     - Initialize Git (`git init`, `.gitignore`).
-    - Generate Artifacts using templates from SKILL.md:
-        - `PLAN.md` (Master Ledger)
+    - Generate Artifacts:
+        - `PLAN.md` (Master Ledger) -> Root
+        - `CHARTER.md` (Project Charter) -> Root
+        - `/docs/management/RAID_LOG.md`
+        - `.raps/MEMORY.md`
+        - `.raps/SESSION_LOG.md`
+        - `.raps/HANDOFF_NOTES.md`
         - `README.md`
         - `raps.config.json`
         - `.github/workflows/ci.yml`
@@ -86,6 +94,8 @@ description: Initialize a new RAPS project with scaffolding and Master Ledger
 
 ## Quality Gate
 - [ ] All 6 RAPS folders exist.
+- [ ] `PLAN.md` and `CHARTER.md` exist.
+- [ ] `RAID_LOG.md` exists in `/docs/management/`.
 - [ ] `PLAN.md` exists with Backlog.
 - [ ] `README.md` is descriptive.
 - [ ] Git is initialized.

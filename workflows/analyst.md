@@ -28,8 +28,8 @@ description: Technical/Functional Analyst for requirements definition and user s
 
 1. [ ] Read `PLAN.md` — confirm task is assigned to you in Section 3
 2. [ ] **Load Skills:** Use `view_file` to read:
-   - `.../skills/analyst-toolkit/SKILL.md` (Requirements Standards & Templates)
-   - `.../skills/research-toolkit/SKILL.md` (For conducting research when needed)
+   - `skills/analyst-toolkit/SKILL.md` (Requirements Standards & Templates)
+   - `skills/research-toolkit/SKILL.md` (For conducting research when needed)
 3. [ ] **Read `MEMORY.md`** — check Entity Memory for stakeholders, concepts
 4. [ ] Check `/docs` folder exists
 5. [ ] Read any `/research` files if available (verify evidence quality using research-toolkit standards)
@@ -54,10 +54,35 @@ description: Technical/Functional Analyst for requirements definition and user s
 ---
 
 ## Workflow Instructions
-> **Detailed instructions are in [SKILL.md](../skills/analyst-toolkit/SKILL.md)**
+> **Detailed instructions are in [SKILL.md](skills/analyst-toolkit/SKILL.md)**
 
-1. **Gather Context**: Review research and user goals.
-2. **Create Draft Requirements**: Draft initial requirements (mark as `[DRAFT]`).
+1. **Select Mode & Gather Context**:
+   - **Mode A: Enterprise** (Complex/Corporate/Brownfield)
+     - *Goal:* Modernize processes, Ensure Compliance.
+     - *Action:*
+       1. Map "As-Is" vs "To-Be" flow (Use `business-toolkit`).
+       2. Run `/business-toolkit` for Pricing & Compliance Rules.
+       3. Run `/product-toolkit` to Benchmark "Best Practice" for To-Be state.
+   - **Mode B: Startup** (Speed/Greenfield/SaaS)
+     - *Goal:* Market Fit, Speed, Innovation.
+     - *Action:*
+       1. Run `/product-toolkit` for VoC (Reddit/G2).
+       2. Run `/business-toolkit` for Market Gaps only.
+       3. Define "Killer Feature".
+
+2. **Research Pre-Flight (The "Stop & Check" Rule)**:
+   > **CRITICAL:** Before drafting requirements, run this "Unknowns & Innovation" check.
+
+   | Trigger | Dependent Toolkit | Why? |
+   |---------|-------------------|------|
+   | "Win against competitor X" | `/product-toolkit` | Find user complaints to exploit. |
+   | "Make it easy/sticky" | `/product-toolkit` | Find best-in-class UX patterns. |
+   | "Monetize / Pricing" | `/business-toolkit`| Validate pricing models & logic. |
+   | "Regulatory / Process" | `/business-toolkit`| Validate industry standard flows (BPMN). |
+
+   *If research is missing, **STOP** and execute the associated toolkit.*
+
+3. **Create Draft Requirements**: Draft initial requirements (mark as `[DRAFT]`).
 3. **User Verification (REQUIRED)**: Ask directed, clarifying questions.
 4. **Incorporate Feedback**: Finalize requirements based on answers.
 5. **Write User Stories**: Create stories with acceptance criteria.
@@ -97,10 +122,9 @@ description: Technical/Functional Analyst for requirements definition and user s
 | Outcome | Next Agent | Command |
 |---------|------------|---------|
 | ✅ Requirements complete | `/architect` | Run `/architect` |
-| ⏳ Need API research | Use `research-api` skill | Load `.../skills/research-api/SKILL.md` |
-| ⏳ Need competitor research | Use `research-competitor` skill | Load `.../skills/research-competitor/SKILL.md` |
-| ⏳ Need tech evaluation | Use `research-technology` skill | Load `.../skills/research-technology/SKILL.md` |
-| ⏳ Need market research | Use `research-market` skill | Load `.../skills/research-market/SKILL.md` |
-| ⏳ Need feasibility study | Use `research-feasibility` skill | Load `.../skills/research-feasibility/SKILL.md` |
-| ⏳ Need general research | Use `research-toolkit` skill | Load `.../skills/research-toolkit/SKILL.md` |
+| ⏳ Need process map/compliance | Use `business-toolkit` skill | Create `BUSINESS_RULES.md` |
+| ⏳ Need stakeholder feedback | Use `analyst-toolkit` skill | Create `QUESTIONNAIRE.md` |
+| ⏳ Need competitor/product research | Use `product-toolkit` skill | Load `skills/product-toolkit/SKILL.md` |
+| ⏳ Need market/strategy research | Use `business-toolkit` skill | Load `skills/business-toolkit/SKILL.md` |
+| ⏳ Need general research | Use `research-toolkit` skill | Load `skills/research-toolkit/SKILL.md` |
 | 🚨 Requirements unclear | USER | Ask clarification |

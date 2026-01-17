@@ -33,6 +33,7 @@ function Sync-Files {
 
     Write-Host "`n[$DirectionLabel] Synchronizing files..." -ForegroundColor Yellow
     $changeCount = 0
+    $syncedFiles = @()
 
     foreach ($key in $mapping.Keys) {
         if ($DirectionLabel -eq "Brain -> Repo") {
@@ -45,14 +46,14 @@ function Sync-Files {
         }
 
         if (Test-Path $srcBase) {
-            Write-Host "  Scanning $key..." -ForegroundColor DarkGray
+            # Low-noise scanning message
+            # Write-Host "  Scanning $key..." -ForegroundColor DarkGray
             
             # Get all files in source
             $files = Get-ChildItem -Path $srcBase -Recurse -File
 
             foreach ($file in $files) {
                 # Calculate relative path
-                # Ensure we handle potential trailing slashes in base path for substring
                 $cleanSrcBase = $srcBase.TrimEnd('\')
                 $relativePath = $file.FullName.Substring($cleanSrcBase.Length + 1)
                 $destFile = Join-Path $destBase $relativePath
@@ -81,7 +82,14 @@ function Sync-Files {
                     }
                     
                     Copy-Item -Path $file.FullName -Destination $destFile -Force
-                    Write-Host "    $status $relativePath ($($file.LastWriteTime))" -ForegroundColor Cyan
+                    
+                    # Store info for summary
+                    $syncedFiles += [PSCustomObject]@{
+                        Status = $status
+                        File   = "$key\$relativePath"
+                    }
+                    
+                    Write-Host "    $status $key\$relativePath" -ForegroundColor Cyan
                 }
             }
         }
@@ -94,6 +102,8 @@ function Sync-Files {
         Write-Host "    No file changes detected." -ForegroundColor Gray
     }
     else {
+        Write-Host "`n    Summary of Changes:" -ForegroundColor White
+        $syncedFiles | Format-Table -AutoSize
         Write-Host "    Total files synced: $changeCount" -ForegroundColor Green
     }
 }
@@ -133,7 +143,7 @@ function Run-BrainToRepo {
 }
 
 function Run-RepoToBrain {
-    # 1. Commit and Push Local Repo changes first (Optional but requested "also online repo")
+    # 1. Commit and Push Local Repo changes first
     Push-Location $repoPath
     try {
         Write-Host "`n[Git] Checking local repo status..." -ForegroundColor Yellow
@@ -170,7 +180,7 @@ function Run-RemoteToBrain {
         git pull
         
         # 2. Sync files Repo -> Brain
-        Pop-Location # Need to pop before calling Sync-Files just to be safe with pointers, though Sync uses absolute paths
+        Pop-Location 
         Sync-Files -FromRoot $repoPath -ToRoot $antigravityRoot -DirectionLabel "Remote -> Brain"
         Write-Host "SUCCESS: Brain updated from Remote (via Local Repo)." -ForegroundColor Green
     }
@@ -180,9 +190,11 @@ function Run-RemoteToBrain {
     }
 }
 
-function Get-LatestTimestamp {
+function Get-LatestTimestampInfo {
     param ([string]$rootPath)
-    $latest = [DateTime]::MinValue
+    
+    $latestTime = [DateTime]::MinValue
+    $latestFile = "None"
     
     foreach ($key in $mapping.Keys) {
         $path = Join-Path $rootPath $key
@@ -196,12 +208,36 @@ function Get-LatestTimestamp {
             Sort-Object LastWriteTime -Descending | 
             Select-Object -First 1
             
-            if ($item -and $item.LastWriteTime -gt $latest) {
-                $latest = $item.LastWriteTime
+            if ($item -and $item.LastWriteTime -gt $latestTime) {
+                $latestTime = $item.LastWriteTime
+                $latestFile = $item.Name
             }
         }
     }
-    return $latest
+    
+    return [PSCustomObject]@{
+        Timestamp = $latestTime
+        File      = $latestFile
+    }
+}
+
+function Show-TimestampGraph {
+    param ($brainInfo, $repoInfo)
+    
+    Write-Host "`n[Analysis] Timestamp Comparison" -ForegroundColor Cyan
+    Write-Host "--------------------------------------------------" -ForegroundColor DarkGray
+    
+    # Brain Row
+    $brainStr = "BRAIN: $($brainInfo.Timestamp)"
+    Write-Host $brainStr.PadRight(30) -NoNewline -ForegroundColor White
+    Write-Host "(latest: $($brainInfo.File))" -ForegroundColor Gray
+    
+    # Repo Row
+    $repoStr = "REPO : $($repoInfo.Timestamp)"
+    Write-Host $repoStr.PadRight(30) -NoNewline -ForegroundColor White
+    Write-Host "(latest: $($repoInfo.File))" -ForegroundColor Gray
+    
+    Write-Host "--------------------------------------------------" -ForegroundColor DarkGray
 }
 
 function Run-SmartSync {
@@ -222,22 +258,25 @@ function Run-SmartSync {
         Pop-Location
     }
 
-    $brainTime = Get-LatestTimestamp -rootPath $antigravityRoot
-    $repoTime = Get-LatestTimestamp -rootPath $repoPath
+    $brainInfo = Get-LatestTimestampInfo -rootPath $antigravityRoot
+    $repoInfo = Get-LatestTimestampInfo -rootPath $repoPath
     
-    Write-Host "  Brain Last Modified: $brainTime" -ForegroundColor Gray
-    Write-Host "  Repo  Last Modified: $repoTime" -ForegroundColor Gray
+    Show-TimestampGraph -brainInfo $brainInfo -repoInfo $repoInfo
 
-    if ($brainTime -gt $repoTime) {
-        Write-Host "[Smart Sync] Brain is newer. Pushing to detailed repo..." -ForegroundColor Green
+    if ($brainInfo.Timestamp -gt $repoInfo.Timestamp) {
+        $diff = $brainInfo.Timestamp - $repoInfo.Timestamp
+        Write-Host "Status: BRAIN is newer by $($diff.TotalMinutes.ToString('0.0')) minutes." -ForegroundColor Green
+        Write-Host "Direction: Brain -> Repo" -ForegroundColor White
         Run-BrainToRepo
     }
-    elseif ($repoTime -gt $brainTime) {
-        Write-Host "[Smart Sync] Repo is newer. Pushing to Brain..." -ForegroundColor Green
+    elseif ($repoInfo.Timestamp -gt $brainInfo.Timestamp) {
+        $diff = $repoInfo.Timestamp - $brainInfo.Timestamp
+        Write-Host "Status: REPO is newer by $($diff.TotalMinutes.ToString('0.0')) minutes." -ForegroundColor Green
+        Write-Host "Direction: Repo -> Brain" -ForegroundColor White
         Run-RepoToBrain
     }
     else {
-        Write-Host "[Smart Sync] Timestamps match or no changes detected." -ForegroundColor Gray
+        Write-Host "Status: Timestamps match or no changes detected." -ForegroundColor Green
     }
 }
 
@@ -250,13 +289,10 @@ if ($args[0] -eq "auto") {
 Show-Header
 Write-Host "Select Synchronization Direction:"
 Write-Host "[0] Smart Sync (Auto-Detect)" -ForegroundColor Green
-Write-Host "    Automatically detects newest changes and syncs."
+Write-Host "    Visual comparison + auto-sync."
 Write-Host "[1] Push Brain Changes (Brain -> Repo -> GitHub)" -ForegroundColor Cyan
-Write-Host "    Use when you modified files in Antigravity properties."
 Write-Host "[2] Push Local Repo (Repo -> GitHub & Brain)" -ForegroundColor Cyan
-Write-Host "    Use when you modified files in OneDrive folder."
 Write-Host "[3] Pull Remote (GitHub -> Repo -> Brain)" -ForegroundColor Cyan
-Write-Host "    Use when updates are on GitHub."
 Write-Host "[Q] Quit" -ForegroundColor Gray
 
 $selection = Read-Host "`nEnter Selection"

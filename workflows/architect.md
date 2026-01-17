@@ -43,7 +43,19 @@ description: Architect persona for technical specifications and system design
 > **Detailed instructions are in [SKILL.md](../skills/architecture-toolkit/SKILL.md)**
 
 1.  **Synthesize**: Read inputs (`HANDOFF_NOTES.md`, Research).
-2.  **Pre-Flight**: Check if `SPECS.md` exists.
+
+2.  **Technical Pre-Flight (The "Feasibility First" Rule)**:
+    > **CRITICAL:** Do not spec a system that cannot be built. Run this check.
+
+    | Trigger | Dependent Research | Why? |
+    |---------|--------------------|------|
+    | "New Tech Stack" | `/research-trend` | Validate SOTA status (don't use dead libs). |
+    | "External API Integration" | `/research-api` | Get Auth docs & Rate limits. |
+    | "High Complexity / Risk" | `/research-feasibility` | Create PoC Plan to prove it works. |
+
+    *If technical validation is missing, **STOP** and execute the research skill.*
+
+3.  **Pre-Flight**: Check if `SPECS.md` exists.
 3.  **Write Specs**:
     - Define Logic Flow, Data Schema, API Contracts.
     - Use templates from SKILL.md for consistent format.
@@ -74,5 +86,7 @@ description: Architect persona for technical specifications and system design
 | Outcome | Next Agent | Command |
 |---------|------------|---------|
 | ✅ Spec Ready | `/build` / `/design` | Run Agent |
-| ⏳ Need Research | Use `research-toolkit` skill | Load `.../skills/research-toolkit/SKILL.md` |
+| ⏳ Need API/Feasibility | Use `research-api` or `feasibility` | Load Skill |
+| ⏳ Need SOTA Check | Use `research-trend` | Load Skill |
+| 🚨 Unclear Requirements | `/analyst` | Return for clarification |
 | 🚨 Unclear | USER | Ask Questions |

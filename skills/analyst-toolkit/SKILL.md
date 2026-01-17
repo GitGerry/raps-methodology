@@ -65,24 +65,7 @@ Provide standards for writing requirements, user stories, and maintaining tracea
 ## 2. User Story Standards
 
 ### Format
-```markdown
-### STRY0000001: [Title]
-
-**As a** [Actor/Persona],
-**I want to** [action/feature],
-**So that** [benefit/value].
-
-#### Acceptance Criteria
-- [ ] Given [context], when [action], then [result]
-- [ ] Given [context], when [action], then [result]
-
-#### Notes
-- [Additional context]
-
-#### Links
-- Parent Epic: [ID]
-- Related: FREQ0000001, FREQ0000002
-```
+See `templates/USER_STORY_TEMPLATE.md`
 
 ### Story Quality Checklist
 - [ ] Follows "As a... I want... So that..." format
@@ -98,18 +81,7 @@ Provide standards for writing requirements, user stories, and maintaining tracea
 ## 3. Functional Requirement Standards
 
 ### Format
-```markdown
-### FREQ0000001: [Title]
-
-**The system shall** [specific, testable behavior].
-
-| Attribute | Value |
-|-----------|-------|
-| Priority | MUST / SHOULD / COULD / WONT |
-| Source | STRY0000001 |
-| Rationale | [Why this is needed] |
-| Acceptance | [How to verify] |
-```
+See `templates/REQUIREMENTS_TEMPLATE.md`
 
 ### Requirement Quality Checklist
 - [ ] Starts with "The system shall"
@@ -189,31 +161,7 @@ stateDiagram-v2
 ## 6. Use Case Standards
 
 ### Format
-```markdown
-### UCSE0000001: [Title]
-
-**Primary Actor:** ACTR0000001 (Administrator)
-**Preconditions:** [What must be true before]
-**Postconditions:** [What is true after success]
-
-#### Main Flow (Happy Path)
-1. Actor [action]
-2. System [response]
-3. Actor [action]
-4. System [response]
-
-#### Alternate Flows
-**A1: [Condition]**
-1. At step [X], if [condition]
-2. System [alternative response]
-3. Return to step [X+1] / End use case
-
-#### Exception Flows
-**E1: [Error condition]**
-1. At step [X], if [error]
-2. System displays error message
-3. Use case ends
-```
+See `templates/USE_CASE_TEMPLATE.md`
 
 ---
 

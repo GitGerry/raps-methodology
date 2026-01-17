@@ -130,8 +130,8 @@ The following templates are available in the `templates/` directory:
 | `README.md` | ✅ | ✅ | ✅ | ✅ |
 | `PLAN.md` | ✅ | ✅ | ✅ | ✅ |
 | `SESSION_LOG.md` | ✅ | ✅ | ✅ | ✅ |
-| `REQUIREMENTS.md` | ❌ | Simplified | ✅ | ✅ |
-| `SPECS.md` | ❌ | ✅ | ✅ | ✅ |
+| `BRD/FRD` (Reqs) | ❌ | Simplified | ✅ | ✅ |
+| `ICD/SDD` (Specs) | ❌ | ✅ | ✅ | ✅ |
 | `DECISION_LOG.md` | ❌ | ⚠️ | ✅ | ✅ |
 | **Diagrams** | ❌ | Core Flows | Architecture | Full UML/BPMN |
 | **Security Risk Assessment** | ❌ | ❌ | ⚠️ | ✅ |
@@ -157,14 +157,14 @@ The following templates are available in the `templates/` directory:
 4. [ ] Create `.raps` directory (Hidden)
 5. [ ] Create `SESSION_LOG.md` in `.raps/`
 6. [ ] Create `HANDOFF_NOTES.md` in `.raps/`
-7. [ ] Create `CHARTER.md` in root from `CHARTER.md` template
-8. [ ] Create `RAID_LOG.md` in `/docs/management/` from `RAID_LOG.md` template
-9. [ ] Create `DECISION_LOG.md` from template in `/docs/management/`
+7. [ ] Create `CHARTER.md` in root from `CHARTER_TEMPLATE.md`
+8. [ ] Create `RAID_LOG.md` in `/docs/management/` from `RAID_LOG_TEMPLATE.md`
+9. [ ] Create `DECISION_LOG.md` in `/docs/management/` from `DECISION_LOG_TEMPLATE.md`
 10. [ ] Create `MEMORY.md` in `.raps/`
-8. [ ] Create project `README.md`
-9. [ ] Initialize git repository
-10. [ ] Log session to `SESSION_LOG.md`
-11. [ ] **Register project in Dashboard:**
+11. [ ] Create project `README.md`
+12. [ ] Initialize git repository
+13. [ ] Log session to `SESSION_LOG.md`
+14. [ ] **Register project in Dashboard:**
     ```bash
     # Run from project root
     # Ensure $RAPS_ROOT is defined (e.g. C:\Users\gerry\OneDrive\Desktop\LLM\RAPS\raps-methodology)
@@ -234,6 +234,7 @@ backend/
 
 - [ ] All required folders created
 - [ ] PLAN.md and CHARTER.md exist
+- [ ] RAID_LOG.md and DECISION_LOG.md exist
 - [ ] SESSION_LOG.md has initialization entry
 - [ ] Git repository initialized
 - [ ] Handoff notes written

@@ -115,6 +115,9 @@ function Run-BrainToRepo {
     # 2. Commit and Push
     Push-Location $repoPath
     try {
+        $branch = git branch --show-current
+        Write-Host "`n[Git] Current Branch: $branch" -ForegroundColor Cyan
+
         Write-Host "`n[Git] Checking status..." -ForegroundColor Yellow
         git status
         
@@ -126,8 +129,8 @@ function Run-BrainToRepo {
             Write-Host "[Git] Committing..." -ForegroundColor Yellow
             git commit -m "chore(sync): Update from Antigravity Brain"
             
-            Write-Host "[Git] Pushing to origin..." -ForegroundColor Yellow
-            git push
+            Write-Host "[Git] Pushing to origin/$branch..." -ForegroundColor Yellow
+            git push origin $branch
             Write-Host "SUCCESS: Changes pushed to GitHub." -ForegroundColor Green
         }
         else {

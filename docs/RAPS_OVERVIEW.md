@@ -16,6 +16,7 @@ RAPS is not just a list of tasks; it is a **Persona-Based State Machine**.
 *   **Synchronization (`update-raps`)**: The heartbeat. A PowerShell script ensures that what the AI knows (Brain) is always identical to what is stored in version control (Repo).
     *   *Visual Timestamp Graph*: Determines "Truth" based on the latest modification.
     *   *Smart Sync*: Automatically resolves conflicts by trusting the newest file.
+    *   *Unified Status (`raps-status`)**: A single dashboard workflow that combines project status checking with health validation.
 
 ### Lane Discipline
 To prevent hallucination and context bleeding, RAPS enforces strictly isolated **Lanes**:
@@ -51,7 +52,7 @@ Before any code is written, RAPS establishes a "Spine" of living documents that 
 *   **Agent**: **The Founder**
 *   **Trigger**: A blank folder or distinct new project Idea.
 *   **Action**:
-    1.  Checks for existing RAPS structure (`/health` check).
+    1.  Checks for existing RAPS structure (`/raps-status` check).
     2.  Deploys the "Skeleton": `PLAN.md`, `CHARTER.md`, `README.md`.
     3.  Initializes the hidden `.agent` folder for brain storage.
 *   **Critical Output**: A "Healthy" project structure ready for intake.
@@ -131,7 +132,7 @@ Before any code is written, RAPS establishes a "Spine" of living documents that 
 *How the AI maintains continuity.*
 
 *   **Recursive Self-Correction**: If a tool fails (e.g., file not found), the agent is trained to read the directory structure, find the correct path, and retry *without user intervention*.
-*   **Project Health Monitoring**: The `/health` workflow is not just a script; it is a sanity check that ensures the "Spine" (Plan/Charter/Logs) is intact.
+*   **Project Health Monitoring**: The `/raps-status` workflow is not just a script; it is a sanity check that ensures the "Spine" (Plan/Charter/Logs) is intact.
 *   **Episodic Memory**: By reading `SESSION_LOG.md` and `HANDOFF_NOTES.md` at the start of every turn, the agent "remembers" context even across disconnects or restarts.
 
 ---

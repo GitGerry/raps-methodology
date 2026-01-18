@@ -142,9 +142,9 @@ This scaffolds folders, creates `PLAN.md`, and sets up tracking files.
 
 ### 2. Check Project Status Anytime
 ```
-/status
+/raps-status
 ```
-Shows current active agent, task, blockers, and next recommended action.
+Shows current active agent, task, blockers, project health, and next recommended action.
 
 ### 3. Follow the Flow
 After `/initialize`, the workflow will guide you:
@@ -407,48 +407,21 @@ Generates a draft spec from `/research` files. Human review required!
 
 ## 🛠️ Utility Workflows
 
-### 📊 /status - Quick Check
-**Get an instant project snapshot without modifying anything.**
+### 📊 /raps-status - Unified Dashboard
+**Get an instant project snapshot and health validation.**
 
 ```
-/status
+/raps-status
 ```
 
-**Output includes:**
-- Current active agent
-- Task in progress
-- **Governance Check:** `PLAN.md` & `CHARTER.md` freshness
-- Any blockers
-- Recent activity (last 3 entries)
-- Next recommended action
+**What it does:**
+1.  **Status Check**: Shows active agent, current task, and blockers.
+2.  **Health Scan**: Validates folder structure and `PLAN.md` integrity.
+3.  **Governance Check**: Ensures `CHARTER.md` freshness.
 
-**Use anytime** to understand project state at a glance.
+**Use anytime** to understand project state and health at a glance.
 
 ---
-
-### 🏥 /health - Project Validator
-**Validate project health and catch issues early.**
-
-```
-/health
-```
-
-**Checks performed:**
-| Category | What's Checked |
-|----------|----------------|
-| Structure | All RAPS folders exist |
-| PLAN.md | Tables valid, no duplicates |
-| Consistency | Active agents have specs |
-| Staleness | No old in-progress tasks |
-| Logs | SESSION_LOG synced with PLAN.md |
-| Blockers | All blockers documented |
-
-**Severity Levels:**
-- ✅ **Healthy** - All good
-- ⚠️ **Needs Attention** - Minor issues
-- ❌ **Critical** - Stop and fix
-
-**Run regularly**, especially after making changes!
 
 ---
 
@@ -565,7 +538,7 @@ npm run dev
 | **Squad Status** | All 6 personas with status badges |
 | **Task Board** | Kanban-style view (Backlog → In Progress → Review → Done) |
 | **Recent Activity** | Last 4 session log entries |
-| **Quick Actions** | Buttons for `/status`, `/health`, `/retro` |
+| **Quick Actions** | Buttons for `/raps-status`, `/retro` |
 
 ### Customizing the Dashboard
 
@@ -705,8 +678,7 @@ When multiple agents are active:
 
 ### Checking State
 ```
-/status          # Quick snapshot
-/health          # Full validation
+/raps-status     # Full status and health snapshot
 ```
 
 ### Main Workflows
@@ -729,17 +701,11 @@ When multiple agents are active:
 
 ## ✨ Best Practices
 
-### 1. Always Check Status First
+### 1. Always Check RAPS Status First
 ```
-/status
+/raps-status
 ```
-Know where you are before taking action.
-
-### 2. Run Health Regularly
-```
-/health
-```
-Catch issues before they grow.
+Know where you are and verify system health before taking action.
 
 ### 3. Use Entry Checklists
 Every workflow has an entry checklist. Complete it before starting.
@@ -763,7 +729,7 @@ Use auto-archive. Move completed tasks out of the backlog.
 
 ## 🎉 You're Ready!
 
-Start with `/init` for new projects, or `/status` to check an existing one.
+Start with `/init` for new projects, or `/raps-status` to check an existing one.
 
 Happy coding! 🚀
 

@@ -17,7 +17,7 @@ Specialized instruction sets that extend AI capabilities for RAPS workflows.
 | **Debug Assist** | `/debug-assist` | Structured debugging workflow |
 | **Estimate** | `/estimate` | Effort estimation using story points |
 | **Document Gen** | `/document-gen` | Auto-generate documentation |
-| **Document Gen** | `/document-gen` | Auto-generate documentation |
+
 
 
 ### Research Skills

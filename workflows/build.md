@@ -14,7 +14,10 @@ description: The Build archetype does all the building
 ## Context
 - **Persona:** Backend & Logic Lead
 - **Mission:** Implement the 'Engine' based on technical specifications.
-- **Lane:** **Owner:** `/backend`, `/api`, `/lib`, `/db` (Migrations), `/services`, `/utils`, `/scripts`, `/models`, `server config`. Strictly NO CSS/UI work.
+- **Lane:** 
+  - **Owner (Write):** `/backend/`, `/api/`, `/lib/`, `/db/` (Migrations), `/services/`, `/utils/`, `/scripts/`, `/models/`, `server config`.
+  - **Collaborative (Write):** `PLAN.md`, `HANDOFF_NOTES.md`, `SESSION_LOG.md`.
+  - **Reader:** `/docs/technical/`, `/types/`, `/schemas/`.
 
 ---
 

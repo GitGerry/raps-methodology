@@ -214,7 +214,7 @@ See the [Sprint Planning Skill](skills/sprint-plan/SKILL.md) for sprint planning
 ---
 
 ### 📐 /architect - The System Designer
-**Mission:** Convert requirements into executable specifications (powered by **Architecture Toolkit Skill**)
+**Mission:** Convert requirements into high-fidelity technical specifications (powered by **Architecture Toolkit**)
 
 | Aspect | Details |
 |--------|---------|
@@ -241,12 +241,12 @@ Generates a draft spec from `/research` files. Human review required!
 ---
 
 ### ⚙️ /build - The Lead Developer
-**Mission:** Implement backend logic and APIs
+**Mission:** Implement high-integrity logic and APIs based on technical specifications
 
 | Aspect | Details |
 |--------|---------|
 | **Command** | `/build` |
-| **Lane** | **Owner:** `/backend`, `/api`, `/lib`, `/db` (Migrations), `/services`, `/utils`, `/scripts`, `/models`, `server config` |
+| **Lane** | **Owner:** `/backend/`, `/api/`, `/lib/`, `/db/` (Migrations), `/services/`, `/utils/`, `/scripts/`, `/models/`, `server config` \| **Collab:** `PLAN.md`, `HANDOFF_NOTES.md` |
 | **Outputs** | Backend code, API endpoints, Database schemas, Utility scripts |
 | **Hands off to** | `/review` (suggested) or `/test` or `/design` |
 
@@ -262,12 +262,12 @@ Generates a draft spec from `/research` files. Human review required!
 ---
 
 ### 🎨 /design - The Design Lead
-**Mission:** Implement visual layer and user interaction
+**Mission:** Implement premium visual layers and interactive user flows
 
 | Aspect | Details |
 |--------|---------|
 | **Command** | `/design` |
-| **Lane** | **Owner:** `/frontend`, `/components`, `/style`, `/public`, `/assets`, `/hooks`, `/layouts`, `/stores`, `tailwind config` |
+| **Lane** | **Owner:** `/frontend/`, `/components/`, `/style/`, `/public/`, `/assets/`, `/hooks/`, `/layouts/`, `/stores/`, `tailwind config` \| **Collab:** `PLAN.md`, `HANDOFF_NOTES.md` |
 | **Outputs** | UI components, styling, frontend code, assets |
 | **Hands off to** | `/test` |
 
@@ -284,12 +284,12 @@ Generates a draft spec from `/research` files. Human review required!
 ---
 
 ### 🧪 /test - The QA Engineer
-**Mission:** Verify implementations match specifications (powered by **QA Toolkit Skill**)
+**Mission:** Verify that implementations match specifications with zero regression (powered by **QA Toolkit**)
 
 | Aspect | Details |
 |--------|---------|
 | **Command** | `/test` |
-| **Lane** | **Owner:** `/tests`, `/e2e`, `/mocks`, `jest.config.js`, `playwright.config.ts` |
+| **Lane** | **Owner:** `/tests/`, `/e2e/`, `/mocks/`, `jest.config.js`, `playwright.config.ts` \| **Collab:** `PLAN.md`, `HANDOFF_NOTES.md` |
 | **Outputs** | Test reports, coverage reports |
 | **Hands off to** | ✅ Done (pass) or `/build`/`/design` (fail) |
 
@@ -308,12 +308,12 @@ Generates a draft spec from `/research` files. Human review required!
 ---
 
 ### 🎭 /ux - The User Advocate
-**Mission:** Validate usability and user experience (powered by **UX Toolkit Skill**)
+**Mission:** Validate usability, accessibility, and user acceptance (powered by **UX Toolkit**)
 
 | Aspect | Details |
 |--------|---------|
 | **Command** | `/ux` |
-| **Lane** | **Read-only**, writes to `/docs/ux_feedback/` |
+| **Lane** | **Owner:** `/docs/ux_feedback/` \| **Collab:** `PLAN.md`, `HANDOFF_NOTES.md` \| **Reader:** Running UI |
 | **Outputs** | UAT reports, usability findings, accessibility audits |
 | **Hands off to** | ✅ Done (pass) or `/analyst`/`/design` (issues found) |
 
@@ -345,12 +345,12 @@ Generates a draft spec from `/research` files. Human review required!
 ---
 
 ### 🔒 /security - The Security Auditor
-**Mission:** Identify security vulnerabilities (powered by **Security Toolkit Skill**)
+**Mission:** Identify and remediate security vulnerabilities (powered by **Security Toolkit**)
 
 | Aspect | Details |
 |--------|---------|
 | **Command** | `/security` |
-| **Lane** | **Read-only**, writes to `/docs/security/`, `SECURITY.md`, `.env.example` |
+| **Lane** | **Owner:** `/docs/security/`, `SECURITY.md`, `.env.example` \| **Collab:** `PLAN.md`, `HANDOFF_NOTES.md` |
 | **Outputs** | Security audit reports, vulnerability findings |
 | **Hands off to** | `/deploy` (pass) or `/build` (issues found) |
 
@@ -373,12 +373,12 @@ Generates a draft spec from `/research` files. Human review required!
 ---
 
 ### 🚀 /deploy - The DevOps Engineer
-**Mission:** Manage deployments, infrastructure, and monitoring
+**Mission:** Manage stable, monitored releases and infrastructure-as-code
 
 | Aspect | Details |
 |--------|---------|
 | **Command** | `/deploy` |
-| **Lane** | **Owner:** `/infrastructure`, `/docker`, `/k8s`, `/terraform`, `.github/workflows`, `nginx.conf` |
+| **Lane** | **Owner:** `/infrastructure/`, `/docker/`, `/k8s/`, `/terraform/`, `.github/workflows/`, `nginx.conf` \| **Collab:** `PLAN.md`, `HANDOFF_NOTES.md` |
 | **Outputs** | Deployment runbooks, monitoring dashboards |
 | **Hands off to** | ✅ Done (success) or `/build` (failure) |
 

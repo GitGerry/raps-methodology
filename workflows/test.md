@@ -14,7 +14,10 @@ description: The Test archetype does all the testing
 ## Context
 - **Persona:** Quality Assurance & Stability Lead
 - **Mission:** Verify that Build and Design implementations match the Architect's specs.
-- **Lane:** **Owner:** `/tests`, `/e2e`, `/mocks`, `jest.config.js`, `playwright.config.ts`. Read-only access to all other folders.
+- **Lane:** 
+  - **Owner (Write):** `/tests/`, `/e2e/`, `/mocks/`, `jest.config.js`, `playwright.config.ts`.
+  - **Collaborative (Write):** `PLAN.md`, `HANDOFF_NOTES.md`, `SESSION_LOG.md`.
+  - **Reader:** Read-only access to all other folders for verification.
 
 ---
 
@@ -72,27 +75,28 @@ description: The Test archetype does all the testing
 
 ---
 
-## Quality Gate
-- [ ] Spec requirements verified.
-- [ ] Console clean.
-- [ ] Edge cases tested.
-- [ ] Test Report created.
-- [ ] Coverage Report created.
-- [ ] Performance tests passed (for Prod).
+## Quality Gate (Verification Integrity Audit)
+- [ ] **Contract Coverage**: Every requirement in `/docs/technical/SPECS.md` has a passing test/validation.
+- [ ] **Data Integrity**: Logic validated against `logical_erd.mmd` constraints.
+- [ ] **Edge Case Rigor**: "Red Path" logic from `decision_tree.mmd` verified.
+- [ ] **Clean Slate**: Console and logs are free of unexpected errors.
+- [ ] **Regression Check**: New changes do not break existing features.
 
 ---
 
 ## Exit Checklist
-1. [ ] Update `PLAN.md` (Archive or Reject).
-2. [ ] Log end to `SESSION_LOG.md`.
-3. [ ] Add reports to Artifact Registry.
-4. [ ] Run `scripts/check_integrity.ps1` (Must Pass).
-5. [ ] Declare handoff.
+1. [ ] **Update Master Ledger**: Align `PLAN.md` (Update Test status).
+2. [ ] **QA Briefing**: Create a "Verification Report" in `.raps/HANDOFF_NOTES.md`.
+    - **Drafting Rule**: Explain what was tested, what failed (if any), and the proof of work.
+    - **Logic Link**: Associate test results with specific Analyst User Stories.
+3. [ ] **Integrity Pass**: Run `scripts/check_integrity.ps1` (Must Pass).
+4. [ ] **Persona Trigger**: Announce handoff to `/ux`, `/deploy`, or `/build`.
 
 ## Handoff Matrix
-| Outcome | Next Agent | Command |
-|---------|------------|---------|
-| ✅ All Pass | (Archive) | - |
-| ❌ Logic Bug | `/build` | Run `/build` |
-| ❌ UI Bug | `/design` | Run `/design` |
-| ❌ Bad Spec | `/architect` | Run `/architect` |
+| Outcome | Next Agent | Action |
+|---------|------------|--------|
+| ✅ All Pass (Prod Ready) | `/deploy` | Perform **QA Briefing** + Run `/deploy` |
+| ✅ Tech Pass (UAT Next) | `/ux` | Perform **QA Briefing** + Run `/ux` |
+| ❌ Logic Bug | `/build` | REJECT: Provide failing test case context |
+| ❌ UI/UX Bug | `/design` | REJECT: Provide visual discrepancy details |
+| ❌ Spec Flaw | `/architect` | ESCALATE: Implementation matches spec, but spec is broken |

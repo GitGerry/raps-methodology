@@ -44,10 +44,9 @@ function Sync-Files {
             $destBase = Join-Path $ToRoot $mapping[$key]
         }
 
+        # 1. Update/Create Logic
         if (Test-Path $srcBase) {
-            # Low-noise scanning
             $files = Get-ChildItem -Path $srcBase -Recurse -File
-
             foreach ($file in $files) {
                 $cleanSrcBase = $srcBase.TrimEnd('\')
                 $relativePath = $file.FullName.Substring($cleanSrcBase.Length + 1)
@@ -75,12 +74,34 @@ function Sync-Files {
                         SourcePath = $file.FullName
                         DestPath   = $destFile
                         DestDir    = Split-Path $destFile
+                        Action     = "Copy"
                     }
                 }
             }
         }
         else {
             Write-Warning "  Source not found: $srcBase"
+        }
+
+        # 2. Mirror/Delete Logic
+        if (Test-Path $destBase) {
+            $destFiles = Get-ChildItem -Path $destBase -Recurse -File
+            foreach ($dFile in $destFiles) {
+                $cleanDestBase = $destBase.TrimEnd('\')
+                $relativePath = $dFile.FullName.Substring($cleanDestBase.Length + 1)
+                $srcFile = Join-Path $srcBase $relativePath
+
+                if (-not (Test-Path $srcFile)) {
+                    $pendingActions += [PSCustomObject]@{
+                        Status     = "[DEL] (Mirror)"
+                        File       = "$key\$relativePath"
+                        SourcePath = $null
+                        DestPath   = $dFile.FullName
+                        DestDir    = $null
+                        Action     = "Delete"
+                    }
+                }
+            }
         }
     }
     
@@ -92,18 +113,19 @@ function Sync-Files {
         Write-Host "`n    Pending Changes to be Synced:" -ForegroundColor White
         $pendingActions | Select-Object Status, File | Format-Table -AutoSize
         
-        Write-Host "    Total files to sync: $($pendingActions.Count)" -ForegroundColor Cyan
+        Write-Host "    Total actions: $($pendingActions.Count)" -ForegroundColor Cyan
         
         # EXECUTE PHASE
-        # In 'auto' mode, we just proceed. In interactive, we could ask, but request was just "auto show".
-        # We will proceed automatically as per requirements to keep it valid for auto-scripts.
-        
         foreach ($action in $pendingActions) {
-            if (-not (Test-Path $action.DestDir)) {
-                New-Item -ItemType Directory -Path $action.DestDir -Force | Out-Null
+            if ($action.Action -eq "Delete") {
+                Remove-Item -Path $action.DestPath -Force
             }
-            Copy-Item -Path $action.SourcePath -Destination $action.DestPath -Force
-            # Write-Host "    Synced: $($action.File)" -ForegroundColor DarkGray
+            elseif ($action.Action -eq "Copy") {
+                if (-not (Test-Path $action.DestDir)) {
+                    New-Item -ItemType Directory -Path $action.DestDir -Force | Out-Null
+                }
+                Copy-Item -Path $action.SourcePath -Destination $action.DestPath -Force
+            }
         }
         Write-Host "    Sync Complete." -ForegroundColor Green
     }

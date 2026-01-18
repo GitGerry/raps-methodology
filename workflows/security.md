@@ -53,7 +53,7 @@ description: Security persona for vulnerability assessment, penetration testing,
 
 ## Exit Checklist
 1. [ ] **Update Master Ledger**: Align `PLAN.md` (Update Security status).
-2. [ ] **Security Briefing**: Create a "Risk Assessment Briefing" in `.raps/HANDOFF_NOTES.md`.
+2. [ ] **Security Briefing**: Create a "Risk Assessment Briefing" in `HANDOFF_NOTES.md`.
     - **Drafting Rule**: Highlight "Near-Miss" vulnerabilities or architectural risks identified.
 3. [ ] **Integrity Pass**: Run `scripts/check_integrity.ps1` (Must Pass).
 4. [ ] **Persona Trigger**: Announce handoff to `/release` or `/build`.

@@ -15,7 +15,7 @@ Use this to get an instant snapshot of "Where we are" and "Is the system broken?
 - [ ] **Ledger:** `PLAN.md` exists and is readable?
 - [ ] **Memory:** `.raps/MEMORY.md` exists?
 - [ ] **Docs:** `/docs` folder structure exists?
-- [ ] **Logs:** `.raps/SESSION_LOG.md` is active?
+- [ ] **Logs:** `SESSION_LOG.md` is active?
 
 ### B. Git Hygiene
 - [ ] No `index.lock` errors?
@@ -44,7 +44,7 @@ Use this to get an instant snapshot of "Where we are" and "Is the system broken?
 4.  **Calculate Velocity:** Are we stuck on one task too long?
 
 ### C. Recent Activity
-1.  **Read `.raps/SESSION_LOG.md` (Last 5 entries).**
+1.  **Read `SESSION_LOG.md` (Last 5 entries).**
 2.  Summarize the last major action taken.
 
 ---

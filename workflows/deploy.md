@@ -193,7 +193,7 @@ Create/update deployment runbook in `/docs/DEPLOYMENT.md`:
 
 ## Exit Checklist
 1. [ ] **Update Master Ledger**: Align `PLAN.md` (Update Deploy status to `✅ DONE`).
-2. [ ] **Release Briefing**: Create a "Deployment Report" in `.raps/HANDOFF_NOTES.md`.
+2. [ ] **Release Briefing**: Create a "Deployment Report" in `HANDOFF_NOTES.md`.
     - **Drafting Rule**: Document the specific environment changes and provide the live application URL.
 3. [ ] **Integrity Pass**: Run `scripts/check_integrity.ps1` (Must Pass).
 4. [ ] **Persona Trigger**: Declare project phase complete or handoff to `/retro`.

@@ -88,7 +88,7 @@ description: UX/User Acceptance persona for usability testing and user advocacy
 
 ## Exit Checklist
 1. [ ] **Update Master Ledger**: Align `PLAN.md` (Update UX status).
-2. [ ] **UX Briefing**: Create a "UX Verdict Report" in `.raps/HANDOFF_NOTES.md`.
+2. [ ] **UX Briefing**: Create a "UX Verdict Report" in `HANDOFF_NOTES.md`.
     - **Drafting Rule**: Explain the emotional "vibe" and specific friction points discovered.
     - **Outcome Link**: Recommend specific design tweaks to `/design`.
 3. [ ] **Integrity Pass**: Run `scripts/check_integrity.ps1` (Must Pass).

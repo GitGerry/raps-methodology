@@ -86,7 +86,7 @@ description: The Test archetype does all the testing
 
 ## Exit Checklist
 1. [ ] **Update Master Ledger**: Align `PLAN.md` (Update Test status).
-2. [ ] **QA Briefing**: Create a "Verification Report" in `.raps/HANDOFF_NOTES.md`.
+2. [ ] **QA Briefing**: Create a "Verification Report" in `HANDOFF_NOTES.md`.
     - **Drafting Rule**: Explain what was tested, what failed (if any), and the proof of work.
     - **Logic Link**: Associate test results with specific Analyst User Stories.
 3. [ ] **Integrity Pass**: Run `scripts/check_integrity.ps1` (Must Pass).

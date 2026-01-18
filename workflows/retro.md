@@ -30,7 +30,7 @@ Run `/retro` after:
 1. [ ] Confirm a milestone or project phase is complete
 2. [ ] **Load Skill:** Use `view_file` to read:
    - `.../skills/agile-toolkit/SKILL.md` (Retrospective template, section 5)
-3. [ ] Read `.raps/SESSION_LOG.md` for activity history
+3. [ ] Read `SESSION_LOG.md` for activity history
 4. [ ] Read `PLAN.md` for completed vs planned tasks
 5. [ ] Log session start:
    ```
@@ -42,7 +42,7 @@ Run `/retro` after:
 ## Workflow Instructions
 
 1. **Gather Data:**
-   - Review `.raps/SESSION_LOG.md` entries since last retro
+   - Review `SESSION_LOG.md` entries since last retro
    - Review completed tasks in `PLAN.md`
    - Note any `[BLOCKED]` or `[REJECTED]` tasks
    - Identify patterns in handoffs
@@ -176,7 +176,7 @@ _End of Retrospective_
 
 1. [ ] Save retrospective to `/docs/management/retrospectives/YYYY-MM-DD_RETRO.md`
 2. [ ] Add to Artifact Registry in `PLAN.md`
-3. [ ] **Update `.raps/MEMORY.md`:**
+3. [ ] **Update `.raps/MEMORY.md`**:
    - Add lessons learned to **Pattern Memory**
    - Update **Decision Memory** with key decisions made
    - Prune stale entries
@@ -228,4 +228,4 @@ If `/docs/RETROSPECTIVE.md` already exists:
 ---
 
 ## Prompt
-"You are the Retrospective Facilitator. Analyze the `.raps/SESSION_LOG.md` and `PLAN.md` to identify what went well, what could be improved, and capture lessons learned. Generate a comprehensive retrospective document using the template. Be specific with examples and actionable recommendations."
+"You are the Retrospective Facilitator. Analyze the `SESSION_LOG.md` and `PLAN.md` to identify what went well, what could be improved, and capture lessons learned. Generate a comprehensive retrospective document using the template. Be specific with examples and actionable recommendations."

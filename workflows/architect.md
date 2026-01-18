@@ -35,20 +35,21 @@ description: Architect persona for technical specifications and system design
 ## Entry Checklist
 > Complete these steps BEFORE starting work.
 
-1. [ ] Confirm task assigned in `PLAN.md`.
-2. [ ] Check `/research` or `/docs/requirements` for input.
-3. [ ] **Read Glossary:** `docs/business/BRD_DOMAIN_GLOSSARY.md` (Apply these definitions strictly).
-4. [ ] **Read Registry**: `docs/functional/FRD_REQUIREMENTS_INDEX.md` (Verify the "Golden Thread" is Ready).
-5. [ ] **Load Visuals**: Check `/docs/diagrams/` for:
+1. [ ] **Squad Status**: Confirm `/analyst` is `✅ DONE` (or stakeholder request received).
+2. [ ] **Read Plan**: Confirm task assigned in `PLAN.md`.
+3. [ ] **Gather Intel**: Check `/docs/business/` and `/docs/functional/` for requirement context.
+4. [ ] **Read Glossary**: `docs/business/BRD_DOMAIN_GLOSSARY.md` (Apply these definitions strictly).
+5. [ ] **Read Registry**: `docs/functional/FRD_REQUIREMENTS_INDEX.md` (Verify the "Golden Thread" is Ready).
+6. [ ] **Load Visuals**: Inspect `/docs/diagrams/` for:
    - `logical_erd_*.mmd` (Data Schema Bridge).
    - `decision_tree_*.mmd` (Logic Flow Bridge).
    - `rbac_matrix_*.mmd` (Security Bridge).
-6. [ ] **Load Skill**: Use `view_file` to read:
-   - `.../skills/architecture-toolkit/SKILL.md` (Logic & Specs).
-7. [ ] **Read `.raps/MEMORY.md`** — check Decision Memory for prior choice context.
-8. [ ] **Check Context**: Read `.raps/HANDOFF_NOTES.md` (Consume the "Mental Model" briefing).
-9. [ ] Log session start to `.raps/SESSION_LOG.md`.
-10. [ ] Announce: "Starting /architect workflow..."
+7. [ ] **Load Skill**: Use `view_file` to read:
+   - `/skills/architecture-toolkit/SKILL.md` (Logic & Specs).
+8. [ ] **Read Decisions**: `DECISION_LOG.md` (Check for prior choice context).
+9. [ ] **Check Context**: Read `HANDOFF_NOTES.md` (Consume the "Mental Model" briefing).
+10. [ ] **Log Start**: Log session start to `SESSION_LOG.md`.
+11. [ ] **Announce**: "Starting /architect workflow..."
 
 ---
 
@@ -60,7 +61,7 @@ description: Architect persona for technical specifications and system design
 > **Detailed instructions are in [SKILL.md](../skills/architecture-toolkit/SKILL.md)**
 
 1.  **High-Fidelity Ingestion (The "Bridge" Rule)**:
-    - **Read Inputs**: `.raps/HANDOFF_NOTES.md`, Research v2.8 (`RSRCH_SYNTHESIS.md`).
+    - **Read Inputs**: `HANDOFF_NOTES.md`, Research v2.8 (`RSRCH_SYNTHESIS.md`).
     - **Consume Analyst Visuals**: Inspect `/docs/diagrams/` for:
       - `logical_erd_*.mmd` -> Must drive **Data Schema**.
       - `decision_tree_*.mmd` -> Must drive **Logic/Sequence**.
@@ -78,11 +79,10 @@ description: Architect persona for technical specifications and system design
 
     *If technical evidence is missing, **STOP** and execute research.*
 
-3.  **Pre-Flight**: Check if `SPECS.md` exists.
-3.  **Write Specs**:
-    - Define Logic Flow, Data Schema, API Contracts.
-    - Use templates from SKILL.md for consistent format.
-    - **Pro Tip**: Use `--auto` for AI Draft (`SPECS_DRAFT.md`).
+3.  **Produce Specifications**:
+    - **Draft Specs**: Define Logic Flow, Data Schema, API Contracts.
+    - **Standard Form**: Use templates from `SKILL.md` for consistent format.
+    - **Pro Tip**: Use `/architect --auto` for AI Draft (`SPECS_DRAFT.md`).
 4.  **Trajectory Promotion**:
     - Move task to **Current Trajectory** in `PLAN.md`.
     - Assign to `/build` or `/design`.
@@ -102,7 +102,7 @@ description: Architect persona for technical specifications and system design
 ## Exit Checklist
 1. [ ] **Update Master Ledger**: Align `PLAN.md` (Update Architect to `✅ DONE`).
 2. [ ] **Artifact Registry**: Ensure all new `/docs/technical/` files are logged.
-3. [ ] **Technical Briefing**: Create a 3-minute "Mental Model" in `.raps/HANDOFF_NOTES.md`.
+3. [ ] **Technical Briefing**: Create a 3-minute "Mental Model" in `HANDOFF_NOTES.md`.
     - **Drafting Rule**: Explain *Why* the architecture looks this way vs. just *What* it is.
     - **Bridge Links**: Explicitly link the `SPECS.md` tables back to `logical_erd.mmd`.
     - **Edge Case Warning**: Highlight the "Red Path" logic from decision trees.

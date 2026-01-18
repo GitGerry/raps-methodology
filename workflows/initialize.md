@@ -37,8 +37,8 @@ description: Initialize a new RAPS project with scaffolding and Master Ledger
 2. [ ] Read the user's goal/requirements.
 3. [ ] **Load Skill:** Use `view_file` to read:
    - `.../skills/project-scaffolding/SKILL.md` (Instructions & Templates)
-4. [ ] Log session start to `SESSION_LOG.md`.
-5. [ ] Announce: "Starting /initialize workflow..."
+4.  [ ] Log session start to `SESSION_LOG.md`.
+5.  [ ] Announce: "Starting /initialize workflow..."
 
 ---
 
@@ -64,7 +64,7 @@ description: Initialize a new RAPS project with scaffolding and Master Ledger
 2.  **Phase 2: Scaffolding**
     - Define Tech Stack.
     - Create Directory Structure:
-      - `/.raps` (Hidden System Folder)
+      - `.raps` (Hidden System Folder)
       - `/docs` ({business, functional, technical, management, qa})
       - `/research`, `/backend`, `/frontend`
     - Initialize Git (`git init`, `.gitignore`).
@@ -73,9 +73,9 @@ description: Initialize a new RAPS project with scaffolding and Master Ledger
         - `CHARTER.md` (Project Charter)
         - `/docs/management/RAID_LOG.md`
         - `/docs/management/DECISION_LOG.md`
+        - `SESSION_LOG.md`
+        - `HANDOFF_NOTES.md`
         - `.raps/MEMORY.md`
-        - `.raps/SESSION_LOG.md`
-        - `.raps/HANDOFF_NOTES.md`
         - `README.md`
         - `.env.example`
         - `.tool-versions`

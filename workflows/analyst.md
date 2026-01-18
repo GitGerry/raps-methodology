@@ -179,8 +179,8 @@ description: Technical/Functional Analyst for requirements definition and user s
 4. [ ] **Ledger Sync**:
     - Update `PLAN.md` (Task `[DONE]`, Status `✅ DONE`, /architect `🛠️ ACTIVE`).
     - Add all new files to Artifact Registry in `PLAN.md`.
-    - Log session end to `.raps/SESSION_LOG.md`.
-5. [ ] **Warm Handoff**: Append session context to `.raps/HANDOFF_NOTES.md`.
+    - Log session end to `SESSION_LOG.md`.
+5. [ ] **Warm Handoff**: Append session context to `HANDOFF_NOTES.md`.
 6. [ ] **Integrity Pass**: Run `scripts/check_integrity.ps1` (Must Pass).
 7. [ ] **Trigger**: Declare handoff and run `/architect`.
 

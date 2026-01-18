@@ -35,9 +35,9 @@ Provide templates and standards for initializing new RAPS projects, including fo
 ```
 project-root/
 ├── .raps/                  # System Files (AI Brain)
-│   ├── MEMORY.md           # Cross-session context
-│   ├── SESSION_LOG.md      # Activity log
-│   └── HANDOFF_NOTES.md    # Persona transitions
+│   └── MEMORY.md           # Cross-session context
+├── SESSION_LOG.md          # Activity log
+├── HANDOFF_NOTES.md        # Persona transitions
 ├── .agent/
 │   └── workflows/          # Symlink or copy from raps-methodology
 ├── docs/
@@ -130,8 +130,8 @@ The following templates are available in the `./templates/` directory:
 3.  [ ] Create `/types/` and `/schemas/` directories
 4.  [ ] Create `PLAN.md` from template
 5.  [ ] Create `.raps/` directory (System Files)
-6.  [ ] Create `SESSION_LOG.md` in `.raps/`
-7.  [ ] Create `HANDOFF_NOTES.md` in `.raps/`
+6.  [ ] Create `SESSION_LOG.md` in root
+7.  [ ] Create `HANDOFF_NOTES.md` in root
 8.  [ ] Create `MEMORY.md` in `.raps/`
 9.  [ ] Create `CHARTER.md` in root from `CHARTER_TEMPLATE.md`
 10. [ ] Create `RAID_LOG.md` in root from `RAID_LOG_TEMPLATE.md`

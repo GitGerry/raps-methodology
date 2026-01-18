@@ -113,7 +113,7 @@ description: The design archetype does all the designing
 
 ## Exit Checklist
 1. [ ] **Update Master Ledger**: Align `PLAN.md` (Update Design to `✅ DONE`).
-2. [ ] **Design Briefing**: Create a "UI Mental Model" in `.raps/HANDOFF_NOTES.md`.
+2. [ ] **Design Briefing**: Create a "UI Mental Model" in `HANDOFF_NOTES.md`.
     - **Drafting Rule**: Explain the interaction patterns and state management choices.
     - **Visual Link**: Link UI components back to Analyst's `decision_tree.mmd` nodes.
 3. [ ] **Integrity Pass**: Run `scripts/check_integrity.ps1` (Must Pass).

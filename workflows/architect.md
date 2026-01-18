@@ -34,11 +34,13 @@ description: Architect persona for technical specifications and system design
 
 1. [ ] Confirm task assigned in `PLAN.md`.
 2. [ ] Check `/research` or `/docs/requirements` for input.
-3. [ ] **Load Skill:** Use `view_file` to read:
-   - `.../skills/architecture-toolkit/SKILL.md` (Logic, Templates & Auto-Mode)
-4. [ ] **Read `.raps/MEMORY.md`** — check Decision Memory for prior architectural choices
-5. [ ] Log session start to `.raps/SESSION_LOG.md`.
-6. [ ] Announce: "Starting /architect workflow..."
+3. [ ] **Read Glossary:** `docs/business/BRD_DOMAIN_GLOSSARY.md` (Apply these definitions strictly).
+4. [ ] **Read Registry:** `docs/functional/FRD_REQUIREMENTS_INDEX.md` (Verify the "Golden Thread" is Ready).
+5. [ ] **Load Skill:** Use `view_file` to read:
+   - `.../skills/architecture-toolkit/SKILL.md` (Logic & Specs)
+6. [ ] **Read `.raps/MEMORY.md`** — check Decision Memory for prior choice context.
+7. [ ] Log session start to `.raps/SESSION_LOG.md`.
+8. [ ] Announce: "Starting /architect workflow..."
 
 ---
 
@@ -57,8 +59,11 @@ description: Architect persona for technical specifications and system design
     | Trigger | Dependent Research | Why? |
     |---------|--------------------|------|
     | "New Tech Stack" | `/business-toolkit` | Validate SOTA status & Trends. |
-    | "External API Integration" | `/product-toolkit` | Get Auth docs & Rate limits. |
+    | "External API Integrations" | `/product-toolkit` | Get Auth docs & Rate limits. |
     | "High Complexity / Risk" | `/product-toolkit` | Create PoC Plan to prove it works. |
+    | "Scale/Volume" | `BRD_MARKET_ANALYSIS` | Check TAM for traffic sizing. |
+    | "Compliance/Rules" | `BRD_BUSINESS_RULES` | Verify Validator logic (e.g. GDPR). |
+    | "Complex Flow" | `BRD_PROCESS_MAP` | Define State Enums & Transitions. |
 
     *If technical validation is missing, **STOP** and execute the research skill.*
 
@@ -94,7 +99,7 @@ description: Architect persona for technical specifications and system design
 | Outcome | Next Agent | Command |
 |---------|------------|---------|
 | ✅ Spec Ready | `/build` / `/design` | Run Agent |
-| ⏳ Need API/Feasibility | Use `product-toolkit` | Load `skills/product-toolkit/SKILL.md` |
-| ⏳ Need SOTA/Trend Check | Use `business-toolkit` | Load `skills/business-toolkit/SKILL.md` |
+| ⏳ Need API/Feasibility | Use `Product Manager Toolkit` | Load `skills/product-toolkit/SKILL.md` |
+| ⏳ Need Logic/Rules | Use `Business Analyst Toolkit` | Load `skills/business-toolkit/SKILL.md` |
 | 🚨 Unclear Requirements | `/analyst` | Return for clarification |
 | 🚨 Unclear | USER | Ask Questions |

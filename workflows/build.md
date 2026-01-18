@@ -38,7 +38,8 @@ description: The Build archetype does all the building
    - `.../skills/agile-toolkit/SKILL.md` (DoR/DoD checklists for story completion)
    - **Verify:** Confirm you have read and understood the Definition of Done
 3. [ ] Verify `/docs/SPECS.md` exists with your feature specification
-4. [ ] Check `HANDOFF_NOTES.md` for context from `/architect`
+4. [ ] **Compliance Check:** Read `docs/business/BRD_BUSINESS_RULES.md` for hard constraints (e.g. GDPR, Tax).
+5. [ ] Check `HANDOFF_NOTES.md` for context from `/architect`
 5. [ ] Note current git commit for rollback: `git rev-parse HEAD`
 6. [ ] Log session start to `SESSION_LOG.md`:
    ```

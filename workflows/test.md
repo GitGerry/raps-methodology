@@ -44,6 +44,7 @@ description: The Test archetype does all the testing
 ## Prerequisites
 - Tasks marked `[READY FOR TEST]`.
 - Specs available in `/docs/SPECS.md`.
+- Business Rules available in `docs/business/BRD_BUSINESS_RULES.md` (for Logic Validation).
 
 ---
 

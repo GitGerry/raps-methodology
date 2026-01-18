@@ -1,6 +1,8 @@
 ### UCSE[#######]: [Title]
 
 **Primary Actor:** ACTR[#######] ([Role Name])
+**Complexity:** [Low | Medium | High]
+**Frequency:** [Daily | Weekly | Ad-hoc]
 **Preconditions:** [What must be true before]
 **Postconditions:** [What is true after success]
 

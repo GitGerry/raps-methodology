@@ -21,7 +21,7 @@ Facilitate sprint planning by analyzing the backlog, estimating effort, and crea
 ### 1. Read Current State
 Load and analyze:
 - `PLAN.md` - Current backlog and trajectory
-- `/docs/requirements/REQUIREMENTS.md` - Requirement details
+- `docs/functional/FRD_REQUIREMENTS_INDEX.md` - Requirement Registry
 - `SESSION_LOG.md` - Recent velocity data
 
 ### 2. Analyze Backlog

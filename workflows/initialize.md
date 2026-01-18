@@ -68,19 +68,19 @@ description: Initialize a new RAPS project with scaffolding and Master Ledger
       - `/docs` ({business, functional, technical, management, qa})
       - `/research`, `/backend`, `/frontend`
     - Initialize Git (`git init`, `.gitignore`).
-    - Generate Artifacts (Enterprise Standard):
-        - `PLAN.md` (Master Ledger) -> Root
-        - `CHARTER.md` (Project Charter) -> Root
+    - Generate Artifacts (Source: `project-scaffolding/SKILL.md`):
+        - `PLAN.md` (Master Ledger)
+        - `CHARTER.md` (Project Charter)
         - `/docs/management/RAID_LOG.md`
         - `/docs/management/DECISION_LOG.md`
-        - `.raps/MEMORY.md` (From `../skills/project-scaffolding/templates/MEMORY_TEMPLATE.md`)
+        - `.raps/MEMORY.md`
         - `.raps/SESSION_LOG.md`
         - `.raps/HANDOFF_NOTES.md`
         - `README.md`
-        - `.env.example` (Security Baseline - prevent secret leakage)
-        - `.tool-versions` (Run: `node -v > .tool-versions`)
-        - `CONTRIBUTING.md` (Team Standards)
-        - `scripts/check_integrity.ps1` (Copy from RAPS)
+        - `.env.example`
+        - `.tool-versions`
+        - `CONTRIBUTING.md`
+        - `scripts/check_integrity.ps1`
         - `raps.config.json`
         - `.github/workflows/ci.yml`
     - Copy RAPS Guide: `/docs/RAPS_METHODOLOGY.md`.

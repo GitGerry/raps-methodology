@@ -1,9 +1,16 @@
 ---
-name: Analyst Toolkit
-description: Requirements standards, traceability IDs, and requirement templates
+name: Functional Analyst Toolkit
+description: Requirements Engineering, User Stories, and System Specifications.
 ---
 
-# Analyst Toolkit
+# 📐 Functional Analyst Toolkit (The Spec Engine)
+
+> [!IMPORTANT]
+> **ANTI-HALLUCINATION PROTOCOL**
+> 1. **Evidence Required:** You cannot write a User Story without a supporting `INTERVIEW_QUESTIONNAIRE` or `Transcript`.
+> 2. **No Implied Requirements:** If it's not in the source, it doesn't exist. Ask the user.
+> 3. **Traceability:** Every Story must trace back to a specific Stakeholder Quote or Business Rule.
+> 4. **INTELLIGENCE INGESTION:** You MUST ingest `RSRCH_SYNTHESIS.md` and map logic bridges to system constraints.
 
 ## Purpose
 Provide standards for writing requirements, user stories, and maintaining traceability across the project lifecycle. Defines the ID conventions and templates for all requirement artifacts.
@@ -14,6 +21,15 @@ Provide standards for writing requirements, user stories, and maintaining tracea
 - Defining use cases
 - Establishing traceability
 - Validating requirement quality
+
+## Template Decision Matrix
+| Artifact | Template | Use When... |
+| :--- | :--- | :--- |
+| **User Story** | `FRD_USER_STORIES.md` | Defining a feature from a user's perspective (Agile). |
+| **Functional Req** | `FRD_FUNCTIONAL_REQUIREMENTS.md` | Defining precise system behavior ("The System Shall..."). |
+| **Use Case** | `FRD_USE_CASES.md` | Detailing complex user-system interactions or flows. |
+| **NFR** | `FRD_NFR_SPECS.md` | Defining constraints (Speed, Security, Scale). |
+| **Questionnaire** | `INTERVIEW_QUESTIONNAIRE.md` | Gathering initial requirements from stakeholders. |
 
 ---
 
@@ -27,8 +43,41 @@ Provide standards for writing requirements, user stories, and maintaining tracea
 | `id` | string | ❌ | Existing ID to validate or trace |
 
 ### Outputs
-- **Type:** Markdown
-- **Structure:** Formatted requirement or validation report
+| Artifact | Path Pattern | Validated By |
+| :--- | :--- | :--- |
+| **Requirements Index** | `docs/functional/FRD_REQUIREMENTS_INDEX.md` | Master Registry |
+| **User Stories** | `docs/functional/FRD_USER_STORIES.md` | `/architect` / `/test` |
+| **Functional Specs** | `docs/functional/FRD_FUNCTIONAL_REQUIREMENTS.md` | `/architect` / `/build` |
+| **Use Cases** | `docs/functional/FRD_USE_CASES.md` | `/test` |
+| **NFRs** | `docs/functional/FRD_NFR_SPECS.md` | `/architect` |
+
+---
+
+## 🧠 Thinking Logic (How to Execute)
+
+### 🔍 Intelligence Ingestion (System Constraints)
+Before breaking down features:
+1. **Map Logic Bridges**: Review `🔗 Logic Bridges` in `RSRCH_SYNTHESIS.md`.
+2. **Constraint Enforcement**: Extract `Technical Constraints` (e.g. rate limits) into `FRD_NFR_SPECS.md`.
+3. **Traceability**: Link requirements that solve a researched gap using `(Ref: RS-####)`.
+
+### A. Discovery (The "What" and "Why")
+1.  **Ingest Evidence (The Triad):**
+    *   Read `INTERVIEW_QUESTIONNAIRE.md` (User Needs).
+    *   Read `docs/business/BRD_BUSINESS_RULES.md` (Logic Constraints).
+    *   Read `docs/product/UX_BENCHMARKS.md` (Visual Requirements).
+    *   *If any are missing, STOP and request them.*
+2.  **Extract Entities:** Identify the Nouns (e.g. "Order", "Customer").
+3.  **Map Roles:** specific Actors (e.g. "Admin", "Customer Support").
+
+### B. Requirement Definition
+1.  **Draft User Stories:** Convert Friction Points ("I hate copying data") into Stories ("As an Admin, I want auto-import...").
+2.  **Enforce Format:** Use the configured ID Standard (`STRY0000001`).
+3.  **Validate:** Check against the "Quality Checklist" in this Skill.
+
+### C. Traceability Check
+1.  **Linkage:** Ensure every `STRY` maps to a `FREQ` (Functional Req).
+2.  **Inverse Check:** Ensure every `FREQ` has a corresponding `TC` (Test Case) placeholder.
 
 ---
 
@@ -105,19 +154,7 @@ See `./templates/FRD_FUNCTIONAL_REQUIREMENTS.md`
 | **Compliance** | GDPR, SOC2, HIPAA |
 
 ### Format
-```markdown
-### NFRQ0000001: [Title]
-
-**Category:** [Performance/Scalability/etc.]
-
-**Requirement:** The system shall [measurable quality attribute].
-
-| Attribute | Value |
-|-----------|-------|
-| Target | [Specific metric] |
-| Measurement | [How to measure] |
-| Priority | MUST / SHOULD |
-```
+See `./templates/FRD_NFR_SPECS.md`
 
 ---
 
@@ -165,7 +202,7 @@ See `./templates/FRD_USE_CASES.md`
 
 ---
 
-## 6. Traceability Matrix
+## 7. Traceability Matrix
 
 ### Forward Traceability (Requirements → Implementation)
 | Requirement | Stories | Specs | Code | Tests |
@@ -180,7 +217,7 @@ See `./templates/FRD_USE_CASES.md`
 
 ---
 
-## 7. RBAC Permissions Matrix
+## 8. RBAC Permissions Matrix
 
 ### Actor-Permission Mapping
 | Permission | Guest | User | Admin | System |
@@ -191,6 +228,13 @@ See `./templates/FRD_USE_CASES.md`
 | Delete any user | ❌ | ❌ | ✅ | ❌ |
 
 ---
+
+## ✅ Definition of Done (DOD)
+- [ ] All `STRY` IDs trace to a `FREQ` ID.
+- [ ] Every `FREQ` ID is linked to a Business Rule (`BRD_`).
+- [ ] Every requirement follows the "Triple Ingest" (Quest + Rules + UX).
+- [ ] No orphan requirements.
+- [ ] Master Index Updated.
 
 ## How to Verify
 

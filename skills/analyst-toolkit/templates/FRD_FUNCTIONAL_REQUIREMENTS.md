@@ -11,7 +11,7 @@
 ---
 
 ## 2. User Stories (Functional)
-> Source: `skills/analyst-toolkit/templates/USER_STORY_TEMPLATE.md`
+> Source: `skills/analyst-toolkit/templates/FRD_USER_STORIES.md`
 
 ### STRY[#######]: [Title]
 **As a** [Actor],
@@ -36,6 +36,7 @@
 
 ## 4. Non-Functional Requirements (NFRs)
 > Performance, Security, Reliability, Compliance.
+> For complex NFRs, use `skills/analyst-toolkit/templates/NFR_TEMPLATE.md`
 
 | ID | Category | Requirement | Metric |
 |----|----------|-------------|--------|

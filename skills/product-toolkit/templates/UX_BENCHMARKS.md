@@ -1,4 +1,4 @@
-# 💎 Product Benchmarks: [Topic]
+# 💎 UX Benchmarks & Patterns: [Topic]
 
 **Date:** [TIMESTAMP]
 **Focus:** [User Sentiment / UX Patterns]

@@ -114,7 +114,7 @@ This document provides a comprehensive overview of all documentation, diagrams, 
     *   **Used:** `Plan/Test` - Referenced to validate if the final product meets business goals.
 
 ### `MARKET_ANALYSIS.md`
-*   **Responsible:** **Researcher**
+*   **Responsible:** **Analyst**
 *   **Type:** Static
 *   **Purpose:** Analysis of market size (TAM/SAM/SOM), trends, and customer demographics.
 *   **Audience:** Product Managers, Strategy
@@ -132,7 +132,7 @@ This document provides a comprehensive overview of all documentation, diagrams, 
     *   **Updated:** `Build/Test` - Updated as new logic is discovered. Referenced by Devs implementing logic & QA writing tests.
 
 ### `PRODUCT_BENCHMARKS.md`
-*   **Responsible:** **Researcher**
+*   **Responsible:** **Analyst**
 *   **Type:** Static
 *   **Purpose:** Feature-by-feature comparison matrix against competitors.
 *   **Audience:** Product Managers, Sales
@@ -296,7 +296,7 @@ This document provides a comprehensive overview of all documentation, diagrams, 
 *Supporting intelligence and feasibility.*
 
 ### `RESEARCH_SUMMARY.md`
-*   **Responsible:** **Researcher**
+*   **Responsible:** **Analyst**
 *   **Type:** Static
 *   **Purpose:** Executive summary of investigation into a specific topic or technology.
 *   **Audience:** Decision Makers
@@ -305,7 +305,7 @@ This document provides a comprehensive overview of all documentation, diagrams, 
     *   **Used:** `Plan` - Referenced to make go/no-go decisions.
 
 ### `EVIDENCE_TABLE.md`
-*   **Responsible:** **Researcher**
+*   **Responsible:** **Analyst**
 *   **Type:** Static
 *   **Purpose:** Catalog of sources with quality ratings (Primary/Secondary/Tertiary).
 *   **Audience:** Analyst, Architect
@@ -314,7 +314,7 @@ This document provides a comprehensive overview of all documentation, diagrams, 
     *   **Used:** `Plan` - Referenced to validate the credibility of findings.
 
 ### `GAP_ANALYSIS.md`
-*   **Responsible:** **Researcher**
+*   **Responsible:** **Analyst**
 *   **Type:** Static
 *   **Purpose:** Documented unknowns, assumptions, and missing information risks.
 *   **Audience:** Project Managers, Architect

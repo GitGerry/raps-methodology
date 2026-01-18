@@ -14,8 +14,8 @@ Specialized instruction sets that extend AI capabilities for RAPS workflows.
 | [**Sync RAPS**](sync-raps/SKILL.md) | `/sync-raps` | Sync Brain ↔ Repo |
 | [**Agile Toolkit**](agile-toolkit/SKILL.md) | `/agile-toolkit` | Agile ceremonies & artifacts |
 | [**UX Toolkit**](ux-toolkit/SKILL.md) | `/ux-toolkit` | User Experience design & research |
-| [**Business Toolkit**](business-toolkit/SKILL.md) | `/business-toolkit` | BRDs, Process Checks, Market Analysis |
-| [**Product Toolkit**](product-toolkit/SKILL.md) | `/product-toolkit` | Product strategy, roadmapping, feature prioritization |
+| [**Business Analyst Toolkit**](business-toolkit/SKILL.md) | `/business-toolkit` | Business Rules, ROI, Domain Glossary, Market Analysis |
+| [**Product Manager Toolkit**](product-toolkit/SKILL.md) | `/product-toolkit` | Product Vision, VoC Benchmarking, UX Patterns |
 
 | [**Memory Update**](memory-update/SKILL.md) | `/memory-update` | Update RAPS Brain with new information |
 | [**Spec Review**](spec-review/SKILL.md) | `/spec-review` | Review specifications against requirements |
@@ -39,7 +39,7 @@ Specialized instruction sets that extend AI capabilities for RAPS workflows.
 |-------|---------|-------------|
 | [**Agile Toolkit**](agile-toolkit/SKILL.md) | `/build`, `/design`, `/review`, `/sprint`, `/retro`, `/test` | DoR/DoD, sprint planning, retrospectives |
 | [**Project Scaffolding**](project-scaffolding/SKILL.md) | `/initialize` | Project structure templates |
-| [**Analyst Toolkit**](analyst-toolkit/SKILL.md) | `/analyst` | Requirements standards & templates |
+| [**Analyst Toolkit**](analyst-toolkit/SKILL.md) | `/analyst` | Functional Analyst Toolkit: Stories, Specs, Registry |
 | [**Architecture Toolkit**](architecture-toolkit/SKILL.md) | `/architect` | Spec templates, ADR format, auto-mode |
 | [**QA Toolkit**](qa-toolkit/SKILL.md) | `/test` | Test protocols & coverage standards |
 | [**Security Toolkit**](security-toolkit/SKILL.md) | `/security` | OWASP checklists & vulnerability templates |

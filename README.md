@@ -191,8 +191,8 @@ See the [Sprint Planning Skill](skills/sprint-plan/SKILL.md) for sprint planning
 | Aspect | Details |
 |--------|--------|
 | **Command** | `/analyst` |
-| **Lane** | **Owner:** `/docs/requirements`, `/docs/user_stories`, `/docs/personas`, `/data/research` |
-| **Outputs** | `REQUIREMENTS.md`, user stories, research data |
+| **Lane** | **Owner:** `/docs/business`, `/docs/product`, `/docs/functional`, `/data/research` |
+| **Outputs** | `BRD_ BUSINESS_RULES.md`, `UX_BENCHMARKS.md`, `FRD_USER_STORIES.md`, `FRD_FUNCTIONAL_REQUIREMENTS.md` |
 | **Hands off to** | `/architect` |
 
 **When to use:**
@@ -220,7 +220,7 @@ See the [Sprint Planning Skill](skills/sprint-plan/SKILL.md) for sprint planning
 |--------|---------|
 | **Command** | `/architect` |
 | **Lane** | **Owner:** `/docs` (General), `PLAN.md`, `/types`, `/schemas`, `/docs/api` (OpenAPI), `/docs/decisions` (ADRs) |
-| **Outputs** | `/docs/SPECS.md` with logic, schemas, edges, global types |
+| **Outputs** | `/docs/SPECS.md`, `/docs/technical/SDD.md`, `/docs/technical/ADR_INDEX.md` |
 | **Hands off to** | `/build` or `/design` |
 
 **When to use:**
@@ -631,7 +631,8 @@ What was built, how to test...
 ### /docs/SPECS.md - Specifications
 **Detailed technical specs from `/architect`.**
 
-Includes: Logic flow, data schema, edge cases, API contracts.
+Includes: Logic flow, data schema, edge cases, API contracts. (Managed via `architecture-toolkit`).
+See also: `docs/technical/SDD.md`.
 
 ---
 

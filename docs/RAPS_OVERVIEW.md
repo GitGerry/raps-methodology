@@ -57,13 +57,13 @@ Before any code is written, RAPS establishes a "Spine" of living documents that 
     3.  Initializes the hidden `.agent` folder for brain storage.
 *   **Critical Output**: A "Healthy" project structure ready for intake.
 
-### Phase 2: Intelligence (`/analyst`, `/research`)
-*   **Agents**: **The Analyst** & **The Researcher**
-*   **Interaction Loop**:
+### Phase 2: Intelligence (`/analyst`)
+*   **Agents**: **The Analyst** (Research & Strategy)
+*   **Intelligence Loop**:
     1.  **Analyst** identifies a vague requirement (e.g., "We need AI search").
-    2.  **Analyst** triggers **Researcher** (`/research`) to find feasibility.
-    3.  **Researcher** scrapes web/docs, creates `EVIDENCE_TABLE.md`, and returns `GAP_ANALYSIS.md`.
-    4.  **Analyst** consumes this to write definitive `USER_STORIES.md` and `FRD.md`.
+    2.  **Analyst** enters **Research Mode** (`/research`) to find feasibility.
+    3.  **Analyst** scrapes web/docs, creates `RSRCH_EVIDENCE_LOG.md`, and returns `RSRCH_SYNTHESIS.md`.
+    4.  **Analyst** consumes this to write definitive `FRD_USER_STORIES.md` and `FRD_FUNCTIONAL_REQUIREMENTS.md`.
 *   **Handoff**: `[READY FOR ARCHITECT]` tag in `PLAN.md`.
 
 ### Phase 3: Blueprinting (`/architect`)
@@ -116,8 +116,7 @@ Before any code is written, RAPS establishes a "Spine" of living documents that 
 | Persona | Command | Primary Artifacts Created | Handoff To |
 | :--- | :--- | :--- | :--- |
 | **Founder** | `/init` | `PLAN.md`, `CHARTER.md` | Analyst |
-| **Analyst** | `/analyst` | `FRD.md`, `USER_STORIES.md` | Architect |
-| **Researcher**| `/research`| `MARKET_ANALYSIS.md`, `EVIDENCE.md` | Analyst/Arch |
+| **Analyst** | `/analyst` | `BRD_*.md`, `UX_*.md`, `FRD_*.md`, `RSRCH_*.md` | Architect |
 | **Architect** | `/architect`| `SPECS.md`, `ICD.md`, `DECISION.md` | Build/Design |
 | **Builder** | `/build` | Source Code (`/src`), `API.md` | Test/Review |
 | **Designer** | `/design` | Components, `STYLEGUIDE.md` | Test/UX |

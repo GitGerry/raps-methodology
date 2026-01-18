@@ -1,5 +1,9 @@
 ### STRY[#######]: [Title]
 
+**Priority:** [MUST | SHOULD | COULD]
+**Points:** [1 | 2 | 3 | 5 | 8 | 13]
+**UI Reference:** [Figma Link or Screenshot ID]
+
 **As a** [Actor/Persona],
 **I want to** [action/feature],
 **So that** [benefit/value].

@@ -38,6 +38,8 @@ description: The design archetype does all the designing
    - `.../skills/agile-toolkit/SKILL.md` (DoR/DoD checklists for story completion)
 3. [ ] Verify `/docs/SPECS.md` exists with UI/flow requirements
 4. [ ] Check `HANDOFF_NOTES.md` for context from `/architect` or `/build`
+5. [ ] **Visual Benchmark:** Check `docs/business/BRD_MARKET_ANALYSIS.md` for competitor aesthetics.
+6. [ ] **Flow Map:** Check `docs/business/BRD_PROCESS_MAP.md` for UI Routes.
 5. [ ] Note current git commit for rollback: `git rev-parse HEAD`
 6. [ ] Check if backend API is ready (if needed)
 7. [ ] Log session start to `SESSION_LOG.md`:

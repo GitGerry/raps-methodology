@@ -2,8 +2,7 @@
 
 > Governance log for the evolution of the RAPS Framework.
 
-| Timestamp | Version | Type | Change Description | Author |
-|-----------|---------|------|--------------------|--------|
+| 2026-01-18 17:45 | v2.7 | **Standardization** | **Intelligence Engine Hardening**: Transformed `research-toolkit` into a structured evidence engine, reassigned to Analyst, and purged all ghost persona references. | User |
 | 2026-01-18 15:50 | v2.6 | **Standardization** | **Clean Mirror**: Implemented "Mirror Mode" in `sync_raps` (destructive sync), deprecated `/research` persona, standardized all artifacts with Templates, and removed 12+ shelfware files. | User |
 | 2026-01-18 15:00 | v2.5 | **Governance** | **Rigor Upgrade**: Enforced Anti-Hallucination headers, mandated `MEMORY.md`, removed Project Tiers (Standardized on Enterprise), and implemented 5-Vector Discovery Protocol. | User |
 | 2026-01-18 12:15 | v2.4 | **Simplification** | Removed Dashboard application (`/dashboard`) and all related tooling. RAPS now focuses purely on files and CLI. | User |
@@ -18,6 +17,22 @@
 ---
 
 ## 📝 Detailed Release Notes
+
+### v2.7: Research Toolkit Hardening (The Intelligence Engine)
+**Date:** 2026-01-18 17:45
+**Author:** User
+
+**Why This Change?**
+The "Researcher" persona was a legacy ghost—cited in docs but missing a workflow. Furthermore, research was often unstructured and prone to hallucination. v2.7 formally integrates research into the **Analyst** lane and enforces strict evidence standards.
+
+**What Changed?**
+-   **Intelligence Engine:** Rebranded `research-toolkit` as "The Intelligence Engine".
+-   **Analyst Alignment:** Updated `analyst.md` and `docs/` to reflect that the Analyst drives research using the toolkit.
+-   **Strict Evidence Rules:** Implemented a "Multi-Source Rule" (Min 3 sources for high-impact claims) and ⭐ quality ratings.
+-   **New Templates:**
+    -   `RSRCH_EVIDENCE_LOG.md` (Raw source tracking).
+    -   `RSRCH_SYNTHESIS.md` (Intelligence handoff for BA/PM/Arch phases).
+-   **Ghost Purge:** Removed all remaining "Researcher" persona references from `ARTIFACTS.md` and `RAPS_OVERVIEW.md`.
 
 ### v2.6: The "Clean Mirror" & Template Standardization
 **Date:** 2026-01-18 15:50

@@ -3,7 +3,14 @@ name: Architecture Toolkit
 description: SPECS templates, decision records, and technical design patterns
 ---
 
-# Architecture Toolkit
+# Architecture Toolkit (The Design Engine)
+
+> [!IMPORTANT]
+> **ANTI-HALLUCINATION PROTOCOL**
+> 1. **NO GHOST APIS:** Verify all third-party endpoints in `RSRCH_SYNTHESIS.md` before adding to `ICD.md`.
+> 2. **VERSION LOCK:** Verify library versions in `package.json` or `RSRCH_EVIDENCE_LOG.md`.
+> 3. **ADR TRACEABILITY:** Every major decision MUST link to an `RS-####` evidence ID if applicable.
+> 4. **INTELLIGENCE INGESTION:** You MUST read `RSRCH_SYNTHESIS.md` and map `Technical Constraints` to `SPECS.md`.
 
 ## Purpose
 Provide templates and standards for technical specifications, architecture decision records (ADRs), and system design documentation.
@@ -13,6 +20,16 @@ Provide templates and standards for technical specifications, architecture decis
 - Making architectural decisions
 - Designing system components
 - Documenting API contracts
+
+---
+
+## 🧠 Thinking Logic (The Bridge)
+
+### 🔍 Intelligence Ingestion (Feasibility Engine)
+Before drafting specifications:
+1. **Map Technical Constraints**: Review `⚙️ Technical Constraints` in `RSRCH_SYNTHESIS.md`.
+2. **Verify API Sanity**: Cross-reference `ICD.md` endpoints with `RSRCH_EVIDENCE_LOG.md` (Check RS-####).
+3. **Trace Decisions**: Ensure every major architectural choice (ADR) cites an evidence ID from research if it was influenced by external tech.
 
 ---
 

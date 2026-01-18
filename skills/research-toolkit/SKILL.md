@@ -1,20 +1,41 @@
----
 name: Research Toolkit
-description: Evidence standards, source quality ratings, and research output templates
+description: Evidence standards & Intelligence Gathering (Analyst Research Mode)
 ---
 
-# Research Toolkit
+# Research Toolkit (The Intelligence Engine)
 
 ## Purpose
 Define standards for gathering, evaluating, and documenting research findings. Ensures all research is evidence-based, properly cited, and actionable.
 
 ## When to Use
-- Conducting any research task
-- Evaluating source quality
-- Validating research from another persona
-- Creating research deliverables
+- **Analyst [Phase 1.5]**: Gathering evidence for BRD/FRD.
+- **Architect**: Validating technical feasibility/API sanity.
+- Evaluating source quality and rating evidence.
+
+- Evaluating source quality and rating evidence.
 
 ---
+
+## Technical Tool Inventory
+The Intelligence Engine utilizes a tiered toolset to ensure depth, accuracy, and anti-hallucination.
+
+| Tool | Primary Purpose | Priority | Limitations |
+|:---|:---|:---:|:---|
+| **Exa.ai (Neural)** | Finding high-fidelity docs & "needle-in-haystack" tech. | 1 | Best for developers; search by meaning, not keyword. |
+| **BuiltWith API** | Technology stack fingerprinting & Competitive Intel. | 1 | Critical for Architect feasibility checks. |
+| **Crunchbase API** | Market sizing, funding trends, corporate health. | 1 | Best for BA Strategy Phase. |
+| **Tavily (Agent)** | Multi-site autonomous deep research loops. | 2 | Ideal for synthesizing across disparate sources. |
+| **Firecrawl** | Broad web scraping & autonomous navigation. | 2 | High token usage; best when specific APIs are not available. |
+| **read_url_content** | Fast extraction of known static documentation. | 2 | No JS support; fails on complex SPAs. |
+
+### 🚨 Priority Logic (v2.8)
+1. **Introspection**: Use GitHub/Supabase MCP for RAPS-internal state.
+2. **Specialized Intelligence**:
+   - Use **Exa** for "How to use Library X" or "Finding whitepapers".
+   - Use **BuiltWith** for "What is Competitor Y's backend?".
+   - Use **Crunchbase** for "Is Market Z growing?".
+3. **Deep Synthesis**: Use **Tavily** for "Explain the pros/cons of Stack A vs B".
+4. **General Crawling**: Use **Firecrawl** or **read_url_content** as fallback for general sites.
 
 ## Tool Interface
 
@@ -26,8 +47,25 @@ Define standards for gathering, evaluating, and documenting research findings. E
 | `research_type` | enum | ❌ | `"api"` \| `"competitor"` \| `"market"` \| `"technology"` \| `"feasibility"` |
 
 ### Outputs
-- **Type:** Markdown
-- **Structure:** Research document with citations and ratings
+- **Type:** Structured Markdown Artifacts
+- **Paths:** `/data/research/`
+- **Prefix:** `RSRCH#######`
+
+| Artifact | Purpose | Consumer Personas |
+|:---|:---|:---|
+| `RSRCH_EVIDENCE_LOG.md` | Raw source tracking & verification. | Analyst, Architect |
+| `RSRCH_SYNTHESIS.md` | Strategic & technical recommendations. | Analyst (BA/PM), Architect |
+
+---
+
+## Thinking Logic: The Intelligence Loop
+
+### A. Discovery Loop (v2.8)
+1.  **Introspection**: Check local repo/db via MCP first.
+2.  **Neural Pulse (Exa)**: Find authoritative documentation or peer-reviewed content.
+3.  **Tech Footprinting (BuiltWith)**: Map the target's stack to identify constraints or advantages.
+4.  **Market Pulse (Crunchbase)**: Verify financial health and strategic timing.
+5.  **Autonomous Deep Research (Tavily)**: Synthesize findings across multiple high-quality sources.
 
 ---
 
@@ -50,10 +88,10 @@ Every claim must include:
 ```
 
 ### Source Triangulation Rule
-- **Major claims:** Require 3+ independent sources
-- **Minor claims:** Require 1-2 sources
-- **Contradictions:** Flag explicitly, present both sides
-- **Single source:** Note "Limited evidence" warning
+- **Major claims:** Require 3+ independent sources.
+- **Diversity Index:** Require varied source types (e.g., Doc + Code + Community).
+- **RAID Mapping:** Every risk or constraint found MUST be mapped to a RAID Log ID (`RISK...`, `DPND...`).
+- **Single source:** Note "Limited evidence" warning.
 
 ---
 
@@ -149,15 +187,29 @@ Skill: `product-toolkit` (Feasibility) | `business-toolkit` (Viability)
 
 ---
 
-## 5. Validation Checklist
+## 5. Intelligence Validation Checklist
+Before moving to BA or PM phases:
+- [ ] **Anti-Hallucination**: 100% of URLs verified via `Method` column.
+- [ ] **Diversity Index**: Multiple source types used for high-impact claims.
+- [ ] **Bias Reconciled**: Conflicting evidence explicitly resolved with rationale.
+- [ ] **RAID Synced**: All risks/assumptions found are logged in `RAID_LOG.md`.
+- [ ] **Traceability**: All claims in `SYNTHESIS` link to `EVIDENCE_LOG` IDs.
+- [ ] **Staleness Check**: Data is not expired or marked for imminent review.
 
-Before handing off research:
-- [ ] All claims have source citations
-- [ ] Quality ratings assigned to all sources
-- [ ] Executive summary written
-- [ ] Gaps documented (what couldn't be found)
-- [ ] Recommendations are actionable
-- [ ] No placeholder content
+---
+
+## 👥 Persona Consumption Flow
+The "Intelligence Engine" provides the foundation for the following phases:
+
+1.  **Analyst (Business Analyst Strategy)**:
+    -   *Input*: `RSRCH_SYNTHESIS.md` -> 💼 Business Strategy.
+    -   *Action*: Defines `BRD_BUSINESS_RULES.md` and `BRD_MARKET_ANALYSIS.md`.
+2.  **Analyst (Product Manager Vision)**:
+    -   *Input*: `RSRCH_SYNTHESIS.md` -> 🎨 Product Vision.
+    -   *Action*: Defines `UX_BENCHMARKS.md` and `UX_JOURNEY_MAP.md`.
+3.  **Architect (Technical Blueprint)**:
+    -   *Input*: `RSRCH_SYNTHESIS.md` -> ⚙️ Technical Constraints.
+    -   *Action*: Validates feasibility before starting `SPECS.md`.
 
 ---
 

@@ -89,7 +89,7 @@ The following templates are available in the `./templates/` directory:
 
 ---
 
-## 2. Documentation Standards
+## 4. Documentation Standards
 > **CRITICAL:** RAPS enforces **Enterprise Rigor** for all projects, regardless of size. This ensures auditability, scalability, and AI context retention.
 
 ### 📑 Mandatory Documentation Profile (Enterprise Standard)
@@ -103,7 +103,7 @@ The following templates are available in the `./templates/` directory:
 | `DECISION_LOG.md` | ✅ REQUIRED | Hard log of architectural decisions (Audit). |
 | `RAID_LOG.md` | ✅ REQUIRED | Risks, Assumptions, Issues, Dependencies. |
 | `CHARTER.md` | ✅ REQUIRED | Project boundaries and scope. |
-| `BRD/FRD` | ✅ REQUIRED | Requirements and functional specs. |
+| `BRD / UX / FRD` | ✅ REQUIRED | Strategic (BRD), Experience (UX), and Functional (FRD) specs. |
 | `SDD` | ✅ REQUIRED | System design documents. |
 | **Security Assessment** | ✅ REQUIRED | Security posture and risk analysis. |
 | **Test Plan** | ✅ REQUIRED | Strategy for QA and verification. |
@@ -111,7 +111,7 @@ The following templates are available in the `./templates/` directory:
 
 ---
 
-## 3. Project Initialization Checklist
+## 5. Project Initialization Checklist
 
 ### Pre-Initialization
 - [ ] Project name defined
@@ -132,7 +132,8 @@ The following templates are available in the `./templates/` directory:
 10. [ ] Create `MEMORY.md` in `.raps/`
 11. [ ] Create project `README.md`
 12. [ ] Initialize git repository
-13. [ ] Log session to `SESSION_LOG.md`
+13. [ ] Copy `scripts/check_integrity.ps1` from RAPS root
+14. [ ] Log session to `SESSION_LOG.md`
 
 ### Post-Initialization
 - [ ] Update `PLAN.md` with initial tasks
@@ -142,13 +143,13 @@ The following templates are available in the `./templates/` directory:
 
 ---
 
-## 4. README.md Template
+## 6. README.md Template
 
 See `templates/README_TEMPLATE.md` for full template.
 
 ---
 
-## 5. Git Initialization
+## 7. Git Initialization
 
 ```bash
 # Initialize repo

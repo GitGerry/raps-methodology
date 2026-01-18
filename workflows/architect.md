@@ -99,18 +99,21 @@ description: Architect persona for technical specifications and system design
 ---
 
 ## Exit Checklist
-1. [ ] Update `PLAN.md` (Architect `✅ DONE`).
-2. [ ] Log end to `.raps/SESSION_LOG.md`.
-3. [ ] Add files to Registry.
-4. [ ] **Append to `.raps/HANDOFF_NOTES.md`** with architect context (REQUIRED).
-5. [ ] Run `scripts/check_integrity.ps1` (Must Pass).
-6. [ ] Declare handoff.
+1. [ ] **Update Master Ledger**: Align `PLAN.md` (Update Architect to `✅ DONE`).
+2. [ ] **Artifact Registry**: Ensure all new `/docs/technical/` files are logged.
+3. [ ] **Technical Briefing**: Create a 3-minute "Mental Model" in `.raps/HANDOFF_NOTES.md`.
+    - **Drafting Rule**: Explain *Why* the architecture looks this way vs. just *What* it is.
+    - **Bridge Links**: Explicitly link the `SPECS.md` tables back to `logical_erd.mmd`.
+    - **Edge Case Warning**: Highlight the "Red Path" logic from decision trees.
+4. [ ] **Integrity Pass**: Run `scripts/check_integrity.ps1` (Must Pass).
+5. [ ] **Persona Trigger**: Announce handoff to `/build` or `/design`.
 
 ## Handoff Matrix
-| Outcome | Next Agent | Command |
-|---------|------------|---------|
-| ✅ Spec Ready | `/build` / `/design` | Run Agent |
-| ⏳ Need API/Feasibility | Use `Product Manager Toolkit` | Load `skills/product-toolkit/SKILL.md` |
-| ⏳ Need Logic/Rules | Use `Business Analyst Toolkit` | Load `skills/business-toolkit/SKILL.md` |
-| 🚨 Unclear Requirements | `/analyst` | Return for clarification |
-| 🚨 Unclear | USER | Ask Questions |
+| Outcome | Next Agent | Action |
+|---------|------------|--------|
+| ✅ Spec Complete | `/build` / `/design` | Perform **Technical Briefing** + Persona Trigger |
+| ⏳ Missing Intel | `/research` | Trigger **Intelligence Engine v2.8** loop |
+| 🚨 Logic Conflict | `/analyst` | Return for **Logic Collision Check** |
+| 🚨 Unclear Scope | USER | ESCALATE: Request clarification |
+
+---

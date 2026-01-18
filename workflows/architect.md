@@ -56,21 +56,24 @@ description: Architect persona for technical specifications and system design
 ## Workflow Instructions
 > **Detailed instructions are in [SKILL.md](../skills/architecture-toolkit/SKILL.md)**
 
-1.  **Synthesize**: Read inputs (`.raps/HANDOFF_NOTES.md`, Research).
+1.  **High-Fidelity Ingestion (The "Bridge" Rule)**:
+    - **Read Inputs**: `.raps/HANDOFF_NOTES.md`, Research v2.8 (`RSRCH_SYNTHESIS.md`).
+    - **Consume Analyst Visuals**: Inspect `/docs/diagrams/` for:
+      - `logical_erd_*.mmd` -> Must drive **Data Schema**.
+      - `decision_tree_*.mmd` -> Must drive **Logic/Sequence**.
+      - `rbac_matrix_*.mmd` -> Must drive **Auth Spec**.
 
-2.  **Technical Pre-Flight (The "Feasibility First" Rule)**:
-    > **CRITICAL:** Do not spec a system that cannot be built. Run this check.
+2.  **Technical Pre-Flight (Law of Friction)**:
+    > **CRITICAL:** Cross-reference every assumption with v2.8 Evidence (`RS-####`).
 
-    | Trigger | Dependent Research | Why? |
-    |---------|--------------------|------|
-    | "New Tech Stack" | `/business-toolkit` | Validate SOTA status & Trends. |
-    | "External API Integrations" | `/product-toolkit` | Get Auth docs & Rate limits. |
-    | "High Complexity / Risk" | `/product-toolkit` | Create PoC Plan to prove it works. |
-    | "Scale/Volume" | `BRD_MARKET_ANALYSIS` | Check TAM for traffic sizing. |
-    | "Compliance/Rules" | `BRD_BUSINESS_RULES` | Verify Validator logic (e.g. GDPR). |
-    | "Complex Flow" | `BRD_PROCESS_MAP` | Define State Enums & Transitions. |
+    | Trigger | Source Context | Requirement |
+    |---------|----------------|-------------|
+    | "New Tech Stack" | `RSRCH_EVIDENCE_LOG` | Verify compatibility vs. market trends. |
+    | "API Integration" | `RSRCH_SYNTHESIS` | Check `⚙️ Technical Constraints` for auth/limits. |
+    | "Complexity" | `decision_tree.mmd` | Unpack edge cases before spec'ing main flow. |
+    | "Scope" | `PLAN.md` | Ensure trajectory matches project runway (ROI). |
 
-    *If technical validation is missing, **STOP** and execute the research skill.*
+    *If technical evidence is missing, **STOP** and execute research.*
 
 3.  **Pre-Flight**: Check if `SPECS.md` exists.
 3.  **Write Specs**:
@@ -83,12 +86,13 @@ description: Architect persona for technical specifications and system design
 
 ---
 
-## Quality Gate
-- [ ] `SPECS.md` complete.
-- [ ] Logic flow unambiguous.
-- [ ] Data schema defined.
-- [ ] Edge cases documented.
-- [ ] Cross-persona notes written.
+## Quality Gate (Golden Thread Audit)
+- [ ] **Traceability Audit**: Every Schema field and API endpoint traces to `RS-####` or `REQ-####`.
+- [ ] **Bridge Verification**: `SPECS.md` aligns 1:1 with `logical_erd.mmd` and `decision_tree.mmd`.
+- [ ] **Security Alignment**: Authorization logic reflects `rbac_matrix.mmd` boundaries.
+- [ ] **NFR Alignment**: Performance/Scale specs meet or exceed Analyst thresholds.
+- [ ] **ADRs Logged**: Major design choices logged in `DECISION_LOG.md` with evidence links.
+- [ ] **Edge Cases**: Logic forks from decision trees are fully handled in the spec.
 
 ---
 

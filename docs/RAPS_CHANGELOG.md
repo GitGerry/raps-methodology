@@ -4,6 +4,7 @@
 
 | Timestamp | Version | Type | Change Description | Author |
 |-----------|---------|------|--------------------|--------|
+| 2026-01-18 15:50 | v2.6 | **Standardization** | **Clean Mirror**: Implemented "Mirror Mode" in `sync_raps` (destructive sync), deprecated `/research` persona, standardized all artifacts with Templates, and removed 12+ shelfware files. | User |
 | 2026-01-18 15:00 | v2.5 | **Governance** | **Rigor Upgrade**: Enforced Anti-Hallucination headers, mandated `MEMORY.md`, removed Project Tiers (Standardized on Enterprise), and implemented 5-Vector Discovery Protocol. | User |
 | 2026-01-18 12:15 | v2.4 | **Simplification** | Removed Dashboard application (`/dashboard`) and all related tooling. RAPS now focuses purely on files and CLI. | User |
 | 2026-01-18 12:05 | v2.3.2 | **Deprecation** | Removed deprecated `/research` persona references. Research is now exclusively a Skill Toolkit used by Analyst/Architect. | User |
@@ -17,6 +18,24 @@
 ---
 
 ## 📝 Detailed Release Notes
+
+### v2.6: The "Clean Mirror" & Template Standardization
+**Date:** 2026-01-18 15:50
+**Author:** User
+
+**Why This Change?**
+To achieve "True GitOps" for the methodology, the local Brain must act as an exact mirror of the remote repository. Previous syncs were additive, leaving behind "Ghost Files" (deleted workflows/skills that persisted locally). Additionally, we found that key artifacts (`MEMORY.md`, `SESSION_LOG.md`) were being inconsistent generated from inline code rather than authoritative templates.
+
+**What Changed?**
+-   **Mirror Mode:** Updated `scripts/sync_raps.ps1` to detect and **DELETE** files in the Destination (Brain) that do not exist in the Source (Repo).
+-   **Template Standardization:**
+    -   Created `MEMORY_TEMPLATE.md`, `SESSION_LOG_TEMPLATE.md`, and `HANDOFF_NOTES_TEMPLATE.md`.
+    -   Updated `initialize.md` and `project-scaffolding` skills to use these templates exclusively.
+-   **Researcher Deprecation:**
+    -   Removed the "Zombie" `/research` persona from `PLAN_TEMPLATE.md` and `initialize.md`.
+    -   Clarified that Research is a toolkit used by the **Analyst**.
+-   **Shelfware Cleanup:**
+    -   Deleted 12+ obsolete files including `skills/compliance-check`, `skills/estimate`, and `workflows/research.md`.
 
 ### v2.5: The Governance & Rigor Update
 **Date:** 2026-01-18 15:00

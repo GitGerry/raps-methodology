@@ -191,8 +191,8 @@ See the [Sprint Planning Skill](skills/sprint-plan/SKILL.md) for sprint planning
 | Aspect | Details |
 |--------|--------|
 | **Command** | `/analyst` |
-| **Lane** | **Owner:** `/docs/business`, `/docs/product`, `/docs/functional`, `/data/research` |
-| **Outputs** | `BRD_ BUSINESS_RULES.md`, `UX_BENCHMARKS.md`, `FRD_USER_STORIES.md`, `FRD_FUNCTIONAL_REQUIREMENTS.md` |
+| **Lane** | **Owner:** `/docs/business/`, `/docs/product/`, `/docs/functional/`, `/docs/diagrams/`, `/research/` |
+| **Outputs** | `BRD_BUSINESS_RULES.md`, `UX_BENCHMARKS.md`, `FRD_USER_STORIES.md`, `FRD_FUNCTIONAL_REQUIREMENTS.md`, `logical_erd.mmd` |
 | **Hands off to** | `/architect` |
 
 **When to use:**

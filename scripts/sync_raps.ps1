@@ -1,11 +1,14 @@
+param (
+    [string]$ChangeNotes = $null
+)
+
 $ErrorActionPreference = "Stop"
 
 # --- CONFIGURATION ---
-$antigravityRoot = "C:\Users\gerry\.gemini\antigravity"
+$antigravityRoot = "C:\Users\gerry\antigravity"
 $repoPath = "C:\Users\gerry\OneDrive\Desktop\LLM\RAPS\raps-methodology"
 
 # Directories to sync (Source Folder Name -> Destination Folder Name)
-# Note: Source is relative to the "From" location, Dest is relative to "To" location
 $mapping = @{
     "workflows" = "global_workflows"
     "skills"    = "skills"
@@ -13,6 +16,7 @@ $mapping = @{
     "scripts"   = "scripts"
 }
 # ---------------------
+
 
 function Show-Header {
     Clear-Host
@@ -113,8 +117,6 @@ function Sync-Files {
         Write-Host "`n    Pending Changes to be Synced:" -ForegroundColor White
         $pendingActions | Select-Object Status, File | Format-Table -AutoSize
         
-        Write-Host "    Total actions: $($pendingActions.Count)" -ForegroundColor Cyan
-        
         # EXECUTE PHASE
         foreach ($action in $pendingActions) {
             if ($action.Action -eq "Delete") {
@@ -129,12 +131,98 @@ function Sync-Files {
         }
         Write-Host "    Sync Complete." -ForegroundColor Green
     }
+    return $pendingActions
+}
+
+function Update-RAPSChangelog {
+    param (
+        [string]$Notes,
+        [PSCustomObject[]]$Actions
+    )
+
+    $changelogPath = Join-Path $repoPath "docs/RAPS_CHANGELOG.md"
+    if (-not (Test-Path $changelogPath)) {
+        Write-Warning "Changelog not found at $changelogPath. Skipping auto-log."
+        return
+    }
+
+    $content = Get-Content $changelogPath
+    
+    # 1. Determine Next Version (vX.Y.Z)
+    $lastEntry = $content | Where-Object { $_ -match "\| ([\d-]+\s[\d:]+) \| (v[\d\.]+) \|" } | Select-Object -First 1
+    if ($lastEntry -match "\|.*?\| (v[\d\.]+) \|") {
+        $lastVersion = $matches[1].TrimStart('v')
+        $parts = $lastVersion.Split('.')
+        $parts[-1] = [int]$parts[-1] + 1
+        $nextVersion = "v" + ($parts -join '.')
+    }
+    else {
+        $nextVersion = "v3.0.0" 
+    }
+
+    $now = Get-Date -Format "yyyy-MM-dd HH:mm"
+    $category = "Standardization"
+    $author = "User"
+    
+    # 2. Format Description
+    if (-not $Notes) {
+        $files = $Actions | Where-Object { $_.Action -eq "Copy" } | Select-Object -ExpandProperty File
+        $count = $files.Count
+        if ($count -gt 3) {
+            $fileList = ($files[0..2] -join ", ") + "..."
+        }
+        else {
+            $fileList = $files -join ", "
+        }
+        $description = "**Automated Sync**: Updated $count files ($fileList)."
+    }
+    else {
+        $description = $Notes
+    }
+
+    # 3. Create New Row
+    $newRow = "| " + $now + " | " + $nextVersion + " | **" + $category + "** | " + $description + " | " + $author + " |"
+    
+    # 4. Create Detailed Section
+    $bt = '``'
+    $detailedSection = "`n### " + $nextVersion + ": Automated Sync Update`n**Date:** " + $now + "`n**Author:** " + $author + "`n`n**Changes Summary:**`n" + $description + "`n`n**Files Impacted:**"
+    foreach ($action in $Actions) {
+        $detailedSection += "`n- $($action.Status) $bt$($action.File)$bt"
+    }
+
+    # 5. Inject into Content
+    $newContent = @()
+    $insertedRow = $false
+    $insertedDetail = $false
+
+    foreach ($line in $content) {
+        if (-not $insertedRow -and $line -match "^\| [\d-]+ [\d:]+ \|") {
+            $newContent += $newRow
+            $insertedRow = $true
+        }
+        
+        if (-not $insertedDetail -and $line -match "## Detailed Release Notes") {
+            $newContent += $line
+            $newContent += $detailedSection
+            $insertedDetail = $true
+            continue
+        }
+        
+        $newContent += $line
+    }
+
+    $newContent | Set-Content $changelogPath -Encoding utf8
+    Write-Host "[Changelog] Updated $changelogPath to $nextVersion." -ForegroundColor Green
 }
 
 function Run-BrainToRepo {
     # 1. Sync Files Brain -> Repo
-    Sync-Files -FromRoot $antigravityRoot -ToRoot $repoPath -DirectionLabel "Brain -> Repo"
+    $actions = Sync-Files -FromRoot $antigravityRoot -ToRoot $repoPath -DirectionLabel "Brain -> Repo"
     
+    if ($actions -and $actions.Count -gt 0) {
+        Update-RAPSChangelog -Notes $ChangeNotes -Actions $actions
+    }
+
     # 2. Commit and Push
     Push-Location $repoPath
     try {
@@ -194,7 +282,12 @@ function Run-RepoToBrain {
     }
 
     # 2. Sync Files Repo -> Brain
-    Sync-Files -FromRoot $repoPath -ToRoot $antigravityRoot -DirectionLabel "Repo -> Brain"
+    $actions = Sync-Files -FromRoot $repoPath -ToRoot $antigravityRoot -DirectionLabel "Repo -> Brain"
+    
+    if ($actions -and $actions.Count -gt 0) {
+        Update-RAPSChangelog -Notes $ChangeNotes -Actions $actions
+    }
+
     Write-Host "SUCCESS: Brain updated from Local Repo." -ForegroundColor Green
 }
 
@@ -224,7 +317,6 @@ function Get-LatestTimestampInfo {
     
     foreach ($key in $mapping.Keys) {
         $path = Join-Path $rootPath $key
-        # Check if mapped path exists for Brain/Repo structure difference
         if (-not (Test-Path $path)) {
             $path = Join-Path $rootPath $mapping[$key]
         }
@@ -253,12 +345,10 @@ function Show-TimestampGraph {
     Write-Host "`n[Analysis] Timestamp Comparison" -ForegroundColor Cyan
     Write-Host "--------------------------------------------------" -ForegroundColor DarkGray
     
-    # Brain Row
     $brainStr = "BRAIN: $($brainInfo.Timestamp)"
     Write-Host $brainStr.PadRight(30) -NoNewline -ForegroundColor White
     Write-Host "(latest: $($brainInfo.File))" -ForegroundColor Gray
     
-    # Repo Row
     $repoStr = "REPO : $($repoInfo.Timestamp)"
     Write-Host $repoStr.PadRight(30) -NoNewline -ForegroundColor White
     Write-Host "(latest: $($repoInfo.File))" -ForegroundColor Gray
@@ -269,12 +359,11 @@ function Show-TimestampGraph {
 function Run-SmartSync {
     Write-Host "`n[Smart Sync] Analyzing timestamps..." -ForegroundColor Cyan
     
-    # Check Remote Status
     Push-Location $repoPath
     try {
         git fetch
-        $status = git status -uno
-        if ($status -match "Your branch is behind") {
+        $statusStr = git status -uno
+        if ($statusStr -match "Your branch is behind") {
             Write-Host "[Smart Sync] Remote is ahead. Pulling changes..." -ForegroundColor Yellow
             Run-RemoteToBrain
             return
@@ -311,10 +400,9 @@ function Run-SmartSync {
 function Check-SquadStaleness {
     Write-Host "`n[Analysis] Checking Squad Status Integrity..." -ForegroundColor Cyan
     
-    # Locate PLAN.md in Repo or Brain (prefer Repo as it's the working copy)
     $planPath = Join-Path $repoPath "PLAN.md"
     if (-not (Test-Path $planPath)) {
-        $planPath = Join-Path $antigravityRoot "PLAN.md" # Fallback
+        $planPath = Join-Path $antigravityRoot "PLAN.md"
     }
     
     if (Test-Path $planPath) {
@@ -323,7 +411,6 @@ function Check-SquadStaleness {
         $staleFound = $false
         
         foreach ($line in $lines) {
-            # Match active rows: | Persona | 🛠️ ACTIVE | Task | Date |
             if ($line -match "\|\s*([^|]+)\s*\|\s*.*?ACTIVE.*?\s*\|\s*([^|]+)\s*\|\s*([^|]+)\s*\|") {
                 $persona = $matches[1].Trim()
                 $task = $matches[2].Trim()
@@ -340,9 +427,7 @@ function Check-SquadStaleness {
                         $staleFound = $true
                     }
                 }
-                catch {
-                    # Ignore date parse errors, likely ' - ' or invalid format
-                }
+                catch { }
             }
         }
         
@@ -350,34 +435,31 @@ function Check-SquadStaleness {
             Write-Host "  Squad Status is healthy (no stale locks)." -ForegroundColor Green
         }
     }
-    else {
-        Write-Warning "  PLAN.md not found for integrity check."
-    }
 }
 
 # --- MAIN MENU ---
-if ($args[0] -eq "auto") {
+if ($args[0] -eq 'auto') {
     Run-SmartSync
     exit
 }
 
 Show-Header
-Write-Host "Select Synchronization Direction:"
-Write-Host "[0] Smart Sync (Auto-Detect)" -ForegroundColor Green
-Write-Host "    Visual comparison + auto-sync."
-Write-Host "[1] Push Brain Changes (Brain -> Repo -> GitHub)" -ForegroundColor Cyan
-Write-Host "[2] Push Local Repo (Repo -> GitHub & Brain)" -ForegroundColor Cyan
-Write-Host "[3] Pull Remote (GitHub -> Repo -> Brain)" -ForegroundColor Cyan
-Write-Host "[Q] Quit" -ForegroundColor Gray
+Write-Host 'Select Synchronization Direction:'
+Write-Host '[0] Smart Sync (Auto-Detect)' -ForegroundColor Green
+Write-Host '    Visual comparison and auto-sync.'
+Write-Host '[1] Push Brain Changes (Brain to Repo to GitHub)' -ForegroundColor Cyan
+Write-Host '[2] Push Local Repo (Repo to GitHub and Brain)' -ForegroundColor Cyan
+Write-Host '[3] Pull Remote (GitHub to Repo to Brain)' -ForegroundColor Cyan
+Write-Host '[Q] Quit' -ForegroundColor Gray
 
-$selection = Read-Host "`nEnter Selection"
+$selection = Read-Host 'Enter Selection'
 
 switch ($selection) {
-    "0" { Run-SmartSync }
-    "1" { Run-BrainToRepo }
-    "2" { Run-RepoToBrain }
-    "3" { Run-RemoteToBrain }
-    "Q" { exit }
-    "q" { exit }
-    Default { Write-Warning "Invalid selection." }
+    '0' { Run-SmartSync }
+    '1' { Run-BrainToRepo }
+    '2' { Run-RepoToBrain }
+    '3' { Run-RemoteToBrain }
+    'Q' { exit }
+    'q' { exit }
+    Default { Write-Warning 'Invalid selection.' }
 }

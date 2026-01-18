@@ -93,6 +93,7 @@ description: Initialize a new RAPS project with scaffolding and Master Ledger
 - [ ] **Master Ledger:** `PLAN.md` and `CHARTER.md` exist in root.
 - [ ] **Management Logs:** `RAID_LOG.md` and `DECISION_LOG.md` exist in `/docs/management/`.
 - [ ] **Context Memory:** `.raps/MEMORY.md` exists (from Template).
+- [ ] **Collaborative Logs:** `SESSION_LOG.md` and `HANDOFF_NOTES.md` exist in root.
 - [ ] **Security:** `.env.example` exists (Baseline).
 - [ ] **Runtime:** `.tool-versions` exists (Locked).
 - [ ] **Git:** Repository initialized with `.gitignore`.

@@ -54,42 +54,43 @@ description: Architect persona for technical specifications and system design
 ---
 
 ## Prerequisites
-- Research or Requirements available.
-- `PLAN.md` exists.
+- [ ] **Definition of Ready (DoR)**: Analyst has completed the `Logic Collision Check`.
+- [ ] **Intelligence Index**: `RSRCH_EVIDENCE_LOG.md` and `RSRCH_SYNTHESIS.md` available.
+- [ ] **Visual Context**: Mermaid bridges (ERD, Decision Tree, RBAC) generated in `/docs/diagrams/`.
+- [ ] **Master Ledger**: Task assigned in `PLAN.md` with clearly defined success metrics.
 
 ## Workflow Instructions
 > **Detailed instructions are in [SKILL.md](../skills/architecture-toolkit/SKILL.md)**
 
-1.  **High-Fidelity Ingestion (The "Bridge" Rule)**:
-    - **Read Inputs**: `HANDOFF_NOTES.md`, Research v2.8 (`RSRCH_SYNTHESIS.md`).
-    - **Consume Analyst Visuals**: Inspect `/docs/diagrams/` for:
-      - `logical_erd_*.mmd` -> Must drive **Data Schema**.
-      - `decision_tree_*.mmd` -> Must drive **Logic/Sequence**.
-      - `rbac_matrix_*.mmd` -> Must drive **Auth Spec**.
+1.  **Context-First Ingestion (The "Visual Bridge" Rule)**:
+    - **Consume Analyst Briefing**: Read `HANDOFF_NOTES.md` to understand the *emotional/business intent*.
+    - **Synchronize Diagrams**: Align your technical mental model with the Analyst's visual output:
+      - `logical_erd_*.mmd` -> Drives the **Physical Database Schema**.
+      - `decision_tree_*.mmd` -> Flows directly into **State Machines & Logic Forks**.
+      - `rbac_matrix_*.mmd` -> Informs the **Authentication & Middleware Layer**.
+    - **Integrate Intelligence**: Reference v2.8 `RSRCH_SYNTHESIS.md` for `⚙️ Technical Constraints`.
 
-2.  **Technical Pre-Flight (Law of Friction)**:
-    > **CRITICAL:** Cross-reference every assumption with v2.8 Evidence (`RS-####`).
+2.  **Architectural Pre-Flight (Feasibility & Friction)**:
+    > [!IMPORTANT]
+    > **Zero Inference Rule**: If a requirement is ambiguous, do NOT guess. Trigger a `Logic Collision Check` loopback to the Analyst.
+    
+    - **Evidence Cross-Reference**: Match all proposed tech stack choices against `RSRCH_EVIDENCE_LOG.md`.
+    - **Constraint Audit**: Check `RAID_LOG.md` for architectural assumptions and risks.
+    - **NFR Reconciliation**: Ensure the architecture meets the thresholds defined in `docs/functional/FRD_NFR_SPECS.md`.
 
-    | Trigger | Source Context | Requirement |
-    |---------|----------------|-------------|
-    | "New Tech Stack" | `RSRCH_EVIDENCE_LOG` | Verify compatibility vs. market trends. |
-    | "API Integration" | `RSRCH_SYNTHESIS` | Check `⚙️ Technical Constraints` for auth/limits. |
-    | "Complexity" | `decision_tree.mmd` | Unpack edge cases before spec'ing main flow. |
-    | "Scope" | `PLAN.md` | Ensure trajectory matches project runway (ROI). |
+3.  **Produce Enterprise Specifications**:
+    - **High-Fidelity Drafting**: Produce `SPECS.md` encompassing Logic Flow, Data Schema, and API Contracts.
+    - **Traceability Linkage**: Tag every major component with a source reference (e.g., `[Trace: REQ-001, RS-123]`).
+    - **Decision Logging**: Execute `DECISION_LOG.md` updates for every non-obvious trade-off made.
 
-    *If technical evidence is missing, **STOP** and execute research.*
-
-3.  **Produce Specifications**:
-    - **Draft Specs**: Define Logic Flow, Data Schema, API Contracts.
-    - **Standard Form**: Use templates from `SKILL.md` for consistent format.
-    - **Pro Tip**: Use `/architect --auto` for AI Draft (`SPECS_DRAFT.md`).
-4.  **Trajectory Promotion**:
-    - Move task to **Current Trajectory** in `PLAN.md`.
-    - Assign to `/build` or `/design`.
+4.  **Trajectory Promotion & Handoff**:
+    - **Ledger Update**: Move task to **DONE** (or **Awaiting Test**) in `PLAN.md`.
+    - **Warm Handoff**: Draft the `HANDOFF_NOTES.md` briefing for the next agent (`/build` or `/design`).
+    - **Persona Trigger**: Announce completion and tag the next owner.
 
 ---
 
-## Quality Gate (Golden Thread Audit)
+## Quality Gate (The "Golden Thread" Audit)
 - [ ] **Traceability Audit**: Every Schema field and API endpoint traces to `RS-####` or `REQ-####`.
 - [ ] **Bridge Verification**: `SPECS.md` aligns 1:1 with `logical_erd.mmd` and `decision_tree.mmd`.
 - [ ] **Security Alignment**: Authorization logic reflects `rbac_matrix.mmd` boundaries.
@@ -101,7 +102,7 @@ description: Architect persona for technical specifications and system design
 
 ## Exit Checklist
 1. [ ] **Update Master Ledger**: Align `PLAN.md` (Update Architect to `✅ DONE`).
-2. [ ] **Artifact Registry**: Ensure all new `/docs/technical/` files are logged.
+2. [ ] **Artifact Registry**: Ensure all new `/docs/technical/` files are logged in `PLAN.md`.
 3. [ ] **Technical Briefing**: Create a 3-minute "Mental Model" in `HANDOFF_NOTES.md`.
     - **Drafting Rule**: Explain *Why* the architecture looks this way vs. just *What* it is.
     - **Bridge Links**: Explicitly link the `SPECS.md` tables back to `logical_erd.mmd`.

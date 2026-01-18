@@ -43,9 +43,14 @@ project-root/
 ├── docs/
 │   ├── business/           # BRD artifacts
 │   ├── functional/         # FRD artifacts
-│   ├── technical/          # SDD/ADR artifacts
+│   ├── technical/          # SDD artifacts
+│   ├── api/                # OpenAPI/Swagger Specs
+│   ├── decisions/          # Architecture Decision Records (ADRs)
+│   ├── diagrams/           # Analyst "Visual Bridges" (ERDs, trees)
 │   ├── management/         # Plans, Risks, Retros
 │   └── qa/                 # Test Plans
+├── types/                  # Shared TypeScript/State types
+├── schemas/                # Database/JSON schemas
 ├── research/               # Research outputs
 ├── frontend/               # UI code (/design lane)
 ├── backend/                # Server code (/build lane)
@@ -120,20 +125,21 @@ The following templates are available in the `./templates/` directory:
 - [ ] Timeline expectations set
 
 ### Initialization Steps
-1. [ ] Create project root folder
-2. [ ] Create folder structure (see above)
-3. [ ] Create `PLAN.md` from template
-4. [ ] Create `.raps` directory (Hidden)
-5. [ ] Create `SESSION_LOG.md` in `.raps/`
-6. [ ] Create `HANDOFF_NOTES.md` in `.raps/`
-7. [ ] Create `CHARTER.md` in root from `CHARTER_TEMPLATE.md`
-8. [ ] Create `RAID_LOG.md` in `/docs/management/` from `RAID_LOG_TEMPLATE.md`
-9. [ ] Create `DECISION_LOG.md` in `/docs/management/` from `DECISION_LOG_TEMPLATE.md`
-10. [ ] Create `MEMORY.md` in `.raps/`
-11. [ ] Create project `README.md`
-12. [ ] Initialize git repository
-13. [ ] Copy `scripts/check_integrity.ps1` from RAPS root
-14. [ ] Log session to `SESSION_LOG.md`
+1.  [ ] Create project root folder
+2.  [ ] Create folder structure (Business, Functional, Technical, API, Decisions, Diagrams, Management, QA)
+3.  [ ] Create `/types/` and `/schemas/` directories
+4.  [ ] Create `PLAN.md` from template
+5.  [ ] Create `.raps/` directory (System Files)
+6.  [ ] Create `SESSION_LOG.md` in `.raps/`
+7.  [ ] Create `HANDOFF_NOTES.md` in `.raps/`
+8.  [ ] Create `MEMORY.md` in `.raps/`
+9.  [ ] Create `CHARTER.md` in root from `CHARTER_TEMPLATE.md`
+10. [ ] Create `RAID_LOG.md` in root from `RAID_LOG_TEMPLATE.md`
+11. [ ] Create `DECISION_LOG.md` in root from `DECISION_LOG_TEMPLATE.md`
+12. [ ] Create project `README.md` from template
+13. [ ] Initialize git repository
+14. [ ] Copy `scripts/check_integrity.ps1` from RAPS root
+15. [ ] Log session to `SESSION_LOG.md`
 
 ### Post-Initialization
 - [ ] Update `PLAN.md` with initial tasks

@@ -219,8 +219,8 @@ See the [Sprint Planning Skill](skills/sprint-plan/SKILL.md) for sprint planning
 | Aspect | Details |
 |--------|---------|
 | **Command** | `/architect` |
-| **Lane** | **Owner:** `/docs` (General), `PLAN.md`, `/types`, `/schemas`, `/docs/api` (OpenAPI), `/docs/decisions` (ADRs) |
-| **Outputs** | `/docs/SPECS.md`, `/docs/technical/SDD.md`, `/docs/technical/ADR_INDEX.md` |
+| **Lane** | **Owner:** `/docs/technical/`, `/docs/api/`, `/docs/decisions/`, `DECISION_LOG.md`, `PLAN.md` (Backlog), `/types`, `/schemas` |
+| **Outputs** | `/docs/technical/SPECS.md`, `/docs/technical/SDD.md`, `/docs/decisions/ADR-###.md`, `DECISION_LOG.md` |
 | **Hands off to** | `/build` or `/design` |
 
 **When to use:**

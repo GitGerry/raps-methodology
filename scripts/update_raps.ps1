@@ -31,9 +31,8 @@ function Sync-Files {
         [string]$DirectionLabel
     )
 
-    Write-Host "`n[$DirectionLabel] Synchronizing files..." -ForegroundColor Yellow
-    $changeCount = 0
-    $syncedFiles = @()
+    Write-Host "`n[$DirectionLabel] Scanning for changes..." -ForegroundColor Yellow
+    $pendingActions = @()
 
     foreach ($key in $mapping.Keys) {
         if ($DirectionLabel -eq "Brain -> Repo") {
@@ -46,20 +45,16 @@ function Sync-Files {
         }
 
         if (Test-Path $srcBase) {
-            # Low-noise scanning message
-            # Write-Host "  Scanning $key..." -ForegroundColor DarkGray
-            
-            # Get all files in source
+            # Low-noise scanning
             $files = Get-ChildItem -Path $srcBase -Recurse -File
 
             foreach ($file in $files) {
-                # Calculate relative path
                 $cleanSrcBase = $srcBase.TrimEnd('\')
                 $relativePath = $file.FullName.Substring($cleanSrcBase.Length + 1)
                 $destFile = Join-Path $destBase $relativePath
-
-                $shouldCopy = $false
+                
                 $status = ""
+                $shouldCopy = $false
 
                 if (-not (Test-Path $destFile)) {
                     $shouldCopy = $true
@@ -67,7 +62,6 @@ function Sync-Files {
                 }
                 else {
                     $destItem = Get-Item $destFile
-                    # Compare timestamps (Source > Dest)
                     if ($file.LastWriteTime -gt $destItem.LastWriteTime) {
                         $shouldCopy = $true
                         $status = "[UPD]"
@@ -75,21 +69,13 @@ function Sync-Files {
                 }
 
                 if ($shouldCopy) {
-                    $changeCount++
-                    $destDir = Split-Path $destFile
-                    if (-not (Test-Path $destDir)) {
-                        New-Item -ItemType Directory -Path $destDir -Force | Out-Null
+                    $pendingActions += [PSCustomObject]@{
+                        Status     = $status
+                        File       = "$key\$relativePath"
+                        SourcePath = $file.FullName
+                        DestPath   = $destFile
+                        DestDir    = Split-Path $destFile
                     }
-                    
-                    Copy-Item -Path $file.FullName -Destination $destFile -Force
-                    
-                    # Store info for summary
-                    $syncedFiles += [PSCustomObject]@{
-                        Status = $status
-                        File   = "$key\$relativePath"
-                    }
-                    
-                    Write-Host "    $status $key\$relativePath" -ForegroundColor Cyan
                 }
             }
         }
@@ -98,13 +84,28 @@ function Sync-Files {
         }
     }
     
-    if ($changeCount -eq 0) {
+    if ($pendingActions.Count -eq 0) {
         Write-Host "    No file changes detected." -ForegroundColor Gray
     }
     else {
-        Write-Host "`n    Summary of Changes:" -ForegroundColor White
-        $syncedFiles | Format-Table -AutoSize
-        Write-Host "    Total files synced: $changeCount" -ForegroundColor Green
+        # REPORT PHASE
+        Write-Host "`n    Pending Changes to be Synced:" -ForegroundColor White
+        $pendingActions | Select-Object Status, File | Format-Table -AutoSize
+        
+        Write-Host "    Total files to sync: $($pendingActions.Count)" -ForegroundColor Cyan
+        
+        # EXECUTE PHASE
+        # In 'auto' mode, we just proceed. In interactive, we could ask, but request was just "auto show".
+        # We will proceed automatically as per requirements to keep it valid for auto-scripts.
+        
+        foreach ($action in $pendingActions) {
+            if (-not (Test-Path $action.DestDir)) {
+                New-Item -ItemType Directory -Path $action.DestDir -Force | Out-Null
+            }
+            Copy-Item -Path $action.SourcePath -Destination $action.DestPath -Force
+            # Write-Host "    Synced: $($action.File)" -ForegroundColor DarkGray
+        }
+        Write-Host "    Sync Complete." -ForegroundColor Green
     }
 }
 
@@ -280,6 +281,55 @@ function Run-SmartSync {
     }
     else {
         Write-Host "Status: Timestamps match or no changes detected." -ForegroundColor Green
+    }
+    
+    Check-SquadStaleness
+}
+
+function Check-SquadStaleness {
+    Write-Host "`n[Analysis] Checking Squad Status Integrity..." -ForegroundColor Cyan
+    
+    # Locate PLAN.md in Repo or Brain (prefer Repo as it's the working copy)
+    $planPath = Join-Path $repoPath "PLAN.md"
+    if (-not (Test-Path $planPath)) {
+        $planPath = Join-Path $antigravityRoot "PLAN.md" # Fallback
+    }
+    
+    if (Test-Path $planPath) {
+        $content = Get-Content -Path $planPath -Raw
+        $lines = $content -split "`r`n"
+        $staleFound = $false
+        
+        foreach ($line in $lines) {
+            # Match active rows: | Persona | 🛠️ ACTIVE | Task | Date |
+            if ($line -match "\|\s*([^|]+)\s*\|\s*.*?ACTIVE.*?\s*\|\s*([^|]+)\s*\|\s*([^|]+)\s*\|") {
+                $persona = $matches[1].Trim()
+                $task = $matches[2].Trim()
+                $dateStr = $matches[3].Trim()
+                
+                try {
+                    $lastUpdate = [DateTime]::ParseExact($dateStr, "yyyy-MM-dd HH:mm", $null)
+                    $age = (Get-Date) - $lastUpdate
+                    
+                    if ($age.TotalHours -gt 24) {
+                        Write-Warning "  STALE LOCK: $persona has been ACTIVE for $($age.TotalHours.ToString('0')) hours."
+                        Write-Host "    Task: $task" -ForegroundColor Gray
+                        Write-Host "    Last Update: $dateStr" -ForegroundColor Gray
+                        $staleFound = $true
+                    }
+                }
+                catch {
+                    # Ignore date parse errors, likely ' - ' or invalid format
+                }
+            }
+        }
+        
+        if (-not $staleFound) {
+            Write-Host "  Squad Status is healthy (no stale locks)." -ForegroundColor Green
+        }
+    }
+    else {
+        Write-Warning "  PLAN.md not found for integrity check."
     }
 }
 

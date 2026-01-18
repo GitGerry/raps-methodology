@@ -29,8 +29,8 @@ description: Architect persona for technical specifications and system design
 2. [ ] Check `/research` or `/docs/requirements` for input.
 3. [ ] **Load Skill:** Use `view_file` to read:
    - `.../skills/architecture-toolkit/SKILL.md` (Logic, Templates & Auto-Mode)
-4. [ ] **Read `MEMORY.md`** — check Decision Memory for prior architectural choices
-5. [ ] Log session start to `SESSION_LOG.md`.
+4. [ ] **Read `.raps/MEMORY.md`** — check Decision Memory for prior architectural choices
+5. [ ] Log session start to `.raps/SESSION_LOG.md`.
 6. [ ] Announce: "Starting /architect workflow..."
 
 ---
@@ -42,16 +42,16 @@ description: Architect persona for technical specifications and system design
 ## Workflow Instructions
 > **Detailed instructions are in [SKILL.md](../skills/architecture-toolkit/SKILL.md)**
 
-1.  **Synthesize**: Read inputs (`HANDOFF_NOTES.md`, Research).
+1.  **Synthesize**: Read inputs (`.raps/HANDOFF_NOTES.md`, Research).
 
 2.  **Technical Pre-Flight (The "Feasibility First" Rule)**:
     > **CRITICAL:** Do not spec a system that cannot be built. Run this check.
 
     | Trigger | Dependent Research | Why? |
     |---------|--------------------|------|
-    | "New Tech Stack" | `/research-trend` | Validate SOTA status (don't use dead libs). |
-    | "External API Integration" | `/research-api` | Get Auth docs & Rate limits. |
-    | "High Complexity / Risk" | `/research-feasibility` | Create PoC Plan to prove it works. |
+    | "New Tech Stack" | `/business-toolkit` | Validate SOTA status & Trends. |
+    | "External API Integration" | `/product-toolkit` | Get Auth docs & Rate limits. |
+    | "High Complexity / Risk" | `/product-toolkit` | Create PoC Plan to prove it works. |
 
     *If technical validation is missing, **STOP** and execute the research skill.*
 
@@ -77,16 +77,16 @@ description: Architect persona for technical specifications and system design
 
 ## Exit Checklist
 1. [ ] Update `PLAN.md` (Architect `✅ DONE`).
-2. [ ] Log end to `SESSION_LOG.md`.
+2. [ ] Log end to `.raps/SESSION_LOG.md`.
 3. [ ] Add files to Registry.
-4. [ ] **Append to `HANDOFF_NOTES.md`** with architect context (REQUIRED).
+4. [ ] **Append to `.raps/HANDOFF_NOTES.md`** with architect context (REQUIRED).
 5. [ ] Declare handoff.
 
 ## Handoff Matrix
 | Outcome | Next Agent | Command |
 |---------|------------|---------|
 | ✅ Spec Ready | `/build` / `/design` | Run Agent |
-| ⏳ Need API/Feasibility | Use `research-api` or `feasibility` | Load Skill |
-| ⏳ Need SOTA Check | Use `research-trend` | Load Skill |
+| ⏳ Need API/Feasibility | Use `product-toolkit` | Load `skills/product-toolkit/SKILL.md` |
+| ⏳ Need SOTA/Trend Check | Use `business-toolkit` | Load `skills/business-toolkit/SKILL.md` |
 | 🚨 Unclear Requirements | `/analyst` | Return for clarification |
 | 🚨 Unclear | USER | Ask Questions |

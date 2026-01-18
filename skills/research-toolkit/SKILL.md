@@ -128,29 +128,24 @@ Every claim must include:
 ## 4. Research Type Frameworks
 
 ### API Research
-Focus areas: Auth, rate limits, pricing, reliability, SDKs
-Output: `/research/API_[NAME].md`
-Skill: `/research-api`
+Focus areas: Auth, rate limits, pricing, SDKs
+Skill: `product-toolkit` (Technical Feasibility)
 
 ### Competitor Analysis
-Focus areas: Features, pricing, market position, weaknesses
-Output: `/research/COMPETITORS.md`
-Skill: `/research-competitor`
+Focus areas: Features, UX, gaps, user sentiment
+Skill: `product-toolkit` (Product Strategy)
 
 ### Market Research
 Focus areas: TAM/SAM/SOM, trends, demographics
-Output: `/research/MARKET_ANALYSIS.md`
-Skill: `/research-market`
+Skill: `business-toolkit` (Market Analysis)
 
 ### Technology Evaluation
-Focus areas: Capabilities, trade-offs, community, maturity
-Output: `/research/TECH_EVALUATION.md`
-Skill: `/research-technology`
+Focus areas: Capabilities, trade-offs, maturity
+Skill: `product-toolkit` (Technical Feasibility)
 
 ### Feasibility Study
-Focus areas: Technical, operational, economic, schedule
-Output: `/research/FEASIBILITY_[TOPIC].md`
-Skill: `/research-feasibility`
+Focus areas: Technical, operational, economic
+Skill: `product-toolkit` (Feasibility) | `business-toolkit` (Viability)
 
 ---
 

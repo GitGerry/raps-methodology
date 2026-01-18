@@ -21,8 +21,8 @@ Maintain the project's memory system by extracting and recording entities, decis
 ### Inputs
 | Parameter | Type | Required | Description |
 |-----------|------|----------|-------------|
-| `memory_file` | path | ✅ | Path to project's `MEMORY.md` file |
-| `session_log` | path | ✅ | Path to `SESSION_LOG.md` for extraction |
+| `memory_file` | path | ✅ | Path to project's `.raps/MEMORY.md` file |
+| `session_log` | path | ✅ | Path to `.raps/SESSION_LOG.md` for extraction |
 | `update_type` | enum | ✅ | One of: `entity`, `decision`, `pattern`, `context`, `all` |
 
 ### Outputs
@@ -41,10 +41,10 @@ Manual process following the instructions below.
 ## Instructions
 
 ### 1. Read Current Memory
-Open the project's `MEMORY.md` file and review existing entries to avoid duplicates.
+Open the project's `.raps/MEMORY.md` file and review existing entries to avoid duplicates.
 
 ### 2. Scan Recent Session Log
-Review `SESSION_LOG.md` for entries since last memory update:
+Review `.raps/SESSION_LOG.md` for entries since last memory update:
 - Look for new external systems, APIs, or technologies → **Entity Memory**
 - Look for architectural choices and rationale → **Decision Memory**
 - Look for successes or failures worth remembering → **Pattern Memory**

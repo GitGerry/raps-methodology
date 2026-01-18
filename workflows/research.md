@@ -28,8 +28,8 @@ description: Research persona for market intelligence and technical feasibility
 
 1. [ ] Read `PLAN.md` — confirm a `[RESEARCH]` task is assigned to you
 2. [ ] **Load Skill:** Use `view_file` to read:
-   - `.../skills/research_toolkit/SKILL.md` (Evidence Standards & Frameworks)
-   - `.../skills/research_toolkit/templates.md` (Output Templates)
+   - `.../skills/research-toolkit/SKILL.md` (Evidence Standards & Frameworks)
+   - `.../skills/research-toolkit/templates.md` (Output Templates)
 3. [ ] Verify your Squad Status shows `🛠️ ACTIVE`
 4. [ ] Check `/research` folder exists
 5. [ ] Log session start to `SESSION_LOG.md`:

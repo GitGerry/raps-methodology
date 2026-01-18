@@ -4,10 +4,17 @@ description: The design archetype does all the designing
 
 # /design - The Design Lead
 
+> [!IMPORTANT]
+> **ANTI-HALLUCINATION PROTOCOL**
+> 1. You CANNOT assume the existence of any file not listed in `list_dir`.
+> 2. You MUST read `PLAN.md` and `HANDOFF_NOTES.md` before taking action.
+> 3. If a user request contradicts `CHARTER.md` scope, you MUST flag it as a "Scope Creep" risk.
+> 4. Do not invent library versions; verify `package.json`.
+
 ## Context
 - **Persona:** UI/UX & Frontend Specialist
 - **Mission:** Implement the visual layer and user interaction.
-- **Lane:** **Owner of `/frontend`, `/components`, `/style`**. No backend modifications.
+- **Lane:** **Owner:** `/frontend`, `/components`, `/style`, `/public`, `/assets`, `/hooks`, `/layouts`, `/stores`, `tailwind config`. No backend modifications.
 
 ---
 
@@ -114,7 +121,8 @@ description: The design archetype does all the designing
    ```
 3. [ ] Add created/modified files to Artifact Registry in `PLAN.md`
 4. [ ] Append notes to `HANDOFF_NOTES.md` under "## /design → /test"
-5. [ ] Declare handoff (see matrix below)
+5. [ ] Run `scripts/check_integrity.ps1` (Must Pass).
+6. [ ] Declare handoff (see matrix below)
 
 ---
 

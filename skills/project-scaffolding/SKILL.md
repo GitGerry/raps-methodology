@@ -50,8 +50,12 @@ project-root/
 ├── frontend/               # UI code (/design lane)
 ├── backend/                # Server code (/build lane)
 ├── tests/                  # Test files (/test lane)
+├── scripts/                # Utility scripts
+│   └── check_integrity.ps1 # RAPS Self-Healing
 ├── PLAN.md                 # Master Ledger
-└── README.md               # Project overview
+├── README.md               # Project overview
+├── .tool-versions          # Deterministic Runtime
+└── CONTRIBUTING.md         # Developer Guidelines
 ```
 
 ---
@@ -62,38 +66,13 @@ project-root/
 See `templates/PLAN_TEMPLATE.md` for full template.
 
 ### SESSION_LOG.md
-```markdown
-# Session Log
-
-| Timestamp | Persona | Action | Status | Files | Notes |
-|-----------|---------|--------|--------|-------|-------|
-| [DATE] | /initialize | Project scaffolded | ✅ DONE | - | Initial setup |
-```
+See `templates/SESSION_LOG_TEMPLATE.md` for full template.
 
 ### HANDOFF_NOTES.md
-```markdown
-# Handoff Notes
-
-## /initialize → /research
-**Date:** [TIMESTAMP]
-
-### Project Setup Complete
-- Folder structure created
-- Initial artifacts in place
-- Ready for research phase
-
-### Recommended Research
-- [Topic 1]
-- [Topic 2]
-
-### Files Created
-- `PLAN.md`
-- `SESSION_LOG.md`
-- `HANDOFF_NOTES.md`
-```
+See `templates/HANDOFF_NOTES_TEMPLATE.md` for full template.
 
 ### MEMORY.md
-See `templates/MEMORY.md` for full template.
+See `templates/MEMORY_TEMPLATE.md` for full template.
 
 ---
 
@@ -110,35 +89,25 @@ The following templates are available in the `templates/` directory:
 
 ---
 
-## 2. Project Sizing & Documentation Tiers
+## 2. Documentation Standards
+> **CRITICAL:** RAPS enforces **Enterprise Rigor** for all projects, regardless of size. This ensures auditability, scalability, and AI context retention.
 
-> **CRITICAL:** Before generating artifacts, determine the **Project Tier**. Do not over-document prototypes or under-document enterprise systems.
+### 📑 Mandatory Documentation Profile (Enterprise Standard)
 
-### 🏁 Step 1: Determine Tier
-
-| Tier | Profile | Characteristics | Duration | Examples |
-|------|---------|-----------------|----------|----------|
-| **Tier 1** | **Prototype** | Solo dev, throwaway code, speed is everything. | < 2 weeks | Hackathon entry, script, POC |
-| **Tier 2** | **Project** | Small team, production use, long-term maintenance. | 1-6 mos | Internal tool, feature add-on, MVP |
-| **Tier 3** | **Product** | Public facing, paying users, reliability critical. | 6-12 mos | SaaS app, mobile app, core service |
-| **Tier 4** | **Enterprise** | Mission critical, compliance reqs, distributed teams. | > 1 year | Banking system, healthcare platform, OS |
-
-### 📑 Step 2: Select Documentation Profile
-
-| Document | Tier 1 | Tier 2 | Tier 3 | Tier 4 |
-|----------|:------:|:------:|:------:|:------:|
-| `README.md` | ✅ | ✅ | ✅ | ✅ |
-| `PLAN.md` | ✅ | ✅ | ✅ | ✅ |
-| `SESSION_LOG.md` | ✅ | ✅ | ✅ | ✅ |
-| `BRD/FRD` (Reqs) | ❌ | Simplified | ✅ | ✅ |
-| `ICD/SDD` (Specs) | ❌ | ✅ | ✅ | ✅ |
-| `DECISION_LOG.md` | ❌ | ⚠️ | ✅ | ✅ |
-| **Diagrams** | ❌ | Core Flows | Architecture | Full UML/BPMN |
-| **Security Risk Assessment** | ❌ | ❌ | ⚠️ | ✅ |
-| **Test Plan** | ❌ | ❌ | ✅ | ✅ |
-| **Disaster Recovery Plan** | ❌ | ❌ | ❌ | ✅ |
-| **SLA / SLO Definitions** | ❌ | ❌ | ❌ | ✅ |
-| **Change Management Log** | ❌ | ❌ | ⚠️ | ✅ |
+| Document | Requirement | Purpose |
+|----------|:-----------:|---------|
+| `README.md` | ✅ REQUIRED | Project overview and setup. |
+| `PLAN.md` | ✅ REQUIRED | One-truth ledger of all tasks. |
+| `SESSION_LOG.md` | ✅ REQUIRED | Audit trail of all AI actions. |
+| `MEMORY.md` | ✅ REQUIRED | Persistent cross-session context (RAM). |
+| `DECISION_LOG.md` | ✅ REQUIRED | Hard log of architectural decisions (Audit). |
+| `RAID_LOG.md` | ✅ REQUIRED | Risks, Assumptions, Issues, Dependencies. |
+| `CHARTER.md` | ✅ REQUIRED | Project boundaries and scope. |
+| `BRD/FRD` | ✅ REQUIRED | Requirements and functional specs. |
+| `SDD` | ✅ REQUIRED | System design documents. |
+| **Security Assessment** | ✅ REQUIRED | Security posture and risk analysis. |
+| **Test Plan** | ✅ REQUIRED | Strategy for QA and verification. |
+| **Disaster Recovery** | ✅ REQUIRED | Plan for system failure/data loss. |
 
 ---
 
@@ -164,12 +133,6 @@ The following templates are available in the `templates/` directory:
 11. [ ] Create project `README.md`
 12. [ ] Initialize git repository
 13. [ ] Log session to `SESSION_LOG.md`
-14. [ ] **Register project in Dashboard:**
-    ```bash
-    # Run from project root
-    # Ensure $RAPS_ROOT is defined (e.g. C:\Users\gerry\OneDrive\Desktop\LLM\RAPS\raps-methodology)
-    node "$RAPS_ROOT/skills/project-scaffolding/scripts/register-project.js" "$RAPS_ROOT/dashboard/projects.json" "[project-id]" "[Project Name]" "$(pwd)"
-    ```
 
 ### Post-Initialization
 - [ ] Update `PLAN.md` with initial tasks

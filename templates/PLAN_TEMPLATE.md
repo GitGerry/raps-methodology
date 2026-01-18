@@ -28,7 +28,7 @@
 | Persona | Status | Current Task | Last Updated |
 |---------|--------|--------------|--------------|
 | 🏗️ /initialize | 💤 IDLE | - | - |
-| 🔍 /research | 💤 IDLE | - | - |
+
 | 📋 /analyst | 💤 IDLE | - | - |
 | 📐 /architect | 💤 IDLE | - | - |
 | ⚙️ /build | 💤 IDLE | - | - |
@@ -153,7 +153,7 @@ T001 ──┬──▶ T002 ──▶ T004 ──┬──▶ T006
 7. /initialize (lowest)
 
 ### Key Commands
-- `/status` — Check current state
-- `/health` — Validate project health
+
+- `/raps-status` — Unified status and health check
 - `/retro` — Capture lessons learned
 - `/release` — Check release gates

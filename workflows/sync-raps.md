@@ -2,7 +2,7 @@
 description: Synchronize RAPS methodology between Brain, Repo, and GitHub
 ---
 
-# /update-raps - RAPS Synchronization
+# /sync-raps - System Synchronization
 
 ## Context
 This workflow synchronizes your local Antigravity environment (Brain) with the master RAPS methodology repository and GitHub.
@@ -20,7 +20,7 @@ This workflow synchronizes your local Antigravity environment (Brain) with the m
    
 ```powershell
 // turbo
-powershell -File "c:\Users\gerry\.gemini\antigravity\scripts\update_raps.ps1" auto
+powershell -File "c:\Users\gerry\OneDrive\Desktop\LLM\RAPS\raps-methodology\scripts\sync_raps.ps1" auto
 ```
 
 > [!TIP]

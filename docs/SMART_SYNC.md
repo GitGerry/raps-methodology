@@ -15,14 +15,14 @@ The system follows a "Last Write Wins" timestamp-based logic:
 ### Interactive Mode
 Run the update script without arguments and select **Option 0**:
 ```powershell
-./scripts/update_raps.ps1
+./scripts/sync_raps.ps1
 # Select [0] Smart Sync (Auto-Detect)
 ```
 
 ### Automated Mode
 Run the script with the `auto` argument to bypass the menu:
 ```powershell
-./scripts/update_raps.ps1 auto
+./scripts/sync_raps.ps1 auto
 ```
 
 ## Conflict Resolution

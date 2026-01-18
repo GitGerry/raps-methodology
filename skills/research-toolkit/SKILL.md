@@ -83,7 +83,7 @@ Every claim must include:
 
 **Topic:** [What was researched]
 **Date:** [TIMESTAMP]
-**Researcher:** /research
+
 **Confidence:** High / Medium / Low
 
 ### Key Findings

@@ -104,9 +104,9 @@ This workflow is recommended by other personas when:
    ```
    | [TIMESTAMP] | /sprint | Sprint [N] → Sprint [N+1] planned | ✅ DONE | PLAN.md | Ready for /analyst |
    ```
-3. [ ] *(Recommended)* Run `/health` if:
-   - [ ] >24 hours since last session
-   - [ ] Blockers were encountered
+3. [ ] *(Recommended)* Run `/raps-status` if:
+   - Velocity dropped unexpectedly
+   - Blockers are undocumentedred
    - [ ] Complex changes to PLAN.md structure
 4. [ ] Declare handoff (see matrix below)
 

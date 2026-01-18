@@ -1,14 +1,22 @@
 ---
-description: Move the latest downloaded CoH3 replays to the playback directory
+description: Utility workflow to organize and move replay files.
 ---
 
-# Move CoH3 Replays
+# 📂 /move-replays
 
-This workflow moves the most recent '.rec' files from the Downloads folder to the Company of Heroes 3 playback directory.
+## Context
+Use this workflow to organize downloaded replay files into a structured directory for analysis or archiving.
 
-1. Move the files:
-```powershell
-$source = "C:\Users\gerry\Downloads"
-$dest = "C:\Users\gerry\Documents\My Games\Company of Heroes 3\playback"
-Get-ChildItem -Path $source -Filter *.rec | Sort-Object LastWriteTime -Descending | Select-Object -First 5 | Move-Item -Destination $dest -Force -Verbose
+## Usage
 ```
+/move-replays
+```
+
+## Steps
+1.  **Identify Source:** Scan default download folders or specified source paths.
+2.  **Filter:** Select files matching replay extensions (e.g., `.rec`, `.rep`).
+3.  **Move:** Transfer files to the target replay directory (e.g., `replays/`).
+4.  **Log:** Record the operation in `SESSION_LOG.md`.
+
+## Automation
+This workflow is typically automated by the `move-replays` script if configured.

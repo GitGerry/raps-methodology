@@ -12,7 +12,7 @@ A structured methodology for AI-assisted software development with clear handoff
 - [Quick Start](#-quick-start)
 - [The Ten Personas](#-the-ten-personas)
 - [Utility Workflows](#-utility-workflows)
-- [Visual Dashboard](#-visual-dashboard)
+
 - [Core Artifacts](#-core-artifacts)
 - [Feature Reference](#-feature-reference)
 - [Workflow Commands](#-workflow-commands)
@@ -155,8 +155,7 @@ After `/initialize`, the workflow will guide you:
 - `/test` → verify technical QA
 - `/ux` → validate usability
 
-### 4. View the Dashboard
-The Mission Control Dashboard is a Vite-based application located in `/raps_dashboard` (or `/dashboard` in the repository).
+
 
 ### 5. Understand the Agile Workflow
 RAPS uses an **Agile-first** approach with Epics, Stories, and Sprints:
@@ -176,7 +175,7 @@ See the [Sprint Planning Skill](skills/sprint-plan/SKILL.md) for sprint planning
 | Aspect | Details |
 |--------|---------|
 | **Command** | `/initialize` |
-| **Lane** | Creates all folders, `PLAN.md` |
+| **Lane** | **Root Scaffolding**, `PLAN.md`, `.editorconfig`, `.gitignore`, `check_integrity.ps1` |
 | **Outputs** | Folder structure, `PLAN.md`, `SESSION_LOG.md`, `HANDOFF_NOTES.md` |
 | **Hands off to** | `/analyst` or `/architect` |
 
@@ -186,15 +185,13 @@ See the [Sprint Planning Skill](skills/sprint-plan/SKILL.md) for sprint planning
 
 ---
 
----
-
 ### 📋 /analyst - The Requirements Specialist
 **Mission:** Translate business requirements into structured stories (powered by **Analyst & Research Toolkits**)
 
 | Aspect | Details |
 |--------|--------|
 | **Command** | `/analyst` |
-| **Lane** | Owner of `/docs/requirements/` |
+| **Lane** | **Owner:** `/docs/requirements`, `/docs/user_stories`, `/docs/personas`, `/data/research` |
 | **Outputs** | `REQUIREMENTS.md`, user stories, research data |
 | **Hands off to** | `/architect` |
 
@@ -202,7 +199,6 @@ See the [Sprint Planning Skill](skills/sprint-plan/SKILL.md) for sprint planning
 - Complex requirements need clarification
 - Researching API feasibility or competitors
 - User stories and acceptance criteria needed
-- Gap analysis between research and specs
 
 **Key Outputs:**
 - Functional & non-functional requirements
@@ -223,8 +219,8 @@ See the [Sprint Planning Skill](skills/sprint-plan/SKILL.md) for sprint planning
 | Aspect | Details |
 |--------|---------|
 | **Command** | `/architect` |
-| **Lane** | Owner of `/docs` and `PLAN.md` |
-| **Outputs** | `/docs/SPECS.md` with logic, schemas, edge cases |
+| **Lane** | **Owner:** `/docs` (General), `PLAN.md`, `/types`, `/schemas`, `/docs/api` (OpenAPI), `/docs/decisions` (ADRs) |
+| **Outputs** | `/docs/SPECS.md` with logic, schemas, edges, global types |
 | **Hands off to** | `/build` or `/design` |
 
 **When to use:**
@@ -250,8 +246,8 @@ Generates a draft spec from `/research` files. Human review required!
 | Aspect | Details |
 |--------|---------|
 | **Command** | `/build` |
-| **Lane** | Owner of `/backend`, `/api`, `/lib` |
-| **Outputs** | Backend code, API endpoints |
+| **Lane** | **Owner:** `/backend`, `/api`, `/lib`, `/db` (Migrations), `/services`, `/utils`, `/scripts`, `/models`, `server config` |
+| **Outputs** | Backend code, API endpoints, Database schemas, Utility scripts |
 | **Hands off to** | `/review` (suggested) or `/test` or `/design` |
 
 **When to use:**
@@ -271,8 +267,8 @@ Generates a draft spec from `/research` files. Human review required!
 | Aspect | Details |
 |--------|---------|
 | **Command** | `/design` |
-| **Lane** | Owner of `/frontend`, `/components`, `/style` |
-| **Outputs** | UI components, styling, frontend code |
+| **Lane** | **Owner:** `/frontend`, `/components`, `/style`, `/public`, `/assets`, `/hooks`, `/layouts`, `/stores`, `tailwind config` |
+| **Outputs** | UI components, styling, frontend code, assets |
 | **Hands off to** | `/test` |
 
 **When to use:**
@@ -293,7 +289,7 @@ Generates a draft spec from `/research` files. Human review required!
 | Aspect | Details |
 |--------|---------|
 | **Command** | `/test` |
-| **Lane** | Owner of `/tests` |
+| **Lane** | **Owner:** `/tests`, `/e2e`, `/mocks`, `jest.config.js`, `playwright.config.ts` |
 | **Outputs** | Test reports, coverage reports |
 | **Hands off to** | ✅ Done (pass) or `/build`/`/design` (fail) |
 
@@ -317,7 +313,7 @@ Generates a draft spec from `/research` files. Human review required!
 | Aspect | Details |
 |--------|---------|
 | **Command** | `/ux` |
-| **Lane** | Read-only, writes to `/docs/ux_feedback/` |
+| **Lane** | **Read-only**, writes to `/docs/ux_feedback/` |
 | **Outputs** | UAT reports, usability findings, accessibility audits |
 | **Hands off to** | ✅ Done (pass) or `/analyst`/`/design` (issues found) |
 
@@ -354,7 +350,7 @@ Generates a draft spec from `/research` files. Human review required!
 | Aspect | Details |
 |--------|---------|
 | **Command** | `/security` |
-| **Lane** | Read-only, writes to `/docs/security/` |
+| **Lane** | **Read-only**, writes to `/docs/security/`, `SECURITY.md`, `.env.example` |
 | **Outputs** | Security audit reports, vulnerability findings |
 | **Hands off to** | `/deploy` (pass) or `/build` (issues found) |
 
@@ -382,7 +378,7 @@ Generates a draft spec from `/research` files. Human review required!
 | Aspect | Details |
 |--------|---------|
 | **Command** | `/deploy` |
-| **Lane** | Owner of `/infrastructure`, `/docker`, `.github/workflows` |
+| **Lane** | **Owner:** `/infrastructure`, `/docker`, `/k8s`, `/terraform`, `.github/workflows`, `nginx.conf` |
 | **Outputs** | Deployment runbooks, monitoring dashboards |
 | **Hands off to** | ✅ Done (success) or `/build` (failure) |
 
@@ -512,6 +508,20 @@ Generates a draft spec from `/research` files. Human review required!
 - Trivial changes
 
 ---
+
+### 📂 /move-replays - Replay Organizer
+**Utility to organize downloaded game replays.**
+
+```
+/move-replays
+```
+
+**Use when:**
+- Organzing downloaded .rec/.rep files
+- Archiving game replays for analysis
+
+---
+
 
 ## 📺 Visual Dashboard
 

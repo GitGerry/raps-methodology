@@ -20,7 +20,7 @@ description: Security persona for vulnerability assessment, penetration testing,
 ---
 
 ## Workflow Instructions
-> **Detailed attack vectors are in [SKILL.md](skills/security-toolkit/SKILL.md)**
+> **Detailed attack vectors are in [SKILL.md](../skills/security-toolkit/SKILL.md)**
 
 1.  **Reconnaissance (Static Audit)**:
     - Run `npm audit` (or equivalent).

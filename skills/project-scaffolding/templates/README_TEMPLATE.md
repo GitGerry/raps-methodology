@@ -7,7 +7,8 @@
 2. `npm run dev`
 
 ## 📊 Status
-Open [Dashboard](./dashboard.html).
+> **Health:** Run `./scripts/check_integrity.ps1` to verify project health.
+
 
 ## 🛠️ Stack
 - Frontend: [F]

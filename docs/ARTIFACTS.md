@@ -54,6 +54,24 @@ This document provides a comprehensive overview of all documentation, diagrams, 
     *   **Created:** `Init` - During initial compliance setup.
     *   **Updated:** `Build/Test` - Updated if new vulnerabilities are found or policies change. Referenced during audits.
 
+### `sync-raps.ps1`
+*   **Responsible:** Human & AI
+*   **Type:** Living
+*   **Purpose:** **Synchronization transport.** Ensures `Brain` = `Repo` = `GitHub`. Run before/after sessions to avoid drift.
+*   **Audience:** Human & AI
+*   **Lifecycle:**
+    *   **Created:** `Init` - During initial setup.
+    *   **Updated:** `Continuously` - Run before/after sessions.
+
+### `set_status.ps1`
+*   **Responsible:** AI & Human
+*   **Type:** Living
+*   **Purpose:** **Active State Writer.** Programmatically updates `PLAN.md` status table to prevent broken regex/tables.
+*   **Audience:** AI & Human
+*   **Lifecycle:**
+    *   **Created:** `Init` - During initial setup.
+    *   **Updated:** `Continuously` - Run as needed to update `PLAN.md`.
+
 ### `DECISION_LOG.md`
 *   **Responsible:** **Architect**
 *   **Type:** **Living**

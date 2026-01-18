@@ -34,7 +34,7 @@ Group backlog items by:
 
 #### Map to Personas
 Identify which persona handles each task:
-- `/research` tasks
+- Research tasks
 - `/analyst` tasks
 - `/architect` tasks
 - `/build` tasks
@@ -136,7 +136,7 @@ Update `PLAN.md` with sprint trajectory and generate sprint report.
 
 | Persona | Points | Tasks | % of Sprint |
 |---------|--------|-------|-------------|
-| /research | X | Y | Z% |
+
 | /analyst | X | Y | Z% |
 | /architect | X | Y | Z% |
 | /build | X | Y | Z% |

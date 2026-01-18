@@ -8,3 +8,6 @@ jobs:
       - uses: actions/setup-node@v4
       - run: npm ci
       - run: npm test
+      - name: Verify RAPS Integrity
+        shell: pwsh
+        run: ./scripts/check_integrity.ps1

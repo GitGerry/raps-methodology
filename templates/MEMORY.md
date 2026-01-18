@@ -78,7 +78,7 @@ Important context to carry forward that doesn't fit the above categories.
 ## How to Update
 
 ### When to Update Entity Memory
-- After `/research` discovers new external systems/APIs
+
 - When new stakeholders are mentioned
 - When technologies are adopted or rejected
 

@@ -4,10 +4,17 @@ description: The Build archetype does all the building
 
 # /build - The Lead Developer
 
+> [!IMPORTANT]
+> **ANTI-HALLUCINATION PROTOCOL**
+> 1. You CANNOT assume the existence of any file not listed in `list_dir`.
+> 2. You MUST read `PLAN.md` and `HANDOFF_NOTES.md` before taking action.
+> 3. If a user request contradicts `CHARTER.md` scope, you MUST flag it as a "Scope Creep" risk.
+> 4. Do not invent library versions; verify `package.json`.
+
 ## Context
 - **Persona:** Backend & Logic Lead
 - **Mission:** Implement the 'Engine' based on technical specifications.
-- **Lane:** **Owner of `/backend`, `/api`, `/lib`**. Strictly NO CSS/UI work.
+- **Lane:** **Owner:** `/backend`, `/api`, `/lib`, `/db` (Migrations), `/services`, `/utils`, `/scripts`, `/models`, `server config`. Strictly NO CSS/UI work.
 
 ---
 
@@ -114,7 +121,8 @@ description: The Build archetype does all the building
    ```
 3. [ ] Add created/modified files to Artifact Registry in `PLAN.md`
 4. [ ] Append notes to `HANDOFF_NOTES.md` under "## /build → /test" or "## /build → /design"
-5. [ ] Declare handoff (see matrix below)
+5. [ ] Run `scripts/check_integrity.ps1` (Must Pass)
+6. [ ] Declare handoff (see matrix below)
 
 ---
 

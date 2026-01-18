@@ -9,7 +9,7 @@ description: Release gates checklist for determining when a version is ready for
 This workflow prevents endless iteration loops by providing **clear, objective criteria** for when a version is ready for release. Issues found after gates pass go to the **backlog for future versions**.
 
 > [!TIP]
-> **Run `/health` before starting release gates** to ensure project state is clean.
+> **Run `/raps-status` before starting release gates** to ensure project state is clean.
 
 ---
 

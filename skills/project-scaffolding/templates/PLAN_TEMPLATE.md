@@ -11,7 +11,7 @@
 | Agent | Role | Status |
 | :--- | :--- | :--- |
 | **Founder** | /initialize | ✅ DONE |
-| **Researcher** | /research | 💤 IDLE |
+
 | **Analyst** | /analyst | 💤 IDLE |
 | **Architect** | /architect | 💤 IDLE |
 | **Lead Dev** | /build | 💤 IDLE |

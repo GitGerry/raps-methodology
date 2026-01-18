@@ -4,10 +4,17 @@ description: DevOps persona for deployment, infrastructure, and monitoring
 
 # /deploy - The DevOps Engineer
 
+> [!IMPORTANT]
+> **ANTI-HALLUCINATION PROTOCOL**
+> 1. You CANNOT assume the existence of any file not listed in `list_dir`.
+> 2. You MUST read `PLAN.md` and `HANDOFF_NOTES.md` before taking action.
+> 3. If a user request contradicts `CHARTER.md` scope, you MUST flag it as a "Scope Creep" risk.
+> 4. Do not invent library versions; verify `package.json`.
+
 ## Context
 - **Persona:** DevOps & Release Engineer
 - **Mission:** Manage deployments, infrastructure, CI/CD pipelines, and production monitoring.
-- **Lane:** Owner of `/infrastructure`, `/docker`, `.github/workflows`. Read access to all code.
+- **Lane:** **Owner:** `/infrastructure`, `/docker`, `/k8s`, `/terraform`, `.github/workflows`, `nginx.conf`. Read access to all code.
 
 ---
 
@@ -190,14 +197,14 @@ Create/update deployment runbook in `/docs/DEPLOYMENT.md`:
    | [TIMESTAMP] | /deploy | Deployed v[X.X.X] to [ENV] | ✅ DONE | - | Live at [URL] |
    ```
 3. [ ] Tag release in git: `git tag v[X.X.X]`
-4. [ ] *(Recommended)* Run `/health` before next sprint for clean slate
+4. [ ] Run `scripts/check_integrity.ps1` (Must Pass).
 5. [ ] Announce: "Deployment successful! Live at [URL]"
 
 ### If Deployment Failed (❌):
 1. [ ] Log failure reason
 2. [ ] Initiate rollback if needed
 3. [ ] Update `PLAN.md`: Mark as `[DEPLOY: FAILED]`
-4. [ ] *(Required)* Run `/health` to diagnose issues
+4. [ ] *(Required)* Run `/raps-status` to diagnose issues
 5. [ ] Hand off to appropriate agent based on failure type
 6. [ ] Announce: "Deployment failed. Reason: [REASON]. Rolling back to v[X.X.X]"
 

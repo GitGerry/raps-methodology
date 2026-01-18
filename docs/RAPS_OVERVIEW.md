@@ -37,7 +37,7 @@ Before any code is written, RAPS establishes a "Spine" of living documents that 
     *   *Squad Status*: Real-time state of every agent (e.g., `🛠️ ACTIVE`, `💤 IDLE`).
     *   *Task Backlog*: The unified queue of work.
     *   *Artifact Registry*: A dynamic list of every file generated.
-*   **Interaction**: Every agent *reads* this file at startup (`/status`) and *updates* it upon completion.
+*   **Interaction**: Every agent *reads* this file at startup (`/raps-status`) and *updates* it upon completion.
 
 ### `SESSION_LOG.md` - The Black Box
 *   **Concept**: An immutable audit trail of every significant action.
@@ -132,6 +132,15 @@ Before any code is written, RAPS establishes a "Spine" of living documents that 
 *How the AI maintains continuity.*
 
 *   **Recursive Self-Correction**: If a tool fails (e.g., file not found), the agent is trained to read the directory structure, find the correct path, and retry *without user intervention*.
+*   **Synchronization (`/sync-raps`)**:
+    *   **Purpose:** Synchronize Antigravity Brain ↔ Local Repo ↔ GitHub.
+    *   **Workflow:** `/sync-raps`
+    *   **Script:** `scripts/sync_raps.ps1`
+    *   **Logic:**
+        *   "Smart Sync" algorithm that compares timestamps.
+        *   If Brain is newer -> Pushes to Repo -> Pushes to Git.
+        *   If Repo is newer -> Pushes to Git -> Syncs to Brain.
+        *   Keeps the "Master Ledger" consistent across environments.
 *   **Project Health Monitoring**: The `/raps-status` workflow is not just a script; it is a sanity check that ensures the "Spine" (Plan/Charter/Logs) is intact.
 *   **Episodic Memory**: By reading `SESSION_LOG.md` and `HANDOFF_NOTES.md` at the start of every turn, the agent "remembers" context even across disconnects or restarts.
 

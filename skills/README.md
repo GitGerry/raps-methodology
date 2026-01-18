@@ -7,16 +7,19 @@ Specialized instruction sets that extend AI capabilities for RAPS workflows.
 ### General Skills
 | Skill | Command | Description |
 |-------|---------|-------------|
-| **Import Requirements** | `/import-requirements` | Convert external docs (PRDs, Jira) to RAPS format |
-| **Generate Tests** | `/generate-tests` | Auto-create test cases from requirements |
-| **Compliance Check** | `/compliance-check` | Validate RAPS documents against conventions |
-| **Sprint Planning** | `/sprint-plan` | Create sprint plans with effort estimation |
-| **Handoff Summary** | `/handoff` | Generate handoff notes between personas |
-| **Impact Analysis** | `/impact-analysis` | Assess ripple effects of changes |
-| **Spec Review** | `/spec-review` | Review specifications against requirements |
-| **Debug Assist** | `/debug-assist` | Structured debugging workflow |
-| **Estimate** | `/estimate` | Effort estimation using story points |
-| **Document Gen** | `/document-gen` | Auto-generate documentation |
+| [**Import Requirements**](import-requirements/SKILL.md) | `/import-requirements` | Convert external docs (PRDs, Jira) to RAPS format |
+| [**Generate Tests**](generate-tests/SKILL.md) | `/generate-tests` | Auto-create test cases from requirements |
+| [**Sprint Planning**](sprint-plan/SKILL.md) | `/sprint-plan` | Create sprint plans with effort estimation |
+| [**Impact Analysis**](impact-analysis/SKILL.md) | `/impact-analysis` | Assess ripple effects of changes |
+| [**Sync RAPS**](sync-raps/SKILL.md) | `/sync-raps` | Sync Brain ↔ Repo |
+| [**Agile Toolkit**](agile-toolkit/SKILL.md) | `/agile-toolkit` | Agile ceremonies & artifacts |
+| [**UX Toolkit**](ux-toolkit/SKILL.md) | `/ux-toolkit` | User Experience design & research |
+| [**Business Toolkit**](business-toolkit/SKILL.md) | `/business-toolkit` | BRDs, Process Checks, Market Analysis |
+| [**Product Toolkit**](product-toolkit/SKILL.md) | `/product-toolkit` | Product strategy, roadmapping, feature prioritization |
+
+| [**Memory Update**](memory-update/SKILL.md) | `/memory-update` | Update RAPS Brain with new information |
+| [**Spec Review**](spec-review/SKILL.md) | `/spec-review` | Review specifications against requirements |
+| [**Debug Assist**](debug-assist/SKILL.md) | `/debug-assist` | Structured debugging workflow |
 
 
 
@@ -34,14 +37,14 @@ Specialized instruction sets that extend AI capabilities for RAPS workflows.
 ### Persona Toolkits
 | Skill | Used By | Description |
 |-------|---------|-------------|
-| **Agile Toolkit** | `/build`, `/design`, `/review`, `/sprint`, `/retro`, `/test` | DoR/DoD, sprint planning, retrospectives |
-| **Project Scaffolding** | `/initialize` | Project structure templates |
-| **Analyst Toolkit** | `/analyst` | Requirements standards & templates |
-| **Architecture Toolkit** | `/architect` | Spec templates, ADR format, auto-mode |
-| **QA Toolkit** | `/test` | Test protocols & coverage standards |
-| **Security Toolkit** | `/security` | OWASP checklists & vulnerability templates |
-| **UX Toolkit** | `/ux` | Heuristics, UAT templates |
-| **Deploy Toolkit** | `/deploy` | Deployment runbooks, rollback procedures |
+| [**Agile Toolkit**](agile-toolkit/SKILL.md) | `/build`, `/design`, `/review`, `/sprint`, `/retro`, `/test` | DoR/DoD, sprint planning, retrospectives |
+| [**Project Scaffolding**](project-scaffolding/SKILL.md) | `/initialize` | Project structure templates |
+| [**Analyst Toolkit**](analyst-toolkit/SKILL.md) | `/analyst` | Requirements standards & templates |
+| [**Architecture Toolkit**](architecture-toolkit/SKILL.md) | `/architect` | Spec templates, ADR format, auto-mode |
+| [**QA Toolkit**](qa-toolkit/SKILL.md) | `/test` | Test protocols & coverage standards |
+| [**Security Toolkit**](security-toolkit/SKILL.md) | `/security` | OWASP checklists & vulnerability templates |
+| [**UX Toolkit**](ux-toolkit/SKILL.md) | `/ux` | Heuristics, UAT templates |
+| [**Deploy Toolkit**](deploy-toolkit/SKILL.md) | `/deploy` | Deployment runbooks, rollback procedures |
 
 ## How to Use
 
@@ -70,7 +73,7 @@ Every SKILL.md should include these sections in order:
 4. **Instructions** — Step-by-step workflow
 5. **How to Verify** — Validation checklist
 
-See `templates/tool-interface-template.md` for the Tool Interface format.
+See `project-scaffolding/SKILL.md` for a reference implementation of the Tool Interface format.
 
 ## Adding New Skills
 

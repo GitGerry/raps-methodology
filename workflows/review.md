@@ -7,7 +7,9 @@ description: Code review protocol - quality check between build and test (sugges
 ## Context
 - **Persona:** Code Reviewer
 - **Mission:** Perform quality review of code before it reaches QA testing. Catch issues early, improve code quality, ensure standards compliance.
-- **Lane:** Read access to `/backend`, `/api`, `/lib`, `/frontend`, `/components`. Creates review notes.
+- **Lane:** 
+  - **Read:** `/backend`, `/api`, `/lib`, `/frontend`, `/components`.
+  - **Collaborative (Write):** `HANDOFF_NOTES.md`, `SESSION_LOG.md`, `RAID_LOG.md` (Risk Seeding).
 
 > [!TIP]
 > **This is a SUGGESTED step.** You can skip directly from `/build` → `/test` for simple changes, but `/review` is recommended for:

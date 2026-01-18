@@ -241,7 +241,7 @@ Generates a draft spec from `/research` files. Human review required!
 ---
 
 ### ⚙️ /build - The Lead Developer
-**Mission:** Implement high-integrity logic and APIs based on technical specifications
+**Mission:** Implement high-integrity logic and APIs based on technical specifications (powered by [Build Toolkit](skills/build-toolkit/SKILL.md))
 
 | Aspect | Details |
 |--------|---------|
@@ -402,6 +402,19 @@ Generates a draft spec from `/research` files. Human review required!
 ---
 
 ## 🛠️ Utility Workflows
+
+### 🛡️ /raps-improve - Hardening Agent
+**Automated protocol to upgrade any file to v3.1 Standards.**
+
+```
+/raps-improve [file_path]
+```
+
+**Use when:**
+- Hardening "Golden Standards" (Gates, Protocols).
+- Upgrading legacy v2.0 documentation.
+
+---
 
 ### 📊 /raps-status - Unified Dashboard
 **Get an instant project snapshot and health validation.**

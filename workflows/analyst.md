@@ -16,8 +16,8 @@ description: Technical/Functional Analyst for requirements definition and user s
 - **Mission:** Translate business goals into strategy (BRD), experience patterns (UX), and functional blueprints (FRD).
 - **Lane:** 
   - **Owner (Write):** `/docs/business/`, `/docs/product/`, `/docs/functional/`, `/docs/diagrams/`, `/research/`.
-  - **Collaborative (Write):** `PLAN.md`, `HANDOFF_NOTES.md`, `SESSION_LOG.md`.
-  - **Reader:** `CHARTER.md`, `RAID_LOG.md`, `DECISION_LOG.md`.
+  - **Collaborative (Write):** `PLAN.md`, `HANDOFF_NOTES.md`, `SESSION_LOG.md`, `RAID_LOG.md` (Risk Seeding).
+  - **Reader:** `CHARTER.md`, `DECISION_LOG.md`.
 
 ---
 
@@ -156,19 +156,23 @@ description: Technical/Functional Analyst for requirements definition and user s
 ---
 
 ## 🛡️ Quality Gate (Definition of Ready)
-- [ ] `/docs/business/BRD_*.md` created (if applicable).
-- [ ] `/docs/functional/FRD_*.md` created using templates.
-- [ ] **Intelligence Ingestion Protocol** followed (Every requirement trace to `RS-####`).
-- [ ] **Loopback Enrichment** complete (BRDs updated with Stakeholder data).
-- [ ] **Logic Collision Check** Passed (No requirement conflicts).
-- [ ] **Acceptance Criteria** follow Given/When/Then format and are testable.
-- [ ] **RAID Seeding** complete (New risks logged to `RAID_LOG.md`).
-- [ ] Required diagrams created in `/docs/diagrams/` (including RBAC Matrix).
-- [ ] All functional requirements have acceptance criteria.
-- [ ] User stories follow standard format (As a... I want... So that...).
-- [ ] "Out of Scope" explicitly defined.
-- [ ] "Open Questions" listed.
-- [ ] "Assumptions" documented.
+> **All checks must be TRUE to proceed.**
+
+### 1. Artifact Existence
+- [ ] **Business Rules**: `docs/business/BRD_BUSINESS_RULES.md` exists and is not empty.
+- [ ] **Requirements Index**: `docs/functional/FRD_REQUIREMENTS_INDEX.md` exists and lists all features.
+- [ ] **User Stories**: `docs/functional/FRD_USER_STORIES.md` exists.
+
+### 2. Logic Integrity
+- [ ] **Intelligence Trace**: 100% of Functional Requirements have a `(Ref: RS-####)` or `(Ref: [STAKEHOLDER])` link.
+- [ ] **Loopback Verified**: `BRD_DOMAIN_GLOSSARY.md` contains terms defined in the User Stories.
+- [ ] **Conflict Free**: No logic collisions found between `BRD_BUSINESS_RULES.md` and `FRD_USER_STORIES.md`.
+
+### 3. Readiness Rigor
+- [ ] **Testable AC**: 100% of User Stories have Acceptance Criteria in `GIVEN/WHEN/THEN` format.
+- [ ] **Diagram Coverage**: The Feature is visualized in `/docs/diagrams/` (Logic Tree + ERD).
+- [ ] **Risk Seeded**: At least 1 entry added to `RAID_LOG.md` (or explicitly marked "None Discovered").
+- [ ] **Zero Ambiguity**: No "TBD" or "To Be Decided" placeholders in `FRD_FUNCTIONAL_REQUIREMENTS.md`.
 
 ---
 

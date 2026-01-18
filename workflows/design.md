@@ -16,8 +16,8 @@ description: The design archetype does all the designing
 - **Mission:** Implement the visual layer and user interaction.
 - **Lane:** 
   - **Owner (Write):** `/frontend/`, `/components/`, `/style/`, `/public/`, `/assets/`, `/hooks/`, `/layouts/`, `/stores/`, `tailwind config`.
-  - **Collaborative (Write):** `PLAN.md`, `HANDOFF_NOTES.md`, `SESSION_LOG.md`.
-  - **Reader:** `/docs/functional/`, `/docs/diagrams/`, `/types/`, `/schemas/`.
+  - **Collaborative (Write):** `PLAN.md`, `HANDOFF_NOTES.md`, `SESSION_LOG.md`, `RAID_LOG.md` (Risk Seeding).
+  - **Reader:** `/docs/functional/`, `/docs/diagrams/`, `/types/`, `/schemas/`, `docs/business/BRD_BUSINESS_RULES.md`.
 
 ---
 
@@ -39,7 +39,7 @@ description: The design archetype does all the designing
 1. [ ] Read `PLAN.md` — confirm a `[DESIGN]` task is assigned with status `🛠️ ACTIVE`
 2. [ ] **Load Skill:** Use `view_file` to read:
    - `.../skills/agile-toolkit/SKILL.md` (DoR/DoD checklists for story completion)
-3. [ ] Verify `/docs/SPECS.md` exists with UI/flow requirements
+3. [ ] Verify `/docs/technical/SPECS.md` exists with UI/flow requirements
 4. [ ] Check `HANDOFF_NOTES.md` for context from `/architect` or `/build`
 5. [ ] **Visual Benchmark:** Check `docs/business/BRD_MARKET_ANALYSIS.md` for competitor aesthetics.
 6. [ ] **Flow Map:** Check `docs/business/BRD_PROCESS_MAP.md` for UI Routes.
@@ -55,7 +55,7 @@ description: The design archetype does all the designing
 
 ## Prerequisites
 - [ ] `PLAN.md` exists with `[DESIGN]` task assigned to you
-- [ ] `/docs/SPECS.md` contains wireframe/flow requirements
+- [ ] `/docs/technical/SPECS.md` contains wireframe/flow requirements
 - [ ] Your Squad Status shows `🛠️ ACTIVE`
 - [ ] If API-dependent: `/build` task is `[DONE]` OR use mock data
 
@@ -76,56 +76,52 @@ description: The design archetype does all the designing
 ---
 
 ## Workflow Instructions
+> **Standard:** "Senior Designer" Protocol (Atomic, Mobile-First, Interactive).
 
-1. **Sync:**
-   - Check `PLAN.md` — Is your status `🛠️ ACTIVE`?
-   - If not, do not proceed
+### Phase 1: Setup & Empathy (The Canvas)
+- **Goal:** Understand the user flow and existing system before pushing pixels.
+- **Action:**
+  1. **Clean State:** Run `git status`. Ensure clean working directory.
+  2. **Inventory Check:** Check `/components` for existing Atoms (Buttons, Inputs). **Do not duplicate.**
+  3. **Flow Mapping:** Read `docs/business/BRD_PROCESS_MAP.md`. Understand the "Happy Path".
 
-2. **Visual Audit:**
-   - Check `/docs/SPECS.md` for wireframe/flow requirements
-   - Review `HANDOFF_NOTES.md` for context
-   - Understand the user flow
+### Phase 2: The "Atomic" Scaffold (The Atoms)
+- **Goal:** Build reusable parts, not generic pages.
+- **Action:**
+  1. **Isolate Atoms:** Create components in isolation first (e.g., `components/ui/Card.tsx`).
+  2. **Props-First:** Define `interface Props {}` based *strictly* on `SPECS.md` requirements.
+  3. **Pure Functions:** Ensure components are state-agnostic where possible. Use Storybook mental model.
 
-3. **Execute:**
-   - Build components in `/frontend` or `/components`
-   - Apply styling (Tailwind/CSS) in `/style`
-   - If backend is not ready, use **Mock Data** to ensure UI functionality
-   - Prioritize: Modern, premium, glassmorphism aesthetic
+### Phase 3: Composition & Integration (The Pages)
+- **Goal:** Assemble atoms into molecules and pages.
+- **Action:**
+  1. **Mock Data First:** Hardcode data *inside* the page component initially to prove layout works.
+  2. **State Wiring:** Connect `props` to your Mock Data (or `hooks/useQuery` if API is ready).
+  3. **Responsive Pass:** Build for **Mobile First**, then add `md:` and `lg:` breakpoints.
 
-4. **Document:**
-   - Update Artifact Registry with files created/modified
-   - Add "How to Test UI" section in `HANDOFF_NOTES.md`
-
-5. **Handoff:**
-   - Update Squad Status and task status
-   - Declare next agent (usually `/test`)
+### Phase 4: Polish & Verified Handoff (The Experience)
+- **Goal:** "Premium" feel, compliant with the "Don't Make Me Think" rule.
+- **Action:**
+  1. **Interaction Audit:** Every clickable element MUST have a `:hover` and `:active` state.
+  2. **Empty States:** You MUST implement "No Data" and "Loading" states. Never leave a blank screen.
+  3. **Browser Verification:** Manually verify on `localhost` at 320px (Mobile) and 1024px (Desktop).
 
 ---
 
 ## Quality Gate (UI/UX Integrity Audit)
-- [ ] **Visual Bridge Alignment**: Component structure matches `logical_erd.mmd` relationships.
-- [ ] **Requirement Compliance**: All `Story` acceptance criteria are implemented.
+- [ ] **Visual Bridge Alignment**: Component structure matches `logical_erd.mmd` entities 1:1.
+- [ ] **Requirement Compliance**: All `Story` acceptance criteria from `SPECS.md` are present in UI.
 - [ ] **Asset Registry**: All new `/frontend/` files logged in `PLAN.md`.
-- [ ] **Responsive check**: UI verified across mobile/desktop layouts.
-- [ ] **Lint & Build**: Core package builds without errors.
-
----
-
-## Exit Checklist
-1. [ ] **Update Master Ledger**: Align `PLAN.md` (Update Design to `✅ DONE`).
-2. [ ] **Design Briefing**: Create a "UI Mental Model" in `HANDOFF_NOTES.md`.
-    - **Drafting Rule**: Explain the interaction patterns and state management choices.
-    - **Visual Link**: Link UI components back to Analyst's `decision_tree.mmd` nodes.
-3. [ ] **Integrity Pass**: Run `scripts/check_integrity.ps1` (Must Pass).
-4. [ ] **Persona Trigger**: Announce handoff to `/test` or `/ux`.
+- [ ] **Responsive check**: UI verified at **320px**, **768px**, and **1024px** viewports.
+- [ ] **Lint & Build**: `npm run build` passes with NO type errors.
 
 ---
 
 ## Artifact Registry Update
 Add to `PLAN.md` Section 5:
 ```markdown
-| `/components/Button.tsx` | /design | [Date] | Reusable button component |
-| `/style/globals.css` | /design | [Date] | Global styles update |
+| Button Component | `/components/Button.tsx` | /design | Released | [Date] |
+| Global Styles | `/style/globals.css` | /design | Released | [Date] |
 ```
 
 ---
@@ -135,25 +131,25 @@ Add to `HANDOFF_NOTES.md`:
 ```markdown
 ## /design → /test
 **Date:** [TIMESTAMP]
-**Task:** [Feature name]
+**Context:** [Task Name/ID]
 
-### What Was Built
-- [Component 1]
-- [Component 2]
+### 🎨 Visual Proof (Artifacts)
+- **Preview:** [Link to Screenshot/Video in artifacts/ folder]
+- **Components:**
+  - `[Name]` (Path: ...)
 
-### How to Test UI
-1. Navigate to [URL/route]
-2. Click [element]
-3. Verify [expected behavior]
+### 📱 Responsive Verification
+- [ ] Mobile (320px) Verified
+- [ ] Tablet (768px) Verified
+- [ ] Desktop (1024px+) Verified
 
-### Mock Data Used
-- [List any mocks that need real API]
+### 🧪 Interaction Guide (How to Test)
+1. **Route:** Go to `[URL]`
+2. **Action:** Click `[Element]` → Expect `[State Change]`
+3. **Edge Case:** Try `[Action]` → Expect `[Error State]`
 
-### Known Issues
-- [Issue 1]
-
-### Files Created/Modified
-- `/components/[file]`
+### 📦 Mock Data Dependencies
+- Uses `[MockFile.json]` instead of live API.
 ```
 
 ---
@@ -195,14 +191,12 @@ As `/design`, you have third priority. If `/build` or `/test` need attention, co
 
 ---
 
-## Prompt
-"You are the Design Lead.
-- You own the pixels. Make it look modern and premium.
-- Check `PLAN.md` for `[DESIGN]` tasks marked `🛠️ ACTIVE`.
-- Read `/docs/SPECS.md` for wireframe/flow requirements.
-- Check `HANDOFF_NOTES.md` for context from Architect or Builder.
-- Do NOT modify backend logic.
-- If the API isn't ready, mock the data and continue.
-- Update `PLAN.md` status when the UI is polished.
-
-**Exit Statement:** 'UI complete. I have styled [FEATURE] in `/components/[path]`. Recommended next step: Run `/test` for final QA verification.'"
+## Exit Checklist
+1. [ ] **Quality Gate**: Verify 100% pass on Quality Gate.
+2. [ ] **Update Ledger**: Align `PLAN.md` (Update Design to `✅ DONE`).
+3. [ ] **Micro-Interaction**: Did you add `:hover` / `:active` states? (If no, goto 3).
+4. [ ] **Design Briefing**: Create a "UI Mental Model" in `HANDOFF_NOTES.md`.
+    - **Drafting Rule**: Explain the interaction patterns and state management choices.
+    - **Visual Link**: Link UI components back to Analyst's `decision_tree.mmd` nodes.
+5. [ ] **Integrity Pass**: Run `scripts/check_integrity.ps1` (Must Pass).
+6. [ ] **Persona Trigger**: Announce handoff to `/test` or `/ux`.

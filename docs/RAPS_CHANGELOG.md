@@ -2,6 +2,8 @@
 
 > Governance log for the evolution of the RAPS Framework.
 
+| 2026-01-18 20:46 | v3.1.1 | **Feature** | **Hardening Agent**: Released `/raps-improve` workflow to automate v3.1 standards upgrades. | User |
+| 2026-01-18 19:54 | v3.0.3 | **Standardization** | v3.1 Build Persona Hardening | User |
 | 2026-01-18 19:51 | v3.0.2 | **Standardization** | Release v3.1.0: Build Persona Hardening & Toolkit Integration | User |
 | 2026-01-18 19:30 | v3.0.1 | **Standardization** | Release v3.0.0: The Enterprise Excellence Release | User |
 | 2026-01-18 19:30 | v3.0.0 | **Release** | **The Enterprise Excellence Release**: Hardened Analyst/Architect logic bridges, Intelligence Engine (Exa/Tavily), Governance Standardization, and Automated Sync. | User |

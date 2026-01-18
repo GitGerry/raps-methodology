@@ -16,7 +16,7 @@ description: The Test archetype does all the testing
 - **Mission:** Verify that Build and Design implementations match the Architect's specs.
 - **Lane:** 
   - **Owner (Write):** `/tests/`, `/e2e/`, `/mocks/`, `jest.config.js`, `playwright.config.ts`.
-  - **Collaborative (Write):** `PLAN.md`, `HANDOFF_NOTES.md`, `SESSION_LOG.md`.
+  - **Collaborative (Write):** `PLAN.md`, `HANDOFF_NOTES.md`, `SESSION_LOG.md`, `RAID_LOG.md` (Risk Seeding).
   - **Reader:** Read-only access to all other folders for verification.
 
 ---
@@ -39,15 +39,24 @@ description: The Test archetype does all the testing
 1. [ ] Confirm tasks are `[READY FOR TEST]` in `PLAN.md`.
 2. [ ] **Load Skill:** Use `view_file` to read:
    - `.../skills/qa-toolkit/SKILL.md` (Protocols & Templates)
-3. [ ] Log session start to `SESSION_LOG.md`.
-4. [ ] Announce: "Starting /test workflow..."
+3. **Ingest Context (The "Truth" & The "Proof"):**
+   - [ ] Read `HANDOFF_NOTES.md` (What Build claims works).
+   - [ ] Read `docs/technical/SPECS.md` (The Technical Spec).
+   - [ ] Read `docs/functional/FRD_USER_STORIES.md` (The source of User Acceptance).
+4. [ ] Log session start to `SESSION_LOG.md`:
+   ```
+   | [TIMESTAMP] | /test | Starting Verification of [TASK] | 🛠️ ACTIVE | - | [Notes] |
+   ```
+5. [ ] Announce: "Starting /test workflow..."
 
 ---
 
 ## Prerequisites
-- Tasks marked `[READY FOR TEST]`.
-- Specs available in `/docs/SPECS.md`.
-- Business Rules available in `docs/business/BRD_BUSINESS_RULES.md` (for Logic Validation).
+- [ ] `PLAN.md` exists with task `[READY FOR TEST]`.
+- [ ] **Proof of Work:** `HANDOFF_NOTES.md` contains a "Verification Report" or "Build Log".
+- [ ] **Technical Truth:** `docs/technical/SPECS.md` available.
+- [ ] **Usage Truth:** `docs/functional/FRD_USER_STORIES.md` available.
+- [ ] **Logic Truth:** `docs/business/BRD_BUSINESS_RULES.md` available.
 
 ---
 
@@ -59,28 +68,78 @@ description: The Test archetype does all the testing
 ---
 
 ## Workflow Instructions
-> **Detailed instructions are in [SKILL.md](../skills/qa-toolkit/SKILL.md)**
 
-1.  **Sync**: Check PLAN and Specs.
-2.  **Verify**: Run code, check against specs.
-3.  **Performance Test**:
-    - Run benchmarks (`autocannon`, `Lighthouse`).
-    - Create `/tests/performance/PERF_REPORT_[DATE].md`.
-4.  **Triage**:
-    - **CRITICAL/HIGH**: Mark as FAILED.
-    - **MEDIUM/LOW**: Document, potentially PASS with notes.
-5.  **Report**:
-    - **PASS**: Archive task, generate Coverage Report.
-    - **FAIL**: Reject task, log details in `HANDOFF_NOTES.md`.
+### Phase 1: Test Strategy (The Mirror)
+- **Goal:** Verify "What was built" matches "What was asked".
+- **Action:**
+  1. **Source of Truth:** Read `docs/functional/FRD_USER_STORIES.md` and `docs/technical/SPECS.md`.
+  2. **Proof Ingest:** Read `HANDOFF_NOTES.md`. Does Build/Design claim it works?
+  3. **Strategy Doc:** Create `TEST_PLAN.md` if complex, or just list test cases in scratchpad.
+
+### Phase 2: Scaffold & Mock
+- **Goal:** Isolate the variable under test.
+- **Action:**
+  1. **Environment:** Ensure `.env.test` is distinct from `.env.local`.
+  2. **Data:** Seed mock data (factory pattern) or standard fixtures.
+  3. **Harness:** Ensure `main.test.ts` or equivalent entry point is clean.
+
+### Phase 3: The Meat Grinder (Execution)
+- **Goal:** Try to break it.
+- **Action:**
+  1. **Unit:** Run `npm test` (Logic Verification).
+  2. **Integration:** Verify API contracts using `scripts/api-check.sh` or equivalent.
+  3. **E2E:** Verify Critical User Paths (Happy & Red Paths).
+  4. **Performance:** Audit latency if specified in NFRs.
+
+### Phase 4: Reporting
+- **Goal:** Documentation as evidence.
+- **Action:**
+  1. **Log Defects:** If FAIL, write precise reproduction steps.
+  2. **Log Success:** If PASS, generate Coverage Report or Screenshot proof.
+  3. **Update:** `HANDOFF_NOTES.md`.
 
 ---
 
 ## Quality Gate (Verification Integrity Audit)
-- [ ] **Contract Coverage**: Every requirement in `/docs/technical/SPECS.md` has a passing test/validation.
-- [ ] **Data Integrity**: Logic validated against `logical_erd.mmd` constraints.
-- [ ] **Edge Case Rigor**: "Red Path" logic from `decision_tree.mmd` verified.
-- [ ] **Clean Slate**: Console and logs are free of unexpected errors.
-- [ ] **Regression Check**: New changes do not break existing features.
+- [ ] **Execution Success**: `npm test` passes with **Exit Code 0**.
+- [ ] **Coverage Trace**: 100% of **ALL completed** User Stories have a linked Test Case or Validation Step.
+- [ ] **Visual Proof**: UI components are verified against `logical_erd.mmd` entities.
+- [ ] **No Regression**: Critical Paths (Happy Flows) pass without manual intervention.
+- [ ] **Artifact Presence**: Validation Report (or updated Notes) exists.
+
+---
+
+## Artifact Registry Update
+Add to `PLAN.md` Section 5:
+```markdown
+| Test Report | `/tests/reports/coverage.html` | /test | Released | [Date] |
+| Test Utils | `/tests/utils/setup.ts` | /test | Released | [Date] |
+```
+
+---
+
+## Cross-Persona Notes Template
+Add to `HANDOFF_NOTES.md`:
+```markdown
+## /test → [/deploy | /ux]
+**Date:** [TIMESTAMP]
+**Context:** [Verifying Task ID]
+
+### 🟢 Validation Status: [PASS | FAIL]
+
+### 🧪 Coverage Summary
+- **Unit:** [X]% passed
+- **Integration:** [X]% passed
+- **Manual:** Verified [Feature A], [Feature B].
+
+### 🐛 Defect Log (If Failed)
+1. **Critical:** [Description] (Repro: ...)
+2. **High:** [Description]
+
+### 🛡️ Release Recommendation
+- [ ] **GO:** Ready for Staging/Prod.
+- [ ] **NOGO:** Blocking Defect found.
+```
 
 ---
 

@@ -5,6 +5,12 @@ description: Standard operating procedures for Agile ceremonies and rituals (Sta
 
 # 🏃 Agile Toolkit Skill
 
+> [!IMPORTANT]
+> **ANTI-HALLUCINATION PROTOCOL**
+> 1. You CANNOT assume the existence of any file not listed in `list_dir`.
+> 2. You MUST read `PLAN.md` before taking action.
+> 3. **Validation:** Review `SESSION_LOG.md` for previous blockers.
+
 ## 1. Description
 The **Agile Toolkit** provides the standard rituals and ceremonies for the RAPS squad. It ensures all personas operate with a shared cadence and understanding of progress.
 

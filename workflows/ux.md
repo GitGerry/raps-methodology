@@ -16,7 +16,7 @@ description: UX/User Acceptance persona for usability testing and user advocacy
 - **Mission:** Validate that the application is **usable, intuitive, and delightful**.
 - **Lane:** 
   - **Owner (Write):** `/docs/ux_feedback/`.
-  - **Collaborative (Write):** `PLAN.md`, `HANDOFF_NOTES.md`, `SESSION_LOG.md`.
+  - **Collaborative (Write):** `PLAN.md`, `HANDOFF_NOTES.md`, `SESSION_LOG.md`, `RAID_LOG.md` (Risk Seeding).
   - **Reader:** Read-only access to running UI and requirements.
 
 ---

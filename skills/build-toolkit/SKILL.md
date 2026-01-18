@@ -5,6 +5,12 @@ description: The "Engine Lab" Manual. Standard operating procedures for implemen
 
 # 🏗️ Build Toolkit Skill
 
+> [!IMPORTANT]
+> **ANTI-HALLUCINATION PROTOCOL**
+> 1. You CANNOT assume the existence of any file not listed in `list_dir`.
+> 2. You MUST read `PLAN.md` before taking action.
+> 3. **Validation:** If code deviates from `docs/diagrams/`, you MUST flag it.
+
 ## 1. Description
 The **Build Toolkit** is the "Code of Conduct" for the RAPS Engine Room. It transforms the `/build` persona from a generic coder into an Enterprise Engineer. It enforces strict standards for **Logic Bridge Ingestion**, **Database Management**, and **Code Quality**, ensuring that the "Build" phase respects the architecture defined in preceding phases.
 

@@ -72,6 +72,24 @@ This document provides a comprehensive overview of all documentation, diagrams, 
     *   **Created:** `Init` - During initial setup.
     *   **Updated:** `Continuously` - Run as needed to update `PLAN.md`.
 
+### `SESSION_LOG.md`
+*   **Responsible:** **All Agents**
+*   **Type:** **Living**
+*   **Purpose:** Time-series log of all session activities, commits, and handoffs. Audit trail for the "Golden Thread."
+*   **Audience:** Team, Managers, Auditors
+*   **Lifecycle:**
+    *   **Created:** `Init` - At project start.
+    *   **Updated:** `Continuously` - At start/end of every workflow session.
+
+### `RAPS_CHANGELOG.md`
+*   **Responsible:** **Build/System** (Auto-updated by `sync_raps.ps1`)
+*   **Type:** **Living**
+*   **Purpose:** Detailed history of methodology version changes, feature additions, and bug fixes.
+*   **Audience:** All Users
+*   **Lifecycle:**
+    *   **Created:** `Init` - At project start.
+    *   **Updated:** `Continuously` - Automatically updated during every `sync_raps.ps1` run.
+
 ### `DECISION_LOG.md`
 *   **Responsible:** **Architect**
 *   **Type:** **Living**
@@ -230,6 +248,16 @@ This document provides a comprehensive overview of all documentation, diagrams, 
 *   **Lifecycle:**
     *   **Created:** `Plan` - During high-level design.
     *   **Updated:** `Build` - Updated if system boundaries change. Referenced for onboarding.
+
+### `HANDOFF_NOTES.md`
+*   **Responsible:** **Build** (with Architect/Analyst input)
+*   **Type:** **Living**
+*   **Purpose:** The critical bridge between personas. Standardized context transfer (Architect → Build → Test).
+*   **Audience:** Build, Test
+*   **Lifecycle:**
+    *   **Created:** `Plan` - Architect seeds it with "Context-First" briefing.
+    *   **Updated:** `Build` - Builder adds "How to Verify" and drift notes.
+    *   **Used:** `Test` - Tester reads it to understand specific implementation details before testing.
 
 ---
 

@@ -75,6 +75,7 @@ Establish a robust, agentic-native software development methodology (RAPS) that 
 |----------|------|-------|--------|--------------|
 | Overview | `/docs/RAPS_OVERVIEW.md` | /architect | Released | 2026-01-18 |
 | Artifacts | `/docs/ARTIFACTS.md` | /architect | Released | 2026-01-18 |
+| Hardening Workflow | `workflows/raps-improve.md` | /build | Released | 2026-01-18 |
 
 ---
 

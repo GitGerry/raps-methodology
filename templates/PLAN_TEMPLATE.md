@@ -11,7 +11,7 @@
 | **Project Name** | [Name] |
 | **Start Date** | [Date] |
 | **Target Release** | [Date/Version] |
-| **Status** | 🟡 In Progress / 🟢 On Track / 🔴 At Risk |
+| **Status:** Use `/raps-status` to update this section. Track / 🔴 At Risk |
 
 ### Vision Statement
 [One paragraph describing what this project achieves]

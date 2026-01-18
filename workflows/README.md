@@ -724,7 +724,7 @@ When multiple agents are active:
 
 ### Checking State
 ```
-/status          # Quick snapshot
+| `/raps-status` | **Dashboard** | Unified status and health check. |
 /health          # Full validation
 ```
 

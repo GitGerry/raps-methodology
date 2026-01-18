@@ -276,27 +276,16 @@ export const personaData = {
         subtitle: 'Project Pulse',
         phase: 'utility',
         description: 'Get an instant snapshot of the project\'s current state without modifying anything. Useful for quick orientation.',
+        name: '/raps-status',
+        subtitle: 'Projects Health & Status',
+        phase: 'utility',
+        description: 'Unified dashboard for project status and health validation.',
         responsibilities: [
             'Identify current active agent',
             'Show task in progress',
             'Highlight blockers',
             'List recent activity',
-            'Recommend next actions'
-        ],
-        lanes: ['Read-only'],
-        handoff: 'Use anytime to orient yourself.',
-        entryChecklist: [
-            'Project initialized',
-            'PLAN.md exists'
-        ]
-    },
-    health: {
-        emoji: '🏥',
-        name: '/health',
-        subtitle: 'Project Validator',
-        phase: 'utility',
-        description: 'Validates the project structure and documents to ensure RAPS compliance and catch issues early.',
-        responsibilities: [
+            'Recommend next actions',
             'Verify directory structure',
             'Validate PLAN.md tables',
             'Check for stale tasks',

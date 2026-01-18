@@ -97,6 +97,5 @@ Important context to carry forward that doesn't fit the above categories.
 ## Usage Notes
 
 1. **Keep it concise** — This is a reference, not a journal
-2. **Update regularly** — Stale memory is worse than no memory
-3. **Review at session start** — Use `/status` to check memory
+2.- **Status Updates:** Update your row in the **Squad Status** table before ending your turn (or run `/raps-status`). **Review at session start** — Use `/raps-status` to check memory
 4. **Prune periodically** — Remove outdated entries during `/retro`

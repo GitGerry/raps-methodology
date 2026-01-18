@@ -589,8 +589,8 @@ export function renderRapsGuideTab() {
                         <p>Conduct sprint retrospectives and capture lessons learned</p>
                     </div>
                     <div class="workflow-card">
-                        <code>/status</code>
-                        <p>Quick snapshot of current project state</p>
+                        <code>/raps-status</code>
+                        <p>Unified Project Status & Health Dashboard.</p>
                     </div>
                 </div>
             </section>

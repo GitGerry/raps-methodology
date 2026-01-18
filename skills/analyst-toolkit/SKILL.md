@@ -65,7 +65,7 @@ Provide standards for writing requirements, user stories, and maintaining tracea
 ## 2. User Story Standards
 
 ### Format
-See `templates/FRD_USER_STORIES.md`
+See `./templates/FRD_USER_STORIES.md`
 
 ### Story Quality Checklist
 - [ ] Follows "As a... I want... So that..." format
@@ -81,7 +81,7 @@ See `templates/FRD_USER_STORIES.md`
 ## 3. Functional Requirement Standards
 
 ### Format
-See `templates/FRD_FUNCTIONAL_REQUIREMENTS.md`
+See `./templates/FRD_FUNCTIONAL_REQUIREMENTS.md`
 
 ### Requirement Quality Checklist
 - [ ] Starts with "The system shall"
@@ -161,7 +161,7 @@ stateDiagram-v2
 ## 6. Use Case Standards
 
 ### Format
-See `templates/FRD_USE_CASES.md`
+See `./templates/FRD_USE_CASES.md`
 
 ---
 

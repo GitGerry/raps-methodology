@@ -29,5 +29,5 @@ To actively attack, exploit, and audit the application to uncover weaknesses bef
 3.  **Reject:** Send back to `/build` with reproduction steps.
 
 ## 📂 Templates
-- `templates/ATTACK_PROTOCOL.md`: The checklist of attacks to run.
-- `templates/VULNERABILITY_REPORT.md`: The specific output format for findings.
+- `./templates/ATTACK_PROTOCOL.md`: The checklist of attacks to run.
+- `./templates/VULNERABILITY_REPORT.md`: The specific output format for findings.

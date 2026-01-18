@@ -63,21 +63,21 @@ project-root/
 ## 2. Initial Artifact Templates
 
 ### PLAN.md (Master Ledger)
-See `templates/PLAN_TEMPLATE.md` for full template.
+See `./templates/PLAN_TEMPLATE.md` for full template.
 
 ### SESSION_LOG.md
-See `templates/SESSION_LOG_TEMPLATE.md` for full template.
+See `./templates/SESSION_LOG_TEMPLATE.md` for full template.
 
 ### HANDOFF_NOTES.md
-See `templates/HANDOFF_NOTES_TEMPLATE.md` for full template.
+See `./templates/HANDOFF_NOTES_TEMPLATE.md` for full template.
 
 ### MEMORY.md
-See `templates/MEMORY_TEMPLATE.md` for full template.
+See `./templates/MEMORY_TEMPLATE.md` for full template.
 
 ---
 
 ## 3. Additional Templates
-The following templates are available in the `templates/` directory:
+The following templates are available in the `./templates/` directory:
 - `CHARTER_TEMPLATE.md` (Project Charter)
 - `CONTRIBUTING_TEMPLATE.md` (Contribution Guidelines)
 - `SECURITY_TEMPLATE.md` (Security Policy)

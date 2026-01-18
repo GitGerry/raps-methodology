@@ -66,7 +66,7 @@ Run `/retro` after:
    - Include metrics if available
 
 4. **Archive:**
-   - Use template from `templates/RETROSPECTIVE.md`
+   - Use template from `../skills/project-scaffolding/templates/RETROSPECTIVE_TEMPLATE.md`
    - Save to `/docs/management/retrospectives/YYYY-MM-DD_RETRO_Milestone.md`
    - Add entry to Artifact Registry in `PLAN.md`
    - **Update `DECISION_LOG.md`** with any retrospective decisions

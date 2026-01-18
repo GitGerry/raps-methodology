@@ -35,5 +35,5 @@ Combines "Voice of Customer" (VoC) with "UX Benchmarks" to write "User Stories".
 
 | Module | Template | Purpose |
 | :--- | :--- | :--- |
-| **Product Benchmarks** | `templates/PRODUCT_BENCHMARKS.md` | VoC, Delighters, Competitor Gaps. |
-| **User Stories** | `templates/USER_STORIES.md` | Agile tickets ready for backlog. |
+| **Product Benchmarks** | `./templates/PRODUCT_BENCHMARKS.md` | VoC, Delighters, Competitor Gaps. |
+| **User Stories** | `./templates/USER_STORIES.md` | Agile tickets ready for backlog. |

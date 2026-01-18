@@ -73,7 +73,7 @@ description: Initialize a new RAPS project with scaffolding and Master Ledger
         - `CHARTER.md` (Project Charter) -> Root
         - `/docs/management/RAID_LOG.md`
         - `/docs/management/DECISION_LOG.md`
-        - `.raps/MEMORY.md` (From `templates/MEMORY_TEMPLATE.md`)
+        - `.raps/MEMORY.md` (From `../skills/project-scaffolding/templates/MEMORY_TEMPLATE.md`)
         - `.raps/SESSION_LOG.md`
         - `.raps/HANDOFF_NOTES.md`
         - `README.md`
@@ -88,7 +88,6 @@ description: Initialize a new RAPS project with scaffolding and Master Ledger
 
 ---
 
-## Quality Gate
 ## Quality Gate
 - [ ] **Standard Folders:** `.raps`, `docs`, `research`, `frontend`, `backend`, `scripts` exist.
 - [ ] **Master Ledger:** `PLAN.md` and `CHARTER.md` exist in root.

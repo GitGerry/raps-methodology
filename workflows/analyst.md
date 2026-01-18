@@ -186,13 +186,11 @@ description: Technical/Functional Analyst for requirements definition and user s
 
 ---
 
-## 📂 Handoff Matrix
-| Outcome | Next Agent | Command | Action |
-|---------|------------|---------|--------|
-| ✅ Requirements complete (DoR Passed) | `/architect` | **Run `/architect`** | Perform **Warm Handoff Briefing** (Context-First). |
-| ⏳ Need Business Rules/Process | BA Toolkit | Create `BRD_*.md` | Loopback verified stakeholder data. |
-| ⏳ Need Stakeholder Context | FA Toolkit | Create `QUESTIONNAIRE.md` | Execute Interview Loop. |
-| ⏳ Need Competitive/Product Intel | PM Toolkit | Load `product-toolkit` | Execute Feature Benchmarking. |
-| ⏳ Need Market/Strategic Research | BA Toolkit | Load `business-toolkit` | Execute TAM/ROI Analysis. |
-| ⏳ **Intelligence Trigger** (Missing Data) | `/research` | **Run `/research-toolkit`** | Execute v2.8 Discovery Loop (Exa, BuiltWith). |
-| 🚨 Ambiguity/Logic Collision | USER | Ask clarification | STOP and resolve before Architect. |
+## Handoff Matrix
+| Outcome | Next Agent | Action |
+|---------|------------|--------|
+| ✅ Requirements Complete | `/architect` | Perform **Warm Handoff Briefing** + Run `/architect` |
+| ⏳ Missing Process Logic | BA Toolkit | Load `business-toolkit` (Loopback Process Map) |
+| ⏳ Missing Product Intel | PM Toolkit | Load `product-toolkit` (Benchmarking) |
+| ⏳ Intelligence Gap | `/research` | Run `/research` (v2.8 Discovery Loop) |
+| 🚨 Logic Collision | USER | ESCALATE: Resolve requirement ambiguity |

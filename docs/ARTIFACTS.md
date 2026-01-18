@@ -104,7 +104,7 @@ This document provides a comprehensive overview of all documentation, diagrams, 
 ## 💼 Business & Strategy
 *Defining the "Why" and "What" from a market perspective.*
 
-### `BRD.md` (Business Req. Doc)
+### `BRD_BUSINESS_CASE.md` (Business Req. Doc)
 *   **Responsible:** **Analyst**
 *   **Type:** Static
 *   **Purpose:** Details high-level business goals, problem statements, and success criteria.
@@ -113,7 +113,7 @@ This document provides a comprehensive overview of all documentation, diagrams, 
     *   **Created:** `Plan` - After initial stakeholder interviews.
     *   **Used:** `Plan/Test` - Referenced to validate if the final product meets business goals.
 
-### `MARKET_ANALYSIS.md`
+### `BRD_MARKET_ANALYSIS.md`
 *   **Responsible:** **Analyst**
 *   **Type:** Static
 *   **Purpose:** Analysis of market size (TAM/SAM/SOM), trends, and customer demographics.
@@ -122,7 +122,7 @@ This document provides a comprehensive overview of all documentation, diagrams, 
     *   **Created:** `Init/Plan` - During feasibility study.
     *   **Used:** `Plan` - Referenced to define product differentiation strategy.
 
-### `BUSINESS_RULES.md`
+### `BRD_BUSINESS_RULES.md`
 *   **Responsible:** **Analyst**
 *   **Type:** **Living**
 *   **Purpose:** Detailed list of logical constraints (e.g., "Users < 18 cannot purchase").
@@ -131,7 +131,7 @@ This document provides a comprehensive overview of all documentation, diagrams, 
     *   **Created:** `Plan` - During requirements gathering.
     *   **Updated:** `Build/Test` - Updated as new logic is discovered. Referenced by Devs implementing logic & QA writing tests.
 
-### `PRODUCT_BENCHMARKS.md`
+### `UX_PRODUCT_BENCHMARKS.md`
 *   **Responsible:** **Analyst**
 *   **Type:** Static
 *   **Purpose:** Feature-by-feature comparison matrix against competitors.
@@ -145,7 +145,7 @@ This document provides a comprehensive overview of all documentation, diagrams, 
 ## 🕵️ Analysis & Requirements
 *Translating business needs into systemic behaviors.*
 
-### `FRD.md` (Functional Req. Doc)
+### `FRD_FUNCTIONAL_REQUIREMENTS.md`
 *   **Responsible:** **Analyst**
 *   **Type:** Static
 *   **Purpose:** Detailed specifications of system inputs, outputs, processes, and behaviors.
@@ -154,7 +154,7 @@ This document provides a comprehensive overview of all documentation, diagrams, 
     *   **Created:** `Plan` - After BRD approval.
     *   **Used:** `Build/Test` - The "Bible" for developers and testers to understand exact system behavior.
 
-### `USER_STORIES.md`
+### `FRD_USER_STORIES.md`
 *   **Responsible:** **Analyst**
 *   **Type:** Static
 *   **Purpose:** Agile stories ("As a X, I want Y") with specific Acceptance Criteria.
@@ -163,7 +163,7 @@ This document provides a comprehensive overview of all documentation, diagrams, 
     *   **Created:** `Plan` - During backlog grooming/sprint planning.
     *   **Used:** `Build` (Referenced by Devs); `Test` (Referenced by QA).
 
-### `USE_CASES.md`
+### `FRD_USE_CASES.md`
 *   **Responsible:** **Analyst**
 *   **Type:** Static
 *   **Purpose:** Formal step-by-step flows for system interactions (Happy Path + Alternates).
@@ -172,7 +172,7 @@ This document provides a comprehensive overview of all documentation, diagrams, 
     *   **Created:** `Plan` - When defining complex user flows.
     *   **Used:** `Build/Test` - Referenced to ensure all edge cases and alternate paths are handled.
 
-### `REQUIREMENTS_INDEX.md`
+### `FRD_REQUIREMENTS_INDEX.md`
 *   **Responsible:** **Analyst**
 *   **Type:** **Living**
 *   **Purpose:** Traceability matrix linking Business Reqs → Functional Reqs → Test Cases.
@@ -181,7 +181,7 @@ This document provides a comprehensive overview of all documentation, diagrams, 
     *   **Created:** `Plan` - As requirements are finalized.
     *   **Updated:** `Test` - Updated to link Test Cases to Requirements. Used for compliance audits.
 
-### `PROCESS_MAP.md`
+### `FRD_PROCESS_MAP.md`
 *   **Responsible:** **Analyst**
 *   **Type:** Static
 *   **Purpose:** Visual flowcharts (Mermaid) of business processes and workflows.

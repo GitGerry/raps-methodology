@@ -38,23 +38,26 @@ description: The Build archetype does all the building
 
 1. [ ] Read `PLAN.md` — confirm a `[BUILD]` task is assigned with status `🛠️ ACTIVE`
 2. [ ] **Load Skill:** Use `view_file` to read:
-   - `.../skills/agile-toolkit/SKILL.md` (DoR/DoD checklists for story completion)
-   - **Verify:** Confirm you have read and understood the Definition of Done
-3. [ ] Verify `/docs/SPECS.md` exists with your feature specification
-4. [ ] **Compliance Check:** Read `docs/business/BRD_BUSINESS_RULES.md` for hard constraints (e.g. GDPR, Tax).
-5. [ ] Check `HANDOFF_NOTES.md` for context from `/architect`
-5. [ ] Note current git commit for rollback: `git rev-parse HEAD`
-6. [ ] Log session start to `SESSION_LOG.md`:
+   - `.../skills/build-toolkit/SKILL.md` (Engineering Standards & Logic Bridges)
+   - `.../skills/agile-toolkit/SKILL.md` (DoR/DoD checklists)
+   - **Verify:** Confirm you have read and understood the Build Standards
+3. [ ] **Ingest Logic Bridges:** Check `/docs/diagrams/` for Logical ERDs or Decision Trees
+4. [ ] **Check Glossary:** Read `docs/business/GLOSSARY.md` to align naming conventions
+5. [ ] **Compliance Check:** Read `docs/business/BRD_BUSINESS_RULES.md` for logical constraints
+6. [ ] Check `HANDOFF_NOTES.md` for context from `/architect`
+7. [ ] Note current git commit for rollback: `git rev-parse HEAD`
+8. [ ] Log session start to `SESSION_LOG.md`:
    ```
    | [TIMESTAMP] | /build | Starting implementation of [FEATURE] | 🛠️ ACTIVE | - | Commit: [SHA] |
    ```
-7. [ ] Announce: "Starting /build workflow for: [TASK NAME]"
+9. [ ] Announce: "Starting /build workflow for: [TASK NAME]"
 
 ---
 
 ## Prerequisites
 - [ ] `PLAN.md` exists with `[BUILD]` task assigned to you
-- [ ] `/docs/SPECS.md` contains specification for this task
+- [ ] Technical Specifications exist in `/docs/technical/` or `/docs/api/`
+- [ ] Visual Bridges (ERDs/Trees) exist in `/docs/diagrams/`
 - [ ] Your Squad Status shows `🛠️ ACTIVE`
 - [ ] No `[BLOCKED]` tasks upstream
 
@@ -62,16 +65,18 @@ description: The Build archetype does all the building
 
 ## Prohibitions
 - **NO CSS/UI:** Do not touch `/frontend`, `/components`, or `/style`
-- **NO SPEC CHANGES:** If spec is unclear, escalate to `/architect`
+- **NO SPEC CHANGES:** If spec/logic is unclear, escalate to `/architect`
+- **NO NAMING DRIFT:** Do not invent names; use the **Glossary**
 - **NO SECRETS:** Never hardcode API keys or passwords
 - **NO SILENT FAILURES:** Always include error logging
 
 ---
 
-## Agile Compliance
+## Agile & Build Compliance
 > [!IMPORTANT]
-> When picking up a Story, decompose it into Tasks per the [Agile Toolkit](../skills/agile-toolkit/SKILL.md#4-decomposing-stories-into-tasks).
-> Mark Stories as **Done** only when they pass the [Definition of Done](../skills/agile-toolkit/SKILL.md#2-definition-of-done-dod).
+> - Decompose Stories into Tasks per the [Agile Toolkit](../skills/agile-toolkit/SKILL.md).
+> - Follow the **JSDoc/Docstring Protocol** in the [Build Toolkit](../skills/build-toolkit/SKILL.md).
+> - Mark tasks as **Done** only when they pass the [Build Quality Gate](../skills/build-toolkit/SKILL.md#4-quality-gate-dod).
 
 ---
 
@@ -81,20 +86,22 @@ description: The Build archetype does all the building
    - Check `PLAN.md` — Is your status `🛠️ ACTIVE`?
    - If not, do not proceed
 
-2. **Read Specs:**
-   - Study `/docs/SPECS.md` thoroughly
+2. **Ingest (Bridge & Logic):**
+   - Study Technical Specs and **Visual Bridges** (ERDs/Trees)
+   - Cross-reference **Glossary** naming
    - Check `HANDOFF_NOTES.md` for architect context
-   - Strict adherence — do not improvise logic
 
 3. **Execute:**
    - Write code in `/backend`, `/api`, or `/lib`
-   - Include docstrings for all functions
+   - Implement **JSDoc/Docstrings** for all functions
+   - Use environment variables for all secrets
    - Add error handling with descriptive messages
    - Test locally before marking complete
 
 4. **Document:**
    - Update Artifact Registry with files created/modified
    - Add "How to Test" section in `HANDOFF_NOTES.md`
+   - **RAID Seeding**: Promote any technical risks (latency, complexity) to `RAID_LOG.md`
 
 5. **Handoff:**
    - Update Squad Status and task status
@@ -103,10 +110,12 @@ description: The Build archetype does all the building
 ---
 
 ## Quality Gate (Must Pass Before Handoff)
-- [ ] Code matches `/docs/SPECS.md` requirements
-- [ ] All functions have docstrings (params + return types)
+- [ ] Code matches Technical Specs and **Visual Bridges**
+- [ ] Naming matches the **Glossary**
+- [ ] All functions have **JSDoc/Docstrings** (params + returns)
 - [ ] No hardcoded secrets (use env variables)
 - [ ] Error handling with descriptive messages
+- [ ] **RAID Log** seeded with implementation risks
 - [ ] Tested locally without errors
 - [ ] "How to Test" documented in `HANDOFF_NOTES.md`
 
@@ -116,7 +125,7 @@ description: The Build archetype does all the building
 > Complete these steps AFTER finishing work.
 
 1. [ ] Update `PLAN.md`:
-   - Mark task as `[DONE]` or `[READY FOR TEST]` or `[READY FOR DESIGN]`
+   - Mark task as `[DONE]` or `[READY FOR TEST]`
    - Set your status to `✅ DONE`
    - Set next agent status to `🛠️ ACTIVE`
 2. [ ] Log session end to `SESSION_LOG.md`:
@@ -124,7 +133,7 @@ description: The Build archetype does all the building
    | [TIMESTAMP] | /build | Completed [FEATURE] | ✅ DONE | /backend/[files] | Ready for /test |
    ```
 3. [ ] Add created/modified files to Artifact Registry in `PLAN.md`
-4. [ ] Append notes to `HANDOFF_NOTES.md` under "## /build → /test" or "## /build → /design"
+4. [ ] **Seed RAID Log**: Log any technical risks found during implementation
 5. [ ] Run `scripts/check_integrity.ps1` (Must Pass)
 6. [ ] Declare handoff (see matrix below)
 

@@ -2,6 +2,7 @@
 
 > Governance log for the evolution of the RAPS Framework.
 
+| 2026-01-18 19:30 | v3.0.1 | **Standardization** | Release v3.0.0: The Enterprise Excellence Release | User |
 | 2026-01-18 19:30 | v3.0.0 | **Release** | **The Enterprise Excellence Release**: Hardened Analyst/Architect logic bridges, Intelligence Engine (Exa/Tavily), Governance Standardization, and Automated Sync. | User |
 | 2026-01-18 17:45 | v2.7 | **Standardization** | **Intelligence Engine Hardening**: Transformed `research-toolkit` into a structured evidence engine, reassigned to Analyst, and purged all ghost persona references. | User |
 | 2026-01-18 15:50 | v2.6 | **Standardization** | **Clean Mirror**: Implemented "Mirror Mode" in `sync_raps` (destructive sync), deprecated `/research` persona, standardized all artifacts with Templates, and removed 12+ shelfware files. | User |

@@ -246,8 +246,7 @@ export function renderLibraryTab(projectPath = 'C:/Users/gerry/OneDrive/Desktop/
                     <ul class="artifact-list">
                         ${docLink('Deploy', '', '/workflows/deploy.md', '🚀', 'Deployment', true)}
                         ${docLink('Retro', '', '/workflows/retro.md', '🔙', 'Retrospectives', true)}
-                        ${docLink('Health', '', '/workflows/health.md', '🏥', 'Project validator', true)}
-                        ${docLink('Status', '', '/workflows/status.md', '📊', 'Project status', true)}
+                        ${docLink('RAPS Status', '', '/workflows/raps-status.md', '🏥', 'Status & Health', true)}
                     </ul>
                 </div>
             </div>
@@ -320,7 +319,7 @@ export function renderLibraryTab(projectPath = 'C:/Users/gerry/OneDrive/Desktop/
                     <h3>⚙️ Features & Tech</h3>
                     <ul class="artifact-list">
                         ${docLink('Memory Protocol', '', '/templates/MEMORY.md', '🧠', 'Context management', true)}
-                        ${docLink('Audit System', '', '/workflows/health.md', '🏥', 'Self-repair mechanisms', true)}
+                        ${docLink('Audit System', '', '/workflows/raps-status.md', '🏥', 'Self-repair mechanisms', true)}
                         ${docLink('CrewAI Integration', '', '/skills/README.md', '🤖', 'Agent orchestration', true)}
                     </ul>
                 </div>
@@ -465,7 +464,7 @@ export function renderLibraryTab(projectPath = 'C:/Users/gerry/OneDrive/Desktop/
                 ${personaLink('Release', '/workflows/release.md', '🚦', 'Release Management', personaSkills['release'])}
                 ${personaLink('Deploy', '/workflows/deploy.md', '🚀', 'Production Deploy', personaSkills['deploy'])}
                 ${personaLink('Retro', '/workflows/retro.md', '🔙', 'Retrospectives', personaSkills['retro'])}
-                ${personaLink('Health', '/workflows/health.md', '🏥', 'Project Validation', personaSkills['health'])}
+                ${personaLink('RAPS Status', '/workflows/raps-status.md', '🏥', 'Project Validation', personaSkills['health'])}
             </div>
         </div>
 

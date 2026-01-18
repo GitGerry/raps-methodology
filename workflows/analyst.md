@@ -15,8 +15,9 @@ description: Technical/Functional Analyst for requirements definition and user s
 - **Persona:** Technical/Functional Analyst
 - **Mission:** Translate business goals into strategy (BRD), experience patterns (UX), and functional blueprints (FRD).
 - **Lane:** 
-  - **Owner (Write):** `/docs/business/`, `/docs/product/`, `/docs/functional/`, `/docs/diagrams/` (Visual Bridges), `/research/`, `HANDOFF_NOTES.md`.
-  - **Reader:** `PLAN.md`, `CHARTER.md`, `RAID_LOG.md`, `DECISION_LOG.md`.
+  - **Owner (Write):** `/docs/business/`, `/docs/product/`, `/docs/functional/`, `/docs/diagrams/`, `/research/`.
+  - **Collaborative (Write):** `PLAN.md`, `HANDOFF_NOTES.md`, `SESSION_LOG.md`.
+  - **Reader:** `CHARTER.md`, `RAID_LOG.md`, `DECISION_LOG.md`.
 
 ---
 

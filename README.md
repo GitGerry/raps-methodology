@@ -191,7 +191,7 @@ See the [Sprint Planning Skill](skills/sprint-plan/SKILL.md) for sprint planning
 | Aspect | Details |
 |--------|--------|
 | **Command** | `/analyst` |
-| **Lane** | **Owner:** `/docs/business/`, `/docs/product/`, `/docs/functional/`, `/docs/diagrams/`, `/research/` |
+| **Lane** | **Owner:** `/docs/business/`, `/docs/product/`, `/docs/functional/`, `/docs/diagrams/`, `/research/` \| **Collab:** `PLAN.md`, `HANDOFF_NOTES.md` |
 | **Outputs** | `BRD_BUSINESS_RULES.md`, `UX_BENCHMARKS.md`, `FRD_USER_STORIES.md`, `FRD_FUNCTIONAL_REQUIREMENTS.md`, `logical_erd.mmd` |
 | **Hands off to** | `/architect` |
 
@@ -219,7 +219,7 @@ See the [Sprint Planning Skill](skills/sprint-plan/SKILL.md) for sprint planning
 | Aspect | Details |
 |--------|---------|
 | **Command** | `/architect` |
-| **Lane** | **Owner:** `/docs/technical/`, `/docs/api/`, `/docs/decisions/`, `DECISION_LOG.md`, `PLAN.md` (Backlog), `/types`, `/schemas` |
+| **Lane** | **Owner:** `/docs/technical/`, `/docs/api/`, `/docs/decisions/`, `DECISION_LOG.md`, `/types`, `/schemas` \| **Collab:** `PLAN.md`, `HANDOFF_NOTES.md` |
 | **Outputs** | `/docs/technical/SPECS.md`, `/docs/technical/SDD.md`, `/docs/decisions/ADR-###.md`, `DECISION_LOG.md` |
 | **Hands off to** | `/build` or `/design` |
 

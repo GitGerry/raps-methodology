@@ -5,7 +5,7 @@ param (
 $ErrorActionPreference = "Stop"
 
 # --- CONFIGURATION ---
-$antigravityRoot = "C:\Users\gerry\antigravity"
+$antigravityRoot = "C:\Users\gerry\.gemini\antigravity"
 $repoPath = "C:\Users\gerry\OneDrive\Desktop\LLM\RAPS\raps-methodology"
 
 # Directories to sync (Source Folder Name -> Destination Folder Name)

@@ -1,7 +1,8 @@
-# 📜 RAPS Methodology Changelog
+﻿# ðŸ“œ RAPS Methodology Changelog
 
 > Governance log for the evolution of the RAPS Framework.
 
+| 2026-01-18 19:26 | v2.8 | **Standardization** | Final Verification: Restored config and verified execution | User |
 | 2026-01-18 17:45 | v2.7 | **Standardization** | **Intelligence Engine Hardening**: Transformed `research-toolkit` into a structured evidence engine, reassigned to Analyst, and purged all ghost persona references. | User |
 | 2026-01-18 15:50 | v2.6 | **Standardization** | **Clean Mirror**: Implemented "Mirror Mode" in `sync_raps` (destructive sync), deprecated `/research` persona, standardized all artifacts with Templates, and removed 12+ shelfware files. | User |
 | 2026-01-18 15:00 | v2.5 | **Governance** | **Rigor Upgrade**: Enforced Anti-Hallucination headers, mandated `MEMORY.md`, removed Project Tiers (Standardized on Enterprise), and implemented 5-Vector Discovery Protocol. | User |
@@ -16,19 +17,19 @@
 
 ---
 
-## 📝 Detailed Release Notes
+## ðŸ“ Detailed Release Notes
 
 ### v2.7: Research Toolkit Hardening (The Intelligence Engine)
 **Date:** 2026-01-18 17:45
 **Author:** User
 
 **Why This Change?**
-The "Researcher" persona was a legacy ghost—cited in docs but missing a workflow. Furthermore, research was often unstructured and prone to hallucination. v2.7 formally integrates research into the **Analyst** lane and enforces strict evidence standards.
+The "Researcher" persona was a legacy ghostâ€”cited in docs but missing a workflow. Furthermore, research was often unstructured and prone to hallucination. v2.7 formally integrates research into the **Analyst** lane and enforces strict evidence standards.
 
 **What Changed?**
 -   **Intelligence Engine:** Rebranded `research-toolkit` as "The Intelligence Engine".
 -   **Analyst Alignment:** Updated `analyst.md` and `docs/` to reflect that the Analyst drives research using the toolkit.
--   **Strict Evidence Rules:** Implemented a "Multi-Source Rule" (Min 3 sources for high-impact claims) and ⭐ quality ratings.
+-   **Strict Evidence Rules:** Implemented a "Multi-Source Rule" (Min 3 sources for high-impact claims) and â­ quality ratings.
 -   **New Templates:**
     -   `RSRCH_EVIDENCE_LOG.md` (Raw source tracking).
     -   `RSRCH_SYNTHESIS.md` (Intelligence handoff for BA/PM/Arch phases).
@@ -119,7 +120,7 @@ The newly upgraded Integrity Scanner (v2.0) flagged 15+ integrity violations, in
 **Author:** User
 
 **Why This Change?**
-The previous integrity checks were fragmented (scattered across `update-raps` and manual checks) and failed to detect "Ghost Changes"—code modifications that weren't logged in the changelog. We needed a centralized, authoritative tool to enforce **Atomic Governance**.
+The previous integrity checks were fragmented (scattered across `update-raps` and manual checks) and failed to detect "Ghost Changes"â€”code modifications that weren't logged in the changelog. We needed a centralized, authoritative tool to enforce **Atomic Governance**.
 
 **What Changed?**
 -   **New Script:** `scripts/check_integrity.ps1` was heavily refactored to v2.0.

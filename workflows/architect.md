@@ -35,12 +35,17 @@ description: Architect persona for technical specifications and system design
 1. [ ] Confirm task assigned in `PLAN.md`.
 2. [ ] Check `/research` or `/docs/requirements` for input.
 3. [ ] **Read Glossary:** `docs/business/BRD_DOMAIN_GLOSSARY.md` (Apply these definitions strictly).
-4. [ ] **Read Registry:** `docs/functional/FRD_REQUIREMENTS_INDEX.md` (Verify the "Golden Thread" is Ready).
-5. [ ] **Load Skill:** Use `view_file` to read:
-   - `.../skills/architecture-toolkit/SKILL.md` (Logic & Specs)
-6. [ ] **Read `.raps/MEMORY.md`** — check Decision Memory for prior choice context.
-7. [ ] Log session start to `.raps/SESSION_LOG.md`.
-8. [ ] Announce: "Starting /architect workflow..."
+4. [ ] **Read Registry**: `docs/functional/FRD_REQUIREMENTS_INDEX.md` (Verify the "Golden Thread" is Ready).
+5. [ ] **Load Visuals**: Check `/docs/diagrams/` for:
+   - `logical_erd_*.mmd` (Data Schema Bridge).
+   - `decision_tree_*.mmd` (Logic Flow Bridge).
+   - `rbac_matrix_*.mmd` (Security Bridge).
+6. [ ] **Load Skill**: Use `view_file` to read:
+   - `.../skills/architecture-toolkit/SKILL.md` (Logic & Specs).
+7. [ ] **Read `.raps/MEMORY.md`** — check Decision Memory for prior choice context.
+8. [ ] **Check Context**: Read `.raps/HANDOFF_NOTES.md` (Consume the "Mental Model" briefing).
+9. [ ] Log session start to `.raps/SESSION_LOG.md`.
+10. [ ] Announce: "Starting /architect workflow..."
 
 ---
 

@@ -25,31 +25,31 @@
 ---
 
 ## 3. Functional Requirements
-> Detailed system behaviors derived from stories.
+> Detailed system behaviors. **(Ref: RS-####)** for Research, **(Ref: [ROLE])** for Stakeholder.
 
-| ID | Requirement | Priority | Source |
-|----|-------------|----------|--------|
-| FREQ[#######] | The system shall... | MUST | STRY... |
-| FREQ[#######] | The system shall... | SHOULD | STRY... |
+| ID | Requirement | Priority | Source Traceability |
+|----|-------------|----------|---------------------|
+| FREQ[#######] | The system shall... | MUST | (Ref: RS-####) |
+| FREQ[#######] | The system shall... | SHOULD | (Ref: [ROLE]) |
 
 ---
 
 ## 4. Non-Functional Requirements (NFRs)
-> Performance, Security, Reliability, Compliance.
-> For complex NFRs, use `skills/analyst-toolkit/templates/NFR_TEMPLATE.md`
+> Performance, Security, Reliability. **Must use numeric thresholds.**
 
-| ID | Category | Requirement | Metric |
-|----|----------|-------------|--------|
-| NFRQ[#######] | Performance | The system shall respond within... | < 200ms |
-| NFRQ[#######] | Security | Data at rest must be encrypted... | AES-256 |
+| ID | Category | Requirement | Metric/Threshold | Source |
+|----|----------|-------------|------------------|--------|
+| NFRQ[#######] | Performance | System shall respond within... | < 200ms | (Ref: RS-####) |
 
 ---
 
-## 5. Use Cases & Flows
-> Diagrams located in `/docs/diagrams/`
+## 5. Use Cases & Visual Bridges
+> Diagrams in `/docs/diagrams/` following `DIAGRAM_GUIDE.md`.
 
 ### UCSE[#######]: [Use Case Name]
 **Actor:** [Name]
+**Logic Bridge:** [Link to decision_tree.mmd]
+**Data Bridge:** [Link to logical_erd.mmd]
 **Trigger:** [Event]
 
 **Main Flow:**

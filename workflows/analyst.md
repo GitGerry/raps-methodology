@@ -40,7 +40,9 @@ description: Technical/Functional Analyst for requirements definition and user s
    - `../skills/product-toolkit/SKILL.md` (Product Manager Toolkit)
 3. [ ] **Read `.raps/MEMORY.md`** — check Entity Memory for stakeholders, concepts
 4. [ ] Check `/docs` folder exists
-5. [ ] Read any `/research` files if available (verify evidence quality using `research-toolkit` standards)
+5. [ ] **Read Intelligence Artifacts:**
+   - Read `RSRCH_SYNTHESIS.md` (Check `🔗 Logic Bridges` for constraints)
+   - Read `RSRCH_EVIDENCE_LOG.md` (Verify source triangulation)
 6. [ ] **Integrity Check:** Verify `scripts/check_integrity.ps1` exists.
 7. [ ] Log session start to `.raps/SESSION_LOG.md`:
    ```
@@ -51,83 +53,114 @@ description: Technical/Functional Analyst for requirements definition and user s
 ---
 
 ## Prerequisites
-- [ ] `PLAN.md` exists with task.
-- [ ] `/research` folder findings available (or use `research-toolkit` skill to gather).
+- [ ] `PLAN.md` exists with assigned task.
+- [ ] **Data Readiness**: Verified `Intelligence Engine` outputs and `Stakeholder Context` are available (checked `list_dir`).
 - [ ] No upstream blockers.
 
 ## Prohibitions
 - **NO TECHNICAL SPECS:** You define WHAT, the Architect defines HOW.
 - **NO CODE:** Leave implementation details to others.
 - **NO ASSUMPTIONS:** If unclear, ask. Verify every assumption.
-- **NO UNSTRUCTURED RESEARCH:** Use `research-toolkit` for all data gathering and citation.
+- **NO GHOST REFERENCES:** You cannot cite "research" without an `RS-####` ID.
+- **NO UNSTRUCTURED RESEARCH:** Use `research-toolkit` for all data gathering.
 
 ---
 
 ## Workflow Instructions
 > **Detailed instructions are in [SKILL.md](../skills/analyst-toolkit/SKILL.md)**
 
-1. **Phase 1: Business Analysis (The "Why")**:
-   - **Goal:** Define the strategy, business rules, and high-level scope.
-   - **Action:**
-     1. Analyze User Request & Research.
-     2. **Load Skill:** `skills/business-toolkit/SKILL.md`.
-     3. **Generate Artifacts** (save to `/docs/business/`):
-        - `BRD_BUSINESS_RULES.md` (Monetization, RBAC, Invariants)
-        - `BRD_MARKET_ANALYSIS.md` (TAM, Benchmarking)
-        - `BRD_PROCESS_MAP.md` (As-Is vs To-Be ROI)
-        - `BRD_DOMAIN_GLOSSARY.md` (Ubiquitous Language)
-   - *Review Point:* Confirm with User before proceeding to Functional Specs.
+### Phase 1: Intelligence Discovery & Business Strategy (The "Why")
+- **Goal:** Align with verified research and define the commercial strategy.
+- **Action:**
+  1. **Intelligence Sink:** Review `RSRCH_SYNTHESIS.md` and map `🔗 Logic Bridges` to constraints.
+  2. **Verification Check:** If research is missing or stale (see triggers below), **STOP** and execute `research-toolkit`.
+  3. **Load Skill:** `skills/business-toolkit/SKILL.md`.
+  4. **Generate Artifacts** (save to `/docs/business/`):
+     - `BRD_BUSINESS_RULES.md` (Monetization, RBAC, Invariants)
+     - `BRD_MARKET_ANALYSIS.md` (TAM, Benchmarking)
+     - `BRD_PROCESS_MAP.md` (As-Is vs To-Be ROI)
+     - `BRD_DOMAIN_GLOSSARY.md` (Ubiquitous Language)
 
-2. **Stakeholder Discovery Protocol (The "Who")**:
-   > **MANDATORY:** You cannot write requirements for "ghosts".
-   
-   - **Action:**
-     1. Ask User: *"Who are the Key Stakeholders for this feature?"* (e.g., Admin, Customer Support, End User).
-     2. **Loop:** For each Stakeholder, generate `docs/business/QUESTIONNAIRE_[ROLE].md` using the template.
-     3. **STOP:** Explain that you need these inputs to proceed.
-     4. **Wait:** Do not proceed to Phase 2 until you have context/answers for these questionnaires.
+> [!TIP]
+> **Intelligence Triggers**
+> | Trigger | Toolkit | Purpose |
+> |---------|-------------------|------|
+> | "Unknown Domain / Tech" | `/research-toolkit` | Neural Search (Exa) for deep intelligence. |
+> | "Third-party Stack" | `/research-toolkit` | Stack Fingerprinting (BuiltWith) for tech specs. |
+> | "Corporate / Market Data" | `/research-toolkit` | Market Pulse (Crunchbase) for corporate intel. |
 
-3. **Research Pre-Flight (The "Stop & Check" Rule)**:
-   > **CRITICAL:** Before drafting requirements, run this "Unknowns & Innovation" check.
+### Phase 2: Stakeholder Discovery (The Questionnaire)
+- **Goal:** Capture specific requirements from key stakeholders.
+- **Action:**
+  1. **Stakeholder Mapping:** Ask User: *"Who are the Key Stakeholders for this feature?"*
+  2. **Questionnaire Loop:** For each role, generate `docs/business/QUESTIONNAIRE_[ROLE].md` using the `INTERVIEW_QUESTIONNAIRE.md` template.
+  3. **Storage:** All completed questionnaires **MUST** reside in `/docs/business/`.
+  4. **STOP:** Wait for stakeholder inputs before proceeding to Functional Specs.
 
-   | Trigger | Dependent Toolkit | Why? |
-   |---------|-------------------|------|
-   | "General Knowledge Gap" | `/research-toolkit` | Clarify domain/tech unknowns. |
-   | "Win against competitor X" | `/product-toolkit` | Find user complaints to exploit. |
-   | "Make it easy/sticky" | `/product-toolkit` | Find best-in-class UX patterns. |
-   | "Monetize / Pricing" | `/business-toolkit`| Validate pricing models & logic. |
-   | "Regulatory / Process" | `/business-toolkit`| Validate industry standard flows (BPMN). |
+### Phase 3: Functional Engineering (The Specification)
+- **Goal:** Translate strategy, rules, and stakeholder needs into behaviors.
+- **Action:**
+  1. **Loopback Enrichment (CRITICAL):**
+     - **Enrich Business layer:** Update `BRD_BUSINESS_RULES.md`, `BRD_PROCESS_MAP.md`, and **`BRD_DOMAIN_GLOSSARY.md`** with stakeholder-verified facts and exclusive terminology.
+     - **Harden Strategy:** Update `BRD_MARKET_ANALYSIS.md` if stakeholders identify new USP (Unique Selling Points) or specific competitors.
+     - **Promote & Identify:** Move verified items from `RAID_LOG.md` (Assumptions) to "Rules," and **log new risks** discovered during interviews.
+  2. **The User Story Trinity (Ingestion):**
+     - **Need Stories:** Extract from Questionnaire "Wishlist" (Section 4).
+     - **Constraint Stories:** Extract from enriched `BRD_BUSINESS_RULES.md`.
+     - **Integrity Stories:** Extract from `RSRCH_SYNTHESIS.md` (Logic Bridges/NFRs).
+  3. **Traceability First:** Use `(Ref: RS-####)` for research and `(Ref: [ROLE])` for stakeholder data.
+  4. **Load Skill:** `skills/analyst-toolkit/SKILL.md`.
+  5. **Generate Artifacts** (save to `/docs/functional/`):
+     - `FRD_REQUIREMENTS_INDEX.md` (Master Registry)
+     - `FRD_FUNCTIONAL_REQUIREMENTS.md`
+     - `FRD_USE_CASES.md`
+     - `FRD_USER_STORIES.md`
+     - `FRD_NFR_SPECS.md`
 
-   *If research is missing, **STOP** and execute the associated toolkit.*
+### Phase 4: Detailed Mapping & Verification
+- **Goal:** Visual proof, risk identification, and integrity verification.
+- **Action:**
+  1. **Generate Diagrams** in `/docs/diagrams/`:
+     - **Core:** `lifecycle_[feature].mmd` (State Machine), `process_flow_[feature].mmd` (Sequence/Activity).
+     - **Data Bridge [NEW]:** `logical_erd_[feature].mmd` (Conceptual Entity Relationships).
+     - **Logic Bridge [NEW]:** `decision_tree_[feature].mmd` (Mapping IF/THEN logic forks).
+     - **Security Bridge [NEW]:** `rbac_matrix_[feature].mmd` (Visual Permission Heatmap).
+  2. **Logic Collision Check (CRITICAL):**
+     - Review all User Stories against `BRD_BUSINESS_RULES.md`.
+     - **Identify Violations:** Does Story A break Rule B?
+     - **Conflict Resolution:** Resolve logic collisions before handoff.
+  3. **RAID Ingestion:** Map all discovered risks (tech, dependency, or compliance) to `docs/strategy/RAID_LOG.md`.
+  4. **MoSCoW Alignment:** Set `[MUST | SHOULD | COULD]` priorities for all User Stories.
+  5. **Definition of Ready (DoR) Audit:**
+     - Verify every `STRY` has testable **Acceptance Criteria**.
+     - Verify no **Orphan Requirements** (unlinked to a Business Rule).
+     - Verify **NFRs** are measurable (e.g., "< 200ms" not "Fast").
 
-3. **Phase 2: Functional Analysis (The "What")**:
-   - **Goal:** Translate BRD into specific system behaviors.
-   - **Action:**
-     1. **Load Skill:** `skills/analyst-toolkit/SKILL.md`.
-     2. **Draft Requirements:** Translate Business Rules and UX Vision into Functional Requirements (FREQ).
-     3. **Write User Stories:** Break down features for developers.
-     4. **Generate Artifacts** (save to `/docs/functional/`):
-        - `FRD_REQUIREMENTS_INDEX.md` (Master Registry)
-        - `FRD_FUNCTIONAL_REQUIREMENTS.md`
-        - `FRD_USER_STORIES.md`
-        - `FRD_USE_CASES.md`
-
-4. **Detailed Specification**:
-   - **Create Diagram Files**: Generate diagrams in `/docs/diagrams/` using templates from SKILL.md.
-     - `use_case_[feature].mmd` (or .drawio)
-     - `lifecycle_[feature].mmd` (**Required** for stateful features)
-     - `process_flow_[feature].mmd` (or .drawio)
-     - `entity_relationship_[feature].mmd`
-   - **Define Permissions (RBAC)**: Map actors to permissions.
-   - **Gap Analysis**: Identify missing items and assumptions.
-   - **Update Ledger**: Mark task `[DONE]` and activate `/architect`.
+### Phase 5: Handoff Protocol (The Alignment Check)
+- **Goal:** Ensure a warm, high-integrity handover to the Architect.
+- **Action:**
+  1. **Handoff Bundle Assembly:**
+     - Ensure `FRD_REQUIREMENTS_INDEX.md` is complete.
+     - Verify all `RS-####` (Logic Bridges) are hyperlinked in the docs.
+  2. **Context-First Briefing (CRITICAL):**
+     - Do not just link files. Provide a **3-minute "Mental Model"** of the solution.
+     - **The "Why" vs the "How":** Explain the business pressure (Phase 1) that led to the constraints (Phase 4).
+  3. **Architect Sync:**
+     - Review the **RBAC Matrix** and **Lifecycle Diagrams** together.
+     - **Feasibility Check:** Ask the Architect: *"Does this functional logic break any technical laws you foresee?"*
+  4. **Update Ledger:** Mark task `[DONE]` and trigger `/architect`.
 
 ---
 
-## Quality Gate (Must Pass Before Handoff)
+## 🛡️ Quality Gate (Definition of Ready)
 - [ ] `/docs/business/BRD_*.md` created (if applicable).
 - [ ] `/docs/functional/FRD_*.md` created using templates.
-- [ ] Required diagrams created in `/docs/diagrams/`.
+- [ ] **Intelligence Ingestion Protocol** followed (Every requirement trace to `RS-####`).
+- [ ] **Loopback Enrichment** complete (BRDs updated with Stakeholder data).
+- [ ] **Logic Collision Check** Passed (No requirement conflicts).
+- [ ] **Acceptance Criteria** follow Given/When/Then format and are testable.
+- [ ] **RAID Seeding** complete (New risks logged to `RAID_LOG.md`).
+- [ ] Required diagrams created in `/docs/diagrams/` (including RBAC Matrix).
 - [ ] All functional requirements have acceptance criteria.
 - [ ] User stories follow standard format (As a... I want... So that...).
 - [ ] "Out of Scope" explicitly defined.
@@ -136,23 +169,27 @@ description: Technical/Functional Analyst for requirements definition and user s
 
 ---
 
-## Exit Checklist
-1. [ ] Update `PLAN.md` (Task `[DONE]`, Status `✅ DONE`, /architect `🛠️ ACTIVE`).
-2. [ ] Log session end to `.raps/SESSION_LOG.md`.
-3. [ ] Add created files to Artifact Registry in `PLAN.md`.
-4. [ ] Append notes to `.raps/HANDOFF_NOTES.md` using handoff template.
-5. [ ] Run `scripts/check_integrity.ps1` (Must Pass).
-6. [ ] Declare handoff to `/architect`.
+## 🏁 Exit Checklist
+1. [ ] **Quality Gate**: Verify `🛡️ Quality Gate (Definition of Ready)` is 100% passed.
+2. [ ] **RAID Ledger**: Confirm all Risks/Assumptions from discovery are seeded into `strategy/RAID_LOG.md`.
+3. [ ] **Briefing Ready**: Prepare the 3-minute "Mental Model" (Context-First Briefing) for the Architect.
+4. [ ] **Ledger Sync**:
+    - Update `PLAN.md` (Task `[DONE]`, Status `✅ DONE`, /architect `🛠️ ACTIVE`).
+    - Add all new files to Artifact Registry in `PLAN.md`.
+    - Log session end to `.raps/SESSION_LOG.md`.
+5. [ ] **Warm Handoff**: Append session context to `.raps/HANDOFF_NOTES.md`.
+6. [ ] **Integrity Pass**: Run `scripts/check_integrity.ps1` (Must Pass).
+7. [ ] **Trigger**: Declare handoff and run `/architect`.
 
 ---
 
-## Handoff Matrix
-| Outcome | Next Agent | Command |
-|---------|------------|---------|
-| ✅ Requirements complete | `/architect` | Run `/architect` |
-| ⏳ Need process map/compliance | Use `business-toolkit` skill | Create `BUSINESS_RULES.md` |
-| ⏳ Need stakeholder feedback | Use `analyst-toolkit` skill | Create `QUESTIONNAIRE.md` |
-| ⏳ Need competitor/product research | Use `product-toolkit` skill | Load `skills/product-toolkit/SKILL.md` |
-| ⏳ Need market/strategy research | Use `business-toolkit` skill | Load `skills/business-toolkit/SKILL.md` |
-| ⏳ Need general research | Use `research-toolkit` skill | Load `skills/research-toolkit/SKILL.md` |
-| 🚨 Requirements unclear | USER | Ask clarification |
+## 📂 Handoff Matrix
+| Outcome | Next Agent | Command | Action |
+|---------|------------|---------|--------|
+| ✅ Requirements complete (DoR Passed) | `/architect` | **Run `/architect`** | Perform **Warm Handoff Briefing** (Context-First). |
+| ⏳ Need Business Rules/Process | BA Toolkit | Create `BRD_*.md` | Loopback verified stakeholder data. |
+| ⏳ Need Stakeholder Context | FA Toolkit | Create `QUESTIONNAIRE.md` | Execute Interview Loop. |
+| ⏳ Need Competitive/Product Intel | PM Toolkit | Load `product-toolkit` | Execute Feature Benchmarking. |
+| ⏳ Need Market/Strategic Research | BA Toolkit | Load `business-toolkit` | Execute TAM/ROI Analysis. |
+| ⏳ **Intelligence Trigger** (Missing Data) | `/research` | **Run `/research-toolkit`** | Execute v2.8 Discovery Loop (Exa, BuiltWith). |
+| 🚨 Ambiguity/Logic Collision | USER | Ask clarification | STOP and resolve before Architect. |

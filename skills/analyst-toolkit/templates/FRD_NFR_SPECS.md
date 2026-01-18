@@ -7,10 +7,12 @@
 The system shall [description of the quality attribute].
 
 #### Measurability (Success Criteria)
-| Attribute | Target Value | Measurement Method |
-|-----------|--------------|--------------------|
-| **Metric** | [e.g. < 200ms] | [e.g. 95th percentile via NewRelic] |
-| **Testing** | [e.g. Load Test] | [e.g. k6 script] |
+> **CRITICAL:** Thresholds must be numeric and testable.
+
+| Attribute | Target Threshold | Measurement Instrument | Verification Method |
+|-----------|--------------|--------------------|---------------------|
+| **Latency/Throughput** | [e.g. < 200ms] | [e.g. NewRelic/JMeter] | [e.g. Load Test] |
+| **Integrity** | [e.g. 100% Audit Coverage] | [e.g. SQL Triggers] | [e.g. Data Audit] |
 
 #### Constraints
 - [Hard constraint, e.g. "Must run on t3.micro"]

@@ -58,8 +58,12 @@ Provide standards for writing requirements, user stories, and maintaining tracea
 ### 🔍 Intelligence Ingestion (System Constraints)
 Before breaking down features:
 1. **Map Logic Bridges**: Review `🔗 Logic Bridges` in `RSRCH_SYNTHESIS.md`.
-2. **Constraint Enforcement**: Extract `Technical Constraints` (e.g. rate limits) into `FRD_NFR_SPECS.md`.
-3. **Traceability**: Link requirements that solve a researched gap using `(Ref: RS-####)`.
+2. **Stakeholder Sync**: Review `QUESTIONNAIRE_[ROLE].md` files.
+3. **Loopback Enrichment**: Update Phase 1 BRDs (Rules, **Glossary, Market Analysis**) with stakeholder data.
+   - *Assumptions -> Facts*: Move verified RAID items to the permanent BRD.
+   - *Terminology Proxy*: Replace research terms with the stakeholder's "Ubiquitous Language" in the Glossary.
+4. **Constraint Enforcement**: Extract `Technical Constraints` and `Stakeholder Invariants` into `FRD_NFR_SPECS.md`.
+5. **Traceability**: Link requirements that solve a researched gap using `(Ref: RS-####)` or a stakeholder need using `(Ref: [ROLE])`.
 
 ### A. Discovery (The "What" and "Why")
 1.  **Ingest Evidence (The Triad):**
@@ -70,14 +74,53 @@ Before breaking down features:
 2.  **Extract Entities:** Identify the Nouns (e.g. "Order", "Customer").
 3.  **Map Roles:** specific Actors (e.g. "Admin", "Customer Support").
 
-### B. Requirement Definition
-1.  **Draft User Stories:** Convert Friction Points ("I hate copying data") into Stories ("As an Admin, I want auto-import...").
+### B. Requirement Definition (The User Story Trinity)
+User Stories in RAPS are generated from three distinct sources to ensure 100% coverage:
+
+1.  **Direct Needs:** Derived from `QUESTIONNAIRE` (Wishlist).
+    *   *Example:* "I want to export reports."
+2.  **Business Enforcement:** Derived from `BRD_BUSINESS_RULES.md` (Monetization/RBAC).
+    *   *Example:* "I want the system to block non-Pro users from exporting."
+3.  **System Integrity:** Derived from `RSRCH_SYNTHESIS.md` (Constraints/Logic Bridges).
+    *   *Example:* "I want the system to handle 10k concurrent exports without crashing."
+
+**Steps:**
+1.  **Draft User Stories:** Convert Friction Points and Rules into Stories.
 2.  **Enforce Format:** Use the configured ID Standard (`STRY0000001`).
 3.  **Validate:** Check against the "Quality Checklist" in this Skill.
 
 ### C. Traceability Check
 1.  **Linkage:** Ensure every `STRY` maps to a `FREQ` (Functional Req).
 2.  **Inverse Check:** Ensure every `FREQ` has a corresponding `TC` (Test Case) placeholder.
+
+### D. Logic Collision Check (The Truth Engine)
+Before finalizing the FRD, you MUST audit the requirement set for internal consistency:
+1. **Rule Violation**: Check if any User Story violates a constraint in `BRD_BUSINESS_RULES.md`.
+   - *Example:* Story allows deletion, but Rule says "All logs are immutable."
+2. **Resource Conflict**: Check if two features compete for the same state in a lifecycle.
+3. **Ambiguity Audit**: Scan for words like "Easy," "Fast," or "Scalable."
+   - *Action*: Replace with measurable thresholds (e.g., "Load time < 500ms").
+
+### E. Risk Management (The RAID Bridge)
+Any ambiguity found during Phase 1-3 MUST be classified:
+- **Risk:** Potential issue (e.g., "API uptime is 99%"). -> Add to `RAID_LOG.md`.
+- **Assumption:** Logic that hasn't been verified. -> Add to `RAID_LOG.md`.
+- **Issue:** Active blocker. -> Trigger `/scrum` or `/analyst` clarification.
+- **Dependency:** Requirement relies on external data. -> Add to `RAID_LOG.md`.
+
+### E. Advanced Logic Visualization (Mermaid Standards)
+> **Master Guide:** `templates/DIAGRAM_GUIDE.md` (Mandated Standard)
+
+1. **Logical ERD**: Map conceptual entities and relationships.
+2. **Decision Logic Tree**: Unpack complex business forks.
+3. **Security/RBAC Matrix**: Visualize permission boundaries.
+4. **Lifecycle Diagram**: Track object state transitions.
+
+### F. Tactical Handoff (The Warm Protocol)
+1. **The Context Briefing**: Provide a "Mental Model" of the feature in 3 sentences (The Why, The What, The ROI).
+2. **The Intelligence Handoff**: Explicitly walk the Architect through the `🔗 Logic Bridges` (`RS-####`) that forced specific constraints.
+3. **The Law of Friction Check**: Ask the Architect to identify any functional flow that is technically "high friction" (e.g., synchronous calls to legacy APIs).
+4. **The RBAC Matrix**: Review the permission boundaries in `BRD_BUSINESS_RULES.md` to ensure data isolation is designed correctly.
 
 ---
 

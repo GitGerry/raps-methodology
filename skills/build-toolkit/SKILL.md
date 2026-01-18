@@ -1,59 +1,68 @@
 ---
 name: Build Toolkit
-description: Standard operating procedures for the Build persona (Lead Developer) to ensure technical precision and v3.0.0 compliance.
+description: The "Engine Lab" Manual. Standard operating procedures for implementing logic, APIs, and databases in the RAPS framework.
 ---
 
-# 🛠️ Build Toolkit Skill
+# 🏗️ Build Toolkit Skill
 
 ## 1. Description
-The **Build Toolkit** provides the technical standards and "Means & Methods" for implementing the RAPS engine. It bridges the gap between the Architect's blueprints and the final source code.
+The **Build Toolkit** is the "Code of Conduct" for the RAPS Engine Room. It transforms the `/build` persona from a generic coder into an Enterprise Engineer. It enforces strict standards for **Logic Bridge Ingestion**, **Database Management**, and **Code Quality**, ensuring that the "Build" phase respects the architecture defined in preceding phases.
 
 ## 2. Capabilities
 
-### 🌉 Logic Bridge Ingestion
-*   **Trigger:** Entry into a `[BUILD]` task.
-*   **Protocol:**
-    1.  **Locate Visual Bridges**: Check `/docs/diagrams/` for Mermaid-based ERDs or Logic Trees.
-    2.  **Naming Alignment**: Cross-reference `docs/business/GLOSSARY.md`. Variable/DB names **MUST** match the business nomenclature.
-    3.  **Constraint Mapping**: Check `docs/business/BRD_BUSINESS_RULES.md` before implementing edge cases.
+### 🌉 Visual Bridge Ingestion
+*   **Trigger:** Entry Checklist.
+*   **Action:** You MUST locate and "materialize" the Architect's diagrams into code.
+*   **Mapping:**
+    *   **Logical ERD** (`docs/diagrams/*.mermaid`) → **Database Schema / Migrations**.
+    *   **Decision Tree** (`docs/diagrams/*.mermaid`) → **Business Logic / State Machines**.
+    *   **RBAC Matrix** (`docs/diagrams/*.mermaid`) → **Middleware / Policy Guards**.
+*   **Validation:** If the code deviates from the diagram, you MUST flag it as a risk or request an update.
 
-### 📐 Implementation Standards
-*   **Agentic-Ready Code**:
-    *   Explicit error handling with unique error IDs.
-    *   Environment variables for all configurations (Zero Secrets).
-*   **Docstring Protocol (JSDoc/XML)**:
-    *   `@summary`: Concise description.
-    *   `@param`: Type + Description + Constraint.
-    *   `@returns`: Type + Description.
-    *   `@source`: Link to `(Ref: RS-####)` if applicable.
+### 🧹 The "Premium Engine" Standard (Means & Methods)
+*   **Tech Stack Enforcement:**
+    *   **Backend:** Node.js / TypeScript / Next.js API Routes (unless specified otherwise in `SPECS.md`).
+    *   **Safety:** strict mode enabled, no `any` types.
+    *   **Environment:** Use `process.env` validation (e.g., Zod or Envalid) on startup.
+*   **Docstring Protocol:**
+    *   **Format:** JSDoc (TS/JS) or equivalent.
+    *   **Requirement:** Every public function/API handler MUST have:
+        *   `@description`: What it does.
+        *   `@param`: Input definitions.
+        *   `@returns`: Output definitions.
+        *   `@throws`: Explicit error cases.
 
-### 📜 Backend Mermaid Templates
-*   **Sequence Diagram**: Use for non-obvious API logic.
-*   **State Machine**: Use for modeling entity lifecycles (e.g., `Draft` -> `Active` -> `Retired`).
+### 🗣️ Ubiquitous Language Enforcement
+*   **Trigger:** Naming a new variable, table, column, or API field.
+*   **Action:** Check `docs/business/GLOSSARY.md`.
+*   **Rule:** If the business calls it `client`, you CANNOT call it `customer`. If they call it `claim`, you CANNOT call it `case`.
+*   **Drift:** If you need a term not in the Glossary, add it to `HANDOFF_NOTES.md` for the Analyst to retro-fit.
 
-## 3. Workflow Integration
+### 🛡️ RAID Seeding (Implementation Risks)
+*   **Trigger:** Discovering a technical reality that impacts the plan.
+*   **Action:** You are the "eyes on the ground." You must report hidden risks.
+*   **Mechanism:** Add entries to `RAID_LOG.md` (or `SESSION_LOG.md` if read-only) with tag `[BUILD-RISK]`.
+    *   *Example:* "The proposed library `xyz` is unmaintained. Risk of security drift."
 
-### Step 1: Ingestion
-- Load the `build-toolkit`.
-- Sync nomenclature with the **Glossary**.
-- Review **Visual Bridges** (Logic Trees, ERDs).
+## 3. Usage & Workflows
 
-### Step 2: Implementation
-- Implement logic in `/backend`, `/api`, or `/lib`.
-- Follow the **Docstring Protocol**.
-- Map implementation to `(Ref: RS-####)` tags.
+### Database Migration Workflow
+1.  **Read:** `docs/diagrams/*_ERD.mermaid` + `docs/technical/SPECS.md`.
+2.  **Plan:** Draft the SQL/Schema change.
+3.  **Check:** Does this break existing data? (Impact Analysis).
+4.  **Implement:** Write the migration file.
+5.  **Verify:** Update `docs/technical/SPECS.md` if schema details were refined during build.
 
-### Step 3: RAID Seeding
-- Identify technical risks discovered during build (e.g., Performance, Latency, Complexity).
-- Promote these risks to `RAID_LOG.md`.
+### API Implementation Workflow
+1.  **Read:** `docs/technical/ICD.md` (Interface Control Document).
+2.  **Stub:** Create the route handler with inputs/outputs matching the contract.
+3.  **Implement:** Write the logic, referencing `docs/diagrams/*_Logic.mermaid`.
+4.  **Secure:** Apply RBAC middleware referencing `docs/diagrams/*_RBAC.mermaid`.
+5.  **Document:** Add JSDoc and update `HANDOFF_NOTES.md` with "How to Test".
 
-## 4. Quality Gate (DOD)
-- [ ] Logic matches Visual Bridges (Audit ERDs/Trees).
-- [ ] Variables match **Glossary** naming.
-- [ ] Docstrings follow the JSDoc/XML protocol.
-- [ ] No hardcoded secrets.
-- [ ] RAID Log seeded with technical risks.
-- [ ] Integrity check (`scripts/check_integrity.ps1`) passes.
-
-## 5. Verification
-- Run `scripts/check_integrity.ps1` to verify file paths and naming consistency.
+## 4. How to Verify (Definition of Done)
+*   [ ] **Spec Alignment:** Code matches `SPECS.md` and `ICD.md`.
+*   [ ] **Visual Fidelity:** Logic matches the flowcharts in `docs/diagrams/`.
+*   [ ] **Language Match:** Naming coventions align with `GLOSSARY.md`.
+*   [ ] **Documentation:** 100% Docstring coverage on public interfaces.
+*   [ ] **Safety:** Zero hardcoded secrets; Zero swallowed errors.

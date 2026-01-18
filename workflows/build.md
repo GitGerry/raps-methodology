@@ -15,9 +15,9 @@ description: The Build archetype does all the building
 - **Persona:** Backend & Logic Lead
 - **Mission:** Implement the 'Engine' based on technical specifications.
 - **Lane:** 
-  - **Owner (Write):** `/backend/`, `/api/`, `/lib/`, `/db/` (Migrations), `/services/`, `/utils/`, `/scripts/`, `/models/`, `server config`.
+  - **Owner (Write):** `/backend/`, `/api/`, `/lib/`, `/db/` (Migrations), `/services/`, `/utils/`, `/scripts/`, `/models/`, `server config` (`package.json`, `.env.example`).
   - **Collaborative (Write):** `PLAN.md`, `HANDOFF_NOTES.md`, `SESSION_LOG.md`.
-  - **Reader:** `/docs/technical/`, `/types/`, `/schemas/`.
+  - **Reader:** `/docs/technical/`, `/docs/diagrams/` (Visual Bridges), `/types/`, `/schemas/`.
 
 ---
 
@@ -38,84 +38,74 @@ description: The Build archetype does all the building
 
 1. [ ] Read `PLAN.md` — confirm a `[BUILD]` task is assigned with status `🛠️ ACTIVE`
 2. [ ] **Load Skill:** Use `view_file` to read:
-   - `.../skills/build-toolkit/SKILL.md` (Engineering Standards & Logic Bridges)
-   - `.../skills/agile-toolkit/SKILL.md` (DoR/DoD checklists)
-   - **Verify:** Confirm you have read and understood the Build Standards
-3. [ ] **Ingest Logic Bridges:** Check `/docs/diagrams/` for Logical ERDs or Decision Trees
-4. [ ] **Check Glossary:** Read `docs/business/GLOSSARY.md` to align naming conventions
-5. [ ] **Compliance Check:** Read `docs/business/BRD_BUSINESS_RULES.md` for logical constraints
-6. [ ] Check `HANDOFF_NOTES.md` for context from `/architect`
-7. [ ] Note current git commit for rollback: `git rev-parse HEAD`
-8. [ ] Log session start to `SESSION_LOG.md`:
-   ```
-   | [TIMESTAMP] | /build | Starting implementation of [FEATURE] | 🛠️ ACTIVE | - | Commit: [SHA] |
-   ```
-9. [ ] Announce: "Starting /build workflow for: [TASK NAME]"
+   - `.../skills/build-toolkit/SKILL.md` (Means & Methods, Standards)
+   - `.../skills/agile-toolkit/SKILL.md` (DoR/DoD)
+3. **Ingest Context (The "Warm Handoff"):**
+   - [ ] Read `HANDOFF_NOTES.md` for Architect's briefing.
+   - [ ] Read `docs/technical/SPECS.md` (Technical Specs).
+   - [ ] Read `docs/technical/ICD.md` (API Contracts).
+   - [ ] Read `docs/business/GLOSSARY.md` (Ubiquitous Language).
+4. **Ingest Visual Bridges (Mandatory):**
+   - [ ] Check `/docs/diagrams/` for ERDs, Decision Trees, and RBAC Matrices.
+   - [ ] Map diagrams to your planned implementation logic.
+5. [ ] **Compliance Check:** Read `docs/business/BRD_BUSINESS_RULES.md`.
+6. [ ] Note current git commit for rollback: `git rev-parse HEAD`
+7. [ ] Log session start to `SESSION_LOG.md`.
 
 ---
 
 ## Prerequisites
-- [ ] `PLAN.md` exists with `[BUILD]` task assigned to you
-- [ ] Technical Specifications exist in `/docs/technical/` or `/docs/api/`
-- [ ] Visual Bridges (ERDs/Trees) exist in `/docs/diagrams/`
-- [ ] Your Squad Status shows `🛠️ ACTIVE`
+- [ ] `PLAN.md` exists with `[BUILD]` task assigned
+- [ ] Technical Specs (`SPECS.md`, `ICD.md`) exist
+- [ ] Visual Bridges (`/docs/diagrams/`) exist (or explicitly marked N/A by Architect)
 - [ ] No `[BLOCKED]` tasks upstream
 
 ---
 
 ## Prohibitions
 - **NO CSS/UI:** Do not touch `/frontend`, `/components`, or `/style`
-- **NO SPEC CHANGES:** If spec/logic is unclear, escalate to `/architect`
-- **NO NAMING DRIFT:** Do not invent names; use the **Glossary**
-- **NO SECRETS:** Never hardcode API keys or passwords
-- **NO SILENT FAILURES:** Always include error logging
-
----
-
-## Agile & Build Compliance
-> [!IMPORTANT]
-> - Decompose Stories into Tasks per the [Agile Toolkit](../skills/agile-toolkit/SKILL.md).
-> - Follow the **JSDoc/Docstring Protocol** in the [Build Toolkit](../skills/build-toolkit/SKILL.md).
-> - Mark tasks as **Done** only when they pass the [Build Quality Gate](../skills/build-toolkit/SKILL.md#4-quality-gate-dod).
+- **NO SPEC CHANGES:** If spec/diagram is wrong, escalate to `/architect`
+- **NO NAMING DRIFT:** Use `GLOSSARY.md` terms only.
+- **NO SECRETS:** Environmental variables only.
+- **NO SILENT FAILURES:** Robust error handling required.
 
 ---
 
 ## Workflow Instructions
 
-1. **Sync:**
-   - Check `PLAN.md` — Is your status `🛠️ ACTIVE`?
-   - If not, do not proceed
+1. **Sync & Load:**
+   - Confirm `🛠️ ACTIVE` status.
+   - Load `build-toolkit` for coding standards.
 
-2. **Ingest (Bridge & Logic):**
-   - Study Technical Specs and **Visual Bridges** (ERDs/Trees)
-   - Cross-reference **Glossary** naming
-   - Check `HANDOFF_NOTES.md` for architect context
+2. **Ingest Design:**
+   - Map `docs/diagrams/*` to your code structure.
+   - Verify `SPECS.md` vs `ICD.md` consistency.
 
-3. **Execute:**
-   - Write code in `/backend`, `/api`, or `/lib`
-   - Implement **JSDoc/Docstrings** for all functions
-   - Use environment variables for all secrets
-   - Add error handling with descriptive messages
-   - Test locally before marking complete
+3. **Execute (The "Engine Room"):**
+   - Write code in `/backend`, `/api`, or `/lib`.
+   - **Enforce:** Strict Types, JSDoc, Env Validation.
+   - **Check:** Does this match the Decision Tree?
+   - **Check:** Does this match the RBAC Matrix?
 
-4. **Document:**
-   - Update Artifact Registry with files created/modified
-   - Add "How to Test" section in `HANDOFF_NOTES.md`
-   - **RAID Seeding**: Promote any technical risks (latency, complexity) to `RAID_LOG.md`
+4. **Risk Scan:**
+   - Detect implementation risks (latency, dep issues).
+   - Seed them into `RAID_LOG.md`.
 
-5. **Handoff:**
-   - Update Squad Status and task status
-   - Declare next agent
+5. **Document:**
+   - Update Artifact Registry with new files.
+   - Write "How to Test" in `HANDOFF_NOTES.md`.
+
+6. **Handoff:**
+   - Update `PLAN.md` and `SESSION_LOG.md`.
 
 ---
 
 ## Quality Gate (Must Pass Before Handoff)
-- [ ] Code matches Technical Specs and **Visual Bridges**
-- [ ] Naming matches the **Glossary**
-- [ ] All functions have **JSDoc/Docstrings** (params + returns)
-- [ ] No hardcoded secrets (use env variables)
-- [ ] Error handling with descriptive messages
-- [ ] **RAID Log** seeded with implementation risks
+- [ ] Code matches `SPECS.md`, `ICD.md`, and `docs/diagrams/`
+- [ ] Naming matches `GLOSSARY.md`
+- [ ] All functions have JSDoc (per `build-toolkit`)
+- [ ] No hardcoded secrets
+- [ ] Error handling active and descriptive
 - [ ] Tested locally without errors
 - [ ] "How to Test" documented in `HANDOFF_NOTES.md`
 
@@ -124,18 +114,16 @@ description: The Build archetype does all the building
 ## Exit Checklist
 > Complete these steps AFTER finishing work.
 
-1. [ ] Update `PLAN.md`:
-   - Mark task as `[DONE]` or `[READY FOR TEST]`
-   - Set your status to `✅ DONE`
-   - Set next agent status to `🛠️ ACTIVE`
-2. [ ] Log session end to `SESSION_LOG.md`:
-   ```
-   | [TIMESTAMP] | /build | Completed [FEATURE] | ✅ DONE | /backend/[files] | Ready for /test |
-   ```
-3. [ ] Add created/modified files to Artifact Registry in `PLAN.md`
-4. [ ] **Seed RAID Log**: Log any technical risks found during implementation
-5. [ ] Run `scripts/check_integrity.ps1` (Must Pass)
-6. [ ] Declare handoff (see matrix below)
+1. [ ] **RAID Seeding:** Did you find technical risks? Log them in `RAID_LOG.md`.
+2. [ ] Update `PLAN.md`:
+   - Mark task `[DONE]` / `[READY FOR TEST]`.
+   - Set your status `✅ DONE`.
+   - Set next agent `🛠️ ACTIVE`.
+3. [ ] Log session end to `SESSION_LOG.md`.
+4. [ ] Add created/modified files to Artifact Registry in `PLAN.md`.
+5. [ ] Append notes to `HANDOFF_NOTES.md`.
+6. [ ] Run `scripts/check_integrity.ps1` (Must Pass).
+7. [ ] Declare handoff.
 
 ---
 

@@ -16,7 +16,6 @@ Specialized instruction sets that extend AI capabilities for RAPS workflows.
 | [**UX Toolkit**](ux-toolkit/SKILL.md) | `/ux-toolkit` | User Experience design & research |
 | [**Business Analyst Toolkit**](business-toolkit/SKILL.md) | `/business-toolkit` | Business Rules, ROI, Domain Glossary, Market Analysis |
 | [**Product Manager Toolkit**](product-toolkit/SKILL.md) | `/product-toolkit` | Product Vision, VoC Benchmarking, UX Patterns |
-| [**Build Toolkit**](build-toolkit/SKILL.md) | `/build-toolkit` | Code Standards, Logic Bridges, RAID Seeding |
 
 | [**Memory Update**](memory-update/SKILL.md) | `/memory-update` | Update RAPS Brain with new information |
 | [**Spec Review**](spec-review/SKILL.md) | `/spec-review` | Review specifications against requirements |

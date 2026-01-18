@@ -71,8 +71,8 @@ description: Initialize a new RAPS project with scaffolding and Master Ledger
     - Generate Artifacts (Source: `project-scaffolding/SKILL.md`):
         - `PLAN.md` (Master Ledger)
         - `CHARTER.md` (Project Charter)
-        - `/docs/management/RAID_LOG.md`
-        - `/docs/management/DECISION_LOG.md`
+        - `RAID_LOG.md` (Management)
+        - `DECISION_LOG.md` (Audit)
         - `SESSION_LOG.md`
         - `HANDOFF_NOTES.md`
         - `.raps/MEMORY.md`
@@ -91,7 +91,7 @@ description: Initialize a new RAPS project with scaffolding and Master Ledger
 ## Quality Gate
 - [ ] **Standard Folders:** `.raps`, `docs`, `research`, `frontend`, `backend`, `scripts` exist.
 - [ ] **Master Ledger:** `PLAN.md` and `CHARTER.md` exist in root.
-- [ ] **Management Logs:** `RAID_LOG.md` and `DECISION_LOG.md` exist in `/docs/management/`.
+- [ ] **Management Logs:** `RAID_LOG.md` and `DECISION_LOG.md` exist in root.
 - [ ] **Context Memory:** `.raps/MEMORY.md` exists (from Template).
 - [ ] **Collaborative Logs:** `SESSION_LOG.md` and `HANDOFF_NOTES.md` exist in root.
 - [ ] **Security:** `.env.example` exists (Baseline).

@@ -47,7 +47,7 @@ description: Technical/Functional Analyst for requirements definition and user s
    - Read `RSRCH_SYNTHESIS.md` (Check `🔗 Logic Bridges` for constraints)
    - Read `RSRCH_EVIDENCE_LOG.md` (Verify source triangulation)
 6. [ ] **Integrity Check:** Verify `scripts/check_integrity.ps1` exists.
-7. [ ] Log session start to `.raps/SESSION_LOG.md`:
+7. [ ] Log session start to `SESSION_LOG.md`:
    ```
    | [TIMESTAMP] | /analyst | Starting requirements analysis | 🛠️ ACTIVE | - | [Task] |
    ```
@@ -132,7 +132,7 @@ description: Technical/Functional Analyst for requirements definition and user s
      - Review all User Stories against `BRD_BUSINESS_RULES.md`.
      - **Identify Violations:** Does Story A break Rule B?
      - **Conflict Resolution:** Resolve logic collisions before handoff.
-  3. **RAID Ingestion:** Map all discovered risks (tech, dependency, or compliance) to `docs/strategy/RAID_LOG.md`.
+  3. **RAID Ingestion:** Map all discovered risks (tech, dependency, or compliance) to `RAID_LOG.md`.
   4. **MoSCoW Alignment:** Set `[MUST | SHOULD | COULD]` priorities for all User Stories.
   5. **Definition of Ready (DoR) Audit:**
      - Verify every `STRY` has testable **Acceptance Criteria**.
@@ -174,7 +174,7 @@ description: Technical/Functional Analyst for requirements definition and user s
 
 ## 🏁 Exit Checklist
 1. [ ] **Quality Gate**: Verify `🛡️ Quality Gate (Definition of Ready)` is 100% passed.
-2. [ ] **RAID Ledger**: Confirm all Risks/Assumptions from discovery are seeded into `strategy/RAID_LOG.md`.
+2. [ ] **RAID Ledger**: Confirm all Risks/Assumptions from discovery are seeded into `RAID_LOG.md`.
 3. [ ] **Briefing Ready**: Prepare the 3-minute "Mental Model" (Context-First Briefing) for the Architect.
 4. [ ] **Ledger Sync**:
     - Update `PLAN.md` (Task `[DONE]`, Status `✅ DONE`, /architect `🛠️ ACTIVE`).

@@ -47,7 +47,7 @@ project-root/
 │   ├── api/                # OpenAPI/Swagger Specs
 │   ├── decisions/          # Architecture Decision Records (ADRs)
 │   ├── diagrams/           # Analyst "Visual Bridges" (ERDs, trees)
-│   ├── management/         # Plans, Risks, Retros
+│   ├── management/         # Plans, Retros (RAID/Decision moved to root)
 │   └── qa/                 # Test Plans
 ├── types/                  # Shared TypeScript/State types
 ├── schemas/                # Database/JSON schemas
@@ -57,6 +57,8 @@ project-root/
 ├── tests/                  # Test files (/test lane)
 ├── scripts/                # Utility scripts
 │   └── check_integrity.ps1 # RAPS Self-Healing
+├── RAID_LOG.md             # Risks, Assumptions, Issues, Dependencies
+├── DECISION_LOG.md         # Architecture Decision Records
 ├── PLAN.md                 # Master Ledger
 ├── README.md               # Project overview
 ├── .tool-versions          # Deterministic Runtime
@@ -129,13 +131,13 @@ The following templates are available in the `./templates/` directory:
 2.  [ ] Create folder structure (Business, Functional, Technical, API, Decisions, Diagrams, Management, QA)
 3.  [ ] Create `/types/` and `/schemas/` directories
 4.  [ ] Create `PLAN.md` from template
-5.  [ ] Create `.raps/` directory (System Files)
-6.  [ ] Create `SESSION_LOG.md` in root
-7.  [ ] Create `HANDOFF_NOTES.md` in root
-8.  [ ] Create `MEMORY.md` in `.raps/`
-9.  [ ] Create `CHARTER.md` in root from `CHARTER_TEMPLATE.md`
-10. [ ] Create `RAID_LOG.md` in root from `RAID_LOG_TEMPLATE.md`
-11. [ ] Create `DECISION_LOG.md` in root from `DECISION_LOG_TEMPLATE.md`
+5.  [ ] Create `RAID_LOG.md` in root from `RAID_LOG_TEMPLATE.md`
+6.  [ ] Create `DECISION_LOG.md` in root from `DECISION_LOG_TEMPLATE.md`
+7.  [ ] Create `.raps/` directory (System Files)
+8.  [ ] Create `SESSION_LOG.md` in root
+9.  [ ] Create `HANDOFF_NOTES.md` in root
+10. [ ] Create `MEMORY.md` in `.raps/`
+11. [ ] Create `CHARTER.md` in root from `CHARTER_TEMPLATE.md`
 12. [ ] Create project `README.md` from template
 13. [ ] Initialize git repository
 14. [ ] Copy `scripts/check_integrity.ps1` from RAPS root
@@ -203,8 +205,7 @@ backend/
 ## How to Verify
 
 - [ ] All required folders created
-- [ ] PLAN.md and CHARTER.md exist
-- [ ] RAID_LOG.md and DECISION_LOG.md exist
+- [ ] PLAN.md, RAID_LOG.md, DECISION_LOG.md exist in root
 - [ ] SESSION_LOG.md has initialization entry
 - [ ] Git repository initialized
 - [ ] Handoff notes written

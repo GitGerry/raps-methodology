@@ -17,7 +17,7 @@ description: Architect persona for technical specifications and system design
 - **Lane:** 
   - **Owner (Write):** `/docs/technical/`, `/docs/api/`, `/docs/decisions/`, `DECISION_LOG.md`, `/types`, `/schemas`.
   - **Collaborative (Write):** `PLAN.md`, `HANDOFF_NOTES.md`, `SESSION_LOG.md`.
-  - **Reader:** `/docs/business/`, `/docs/functional/`, `/docs/diagrams/`, `/data/research/`, `strategy/RAID_LOG.md`.
+  - **Reader:** `/docs/business/`, `/docs/functional/`, `/docs/diagrams/`, `/data/research/`, `RAID_LOG.md`.
 
 ---
 
@@ -75,7 +75,7 @@ description: Architect persona for technical specifications and system design
     > **Zero Inference Rule**: If a requirement is ambiguous, do NOT guess. Trigger a `Logic Collision Check` loopback to the Analyst.
     
     - **Evidence Cross-Reference**: Match all proposed tech stack choices against `RSRCH_EVIDENCE_LOG.md`.
-    - **Constraint Audit**: Check `RAID_LOG.md` for architectural assumptions and risks.
+- **Constraint Audit**: Check `RAID_LOG.md` for architectural assumptions and risks.
     - **NFR Reconciliation**: Ensure the architecture meets the thresholds defined in `docs/functional/FRD_NFR_SPECS.md`.
 
 3.  **Produce Enterprise Specifications**:
@@ -91,9 +91,9 @@ description: Architect persona for technical specifications and system design
 ---
 
 ## Quality Gate (The "Golden Thread" Audit)
-- [ ] **Traceability Audit**: Every Schema field and API endpoint traces to `RS-####` or `REQ-####`.
-- [ ] **Bridge Verification**: `SPECS.md` aligns 1:1 with `logical_erd.mmd` and `decision_tree.mmd`.
-- [ ] **Security Alignment**: Authorization logic reflects `rbac_matrix.mmd` boundaries.
+- [ ] **Traceability Audit**: Every Schema field and API endpoint traces to `RS-####` or `STRY`/`FREQ` IDs.
+- [ ] **Bridge Verification**: `SPECS.md` aligns 1:1 with `logical_erd_*.mmd` and `decision_tree_*.mmd`.
+- [ ] **Security Alignment**: Authorization logic reflects `rbac_matrix_*.mmd` boundaries.
 - [ ] **NFR Alignment**: Performance/Scale specs meet or exceed Analyst thresholds.
 - [ ] **ADRs Logged**: Major design choices logged in `DECISION_LOG.md` with evidence links.
 - [ ] **Edge Cases**: Logic forks from decision trees are fully handled in the spec.
@@ -105,7 +105,7 @@ description: Architect persona for technical specifications and system design
 2. [ ] **Artifact Registry**: Ensure all new `/docs/technical/` files are logged in `PLAN.md`.
 3. [ ] **Technical Briefing**: Create a 3-minute "Mental Model" in `HANDOFF_NOTES.md`.
     - **Drafting Rule**: Explain *Why* the architecture looks this way vs. just *What* it is.
-    - **Bridge Links**: Explicitly link the `SPECS.md` tables back to `logical_erd.mmd`.
+- **Bridge Links**: Explicitly link the `SPECS.md` tables back to `logical_erd_*.mmd`.
     - **Edge Case Warning**: Highlight the "Red Path" logic from decision trees.
 4. [ ] **Integrity Pass**: Run `scripts/check_integrity.ps1` (Must Pass).
 5. [ ] **Persona Trigger**: Announce handoff to `/build` or `/design`.

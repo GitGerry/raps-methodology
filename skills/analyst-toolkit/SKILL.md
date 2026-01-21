@@ -55,6 +55,8 @@ Provide standards for writing requirements, user stories, and maintaining tracea
 
 ## 🧠 Thinking Logic (How to Execute)
 
+> **Called from:** [/analyst workflow](../../workflows/analyst.md) — This section contains the phase execution logic.
+
 ### 🔍 Intelligence Ingestion (System Constraints)
 Before breaking down features:
 1. **Map Logic Bridges**: Review `🔗 Logic Bridges` in `RSRCH_SYNTHESIS.md`.

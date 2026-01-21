@@ -1,7 +1,133 @@
-﻿# ðŸ“œ RAPS Methodology Changelog
+﻿# 📜 RAPS Methodology Changelog
+
+## [3.3.0] - 2026-01-21
+
+### Sprint 1: Foundation Improvements
+
+#### P0: Critical Fixes
+- **`security-toolkit`:** Expanded from 34→170 lines
+  - Added OWASP Top 10 checklist (A01-A10)
+  - Added attack methodology with test matrix
+  - Added vulnerability report template
+  - Added CVE scanning protocol with severity thresholds
+- **`sync-raps`:** Expanded from 28→105 lines
+  - Added conflict detection and resolution procedures
+  - Added rollback procedures
+  - Added sync direction guidance (Brain↔Repo)
+
+#### P1: High Priority Enhancements
+- **Agile Integration:** Wired `agile-toolkit` into core persona Entry Checklists
+  - `/build` now loads DoD checklist (Section 2)
+  - `/design` now loads DoD checklist (Section 2)
+  - `/test` now loads DoD checklist (Section 2)
+- **`SKILL_TEMPLATE.md`:** Created gold standard template for new skills
+  - Includes anti-hallucination protocol structure
+  - Includes "How to Verify" section requirement
+  - Includes authoring guidelines in comments
+
+### Sprint 2: Features
+
+#### P2: New Skills & Integrations
+- **`review-toolkit`:** New skill (125 lines) for code review standards
+  - PR checklist with weighted scoring
+  - Severity levels (Critical/Major/Minor/Nit)
+  - Merge criteria and self-review protocol
+- **`release-toolkit`:** New skill (185 lines) for release management
+  - SemVer protocol with decision tree
+  - Changelog generation format
+  - Git tagging, rollback, and hotfix procedures
+- **Context7 Integration:** Added to `research-toolkit` tool inventory
+  - Priority 1 for library/framework documentation
+  - Updated priority logic (now 5 levels)
+- **`docs/DIAGRAM_STANDARDS.md`:** Mermaid diagram conventions
+  - Quoting rules, node naming standards
+  - Type-by-use-case matrix
+  - Anti-patterns documentation
+
+### Sprint 3: Cleanup
+
+#### P3: Technical Debt
+- **Handoff Skill Decision:** Kept `handoff` skill (307 lines) as it provides detailed templates for HANDOFF_NOTES.md generation, complementing 4-column workflow matrices
+- **Deprecated /research References:** Fixed 6 files
+  - `README.md`, `workflows/README.md` - clarified `/data/research/` path
+  - `project-scaffolding` - removed /research persona from handoff
+  - `set_status.ps1` - removed from ValidateSet
+  - `memory-update` - updated to reference research-toolkit
+  - `estimate` - removed from persona table
+
+### Backlog Completion
+
+- **`docs/SKILL_GRAPH.md`:** Created skill dependency visualization
+  - Mermaid flowcharts for workflow→skill mapping
+  - Skill categories (Persona/Supporting/Utility)
+  - Cross-skill dependency diagram
+- **`skills/README.md`:** Updated with new skills
+  - Added review-toolkit and release-toolkit to Supporting Toolkits
+  - Added SKILL_TEMPLATE.md and SKILL_GRAPH.md references
+  - Updated "Adding New Skills" instructions
+
+---
+
+## [3.2.0] - 2026-01-21
+
+### Architecture
+- **Thin Workflow Pattern:** Refactored `/analyst` from 201 lines to 110 lines
+  - Workflow now acts as orchestrator only
+  - All phase execution logic delegated to `analyst-toolkit/SKILL.md`
+  - Added phase table mapping workflow phases to skill sections
+
+### Added
+- 4-column Handoff Matrix with Trigger column
+- Architect rejection handling in Handoff Matrix
+- `.raps/MEMORY.md` seeding in Exit Checklist
+- Iteration guard (max 3 loopback cycles)
+- Bidirectional references between workflow and skill
+
+### Changed
+- Entry Checklist reduced to 7 items (from 8)
+- Quality Gate simplified with clearer binary checks
+
+### /raps-improve Refactor
+- Applied thin workflow pattern (130→110 lines)
+- Created new `skills/standards-toolkit/` with 7-phase execution logic
+- Added Expert Heuristic questions to each phase
+- Added recursive dependency audit protocol
+
+### All Personas Hardened to S+ Standard
+Thin workflow pattern applied to all 9 personas:
+
+| Persona | Before | After | Key Improvements |
+|---------|--------|-------|------------------|
+| `/analyst` | 201 | 110 | Phase table, 4-col handoff, MEMORY seeding |
+| `/raps-improve` | 130 | 110 | New standards-toolkit skill |
+| `/security` | 94 | 108 | Full S+ structure, 6-phase table |
+| `/ux` | 105 | 115 | Prohibitions, 6-phase table |
+| `/deploy` | 232 | 125 | Thin pattern, removed inline logic |
+| `/test` | 162 | 115 | 6-phase table, flaky test handling |
+| `/design` | 203 | 115 | Thin pattern, 6-phase table |
+| `/build` | 226 | 125 | Thin pattern, 6-rule anti-hallucination |
+| `/initialize` | 134 | 110 | 5-rule anti-hallucination, prohibitions |
+
+### Skills Folder Cleanup
+- **Created:** `design-toolkit` (was missing, breaking `/design` workflow)
+- **Deleted:** `update-dashboard` (deprecated - dashboard removed in v2.3.2)
+- **Deleted:** `raps-integrity` (overlaps with `standards-toolkit`)
+- **Merged:** `sprint-plan` → `agile-toolkit` (now includes DoR, DoD, story points)
+- **Updated:** `skills/README.md` with clear categories (Persona/Supporting/Utility)
+- **Net change:** 27 → 25 skills
+
+### Skills Integrity Audit
+- **Fixed:** `/retro` broken anchor (#3 → #7-sprint-retrospective)
+- **Added:** Velocity tracking section to `agile-toolkit`
+- **Audited:** All 25 skills for content quality and workflow integration
+- **Identified:** `security-toolkit` needs expansion (34 lines, sparse)
 
 > Governance log for the evolution of the RAPS Framework.
 
+| 2026-01-21 21:13 | v3.1.5 | **Consolidation** | **Template Consolidation**: Merged root `/templates/` (8 files) into `project-scaffolding/templates/` (now 20 files). Removed 5 duplicates, moved 3 unique methodology templates. Single source of truth for templates. | User |
+| 2026-01-21 21:07 | v3.1.4 | **Governance** | **Document Governance Audit**: Fixed 4 workflows (`deploy`, `ux`, `analyst`, `security`), removed legacy Prompt sections, fixed deprecated `/research` refs, added `deploy-toolkit/templates/DEPLOYMENT_RUNBOOK.md`. | User |
+| 2026-01-21 20:55 | v3.1.3 | **Maintenance** | **Documentation Alignment**: Fixed 5 formatting bugs in `workflows/README.md`, removed stale `/research` persona from `PLAN.md`, created `CHARTER.md` template, corrected persona count to "Nine". | User |
+| 2026-01-18 21:36 | v3.1.2 | **Standardization** | Hardened workflows/build, design, test to v3.2 (Deep Schema Audit + Lead Protocols) | User |
 | 2026-01-18 20:46 | v3.1.1 | **Feature** | **Hardening Agent**: Released `/raps-improve` workflow to automate v3.1 standards upgrades. | User |
 | 2026-01-18 19:54 | v3.0.3 | **Standardization** | v3.1 Build Persona Hardening | User |
 | 2026-01-18 19:51 | v3.0.2 | **Standardization** | Release v3.1.0: Build Persona Hardening & Toolkit Integration | User |

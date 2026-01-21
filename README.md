@@ -232,7 +232,7 @@ See the [Sprint Planning Skill](skills/sprint-plan/SKILL.md) for sprint planning
 ```
 /architect --auto
 ```
-Generates a draft spec from `/research` files. Human review required!
+Generates a draft spec from `/data/research/` files (via research-toolkit). Human review required!
 
 **Prohibitions:**
 - ❌ No production code
@@ -432,6 +432,24 @@ Generates a draft spec from `/research` files. Human review required!
 
 ---
 
+### 🏃 /sprint - Sprint Planning
+**Agile sprint planning and transition workflow.**
+
+```
+/sprint
+```
+
+**What it does:**
+- Define sprint goals and capacity
+- Select stories from backlog
+- Create sprint board
+- Manage sprint transitions
+
+**Use when:**
+- Starting a new sprint
+- Mid-sprint replanning
+- Sprint transitions
+
 ---
 
 ### 📝 /retro - Retrospective
@@ -522,18 +540,7 @@ Generates a draft spec from `/research` files. Human review required!
 
 ---
 
-### 📂 /move-replays - Replay Organizer
-**Utility to organize downloaded game replays.**
 
-```
-/move-replays
-```
-
-**Use when:**
-- Organzing downloaded .rec/.rep files
-- Archiving game replays for analysis
-
----
 
 
 ## 📺 Visual Dashboard

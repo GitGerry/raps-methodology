@@ -116,7 +116,7 @@ During memory update, consider removing:
 
 ## Integration with Workflows
 
-### After /research
+### After research-toolkit usage
 - Extract discovered APIs, technologies → Entity Memory
 - Note any feasibility concerns → Cross-Session Context
 

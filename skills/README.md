@@ -2,55 +2,49 @@
 
 Specialized instruction sets that extend AI capabilities for RAPS workflows.
 
-## Available Skills
+## Persona Toolkits (Primary)
 
-### General Skills
-| Skill | Command | Description |
-|-------|---------|-------------|
-| [**Import Requirements**](import-requirements/SKILL.md) | `/import-requirements` | Convert external docs (PRDs, Jira) to RAPS format |
-| [**Generate Tests**](generate-tests/SKILL.md) | `/generate-tests` | Auto-create test cases from requirements |
-| [**Sprint Planning**](sprint-plan/SKILL.md) | `/sprint-plan` | Create sprint plans with effort estimation |
-| [**Impact Analysis**](impact-analysis/SKILL.md) | `/impact-analysis` | Assess ripple effects of changes |
-| [**Sync RAPS**](sync-raps/SKILL.md) | `/sync-raps` | Sync Brain ↔ Repo |
-| [**Agile Toolkit**](agile-toolkit/SKILL.md) | `/agile-toolkit` | Agile ceremonies & artifacts |
-| [**UX Toolkit**](ux-toolkit/SKILL.md) | `/ux-toolkit` | User Experience design & research |
-| [**Business Analyst Toolkit**](business-toolkit/SKILL.md) | `/business-toolkit` | Business Rules, ROI, Domain Glossary, Market Analysis |
-| [**Product Manager Toolkit**](product-toolkit/SKILL.md) | `/product-toolkit` | Product Vision, VoC Benchmarking, UX Patterns |
-
-| [**Memory Update**](memory-update/SKILL.md) | `/memory-update` | Update RAPS Brain with new information |
-| [**Spec Review**](spec-review/SKILL.md) | `/spec-review` | Review specifications against requirements |
-| [**Debug Assist**](debug-assist/SKILL.md) | `/debug-assist` | Structured debugging workflow |
-
-
-
-### Research Skills
-| Skill | Command | Description |
-|-------|---------|-------------|
-| **API Research** | `/research-api` | Deep-dive API investigation (auth, rate limits, pricing) |
-| **Competitor Analysis** | `/research-competitor` | SWOT, feature matrix, pricing comparison |
-| **Technology Evaluation** | `/research-technology` | Weighted scorecard for tech decisions |
-| **Market Research** | `/research-market` | TAM/SAM/SOM, trends, user demographics |
-| **Feasibility Study** | `/research-feasibility` | Technical, operational, economic assessment |
-| **Summarize** | `/research-summarize` | Condense documents into structured findings |
-| **Research Toolkit** | `/research-toolkit` | Evidence standards & quality ratings |
-
-### Persona Toolkits
 | Skill | Used By | Description |
 |-------|---------|-------------|
-| [**Agile Toolkit**](agile-toolkit/SKILL.md) | `/build`, `/design`, `/review`, `/sprint`, `/retro`, `/test` | DoR/DoD, sprint planning, retrospectives |
-| [**Project Scaffolding**](project-scaffolding/SKILL.md) | `/initialize` | Project structure templates |
-| [**Analyst Toolkit**](analyst-toolkit/SKILL.md) | `/analyst` | Functional Analyst Toolkit: Stories, Specs, Registry |
-| [**Architecture Toolkit**](architecture-toolkit/SKILL.md) | `/architect` | Spec templates, ADR format, auto-mode |
-| [**QA Toolkit**](qa-toolkit/SKILL.md) | `/test` | Test protocols & coverage standards |
-| [**Security Toolkit**](security-toolkit/SKILL.md) | `/security` | OWASP checklists & vulnerability templates |
-| [**UX Toolkit**](ux-toolkit/SKILL.md) | `/ux` | Heuristics, UAT templates |
+| [**Analyst Toolkit**](analyst-toolkit/SKILL.md) | `/analyst` | Requirements, User Stories, Traceability |
+| [**Architecture Toolkit**](architecture-toolkit/SKILL.md) | `/architect` | Spec templates, ADR format |
+| [**Build Toolkit**](build-toolkit/SKILL.md) | `/build` | Backend standards, defensive coding |
+| [**Design Toolkit**](design-toolkit/SKILL.md) | `/design` | UI patterns, responsive standards |
+| [**QA Toolkit**](qa-toolkit/SKILL.md) | `/test` | Test protocols, coverage standards |
+| [**Security Toolkit**](security-toolkit/SKILL.md) | `/security` | OWASP checklists, vulnerability templates |
+| [**UX Toolkit**](ux-toolkit/SKILL.md) | `/ux` | Nielsen heuristics, UAT templates |
 | [**Deploy Toolkit**](deploy-toolkit/SKILL.md) | `/deploy` | Deployment runbooks, rollback procedures |
+| [**Standards Toolkit**](standards-toolkit/SKILL.md) | `/raps-improve` | S+ compliance enforcement |
+| [**Project Scaffolding**](project-scaffolding/SKILL.md) | `/initialize` | Project structure templates |
 
-## How to Use
+## Supporting Toolkits
 
-1. Invoke the skill by name when relevant
-2. The AI reads the `SKILL.md` file for instructions
-3. Follow the skill's workflow
+| Skill | Command | Description |
+|-------|---------|-------------|
+| [**Agile Toolkit**](agile-toolkit/SKILL.md) | `/sprint`, `/retro` | DoR, DoD, Sprint Planning, Story Points |
+| [**Business Toolkit**](business-toolkit/SKILL.md) | `/analyst` | Business Rules, ROI, Domain Glossary |
+| [**Product Toolkit**](product-toolkit/SKILL.md) | `/analyst` | Product Vision, Benchmarking |
+| [**Research Toolkit**](research-toolkit/SKILL.md) | `/analyst` | Evidence standards, intelligence gathering |
+| [**Review Toolkit**](review-toolkit/SKILL.md) | `/review` | PR checklist, merge criteria |
+| [**Release Toolkit**](release-toolkit/SKILL.md) | `/release` | SemVer, changelog, rollback |
+
+## Utility Skills
+
+| Skill | Command | Description |
+|-------|---------|-------------|
+| [**Import Requirements**](import-requirements/SKILL.md) | `/import-requirements` | Convert external docs to RAPS format |
+| [**Generate Tests**](generate-tests/SKILL.md) | `/generate-tests` | Auto-create test cases |
+| [**Impact Analysis**](impact-analysis/SKILL.md) | `/impact-analysis` | Assess ripple effects of changes |
+| [**Sync RAPS**](sync-raps/SKILL.md) | `/sync-raps` | Sync Brain ↔ Repo |
+| [**Memory Update**](memory-update/SKILL.md) | `/memory-update` | Update RAPS Brain |
+| [**Spec Review**](spec-review/SKILL.md) | `/spec-review` | Review specs against requirements |
+| [**Debug Assist**](debug-assist/SKILL.md) | `/debug-assist` | Structured debugging workflow |
+| [**Estimate**](estimate/SKILL.md) | `/estimate` | Effort estimation |
+| [**Document Gen**](document-gen/SKILL.md) | `/document-gen` | Generate documentation |
+| [**Handoff**](handoff/SKILL.md) | `/handoff` | Cross-persona handoff templates |
+| [**Compliance Check**](compliance-check/SKILL.md) | `/compliance` | Regulatory compliance audits |
+
+---
 
 ## Skill Structure
 
@@ -58,40 +52,32 @@ Specialized instruction sets that extend AI capabilities for RAPS workflows.
 skills/
 └── [skill-name]/
     ├── SKILL.md       # Main instructions (required)
+    ├── templates/     # Output templates (optional)
     ├── scripts/       # Helper utilities (optional)
-    ├── examples/      # Reference implementations (optional)
-    └── resources/     # Templates, assets (optional)
+    └── examples/      # Reference implementations (optional)
 ```
-
-### Required SKILL.md Sections
-
-Every SKILL.md should include these sections in order:
-
-1. **YAML Frontmatter** — `name` and `description`
-2. **Purpose** — What this skill does and when to use it
-3. **Tool Interface** (NEW) — Standardized inputs, outputs, and implementation
-4. **Instructions** — Step-by-step workflow
-5. **How to Verify** — Validation checklist
-
-See `project-scaffolding/SKILL.md` for a reference implementation of the Tool Interface format.
 
 ## Adding New Skills
 
-1. Create a folder in `skills/[skill-name]/`
-2. Add `SKILL.md` with YAML frontmatter:
+1. Create folder: `skills/[skill-name]/`
+2. Copy `SKILL_TEMPLATE.md` as starting point
+3. Add `SKILL.md` with YAML frontmatter:
    ```yaml
    ---
    name: Skill Name
    description: What this skill does
    ---
    ```
-3. Document instructions, templates, and verification steps
+4. Include: Purpose, Instructions, How to Verify
+5. Update this README with the new skill
 
-## Skill Best Practices
+> See [SKILL_TEMPLATE.md](SKILL_TEMPLATE.md) for gold standard format.
+> See [SKILL_GRAPH.md](../docs/SKILL_GRAPH.md) for dependency mapping.
+
+## Best Practices
 
 - ✅ Clear, actionable instructions
-- ✅ Templates for output
+- ✅ Templates for outputs
 - ✅ Verification checklist
-- ✅ Examples when complex
+- ❌ Don't overlap with existing skills
 - ❌ Don't assume context — be explicit
-- ❌ Don't overlap with existing workflows

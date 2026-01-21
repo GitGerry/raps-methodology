@@ -21,6 +21,7 @@ The Intelligence Engine utilizes a tiered toolset to ensure depth, accuracy, and
 
 | Tool | Primary Purpose | Priority | Limitations |
 |:---|:---|:---:|:---|
+| **Context7 (MCP)** | Up-to-date library/framework documentation. | 1 | Best for coding questions; call `resolve-library-id` first. |
 | **Exa.ai (Neural)** | Finding high-fidelity docs & "needle-in-haystack" tech. | 1 | Best for developers; search by meaning, not keyword. |
 | **BuiltWith API** | Technology stack fingerprinting & Competitive Intel. | 1 | Critical for Architect feasibility checks. |
 | **Crunchbase API** | Market sizing, funding trends, corporate health. | 1 | Best for BA Strategy Phase. |
@@ -30,12 +31,13 @@ The Intelligence Engine utilizes a tiered toolset to ensure depth, accuracy, and
 
 ### 🚨 Priority Logic (v2.8)
 1. **Introspection**: Use GitHub/Supabase MCP for RAPS-internal state.
-2. **Specialized Intelligence**:
+2. **Library Docs**: Use **Context7** for "How to use React hooks" or "Next.js routing".
+3. **Specialized Intelligence**:
    - Use **Exa** for "How to use Library X" or "Finding whitepapers".
    - Use **BuiltWith** for "What is Competitor Y's backend?".
    - Use **Crunchbase** for "Is Market Z growing?".
-3. **Deep Synthesis**: Use **Tavily** for "Explain the pros/cons of Stack A vs B".
-4. **General Crawling**: Use **Firecrawl** or **read_url_content** as fallback for general sites.
+4. **Deep Synthesis**: Use **Tavily** for "Explain the pros/cons of Stack A vs B".
+5. **General Crawling**: Use **Firecrawl** or **read_url_content** as fallback for general sites.
 
 ## Tool Interface
 

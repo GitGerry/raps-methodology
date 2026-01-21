@@ -29,7 +29,6 @@ Establish a robust, agentic-native software development methodology (RAPS) that 
 | Persona | Status | Current Task | Last Updated |
 |---------|--------|--------------|--------------|
 | 🏗️ /initialize | 💤 IDLE | - | - |
-| 🔍 /research | 💤 IDLE | - | - |
 | 📋 /analyst | 💤 IDLE | - | - |
 | 📐 /architect | 💤 IDLE | - | - |
 | ⚙️ /build | 💤 IDLE | - | - |

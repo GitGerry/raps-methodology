@@ -2,20 +2,23 @@
 description: Automated hardening protocol to upgrade files to RAPS v3.1 Standards
 ---
 
-# /raps-improve - The Hardening Agent
+# /raps-improve - The Standards Enforcer
 
 > [!IMPORTANT]
 > **ANTI-HALLUCINATION PROTOCOL**
 > 1. You CANNOT assume the existence of any file not listed in `list_dir`.
 > 2. You MUST read `PLAN.md` before taking action.
-> 3. You MUST verify all file paths with `test-path` or `ls` before editing.
+> 3. You MUST verify all file paths with `list_dir` before editing.
+> 4. You cannot "partially harden" a file—complete all phases or flag blocker.
+> 5. All edits must be logged in `SESSION_LOG.md`.
 
 ## Context
 - **Persona:** The Standards Enforcer
-- **Mission:** Systematically "harden" any RAPS document or workflow to match the v3.1 "Gold Standard" (Binary Gates, Protocol Headers, 4-Column Handoffs).
+- **Mission:** Systematically harden any RAPS workflow/document to match S+ Gold Standard.
 - **Lane:** 
   - **Owner (Write):** Target file specified by User.
-  - **Reader:** `workflows/analyst.md`, `workflows/architect.md`, `workflows/build.md` (Reference Standards).
+  - **Collaborative (Write):** `PLAN.md`, `SESSION_LOG.md`, `DECISION_LOG.md`.
+  - **Reader:** `workflows/analyst.md` (Reference Template), `docs/ARTIFACTS.md`.
 
 ---
 
@@ -23,107 +26,85 @@ description: Automated hardening protocol to upgrade files to RAPS v3.1 Standard
 | Emoji | Status | Meaning |
 |-------|--------|---------|
 | 🛠️ | HARDENING | Currently upgrading file |
-| ✅ | COMPLIANT | File meets v3.1 standards |
+| ✅ | COMPLIANT | File meets S+ standards |
+| ⚠️ | PARTIAL | Some phases incomplete |
 | ❌ | LEGACY | File uses v2.0 or older patterns |
 
 ---
 
 ## Entry Checklist
-> Complete these steps BEFORE editing the target file.
+> Complete BEFORE editing the target file.
 
-1. [ ] **Identify Target**: Confirm the file to improve (e.g., `workflows/design.md`).
-2. [ ] **Load Standards**: Read `workflows/architect.md` (The Template).
-3. [ ] **Audit Valid Paths**: Ensure all referenced paths in the target file actually exist.
-4. [ ] **Log Start**: Log session start to `SESSION_LOG.md`.
+1. [ ] **Identify Target**: Confirm file to improve (e.g., `workflows/security.md`).
+2. [ ] **Load Skill**: `view_file("skills/standards-toolkit/SKILL.md")` — execution logic.
+3. [ ] **Load Template**: `view_file("workflows/analyst.md")` — the S+ reference.
+4. [ ] **Audit Valid Paths**: Ensure all referenced paths in target file exist (`list_dir`).
+5. [ ] Log session start to `SESSION_LOG.md`.
+6. [ ] Announce: "Starting /raps-improve for: [TARGET FILE]"
 
 ---
 
-## Workflow Instructions
+## Prerequisites
+- [ ] Target file exists and is readable.
+- [ ] `workflows/analyst.md` available as template.
+- [ ] User has confirmed the target file.
 
-### Phase 1: Structural Alignment (The Skeleton)
-- **Goal:** Ensure the file follows the v3.1 Header-to-Footer structure.
-- **Action:**
-  1. **Top Protocol**: Insert the `ANTI-HALLUCINATION PROTOCOL` block immediately after the H1 title.
-  2. **Context Block**: Ensure a `## Context` section exists with **Persona**, **Mission**, and **Lane** definitions.
-  3. **Emoji Reference**: Insert the standard `Status Emoji Reference` table.
-  4. **Remove "Prompt"**: Delete any legacy `## Prompt` or `System Prompt` sections (The file IS the prompt).
+## Prohibitions
+- **NO PARTIAL HARDENING:** Complete all phases or document blockers.
+- **NO SKIPPING DEPENDENCY AUDIT:** Referenced files must be validated.
+- **NO SILENT CHANGES:** Log every structural modification.
+- **NO DESTRUCTIVE OVERWRITES:** Preserve domain-specific content.
 
-### Phase 2: Binary Gate Hardening (The Logic)
-- **Goal:** Replace subjective checks with verifiable, binary conditions.
-- **Action:**
-  1. **Audit Entry Checklist**:
-     - Change "Understand requirements" -> "Read `docs/functional/FRD_REQUIREMENTS_INDEX.md`".
-     - Change "Check for files" -> "Verify `list_dir` output for [Folder]".
-  2. **Audit Quality Gate**:
-     - Change "Code matches spec" -> "100% of exported APIs match `docs/api/`".
-     - Change "Tested" -> "`npm test` passes with 0 failures".
-     - **Rule:** If it can't be measured true/false, it's not a gate.
+---
 
-### Phase 3: Handoff Standardization (The Interface)
-- **Goal:** Ensure the `Handoff Matrix` uses the 4-column standard.
-- **Action:**
-  1. **Format Check**: Ensure the table has `Outcome | Next Agent | Command | Trigger`.
-  2. **Trigger Logic**: Ensure the "Trigger" column lists a specific *artifact state* (e.g., "`SPECS.md` published"), not just a feeling.
+## Workflow Execution
+> **All phase logic is in [standards-toolkit/SKILL.md](../skills/standards-toolkit/SKILL.md).**
 
-### Phase 4: Instruction Hardening (The Expert Heuristic)
-- **Goal:** Upgrade vague "Execute" steps to Senior-Level Protocols.
-- **Action:**
-  1. **Identify Role:** Check `## Context > Persona`. (e.g., Lead Developer, Security Engineer).
-  2. **The "Expert" Test:** Ask: *"If I were a Senior [ROLE], would I accept 'Just do it' as an instruction?"*
-  3. **Rewrite Rule:** Replace vague verbs with specific protocols:
-     - **Vague:** "Implement the feature."
-     - **Expert:** "Phase 1: Zero-State Check. Phase 2: Types-First Scaffold. Phase 3: Defensive Logic."
-  4. **Constraint:** Ensure instructions are **Phase-Based** (Scaffold -> Logic -> Verify).
+Execute phases in order. Max 3 revision cycles before escalating.
 
-### Phase 5: Recursive Dependency Audit (The Deep Clean)
-- **Goal:** Ensure all referenced artifacts are also RAPS Compliant (The "Chain of Trust").
-- **Action:**
-  1. **Identify Dependencies:** For each linked file (e.g., `[Link] (path)`) found in the document:
-     - **Drill Down:** Open the referenced file using `view_file`.
-  2. **Audit Compliance:**
-     - **Header Check:** Does it have `ANTI-HALLUCINATION PROTOCOL`?
-     - **Constraint Check:** Are inputs/outputs unambiguous?
-     - **Formatting:** Is it well-documented?
-  3. **Remediation:**
-     - **If Compliant:** Mark as `[VALIDATED]`.
-     - **If Legacy/Ambiguous:**
-       - **Flag It:** Add a `> [!WARNING] Legacy Dependency` alert next to the link in the parent file.
-       - **Auto-Fix (Optional):** If critical, recursively run `/raps-improve [dependency_path]` to harden it.
-
-### Phase 6: Schema & Template Consistency (The Line-by-Line)
-- **Goal:** Prevent "Copy-Paste" templates from corrupting the Master Ledger.
-- **Action:**
-  1. **Artifact Registry Check:**
-     - Locate `Artifact Registry Update` section.
-     - **Count Columns:** Does it match `PLAN.md` (5 columns)? If 4, **FIX IT**.
-  2. **Session Log Check:**
-     - Locate `Entry Checklist` item "Log session start".
-     - **Verify Template:** Does it include `| [TIMESTAMP] | ... |`? If missing, **INJECT IT**.
-  3. **Handoff Notes Check:**
-     - Locate `Cross-Persona Notes Template`.
-     - **Verify:** Does it match `HANDOFF_NOTES.md` structure?
-
-### Phase 7: Path & Integrity Verification (The Audit)
-- **Goal:** Ensure no broken links or hallucinations.
-- **Action:**
-  1. **Path Scan**: Check every `[Link] (path)` in the file. Does the file exist?
-  2. **Integrity Script**: Run `scripts/check_integrity.ps1` after edits.
+| Phase | Name | Skill Section | Goal |
+|-------|------|---------------|------|
+| 1 | Structural Alignment | `§ Phase 1` | Match S+ skeleton |
+| 2 | Binary Gate Hardening | `§ Phase 2` | Objective checks |
+| 3 | Handoff Standardization | `§ Phase 3` | 4-column matrix |
+| 4 | Instruction Hardening | `§ Phase 4` | Expert protocols |
+| 5 | Dependency Audit | `§ Phase 5` | Chain of trust |
+| 6 | Schema Consistency | `§ Phase 6` | Template alignment |
+| 7 | Path Verification | `§ Phase 7` | No broken links |
 
 ---
 
 ## 🛡️ Quality Gate (Definition of Done)
 > **All checks must be TRUE to proceed.**
 
-- [ ] **Protocol Compliance**: File starts with `ANTI-HALLUCINATION PROTOCOL`.
-- [ ] **Binary Gates**: All checklists use objective, verifiable criteria.
-- [ ] **Legacy Removal**: No `## Prompt` sections exist.
-- [ ] **Handoff Standard**: Handoff Matrix uses 4 columns.
-- [ ] **Integrity Pass**: `scripts/check_integrity.ps1` returns exit code 0.
+- [ ] File starts with `ANTI-HALLUCINATION PROTOCOL` (5+ rules).
+- [ ] `## Context` has Persona, Mission, Lane (Owner/Collaborative/Reader).
+- [ ] Entry Checklist has 5+ binary checks.
+- [ ] Quality Gate has 5+ verifiable criteria.
+- [ ] Exit Checklist has 7+ items.
+- [ ] Handoff Matrix uses 4 columns (Outcome | Next Agent | Command | Trigger).
+- [ ] No `## Prompt` or legacy sections remain.
+- [ ] All internal links resolve (`list_dir` verified).
 
 ---
 
 ## 🏁 Exit Checklist
-1. [ ] **Verify Quality Gate**: 100% passed.
-2. [ ] **Update Ledger**: Update `PLAN.md` to reflect the file is now `[v3.1 COMPLIANT]`.
-3. [ ] **Log Session**: Update `SESSION_LOG.md`.
-4. [ ] **Announcement**: Notify User: "File [NAME] has been hardened to RAPS v3.1 Standards."
+1. [ ] Quality Gate 100% passed.
+2. [ ] Target file validated against S+ template.
+3. [ ] Log all structural changes to `DECISION_LOG.md`.
+4. [ ] Update `PLAN.md`: Mark file as `[S+ COMPLIANT]`.
+5. [ ] Add changelog entry if major changes.
+6. [ ] Log session end to `SESSION_LOG.md`.
+7. [ ] Append context to `HANDOFF_NOTES.md`.
+8. [ ] Run `scripts/check_integrity.ps1` (must pass).
+9. [ ] Notify User: "File [NAME] hardened to S+ standards."
+
+---
+
+## Handoff Matrix
+| Outcome | Next Agent | Command | Trigger |
+|---------|------------|---------|---------|
+| ✅ File Compliant | USER | Report complete | Quality Gate passed |
+| ⏳ Dependency Legacy | `/raps-improve` | Recursive call | Child file audit failed |
+| 🔄 Needs Revision | `/raps-improve` | Re-run phases | <3 cycles remaining |
+| 🚨 Structural Conflict | USER | ESCALATE | Domain content unclear |

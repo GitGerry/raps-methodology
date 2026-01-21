@@ -20,7 +20,7 @@ Run `/retro` after:
 - Team retrospective session
 
 > [!TIP]
-> For Sprint-specific retrospectives, use the **Sprint Retrospective Template** from the [Agile Toolkit](../skills/agile-toolkit/SKILL.md#3-sprint-retrospective).
+> For Sprint-specific retrospectives, use the **Sprint Retrospective Template** from the [Agile Toolkit](../skills/agile-toolkit/SKILL.md#7-sprint-retrospective).
 
 ---
 
@@ -29,7 +29,7 @@ Run `/retro` after:
 
 1. [ ] Confirm a milestone or project phase is complete
 2. [ ] **Load Skill:** Use `view_file` to read:
-   - `.../skills/agile-toolkit/SKILL.md` (Retrospective template, section 5)
+   - `.../skills/agile-toolkit/SKILL.md` (Retrospective template, section 7)
 3. [ ] Read `SESSION_LOG.md` for activity history
 4. [ ] Read `PLAN.md` for completed vs planned tasks
 5. [ ] Log session start:

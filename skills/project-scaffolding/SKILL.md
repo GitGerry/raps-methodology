@@ -147,7 +147,7 @@ The following templates are available in the `./templates/` directory:
 - [ ] Update `PLAN.md` with initial tasks
 - [ ] Log any initial decisions to `DECISION_LOG.md`
 - [ ] Set Squad Status (/initialize → ✅ DONE)
-- [ ] Handoff to next persona (/research or /analyst)
+- [ ] Handoff to next persona (/analyst)
 
 ---
 

@@ -79,14 +79,16 @@ This prevents "feature creep" and ensures the team focuses on what actually matt
 
 ### Agile Delivery
 
-RAPS follows Agile principles to deliver value incrementally:
+RAPS emulates how enterprise development teams operate — with structured sprints, clear roles, and continuous improvement cycles. Instead of coordinating between humans, you're orchestrating specialized AI personas that follow the same professional workflows.
 
-- **Sprints** — Work is organized into fixed time-boxes (typically 2 weeks)
-- **Backlog Grooming** — Stories are refined and estimated before entering a sprint
-- **Daily Progress** — Status updates tracked in `PLAN.md`
-- **Retrospectives** — After each sprint, the `/retro` workflow captures lessons learned
+**How it works:**
 
-The goal is continuous delivery of working software, not a single "big bang" release at the end.
+- **Sprints** — Work is organized into focused iterations with defined goals and committed stories. The structure of a sprint remains, but execution that would take a human team two weeks often completes in hours.
+- **Backlog Grooming** — Before development begins, stories are refined, estimated, and prioritized. The `/architect` and `/analyst` personas ensure requirements are ready before code is written.
+- **Continuous Progress** — Status updates are tracked in `PLAN.md`. You can see which persona is active, what they're working on, and what's blocked — the same transparency as a daily standup, but always current.
+- **Retrospectives** — After completing a sprint, the `/retro` workflow captures what went well, what didn't, and what to improve. Lessons learned are documented, not forgotten.
+
+The result is a development process that feels like working with a well-coordinated team — predictable progress, full transparency, and continuous delivery of working software.
 
 ### Architecture Design
 

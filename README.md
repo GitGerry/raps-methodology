@@ -1,772 +1,243 @@
-# 🚀 RAPS Framework v3.2
+# 🎯 RAPS: AI Development, Engineered
 
-> **R**equirements • **A**rchitecture • **P**roduction • **S**hipping
+> **R**equirements · **A**rchitecture · **P**roduction · **S**hipping
 
-A structured methodology for AI-assisted software development with clear handoffs, audit trails, and quality gates.
-
----
-
-## 📖 Table of Contents
-
-- [Overview](#-overview)
-- [Quick Start](#-quick-start)
-- [The Ten Personas](#-the-ten-personas)
-- [Utility Workflows](#-utility-workflows)
-
-- [Core Artifacts](#-core-artifacts)
-- [Feature Reference](#-feature-reference)
-- [Workflow Commands](#-workflow-commands)
-- [Best Practices](#-best-practices)
+RAPS transforms AI-assisted development from unpredictable experimentation into a **governed, auditable process** with clear accountability at every step.
 
 ---
 
-## 🎯 Overview
+## What is RAPS?
 
-RAPS is a **persona-based development framework** where each AI agent has a specific role, **powered by a dedicated Skill Toolkit**, lane restrictions, and explicit handoff protocols. This ensures:
+RAPS is a **structured methodology** for managing AI-powered software development. Think of it as bringing the discipline of manufacturing assembly lines to the world of AI coding assistants.
 
-| Benefit | How |
-|---------|-----|
-| **Traceability** | Every action logged to `SESSION_LOG.md` |
-| **Clear Handoffs** | Explicit "next agent" recommendations |
-| **Quality Gates** | Checklists before any handoff |
-| **Context Preservation** | Notes passed via `HANDOFF_NOTES.md` |
-| **Conflict Resolution** | Priority order when multiple agents active |
+### The Problem RAPS Solves
 
-### The Complete RAPS Development Flow
+When developers use AI assistants without structure, common issues arise:
+- **No paper trail** — Changes happen with no record of *why*
+- **Quality inconsistency** — Some outputs are excellent, others are buggy
+- **Scope drift** — The AI starts "helping" in areas it shouldn't touch  
+- **Security blind spots** — Vulnerabilities slip through unnoticed
 
-```
-                              ┌─────────────────────────────────────────────────────────────────────┐
-                              │                        RAPS DEVELOPMENT FLOW                        │
-                              └─────────────────────────────────────────────────────────────────────┘
+RAPS addresses each of these by introducing **specialized roles**, **mandatory checkpoints**, and **complete audit trails**.
 
-  ╔═══════════════════════════════════════════════════════════════════════════════════════════════════╗
-  ║                                        PLANNING PHASE                                              ║
-  ╚═══════════════════════════════════════════════════════════════════════════════════════════════════╝
-  
-       /initialize          /analyst              /architect
-    ┌─────────┐          ┌─────────────┐        ┌─────────────┐
-    │ 🏗️ Setup │────────▶│ 📋 Stories  │───────▶│ 📐 Specs    │
-    │ PLAN.md │          │ & Research  │        │ Tech Design │
-    └─────────┘          └─────────────┘        └──────┬──────┘
-                                                                              │
-  ════════════════════════════════════════════════════════════════════════════╧════════════════════════
-  
-  ╔═══════════════════════════════════════════════════════════════════════════════════════════════════╗
-  ║                                        BUILDING PHASE                                              ║
-  ╚═══════════════════════════════════════════════════════════════════════════════════════════════════╝
-  
-                                    ┌─────────────┐
-                           ┌───────▶│ 💻 /build   │───────┐
-                           │        │ Backend API │       │
-           ────────────────┤        └─────────────┘       ├──────────────▶
-                           │        ┌─────────────┐       │
-                           └───────▶│ 🎨 /design  │───────┘
-                                    │ Frontend UI │
-                                    └─────────────┘
-                                    
-  ════════════════════════════════════════════════════════════════════════════════════════════════════
-  
-  ╔═══════════════════════════════════════════════════════════════════════════════════════════════════╗
-  ║                                        QUALITY PHASE                                               ║
-  ╚═══════════════════════════════════════════════════════════════════════════════════════════════════╝
-  
-       /review               /test                /security              /ux
-    ┌─────────────┐      ┌─────────────┐      ┌─────────────┐      ┌─────────────┐
-    │ 👀 Code     │─────▶│ 🧪 QA +     │─────▶│ 🔒 Vuln     │─────▶│ 🎭 User     │
-    │ Review      │      │ Performance │      │ Scanning    │      │ Acceptance  │
-    └─────────────┘      └──────┬──────┘      └──────┬──────┘      └──────┬──────┘
-                                │                    │                    │
-                                │  ┌─────────────────┴────────────────────┘
-                                │  │
-                                ▼  ▼
-                         ┌─────────────────────┐
-                         │   ISSUE FOUND?      │
-                         └──────────┬──────────┘
-                                    │
-                    ┌───────────────┼───────────────┐
-                    │               │               │
-                    ▼               ▼               ▼
-             🔴 CRITICAL      🟡 MEDIUM        🟢 LOW
-             ┌─────────┐    ┌─────────────┐   ┌─────────────┐
-             │ FIX NOW │    │ Document as │   │ Add to v1.1 │
-             │(loop)   │    │ known issue │   │ backlog     │
-             └────┬────┘    └──────┬──────┘   └──────┬──────┘
-                  │                │                 │
-                  ▼                └────────┬────────┘
-            Back to                         │
-            /build or                       ▼
-            /design                    PROCEED
-                    
-  ════════════════════════════════════════════════════════════════════════════════════════════════════
-  
-  ╔═══════════════════════════════════════════════════════════════════════════════════════════════════╗
-  ║                                     🚦 RELEASE GATES                                               ║
-  ╚═══════════════════════════════════════════════════════════════════════════════════════════════════╝
-  
-    Run `/release` before deployment:
+---
+
+## The Development Journey
+
+```mermaid
+%%{init: {'theme': 'neutral', 'themeVariables': { 'primaryColor': '#e8eef4', 'primaryTextColor': '#2c3e50', 'primaryBorderColor': '#bdc3c7', 'lineColor': '#7f8c8d', 'secondaryColor': '#f5f6fa', 'tertiaryColor': '#fff'}}}%%
+flowchart TD
+    subgraph PLAN ["📋 PLAN"]
+        A[Requirements] --> B[Architecture]
+    end
     
-    ┌──────────────┬──────────────┬──────────────┬──────────────┬──────────────┬──────────────┐
-    │ Gate 1       │ Gate 2       │ Gate 3       │ Gate 4       │ Gate 5       │ Gate 6       │
-    ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
-    │ ✅ Feature   │ ✅ Code      │ ✅ Test      │ ✅ Security  │ ✅ UAT       │ ✅ Go-Live   │
-    │ Complete     │ Complete     │ Complete     │ Cleared      │ Approved     │              │
-    ├──────────────┼──────────────┼──────────────┼──────────────┼──────────────┼──────────────┤
-    │ /architect   │ /build       │ /test        │ /security    │ /ux          │ /deploy      │
-    └──────┬───────┴──────┬───────┴──────┬───────┴──────┬───────┴──────┬───────┴──────┬───────┘
-           │              │              │              │              │              │
-           └──────────────┴──────────────┴──────────────┴──────────────┴──────────────┘
-                                                  │
-                                                  ▼
-  ════════════════════════════════════════════════════════════════════════════════════════════════════
-  
-  ╔═══════════════════════════════════════════════════════════════════════════════════════════════════╗
-  ║                                        RELEASE PHASE                                               ║
-  ╚═══════════════════════════════════════════════════════════════════════════════════════════════════╝
-  
-                                          /deploy
-                                       ┌─────────────┐
-                                       │ 🚀 Deploy   │────────▶  ✅ DONE!
-                                       │ Production  │           v1.0 SHIPPED
-                                       └─────────────┘
+    subgraph BUILD ["🔨 BUILD"]
+        C[Development] --> D[Design]
+    end
+    
+    subgraph VERIFY ["✓ VERIFY"]
+        E[Testing] --> F[Security]
+    end
+    
+    subgraph SHIP ["🚀 SHIP"]
+        G[Deploy]
+    end
+    
+    PLAN --> BUILD --> VERIFY --> SHIP
 ```
+
+### Phase 1: Planning
+
+Before any code is written, RAPS ensures the *right* thing gets built:
+
+- **Requirements Analysis** — Business needs are translated into clear, testable user stories
+- **Architecture Design** — Technical specifications are created, reviewed, and approved
+- **Decision Documentation** — Every significant choice is recorded with rationale
+
+### Phase 2: Building
+
+Development happens in parallel tracks with clear boundaries:
+
+- **Backend Development** — APIs, business logic, database schemas
+- **Frontend Design** — User interfaces, interactions, visual polish
+- **Code Review** — Optional quality checkpoint before testing
+
+### Phase 3: Verification
+
+Nothing ships without validation:
+
+- **Automated Testing** — Unit tests, integration tests, end-to-end tests
+- **Security Auditing** — Vulnerability scanning, dependency checks, secret detection
+- **User Acceptance** — Real-world usability validation
+
+### Phase 4: Shipping
+
+Deployment follows a controlled process:
+
+- **Staging First** — Changes proven in a safe environment
+- **Rollback Ready** — Every deployment can be reversed
+- **Monitoring Active** — Issues detected immediately
 
 ---
 
-## ⚡ Quick Start
+## The Specialist Team
 
-### 1. Initialize a New Project
-```
-/initialize
-```
-This scaffolds folders, creates `PLAN.md`, and sets up tracking files.
+RAPS doesn't use a single AI for everything. Instead, it deploys **specialized personas**, each with deep expertise in their domain.
 
-### 2. Check Project Status Anytime
-```
-/raps-status
-```
-Shows current active agent, task, blockers, project health, and next recommended action.
+| Persona | Command | Responsibility | File Access |
+|:--------|:--------|:---------------|:------------|
+| **Analyst** | `/analyst` | Gathers requirements, writes user stories, researches solutions | `/docs/product/`, `/docs/functional/` |
+| **Architect** | `/architect` | Creates technical specifications, makes design decisions | `/docs/technical/`, `/docs/decisions/` |
+| **Builder** | `/build` | Writes backend code, APIs, database logic | `/backend/`, `/api/`, `/lib/` |
+| **Designer** | `/design` | Builds UI components, styling, frontend code | `/frontend/`, `/components/`, `/style/` |
+| **Reviewer** | `/review` | Checks code quality, patterns, security basics | Read-only on changed files |
+| **Tester** | `/test` | Runs tests, reports bugs, validates behavior | `/tests/`, `/e2e/` |
+| **UX Advocate** | `/ux` | Validates usability, accessibility, user acceptance | `/docs/ux_feedback/` |
+| **Security Auditor** | `/security` | Scans vulnerabilities, checks compliance | `/docs/security/` |
+| **DevOps** | `/deploy` | Manages infrastructure, CI/CD, monitoring | `/infrastructure/`, `/docker/` |
 
-### 3. Follow the Flow
-After `/initialize`, the workflow will guide you:
-- `/analyst` → gather requirements & research
-- `/architect` → write specs
-- `/build` → implement backend
-- `/design` → implement UI
-- `/test` → verify technical QA
-- `/ux` → validate usability
+### Lane Discipline
 
-
-
-### 5. Understand the Agile Workflow
-RAPS uses an **Agile-first** approach with Epics, Stories, and Sprints:
-- **Epics** = Large feature sets (1-3 Sprints)
-- **Stories** = User-value units (1-3 days), must pass INVEST criteria
-- **Tasks** = Technical steps (<1 day)
-
-See the [Agile Toolkit](skills/agile-toolkit/SKILL.md) for sprint planning, and check the [Skills README](skills/README.md) for all available toolkits.
+Each persona can only modify files in their designated "lane." This prevents:
+- A designer accidentally breaking backend logic
+- A builder making unauthorized architecture changes
+- Any persona touching security-sensitive files without proper review
 
 ---
 
-## 👥 The Nine Personas
+## Governance & Accountability
 
-### 🏗️ /initialize - The Founder
-**Mission:** Initialize project structure (powered by **Project Scaffolding Skill**)
+### The Release Gates
 
-| Aspect | Details |
-|--------|---------|
-| **Command** | `/initialize` |
-| **Lane** | **Root Scaffolding**, `PLAN.md`, `.editorconfig`, `.gitignore`, `check_integrity.ps1` |
-| **Outputs** | Folder structure, `PLAN.md`, `SESSION_LOG.md`, `HANDOFF_NOTES.md` |
-| **Hands off to** | `/analyst` or `/architect` |
+Before any version ships, it must pass through six mandatory checkpoints:
 
-**When to use:**
-- Starting a new project
-- Resetting a project from scratch
+```mermaid
+%%{init: {'theme': 'neutral'}}%%
+flowchart TB
+    G1["🎯 Feature Complete<br/><small>All requirements implemented</small>"]
+    G2["💻 Code Complete<br/><small>No build errors, deps locked</small>"]
+    G3["🧪 Tests Pass<br/><small>No critical/high bugs</small>"]
+    G4["🔒 Security Clear<br/><small>No vulnerabilities</small>"]
+    G5["👤 UAT Approved<br/><small>Users accept the release</small>"]
+    G6["🚀 Go-Live<br/><small>Deployment confirmed</small>"]
+    
+    G1 --> G2 --> G3 --> G4 --> G5 --> G6
+```
+
+**No shortcuts.** If a gate fails, work returns to the appropriate phase for fixes.
+
+### The Audit Trail
+
+Every action taken by any persona is logged to `SESSION_LOG.md`:
+
+| Timestamp | Persona | Action | Status | Files Changed |
+|:----------|:--------|:-------|:-------|:--------------|
+| 2026-01-23 14:30 | /build | Created auth API | ✅ Done | `/backend/auth.ts` |
+| 2026-01-23 15:45 | /test | Ran unit tests | ❌ Failed | — |
+| 2026-01-23 16:00 | /build | Fixed auth bug | ✅ Done | `/backend/auth.ts` |
+
+This provides **complete traceability** — you can always answer "what changed, when, and why."
+
+### The Master Ledger
+
+`PLAN.md` serves as the **single source of truth** for project state:
+
+- **Squad Status** — Which persona is active, which are idle
+- **Task Backlog** — All pending work, prioritized
+- **Sprint Tracking** — Current sprint goals and progress
+- **Artifact Registry** — All generated documents and specs
 
 ---
 
-### 📋 /analyst - The Requirements Specialist
-**Mission:** Translate business requirements into structured stories (powered by **Analyst & Research Toolkits**)
+## Key Artifacts
 
-| Aspect | Details |
-|--------|--------|
-| **Command** | `/analyst` |
-| **Lane** | **Owner:** `/docs/business/`, `/docs/product/`, `/docs/functional/`, `/docs/diagrams/`, `/data/research/` \| **Collab:** `PLAN.md`, `HANDOFF_NOTES.md` |
-| **Outputs** | `BRD_BUSINESS_RULES.md`, `UX_BENCHMARKS.md`, `FRD_USER_STORIES.md`, `FRD_FUNCTIONAL_REQUIREMENTS.md`, `logical_erd.mmd` |
-| **Hands off to** | `/architect` |
+RAPS generates and maintains several structured documents:
 
-**When to use:**
-- Complex requirements need clarification
-- Researching API feasibility or competitors
-- User stories and acceptance criteria needed
-
-**Key Outputs:**
-- Functional & non-functional requirements
-- User stories with acceptance criteria
-- Out of scope documentation
-- Open questions list
-
-**Prohibitions:**
-- ❌ No technical specs (that's architect)
-- ❌ No code
-- ❌ No assumptions without documenting
+| Artifact | Purpose |
+|:---------|:--------|
+| `PLAN.md` | Master ledger — project state, backlog, status |
+| `CHARTER.md` | Project scope, vision, risk register |
+| `SESSION_LOG.md` | Complete audit trail of all actions |
+| `HANDOFF_NOTES.md` | Context passed between personas |
+| `SPECS.md` | Technical specifications from Architect |
+| `ADR-###.md` | Architecture Decision Records |
 
 ---
 
-### 📐 /architect - The System Designer
-**Mission:** Convert requirements into high-fidelity technical specifications (powered by **Architecture Toolkit**)
+## Real-Time Visibility
 
-| Aspect | Details |
-|--------|---------|
-| **Command** | `/architect` |
-| **Lane** | **Owner:** `/docs/technical/`, `/docs/api/`, `/docs/decisions/`, `DECISION_LOG.md`, `/types`, `/schemas` \| **Collab:** `PLAN.md`, `HANDOFF_NOTES.md` |
-| **Outputs** | `/docs/technical/SPECS.md`, `/docs/technical/SDD.md`, `/docs/decisions/ADR-###.md`, `DECISION_LOG.md` |
-| **Hands off to** | `/build` or `/design` |
+The RAPS Dashboard provides an executive view of project health:
 
-**When to use:**
-- Need technical specifications
-- Promoting tasks from backlog
-- Clarifying requirements
+- **Current Focus** — Which specialist is working, on what task
+- **Project Health** — Overall status indicator
+- **Task Board** — Kanban view of work in progress
+- **Recent Activity** — Latest logged actions
 
-**Special Feature - AI-Generated Specs:**
-```
-/architect --auto
-```
-Generates a draft spec from `/data/research/` files (via research-toolkit). Human review required!
-
-**Prohibitions:**
-- ❌ No production code
-- ❌ No visual design decisions
-
----
-
-### ⚙️ /build - The Lead Developer
-**Mission:** Implement high-integrity logic and APIs based on technical specifications (powered by [Build Toolkit](skills/build-toolkit/SKILL.md))
-
-| Aspect | Details |
-|--------|---------|
-| **Command** | `/build` |
-| **Lane** | **Owner:** `/backend/`, `/api/`, `/lib/`, `/db/` (Migrations), `/services/`, `/utils/`, `/scripts/`, `/models/`, `server config` \| **Collab:** `PLAN.md`, `HANDOFF_NOTES.md` |
-| **Outputs** | Backend code, API endpoints, Database schemas, Utility scripts |
-| **Hands off to** | `/review` (suggested) or `/test` or `/design` |
-
-**When to use:**
-- Implementing server-side logic
-- Creating API endpoints
-- Writing utility functions
-
-**Prohibitions:**
-- ❌ No CSS/UI work
-- ❌ No spec changes (escalate to `/architect`)
-
----
-
-### 🎨 /design - The Design Lead
-**Mission:** Implement premium visual layers and interactive user flows
-
-| Aspect | Details |
-|--------|---------|
-| **Command** | `/design` |
-| **Lane** | **Owner:** `/frontend/`, `/components/`, `/style/`, `/public/`, `/assets/`, `/hooks/`, `/layouts/`, `/stores/`, `tailwind config` \| **Collab:** `PLAN.md`, `HANDOFF_NOTES.md` |
-| **Outputs** | UI components, styling, frontend code, assets |
-| **Hands off to** | `/test` |
-
-**When to use:**
-- Building UI components
-- Styling and CSS work
-- Frontend functionality
-
-**Tip:** If backend isn't ready, use mock data and continue!
-
-**Prohibitions:**
-- ❌ No backend logic modifications
-
----
-
-### 🧪 /test - The QA Engineer
-**Mission:** Verify that implementations match specifications with zero regression (powered by **QA Toolkit**)
-
-| Aspect | Details |
-|--------|---------|
-| **Command** | `/test` |
-| **Lane** | **Owner:** `/tests/`, `/e2e/`, `/mocks/`, `jest.config.js`, `playwright.config.ts` \| **Collab:** `PLAN.md`, `HANDOFF_NOTES.md` |
-| **Outputs** | Test reports, coverage reports |
-| **Hands off to** | ✅ Done (pass) or `/build`/`/design` (fail) |
-
-**When to use:**
-- Task marked `[READY FOR TEST]`
-- Final verification before closing
-
-**Special Features:**
-- **Auto-Archive:** Passed tasks move to Completed Archive
-- **Test Coverage Report:** Documents what was tested vs. specs
-
-**Prohibitions:**
-- ❌ No code fixes (identify bugs; others fix them)
-- ❌ No spec changes
-
----
-
-### 🎭 /ux - The User Advocate
-**Mission:** Validate usability, accessibility, and user acceptance (powered by **UX Toolkit**)
-
-| Aspect | Details |
-|--------|---------|
-| **Command** | `/ux` |
-| **Lane** | **Owner:** `/docs/ux_feedback/` \| **Collab:** `PLAN.md`, `HANDOFF_NOTES.md` \| **Reader:** Running UI |
-| **Outputs** | UAT reports, usability findings, accessibility audits |
-| **Hands off to** | ✅ Done (pass) or `/analyst`/`/design` (issues found) |
-
-**When to use:**
-- After `/test` passes technical QA
-- Need to validate real-world usability
-- User acceptance testing required
-
-**What it tests:**
-- Can users complete their tasks intuitively?
-- Are buttons/flows working as expected?
-- Is the UI accessible and clear?
-- Does it match user stories from requirements?
-
-**Prohibitions:**
-- ❌ No code fixes (identify UX issues; `/design` or `/build` fixes them)
-- ❌ No design decisions that change scope
-
-**Issue Severity Guide:**
-
-| Severity | Definition | Example | Action |
-|----------|------------|---------|--------|
-| 🔴 **CRITICAL** | User CANNOT complete core task | Submit button doesn't work, Login fails, Data loss | **Fix before release** |
-| 🟡 **MEDIUM** | User CAN complete but with friction | No loading indicator, Unclear error, Double-click issues | Ship with known issues |
-| 🟢 **LOW** | Nice-to-have, cosmetic | Button styling off, Missing tooltip, No keyboard shortcut | Backlog for v1.1 |
-
-**The Critical Test:** If there's NO alternative path to complete a MUST-HAVE feature, it's critical.
-
----
-
-### 🔒 /security - The Security Auditor
-**Mission:** Identify and remediate security vulnerabilities (powered by **Security Toolkit**)
-
-| Aspect | Details |
-|--------|---------|
-| **Command** | `/security` |
-| **Lane** | **Owner:** `/docs/security/`, `SECURITY.md`, `.env.example` \| **Collab:** `PLAN.md`, `HANDOFF_NOTES.md` |
-| **Outputs** | Security audit reports, vulnerability findings |
-| **Hands off to** | `/deploy` (pass) or `/build` (issues found) |
-
-**When to use:**
-- After `/test` passes technical QA
-- Before any production deployment
-- When handling sensitive data (auth, payments, PII)
-
-**What it checks:**
-- OWASP Top 10 vulnerabilities
-- Dependency vulnerabilities (npm audit)
-- Hardcoded secrets
-- Authentication/authorization flaws
-- SQL injection, XSS, CSRF
-
-**Prohibitions:**
-- ❌ No code fixes (identify vulnerabilities; `/build` fixes them)
-- ❌ No deployment approval if critical issues found
-
----
-
-### 🚀 /deploy - The DevOps Engineer
-**Mission:** Manage stable, monitored releases and infrastructure-as-code
-
-| Aspect | Details |
-|--------|---------|
-| **Command** | `/deploy` |
-| **Lane** | **Owner:** `/infrastructure/`, `/docker/`, `/k8s/`, `/terraform/`, `.github/workflows/`, `nginx.conf` \| **Collab:** `PLAN.md`, `HANDOFF_NOTES.md` |
-| **Outputs** | Deployment runbooks, monitoring dashboards |
-| **Hands off to** | ✅ Done (success) or `/build` (failure) |
-
-**When to use:**
-- After `/test`, `/security`, and `/ux` all pass
-- Deploying to staging or production
-- Setting up monitoring and alerts
-
-**Responsibilities:**
-- Deploy to staging/production
-- Configure CI/CD pipelines
-- Set up monitoring and alerting
-- Handle rollbacks if issues occur
-- Document deployment procedures
-
-**Prohibitions:**
-- ❌ No deployment of untested code
-- ❌ No deployment with critical security vulnerabilities
-- ❌ No direct production pushes (staging first)
-
----
-
-## 🛠️ Utility Workflows
-
-### 🛡️ /raps-improve - Hardening Agent
-**Automated protocol to upgrade any file to v3.1 Standards.**
-
-```
-/raps-improve [file_path]
-```
-
-**Use when:**
-- Hardening "Golden Standards" (Gates, Protocols).
-- Upgrading legacy v2.0 documentation.
-
----
-
-### 📊 /raps-status - Unified Dashboard
-**Get an instant project snapshot and health validation.**
-
-```
-/raps-status
-```
-
-**What it does:**
-1.  **Status Check**: Shows active agent, current task, and blockers.
-2.  **Health Scan**: Validates folder structure and `PLAN.md` integrity.
-3.  **Governance Check**: Ensures `CHARTER.md` freshness.
-
-**Use anytime** to understand project state and health at a glance.
-
----
-
-### 🏃 /sprint - Sprint Planning
-**Agile sprint planning and transition workflow.**
-
-```
-/sprint
-```
-
-**What it does:**
-- Define sprint goals and capacity
-- Select stories from backlog
-- Create sprint board
-- Manage sprint transitions
-
-**Use when:**
-- Starting a new sprint
-- Mid-sprint replanning
-- Sprint transitions
-- Track velocity in `SPRINT_HISTORY.md`
-
----
-
-### 📝 /retro - Retrospective
-**Capture lessons learned after milestones.**
-
-```
-/retro
-```
-
-**Creates documentation of:**
-- Summary metrics
-- **Governance Audit:** `CHARTER.md` (Scope) & `PLAN.md` (Decisions)
-- What went well (wins)
-- What could be improved
-- Action items for next time
-- Lessons learned
-
-**When to use:**
-- Project completed
-- Major feature shipped
-- Sprint/phase end
-- After resolving major blockers
-
-**Output:** `/docs/RETROSPECTIVE.md`
-
----
-
-### 🚦 /release - Release Gates
-**Determine when a version is ready for go-live.**
-
-```
-/release
-```
-
-> 🎯 Prevents endless iteration by defining **clear ship criteria**.
-
-**The 6 Gates:**
-| Gate | Owner | Key Question |
-|------|-------|--------------|
-| Feature Complete | `/architect` | All MUST-HAVEs implemented? |
-| Code Complete | `/build` | No build errors, dependencies locked? |
-| Test Complete | `/test` | No Critical/High bugs? |
-| Security Cleared | `/security` | No critical vulnerabilities? |
-| UAT Approved | `/ux` | Users accept (with known issues)? |
-| Go-Live | `/deploy` | Deployment ready and safe? |
-
-**Issue Handling:**
-| Severity | Action |
-|----------|--------|
-| **Critical/High** | Must fix before release |
-| **Medium/Low** | Document, ship, fix in next version |
-
-**The Golden Rule:**
-> Perfect is the enemy of good. Ship when MUST-HAVEs work and no critical bugs exist. Everything else is v1.1.
-
-### 👀 /review - Code Review (Suggested)
-**Quality check between build and test.**
-
-```
-/review
-```
-
-> ⚡ This is a **suggested step**, not required for every change.
-
-**Review Checklist:**
-| Category | Checks |
-|----------|--------|
-| Security | No secrets, input validation, auth |
-| Code Quality | Docstrings, naming, DRY |
-| Error Handling | Try/catch, descriptive messages |
-| Architecture | Follows patterns, matches specs |
-| Testability | Injectable dependencies |
-
-**Outcomes:**
-- ✅ **Approved** → Proceed to `/test`
-- 🔄 **Changes Requested** → Back to `/build`
-
-**When to use /review:**
-- Complex new features
-- Security-sensitive code (auth, payments)
-- New patterns being introduced
-- Critical production code
-
-**When to skip:**
-- Simple bug fixes
-- Hotfixes/emergencies
-- Trivial changes
-
----
-
-
-
-
-## 📺 Visual Dashboard
-
-A beautiful glassmorphism dashboard to visualize your project state!
-
-### How to Access
-
-**Option 1: Mission Control (Vite App)**
-The modern dashboard is in the `/dashboard` folder. Clone the repo and run:
 ```bash
 cd dashboard
-npm install
-npm run dev
-```
-
-
-
-### Dashboard Features
-
-| Section | What It Shows |
-|---------|---------------|
-| **Current Focus** | Active task and agent |
-| **Project Health** | Quick health indicator |
-| **Squad Status** | All 6 personas with status badges |
-| **Task Board** | Kanban-style view (Backlog → In Progress → Review → Done) |
-| **Recent Activity** | Last 4 session log entries |
-| **Quick Actions** | Buttons for `/raps-status`, `/retro` |
-
-### Customizing the Dashboard
-
-The dashboard is a static template. To reflect your actual project:
-
-1. Open the RAPS Dashboard (Vite App)
-2. Update the Squad Status badges
-3. Update the Kanban items
-4. Update the Activity list
-
-**Future enhancement:** A script could auto-parse `PLAN.md` and `SESSION_LOG.md`!
-
----
-
-## 📁 Core Artifacts
-
-### PLAN.md - The Master Ledger
-**The single source of truth for project state.**
-
-```markdown
-# 🗺️ MASTER LEDGER: [Project Name]
-
-## 1. Project Overview
-## 2. Squad Status (table with all agents)
-## 3. Current Trajectory (active milestone)
-## 4. Unified Task Backlog (with Sprint column)
-## 5. Artifact Registry
-## 6. Completed Archive
-```
-
-**New in v3.2:** Backlog now includes `Sprint` column for story grouping.
-
----
-
-### CHARTER.md - Project Charter
-**Scope, Vision, and Governance.**
-
-- **Executive Summary** & Business Case
-- **Scope Boundary** (In/Out)
-- **Living Risk Register**
-- **Change Control Log**
-
----
-
-### /docs/decisions/ - Decision Log (ADRs)
-**Architectural Decision Records.**
-
-- Why we chose X over Y
-- Alternatives considered
-- Consequences of the decision
-
----
-
-### SESSION_LOG.md - Audit Trail
-**Every action logged with timestamp.**
-
-```markdown
-| Timestamp | Persona | Action | Status | Files | Notes |
-|-----------|---------|--------|--------|-------|-------|
-| 2026-01-14 15:30 | /build | Started auth API | 🛠️ ACTIVE | - | - |
-| 2026-01-14 16:00 | /build | Completed auth API | ✅ DONE | /backend/auth.ts | Ready for test |
+npm install && npm run dev
 ```
 
 ---
 
-### HANDOFF_NOTES.md - Context Preservation
-**Notes passed between personas.**
+## Getting Started
 
-```markdown
-## /analyst → /architect
-Key findings...
-
-## /architect → /build
-Spec summary, important edge cases...
-
-## /build → /test
-What was built, how to test...
+### Initialize a New Project
+```bash
+/initialize
 ```
+Creates folder structure, `PLAN.md`, and tracking files.
 
----
-
-### /docs/SPECS.md - Specifications
-**Detailed technical specs from `/architect`.**
-
-Includes: Logic flow, data schema, edge cases, API contracts. (Managed via `architecture-toolkit`).
-See also: `docs/technical/SDD.md`.
-
----
-
-### /tests/COVERAGE_*.md - Test Coverage
-**What was tested vs. what's in specs.**
-
-Generated by `/test` on pass.
-
----
-
-## 📋 Feature Reference
-
-### Status Emojis
-| Emoji | Status | Meaning |
-|-------|--------|---------|
-| 💤 | IDLE | No current assignment |
-| 🛠️ | ACTIVE | Currently working |
-| ⏳ | WAITING | Blocked on another |
-| ✅ | DONE | Completed |
-| ❌ | FAILED | Task failed |
-| 🚨 | BLOCKED | Needs human input |
-| 🔄 | CHANGES | Review requested changes |
-
-### Priority Order
-When multiple agents are active:
-1. `/test` — Highest priority (unblock QA)
-2. `/build` — Code blocks design
-3. `/design` — UI blocks testing
-4. `/architect` — Specs block build/design
-5. `/analyst` — Requirements block specs
-6. `/initialize` — Only at project start
-
-### Task Tags
-| Tag | Meaning |
-|-----|--------|
-| `[ANALYST]` | Assigned to /analyst |
-| `[ARCHITECT]` | Assigned to /architect |
-| `[BUILD]` | Assigned to /build |
-| `[DESIGN]` | Assigned to /design |
-| `[READY FOR TEST]` | Ready for /test |
-| `[READY FOR REVIEW]` | Optional /review step |
-| `[COMPLETED]` | Task done and archived |
-| `[BLOCKED: reason]` | Cannot proceed |
-| `[REJECTED: bug]` | Failed QA, needs fix |
-
----
-
-## 🎮 Workflow Commands
-
-### Starting a Project
-```
-/init
-```
-
-### Checking State
-```
-/raps-status     # Full status and health snapshot
-```
-
-### Main Workflows
-```
-/analyst         # Define requirements & Research
-/architect       # Write specs
-/architect --auto # AI-generated draft spec
-/build           # Backend code
-/design          # Frontend/UI
-/review          # Code review (optional)
-/test            # QA verification
-```
-
-### After Milestones
-```
-/retro           # Capture lessons
-```
-
----
-
-## ✨ Best Practices
-
-### 1. Always Check RAPS Status First
-```
+### Check Status Anytime
+```bash
 /raps-status
 ```
-Know where you are and verify system health before taking action.
+Shows current persona, active task, blockers, and next steps.
 
-### 3. Use Entry Checklists
-Every workflow has an entry checklist. Complete it before starting.
-
-### 4. Log Everything
-`SESSION_LOG.md` is your audit trail. Don't skip logging.
-
-### 5. Leave Context in Handoff Notes
-The next persona shouldn't need to ask questions. Document decisions.
-
-### 6. Use /review for Critical Code
-Security, payments, auth — always review before test.
-
-### 7. Run Retrospectives
-After each milestone, capture what you learned with `/retro`.
-
-### 8. Keep PLAN.md Clean
-Use auto-archive. Move completed tasks out of the backlog.
+### Follow the Flow
+```bash
+/analyst     # Define requirements
+/architect   # Write specifications  
+/build       # Implement backend
+/design      # Build frontend
+/test        # Verify quality
+/deploy      # Ship to production
+```
 
 ---
 
-## 🎉 You're Ready!
+## Addressing AI Skepticism
 
-Start with `/init` for new projects, or `/raps-status` to check an existing one.
+Common concerns about AI-assisted development — and how RAPS handles them:
 
-Happy coding! 🚀
+### "AI hallucinates and makes things up"
+
+**RAPS answer:** Every AI action is logged in `SESSION_LOG.md` with timestamps. The `/architect` persona must produce specifications *before* code is written, and `/test` verifies output against those specs. Hallucinations get caught at multiple checkpoints.
+
+### "AI doesn't understand our business context"
+
+**RAPS answer:** The `/analyst` persona's sole job is gathering requirements and translating business needs into structured user stories. These are documented in `HANDOFF_NOTES.md` and passed to downstream personas. Context isn't assumed — it's explicitly captured.
+
+### "AI will introduce security vulnerabilities"
+
+**RAPS answer:** The `/security` persona runs dedicated vulnerability scans before any release. No code ships without passing the Security Gate. Lane discipline also prevents unauthorized access to sensitive files like `.env` or auth modules.
+
+### "We can't trust AI with production systems"
+
+**RAPS answer:** The `/deploy` persona follows strict protocols: staging first, rollback ready, monitoring active. The Release Gates require `/test`, `/security`, and `/ux` approval before deployment is even possible.
+
+### "AI changes break things we didn't expect"
+
+**RAPS answer:** Lane discipline restricts each persona to specific directories. A `/design` persona cannot touch backend code. A `/build` persona cannot modify UI components. Unexpected side effects are structurally prevented.
+
+### "There's no accountability when AI makes mistakes"
+
+**RAPS answer:** Every action is attributed to a specific persona with timestamps. `PLAN.md` tracks task ownership. When something breaks, the audit trail shows exactly what happened, when, and which persona was responsible.
+
+### "AI just generates spaghetti code"
+
+**RAPS answer:** The `/architect` persona produces technical specifications before implementation. The optional `/review` step checks code quality, patterns, and maintainability. Code is written to spec, not improvised.
 
 ---
 
-*RAPS Framework v3.2 - Enhanced with Sprint Tracking, CODE_INDEX, and Velocity History*
+*RAPS v4 — Industrial-grade governance for the AI development era.*

@@ -165,7 +165,7 @@ RAPS uses an **Agile-first** approach with Epics, Stories, and Sprints:
 - **Stories** = User-value units (1-3 days), must pass INVEST criteria
 - **Tasks** = Technical steps (<1 day)
 
-See the [Agile Toolkit](../skills/sprint-plan/SKILL.md) for sprint planning, and check the [Skills README](../skills/README.md) for all available toolkits.
+See the [Agile Toolkit](../skills/agile-toolkit/SKILL.md) for sprint planning, and check the [Skills README](../skills/README.md) for all available toolkits.
 
 ---
 

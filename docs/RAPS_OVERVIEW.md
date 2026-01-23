@@ -61,7 +61,7 @@ Before any code is written, RAPS establishes a "Spine" of living documents that 
 *   **Agents**: **The Analyst** (Research & Strategy)
 *   **Intelligence Loop**:
     1.  **Analyst** identifies a vague requirement (e.g., "We need AI search").
-    2.  **Analyst** enters **Research Mode** (`/research`) to find feasibility.
+    2.  **Analyst** uses **research-toolkit skill** to find feasibility.
     3.  **Analyst** scrapes web/docs, creates `RSRCH_EVIDENCE_LOG.md`, and returns `RSRCH_SYNTHESIS.md`.
     4.  **Analyst** consumes this to write definitive `FRD_USER_STORIES.md` and `FRD_FUNCTIONAL_REQUIREMENTS.md`.
 *   **Handoff**: `[READY FOR ARCHITECT]` tag in `PLAN.md`.

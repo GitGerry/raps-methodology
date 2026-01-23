@@ -725,4 +725,4 @@ Happy coding! 🚀
 
 ---
 
-*RAPS Framework v3.2 - Enhanced with Sprint Tracking, CODE_INDEX, and Velocity History*
+*RAPS Framework v3.2 - Enhanced with Skills, Governance, and Lifecycle Management*

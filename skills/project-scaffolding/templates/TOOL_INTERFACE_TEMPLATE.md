@@ -65,12 +65,12 @@ Here's a full Tool Interface section for a research skill:
 | `topic` | string | ✅ | Subject to research |
 | `depth` | enum | ❌ | `"quick"` \| `"standard"` \| `"deep"` (default: standard) |
 | `sources` | integer | ❌ | Minimum sources to consult (default: 3) |
-| `output_file` | path | ❌ | Custom output path (default: `/research/[TOPIC].md`) |
+| `output_file` | path | ❌ | Custom output path (default: `/data/research/[TOPIC].md`) |
 
 ### Outputs
 - **Type:** Markdown file
 - **Structure:** Executive summary, key findings, source table, gaps
-- **Location:** `/research/[TOPIC].md` or custom path
+- **Location:** `/data/research/[TOPIC].md` or custom path
 
 ### Implementation
 
@@ -93,7 +93,7 @@ Uses `mcp_firecrawl-mcp_firecrawl_scrape` for deep content:
 
 ### Example
 > **Input:** `topic="OAuth 2.0 best practices"`, `depth="deep"`
-> **Output:** `/research/OAUTH_BEST_PRACTICES.md` with 15+ sources, security analysis, implementation recommendations
+> **Output:** `/data/research/OAUTH_BEST_PRACTICES.md` with 15+ sources, security analysis, implementation recommendations
 ```
 
 ---

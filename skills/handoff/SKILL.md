@@ -62,9 +62,9 @@ Append the generated handoff to the project's handoff notes file.
 
 ## Handoff Templates by Transition
 
-### /research → /analyst
+### /analyst → /architect (Research Handoff)
 ```markdown
-## /research → /analyst
+## /analyst → /architect (Research Phase)
 **Date:** [TIMESTAMP]
 **Task:** [Research topic]
 
@@ -94,8 +94,8 @@ Append the generated handoff to the project's handoff notes file.
 - [Areas needing more research]
 
 ### Files Created
-- `/research/[FILE1].md`
-- `/research/[FILE2].md`
+- `/data/research/[FILE1].md`
+- `/data/research/[FILE2].md`
 ```
 
 ### /analyst → /architect

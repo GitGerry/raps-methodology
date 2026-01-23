@@ -191,7 +191,7 @@ See the [Agile Toolkit](skills/agile-toolkit/SKILL.md) for sprint planning, and 
 | Aspect | Details |
 |--------|--------|
 | **Command** | `/analyst` |
-| **Lane** | **Owner:** `/docs/business/`, `/docs/product/`, `/docs/functional/`, `/docs/diagrams/`, `/research/` \| **Collab:** `PLAN.md`, `HANDOFF_NOTES.md` |
+| **Lane** | **Owner:** `/docs/business/`, `/docs/product/`, `/docs/functional/`, `/docs/diagrams/`, `/data/research/` \| **Collab:** `PLAN.md`, `HANDOFF_NOTES.md` |
 | **Outputs** | `BRD_BUSINESS_RULES.md`, `UX_BENCHMARKS.md`, `FRD_USER_STORIES.md`, `FRD_FUNCTIONAL_REQUIREMENTS.md`, `logical_erd.mmd` |
 | **Hands off to** | `/architect` |
 
@@ -639,7 +639,7 @@ The dashboard is a static template. To reflect your actual project:
 **Notes passed between personas.**
 
 ```markdown
-## /research → /architect
+## /analyst → /architect
 Key findings...
 
 ## /architect → /build

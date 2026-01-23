@@ -64,6 +64,30 @@ Every requirement is written so it can be verified. If you can't test it, it's n
 
 **Output:** `FRD_USER_STORIES.md` containing all stories with acceptance criteria.
 
+### Prioritization with MoSCoW
+
+Not all requirements are equal. RAPS uses **MoSCoW** to categorize every story:
+
+| Priority | Meaning | Decision Rule |
+|:---------|:--------|:--------------|
+| **Must** | Critical for launch | If missing, the release fails |
+| **Should** | Important but not blocking | Ship without if necessary |
+| **Could** | Nice-to-have | Only if time permits |
+| **Won't** | Explicitly out of scope | Documented to prevent scope creep |
+
+This prevents "feature creep" and ensures the team focuses on what actually matters for each release.
+
+### Agile Delivery
+
+RAPS follows Agile principles to deliver value incrementally:
+
+- **Sprints** — Work is organized into fixed time-boxes (typically 2 weeks)
+- **Backlog Grooming** — Stories are refined and estimated before entering a sprint
+- **Daily Progress** — Status updates tracked in `PLAN.md`
+- **Retrospectives** — After each sprint, the `/retro` workflow captures lessons learned
+
+The goal is continuous delivery of working software, not a single "big bang" release at the end.
+
 ### Architecture Design
 
 Technical specifications are created using a structured approach:

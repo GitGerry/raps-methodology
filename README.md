@@ -1,4 +1,4 @@
-# 🚀 RAPS Framework v2.1
+# 🚀 RAPS Framework v3.2
 
 > **R**equirements • **A**rchitecture • **P**roduction • **S**hipping
 
@@ -163,7 +163,7 @@ RAPS uses an **Agile-first** approach with Epics, Stories, and Sprints:
 - **Stories** = User-value units (1-3 days), must pass INVEST criteria
 - **Tasks** = Technical steps (<1 day)
 
-See the [Sprint Planning Skill](skills/sprint-plan/SKILL.md) for sprint planning, and check the [Skills README](skills/README.md) for all available toolkits.
+See the [Agile Toolkit](skills/agile-toolkit/SKILL.md) for sprint planning, and check the [Skills README](skills/README.md) for all available toolkits.
 
 ---
 
@@ -449,6 +449,7 @@ Generates a draft spec from `/data/research/` files (via research-toolkit). Huma
 - Starting a new sprint
 - Mid-sprint replanning
 - Sprint transitions
+- Track velocity in `SPRINT_HISTORY.md`
 
 ---
 
@@ -594,10 +595,12 @@ The dashboard is a static template. To reflect your actual project:
 ## 1. Project Overview
 ## 2. Squad Status (table with all agents)
 ## 3. Current Trajectory (active milestone)
-## 4. Unified Task Backlog
+## 4. Unified Task Backlog (with Sprint column)
 ## 5. Artifact Registry
 ## 6. Completed Archive
 ```
+
+**New in v3.2:** Backlog now includes `Sprint` column for story grouping.
 
 ---
 
@@ -766,4 +769,4 @@ Happy coding! 🚀
 
 ---
 
-*RAPS Framework v2.1 - Enhanced with Skills, Governance, and Lifecycle Management*
+*RAPS Framework v3.2 - Enhanced with Sprint Tracking, CODE_INDEX, and Velocity History*

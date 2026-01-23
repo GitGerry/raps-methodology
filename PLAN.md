@@ -14,7 +14,7 @@
 | **Status:** | 🟢 On Track |
 
 ### Vision Statement
-Establish a robust, agentic-native software development methodology (RAPS) that standardizes the interaction between AI agents and human architects, handling everything from scaffolding to deployment with high precision and maintainability.
+RAPS is a structured framework for AI-human collaboration in software development. It defines clear roles (personas), standardized workflows, and living artifacts that ensure AI agents operate with precision while humans retain strategic control.
 
 ### Success Criteria
 - [x] Unified `/raps-status` dashboard
@@ -49,7 +49,7 @@ Establish a robust, agentic-native software development methodology (RAPS) that 
 | Attribute | Value |
 |-----------|-------|
 | **Milestone** | Hardening & Documentation |
-| **Target Date** | 2026-01-20 |
+| **Target Date** | 2026-01-31 |
 | **Progress** | 90% |
 
 ### Key Deliverables
@@ -63,8 +63,7 @@ Establish a robust, agentic-native software development methodology (RAPS) that 
 
 | ID | Task | Status | Owner | Depends On | Feeds Into | Priority |
 |----|------|--------|-------|------------|------------|----------|
-| T001 | Cleanup Onboard Skill | [DONE] | /architect | - | - | P1-Must |
-| T002 | Harden Squad Status | [IN-PROGRESS] | /build | T001 | - | P1-Must |
+| T002 | Harden Squad Status | [IN-PROGRESS] | /build | - | - | P1-Must |
 
 ---
 
@@ -82,7 +81,7 @@ Establish a robust, agentic-native software development methodology (RAPS) that 
 
 | ID | Task | Completed | Verified By | Notes |
 |----|------|-----------|-------------|-------|
-| - | - | - | - | - |
+| T001 | Cleanup Onboard Skill | 2026-01-18 | /architect | Skill standardized |
 
 ---
 

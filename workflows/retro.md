@@ -44,6 +44,7 @@ Run `/retro` after:
 1. **Gather Data:**
    - Review `SESSION_LOG.md` entries since last retro
    - Review completed tasks in `PLAN.md`
+   - Review `SPRINT_HISTORY.md` for velocity trends
    - Note any `[BLOCKED]` or `[REJECTED]` tasks
    - Identify patterns in handoffs
 

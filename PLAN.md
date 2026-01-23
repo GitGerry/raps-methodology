@@ -61,9 +61,9 @@ RAPS is a structured framework for AI-human collaboration in software developmen
 
 ## 4. Unified Task Backlog
 
-| ID | Task | Status | Owner | Depends On | Feeds Into | Priority |
-|----|------|--------|-------|------------|------------|----------|
-| T002 | Harden Squad Status | [IN-PROGRESS] | /build | - | - | P1-Must |
+| ID | Task | Status | Owner | Sprint | Depends On | Feeds Into | Priority |
+|----|------|--------|-------|--------|------------|------------|----------|
+| T002 | Harden Squad Status | [IN-PROGRESS] | /build | S1 | - | - | P1-Must |
 
 ---
 

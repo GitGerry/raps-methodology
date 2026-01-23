@@ -150,3 +150,29 @@ Next Sprint Capacity: 20 × 0.8 = 16 pts (with buffer)
 - [ ] Stories pass DoD before "Done"
 - [ ] Sprint capacity not exceeded
 - [ ] SESSION_LOG.md updated daily
+
+---
+
+## 8. Sprint History Protocol
+
+> Record velocity and outcomes at the end of each sprint in `SPRINT_HISTORY.md`.
+
+### At Sprint Close
+1. **Calculate Velocity:**
+   - Sum completed story points
+   - Note planned vs actual
+
+2. **Update Velocity Summary Table:**
+   ```markdown
+   | S3 | Feature X | 2026-01-01 | 2026-01-14 | 24 | 20 | 4 |
+   ```
+
+3. **Add Sprint Details Section:**
+   - Goal, stories completed, carry-over, notes
+
+4. **Use for Planning:**
+   - 3-sprint rolling average = predicted capacity
+   - Buffer 20% for unknowns
+
+### Reference
+See `docs/SPRINT_HISTORY.md` for template.

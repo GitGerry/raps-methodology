@@ -54,6 +54,7 @@ This workflow is recommended by other personas when:
 2. **Calculate Velocity:**
    - Sum completed story sizes (XS=1, S=2, M=4, L=8)
    - Add velocity summary: `> **Velocity:** Planned: X → Completed: Y`
+   - **Update `SPRINT_HISTORY.md`:** Add row to Velocity Summary table
 
 3. **Note Incomplete Items:**
    - Any `[ ]` items should either:

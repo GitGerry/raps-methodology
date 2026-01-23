@@ -79,6 +79,7 @@ Execute phases in order.
 - [ ] `.raps/`, `docs/`, `backend/`, `frontend/`, `scripts/` exist.
 - [ ] `PLAN.md` and `CHARTER.md` exist in root.
 - [ ] `RAID_LOG.md` and `DECISION_LOG.md` exist.
+- [ ] `SPRINT_HISTORY.md` exists in `/docs`.
 - [ ] `.raps/MEMORY.md` exists.
 - [ ] `SESSION_LOG.md` and `HANDOFF_NOTES.md` exist.
 - [ ] `.env.example` and `.tool-versions` exist.

@@ -99,6 +99,15 @@ This document provides a comprehensive overview of all documentation, diagrams, 
     *   **Created:** `Init` - During project scaffolding.
     *   **Updated:** `Build/Design` - Regenerated after adding new code files.
 
+### `SPRINT_HISTORY.md`
+*   **Responsible:** **Sprint Facilitator** (via `/sprint`)
+*   **Type:** **Living**
+*   **Purpose:** Historical record of sprint velocity, outcomes, and carry-over stories. Enables velocity prediction.
+*   **Audience:** Product, Managers, Team
+*   **Lifecycle:**
+    *   **Created:** `Init` - During project scaffolding.
+    *   **Updated:** `Sprint` - At end of each sprint when archiving completed work.
+
 ### `DECISION_LOG.md`
 *   **Responsible:** **Architect**
 *   **Type:** **Living**

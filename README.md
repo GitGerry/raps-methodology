@@ -273,6 +273,50 @@ RAPS deploys **specialized personas**, each with deep expertise in their domain.
 
 ---
 
+## Skill Toolkits: How Personas Execute
+
+Personas define *what* each specialist does. **Skills** define *how* they do it.
+
+Every persona is equipped with a **Skill Toolkit** — a set of structured instructions, templates, and checklists that standardize their work. This ensures consistent, high-quality output regardless of which AI model is executing.
+
+### What's Inside a Skill
+
+Each toolkit contains:
+
+- **Step-by-step procedures** — Explicit instructions for common tasks
+- **Output templates** — Standardized formats for deliverables
+- **Quality checklists** — Verification criteria before handoff
+- **Anti-hallucination rules** — Constraints to prevent fabrication
+
+### Example: The Analyst Toolkit
+
+When `/analyst` is activated, it loads `skills/analyst-toolkit/SKILL.md` which includes:
+
+```
+1. Conduct stakeholder interview using FUNCTIONAL_INTERVIEW_QUESTIONNAIRE.md
+2. Extract requirements into FRD_USER_STORIES.md format
+3. Apply INVEST criteria to every story
+4. Cross-reference against FRD_REQUIREMENTS_INDEX.md
+5. Complete handoff checklist before passing to /architect
+```
+
+The result: Every analyst session follows the same rigorous process, producing consistent, complete requirements documentation.
+
+### Available Toolkits (70+)
+
+| Category | Examples |
+|:---------|:---------|
+| **Persona Toolkits** | Analyst, Architect, Build, Design, QA, Security, UX, Deploy |
+| **Business Toolkits** | Business Rules, Market Analysis, Domain Glossary, Process Mapping |
+| **Technical Toolkits** | API Specs, ADR Templates, Test Protocols, Deployment Runbooks |
+| **Agile Toolkits** | Definition of Ready, Definition of Done, Sprint Planning, Retrospectives |
+
+### Why This Matters
+
+Without skills, an AI assistant improvises. With skills, it follows a proven playbook. The difference is the same as hiring a random contractor versus a specialist who's done this exact task 1,000 times.
+
+---
+
 ## Lane Discipline: How It Works
 
 Each persona can only modify files in their designated "lane." This is enforced at the system level:

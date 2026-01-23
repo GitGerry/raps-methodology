@@ -54,25 +54,13 @@ Before any code is written, RAPS ensures the *right* thing gets built.
 
 ### Requirements Analysis
 
-Business needs are translated into clear, testable user stories using the **INVEST** framework:
+The `/analyst` persona conducts a structured dialogue to extract requirements — asking clarifying questions, identifying edge cases, and documenting assumptions. Vague requests become specific, testable statements.
 
-| Principle | Meaning | Example |
-|:----------|:--------|:--------|
-| **I**ndependent | Stories can be built in any order | "User can reset password" doesn't depend on "User can change email" |
-| **N**egotiable | Details can be discussed | The exact reset flow is flexible |
-| **V**aluable | Delivers user or business value | Password reset enables locked-out users to return |
-| **E**stimable | Team can size the work | "About 2 days of effort" |
-| **S**mall | Fits within a sprint | Not "Build entire auth system" |
-| **T**estable | Has clear acceptance criteria | "Given expired link, show error message" |
+**Before:** *"Users should have a good login experience"*
 
-Each story includes **acceptance criteria** written in Given/When/Then format:
+**After:** *"Users can log in within 3 seconds. Invalid credentials show a clear error message. After 5 failed attempts, the account locks for 15 minutes with an explanation."*
 
-```
-Given a user with a valid account
-When they request a password reset
-Then they receive an email within 60 seconds
-And the reset link expires after 24 hours
-```
+Every requirement is written so it can be verified. If you can't test it, it's not a requirement — it's a wish. The output is a set of user stories that anyone on the team can read, understand, and check off when complete.
 
 **Output:** `FRD_USER_STORIES.md` containing all stories with acceptance criteria.
 

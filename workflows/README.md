@@ -1,4 +1,4 @@
-# 🚀 RAPS Framework v2.1
+# 🚀 RAPS Framework v3.2
 
 > **R**equirements • **A**rchitecture • **P**roduction • **S**hipping
 

@@ -124,6 +124,7 @@ Thin workflow pattern applied to all 9 personas:
 
 > Governance log for the evolution of the RAPS Framework.
 
+| 2026-01-23 13:38 | v3.1.8 | **Standardization** | Updated README to v3.2, fixed agile-toolkit links, added SPRINT_HISTORY and CODE_INDEX documentation | User |
 | 2026-01-23 11:56 | v3.1.7 | **Standardization** | **Automated Sync**: Updated 102 files (docs\ARTIFACTS.md, docs\DIAGRAM_STANDARDS.md, docs\RAPS_CHANGELOG.md...). | User |
 | 2026-01-21 21:57 | v3.1.6 | **Standardization** | auto | User |
 | 2026-01-21 21:13 | v3.1.5 | **Consolidation** | **Template Consolidation**: Merged root `/templates/` (8 files) into `project-scaffolding/templates/` (now 20 files). Removed 5 duplicates, moved 3 unique methodology templates. Single source of truth for templates. | User |

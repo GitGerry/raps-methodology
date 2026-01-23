@@ -1,8 +1,8 @@
-# 🎯 RAPS: AI Development, Engineered
+# RAPS
 
-> **R**equirements · **A**rchitecture · **P**roduction · **S**hipping
+**R**equirements · **A**rchitecture · **P**roduction · **S**hipping
 
-RAPS transforms AI-assisted development from unpredictable experimentation into a **governed, auditable process** with clear accountability at every step.
+A structured methodology that transforms AI-assisted development from unpredictable experimentation into a **governed, auditable process** with clear accountability at every step.
 
 ---
 
@@ -46,43 +46,204 @@ flowchart TD
     PLAN --> BUILD --> VERIFY --> SHIP
 ```
 
-### Phase 1: Planning
+---
 
-Before any code is written, RAPS ensures the *right* thing gets built:
+## Phase 1: Planning
 
-- **Requirements Analysis** — Business needs are translated into clear, testable user stories
-- **Architecture Design** — Technical specifications are created, reviewed, and approved
-- **Decision Documentation** — Every significant choice is recorded with rationale
+Before any code is written, RAPS ensures the *right* thing gets built.
 
-### Phase 2: Building
+### Requirements Analysis
 
-Development happens in parallel tracks with clear boundaries:
+Business needs are translated into clear, testable user stories using the **INVEST** framework:
 
-- **Backend Development** — APIs, business logic, database schemas
-- **Frontend Design** — User interfaces, interactions, visual polish
-- **Code Review** — Optional quality checkpoint before testing
+| Principle | Meaning | Example |
+|:----------|:--------|:--------|
+| **I**ndependent | Stories can be built in any order | "User can reset password" doesn't depend on "User can change email" |
+| **N**egotiable | Details can be discussed | The exact reset flow is flexible |
+| **V**aluable | Delivers user or business value | Password reset enables locked-out users to return |
+| **E**stimable | Team can size the work | "About 2 days of effort" |
+| **S**mall | Fits within a sprint | Not "Build entire auth system" |
+| **T**estable | Has clear acceptance criteria | "Given expired link, show error message" |
 
-### Phase 3: Verification
+Each story includes **acceptance criteria** written in Given/When/Then format:
 
-Nothing ships without validation:
+```
+Given a user with a valid account
+When they request a password reset
+Then they receive an email within 60 seconds
+And the reset link expires after 24 hours
+```
 
-- **Automated Testing** — Unit tests, integration tests, end-to-end tests
-- **Security Auditing** — Vulnerability scanning, dependency checks, secret detection
-- **User Acceptance** — Real-world usability validation
+**Output:** `FRD_USER_STORIES.md` containing all stories with acceptance criteria.
 
-### Phase 4: Shipping
+### Architecture Design
 
-Deployment follows a controlled process:
+Technical specifications are created using a structured approach:
 
-- **Staging First** — Changes proven in a safe environment
-- **Rollback Ready** — Every deployment can be reversed
-- **Monitoring Active** — Issues detected immediately
+1. **System Design Document (SDD)** — High-level architecture, component diagrams, data flow
+2. **API Contracts** — OpenAPI/Swagger specs defining every endpoint
+3. **Data Models** — Entity-relationship diagrams, schema definitions
+4. **Sequence Diagrams** — Step-by-step flow for complex operations
+
+The `/architect` persona produces these artifacts by:
+- Analyzing requirements from `/analyst`
+- Researching similar implementations
+- Documenting trade-offs between approaches
+- Generating Mermaid diagrams for visualization
+
+**Output:** `SPECS.md`, `SDD.md`, API schemas, ERD diagrams.
+
+### Decision Documentation
+
+Every significant choice is recorded as an **Architecture Decision Record (ADR)**:
+
+```markdown
+# ADR-001: Use PostgreSQL over MongoDB
+
+## Status
+Accepted
+
+## Context
+We need a database for user data and transactions. 
+Options considered: PostgreSQL, MongoDB, MySQL.
+
+## Decision
+PostgreSQL for ACID compliance and complex queries.
+
+## Consequences
+- ✅ Strong data integrity for financial transactions
+- ✅ Mature tooling and community support
+- ⚠️ Requires schema migrations for changes
+```
+
+ADRs are stored in `/docs/decisions/` and linked from `DECISION_LOG.md`.
+
+---
+
+## Phase 2: Building
+
+Development happens in parallel tracks with clear boundaries.
+
+### Backend Development
+
+The `/build` persona implements server-side logic:
+
+- **API Endpoints** — RESTful routes following OpenAPI specs from Architect
+- **Business Logic** — Core algorithms, validation rules, calculations
+- **Database Layer** — Migrations, queries, connection pooling
+- **Integrations** — Third-party APIs, webhooks, message queues
+
+Code follows the specification exactly. If the spec is unclear, `/build` escalates to `/architect` rather than guessing.
+
+**Output:** Working backend code in `/backend/`, `/api/`, `/lib/`.
+
+### Frontend Design
+
+The `/design` persona implements the visual layer:
+
+- **UI Components** — Reusable React/Vue/Svelte components
+- **Styling** — CSS, design tokens, responsive layouts
+- **Interactions** — Animations, form handling, state management
+- **Assets** — Icons, images, fonts
+
+The designer works from wireframes and specs, not imagination. If designs are missing, `/design` requests them from `/analyst` or `/architect`.
+
+**Output:** Frontend code in `/frontend/`, `/components/`, `/style/`.
+
+### Code Review (Optional)
+
+The `/review` persona validates code before testing:
+
+| Check | What It Catches |
+|:------|:----------------|
+| Security basics | Hardcoded secrets, SQL injection patterns |
+| Code quality | Missing docstrings, unclear naming |
+| Pattern compliance | Deviations from architecture |
+| Error handling | Missing try/catch, silent failures |
+
+**Output:** Approval or change requests in `HANDOFF_NOTES.md`.
+
+---
+
+## Phase 3: Verification
+
+Nothing ships without validation.
+
+### Automated Testing
+
+The `/test` persona runs comprehensive test suites:
+
+- **Unit Tests** — Individual functions in isolation
+- **Integration Tests** — Components working together
+- **End-to-End Tests** — Full user flows via browser automation
+- **Performance Tests** — Load testing, response times
+
+Tests are written against acceptance criteria from requirements. A story isn't "done" until its tests pass.
+
+**Output:** Test reports, coverage metrics in `/tests/COVERAGE_*.md`.
+
+### Security Auditing
+
+The `/security` persona scans for vulnerabilities:
+
+- **OWASP Top 10** — SQL injection, XSS, CSRF, etc.
+- **Dependency Audit** — Known CVEs in npm/pip packages
+- **Secret Detection** — API keys, passwords in code
+- **Auth Review** — Session handling, permission checks
+
+Critical findings block release. Medium/low issues are documented for future sprints.
+
+**Output:** Security audit report in `/docs/security/`.
+
+### User Acceptance
+
+The `/ux` persona validates real-world usability:
+
+- **Task Completion** — Can users achieve their goals?
+- **Error Recovery** — What happens when things go wrong?
+- **Accessibility** — Screen readers, keyboard navigation
+- **Performance Feel** — Perceived speed, responsiveness
+
+Issues are categorized by severity:
+
+| Severity | Definition | Action |
+|:---------|:-----------|:-------|
+| 🔴 Critical | User cannot complete core task | Fix before release |
+| 🟡 Medium | Friction but workaround exists | Ship with known issues |
+| 🟢 Low | Cosmetic, nice-to-have | Backlog for v1.1 |
+
+**Output:** UAT report in `/docs/ux_feedback/`.
+
+---
+
+## Phase 4: Shipping
+
+Deployment follows a controlled process.
+
+### Staging First
+
+All changes deploy to staging before production. This catches environment-specific issues (config, secrets, scaling).
+
+### Rollback Ready
+
+Every deployment includes:
+- Previous version tagged and preserved
+- One-command rollback procedure
+- Health checks that trigger automatic rollback on failure
+
+### Monitoring Active
+
+Post-deployment visibility:
+- Error rate dashboards
+- Performance metrics
+- User behavior analytics
+- Alerting for anomalies
 
 ---
 
 ## The Specialist Team
 
-RAPS doesn't use a single AI for everything. Instead, it deploys **specialized personas**, each with deep expertise in their domain.
+RAPS deploys **specialized personas**, each with deep expertise in their domain.
 
 | Persona | Command | Responsibility | File Access |
 |:--------|:--------|:---------------|:------------|
@@ -96,12 +257,31 @@ RAPS doesn't use a single AI for everything. Instead, it deploys **specialized p
 | **Security Auditor** | `/security` | Scans vulnerabilities, checks compliance | `/docs/security/` |
 | **DevOps** | `/deploy` | Manages infrastructure, CI/CD, monitoring | `/infrastructure/`, `/docker/` |
 
-### Lane Discipline
+---
 
-Each persona can only modify files in their designated "lane." This prevents:
-- A designer accidentally breaking backend logic
-- A builder making unauthorized architecture changes
-- Any persona touching security-sensitive files without proper review
+## Lane Discipline: How It Works
+
+Each persona can only modify files in their designated "lane." This is enforced at the system level:
+
+### The Mechanism
+
+When a persona attempts to modify a file:
+
+1. **Path Check** — The system compares the file path against the persona's allowed directories
+2. **Block or Allow** — If the path isn't in the allow-list, the modification is rejected
+3. **Audit Log** — Both allowed and blocked attempts are logged
+
+### What This Prevents
+
+| Scenario | Without Lanes | With Lanes |
+|:---------|:--------------|:-----------|
+| Designer adds "quick fix" to API | Backend breaks in production | Modification blocked, escalated to `/build` |
+| Builder "improves" button styling | UI inconsistency, design debt | Modification blocked, escalated to `/design` |
+| Any persona edits `.env` | Secrets exposed or corrupted | Modification blocked, requires `/security` review |
+
+### Why It Matters
+
+AI assistants are helpful but lack context about organizational boundaries. A model trained on full-stack code will happily modify any file you show it. Lane discipline adds the guardrails that human developers learn through experience.
 
 ---
 
@@ -114,15 +294,24 @@ Before any version ships, it must pass through six mandatory checkpoints:
 ```mermaid
 %%{init: {'theme': 'neutral'}}%%
 flowchart TB
-    G1["🎯 Feature Complete<br/><small>All requirements implemented</small>"]
-    G2["💻 Code Complete<br/><small>No build errors, deps locked</small>"]
-    G3["🧪 Tests Pass<br/><small>No critical/high bugs</small>"]
-    G4["🔒 Security Clear<br/><small>No vulnerabilities</small>"]
-    G5["👤 UAT Approved<br/><small>Users accept the release</small>"]
-    G6["🚀 Go-Live<br/><small>Deployment confirmed</small>"]
+    G1[Feature Complete]
+    G2[Code Complete]
+    G3[Tests Pass]
+    G4[Security Clear]
+    G5[UAT Approved]
+    G6[Go-Live]
     
     G1 --> G2 --> G3 --> G4 --> G5 --> G6
 ```
+
+| Gate | Owner | Question Answered |
+|:-----|:------|:------------------|
+| Feature Complete | `/architect` | Are all requirements implemented? |
+| Code Complete | `/build` | Does it build without errors? |
+| Tests Pass | `/test` | Are there critical bugs? |
+| Security Clear | `/security` | Are there vulnerabilities? |
+| UAT Approved | `/ux` | Do users accept it? |
+| Go-Live | `/deploy` | Is deployment successful? |
 
 **No shortcuts.** If a gate fails, work returns to the appropriate phase for fixes.
 
@@ -228,7 +417,7 @@ Common concerns about AI-assisted development — and how RAPS handles them:
 
 ### "AI changes break things we didn't expect"
 
-**RAPS answer:** Lane discipline restricts each persona to specific directories. A `/design` persona cannot touch backend code. A `/build` persona cannot modify UI components. Unexpected side effects are structurally prevented.
+**RAPS answer:** Lane discipline restricts each persona to specific directories. The system checks every file modification against an allow-list. A `/design` persona literally *cannot* modify `/backend/` files — the system blocks the attempt and logs it. Unexpected side effects are structurally impossible.
 
 ### "There's no accountability when AI makes mistakes"
 

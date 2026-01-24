@@ -72,8 +72,9 @@ Execute phases in order. Max 3 loopback cycles before escalating.
 | 4 | Traceability Check | `§ C. Traceability Check` | Linked STRY → FREQ → TC |
 | 5 | Logic Collision Check | `§ D. Logic Collision Check` | Conflicts resolved |
 | 6 | Risk Management | `§ E. Risk Management` | `RAID_LOG.md` seeded |
-| 7 | Visualization | `§ E. Advanced Logic Visualization` | ERD, Decision Trees |
-| 8 | Warm Handoff | `§ F. Tactical Handoff` | Architect briefing |
+| 7 | Decision Logging | `DECISION_LOG.md` | Log Scope Cuts ([PROD]) |
+| 8 | Visualization | `§ E. Advanced Logic Visualization` | ERD, Decision Trees |
+| 9 | Warm Handoff | `§ F. Tactical Handoff` | Architect briefing |
 
 ---
 
@@ -85,6 +86,7 @@ Execute phases in order. Max 3 loopback cycles before escalating.
 - [ ] `docs/functional/FRD_USER_STORIES.md` exists with testable ACs.
 - [ ] 100% of requirements have traceability (`Ref: RS-####` or `[STAKEHOLDER]`).
 - [ ] No logic collisions between `BRD_BUSINESS_RULES.md` and `FRD_USER_STORIES.md`.
+- [ ] `FRD_TRACEABILITY_MATRIX.md` maps every Charter/Prompt item to a User Story.
 - [ ] Feature visualized in `/docs/diagrams/` (ERD + Decision Tree).
 - [ ] At least 1 entry in `RAID_LOG.md` (or explicitly "None Discovered").
 

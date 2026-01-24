@@ -79,7 +79,6 @@ Execute phases in order.
 - [ ] `.raps/`, `docs/`, `backend/`, `frontend/`, `scripts/` exist.
 - [ ] `PLAN.md` and `CHARTER.md` exist in root.
 - [ ] `RAID_LOG.md` and `DECISION_LOG.md` exist.
-- [ ] `SPRINT_HISTORY.md` exists in `/docs`.
 - [ ] `.raps/MEMORY.md` exists.
 - [ ] `SESSION_LOG.md` and `HANDOFF_NOTES.md` exist.
 - [ ] `.env.example` and `.tool-versions` exist.
@@ -94,7 +93,7 @@ Execute phases in order.
 3. [ ] Initialize `.raps/MEMORY.md` with project context.
 4. [ ] Update `PLAN.md`: `/initialize` → `✅ DONE`.
 5. [ ] Register all created files in Artifact Registry.
-6. [ ] Log session end to `SESSION_LOG.md`.
+6. [ ] Log ALL initial decisions (Stack, Tools, Scope Cuts) to `DECISION_LOG.md`.
 7. [ ] Run `scripts/check_integrity.ps1` (must pass).
 8. [ ] Create Initial Briefing in `HANDOFF_NOTES.md`.
 9. [ ] Trigger next agent based on outcome.
@@ -104,7 +103,6 @@ Execute phases in order.
 ## Handoff Matrix
 | Outcome | Next Agent | Command | Trigger |
 |---------|------------|---------|---------|
-| ✅ Needs Research | `/analyst` | Run `/analyst` | Standard new project |
-| ✅ Ready for Specs | `/architect` | Run `/architect` | Requirements already complete |
+| ✅ Scaffolding Complete | `/analyst` | Run `/analyst` | All projects (Universal Standard) |
 | ⏳ Vague Goals | USER | Request clarity | Cannot proceed |
 | 🚨 Tech Conflict | USER | ESCALATE | Constraints conflict |

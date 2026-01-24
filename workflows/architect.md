@@ -82,7 +82,7 @@ description: Architect persona for technical specifications and system design
     - **Master Spec**: Draft `docs/technical/SPECS.md` with explicit `[Trace: REQ-####]` tags for every component.
     - **Schema Hardening**: Translate `logical_erd` into `docs/technical/CURRENT_SCHEMA.sql` (or equivalent DDL).
     - **API Contract**: Define Interface/OpenAPI specs in `docs/api/` (do not leave this to Build).
-    - **Decision Logging**: Execute `DECISION_LOG.md` updates for every non-obvious trade-off made.
+    - **Decision Logging**: Execute `DECISION_LOG.md` updates for ALL trade-offs ([LIB], [CODE]). Only create full ADRs for system patterns.
 
 4.  **Trajectory Promotion & Handoff**:
     - **Ledger Update**: Mark task `[DONE]` (or `[READY]` for Build) in `PLAN.md`.

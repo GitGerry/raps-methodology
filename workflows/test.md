@@ -86,6 +86,7 @@ Execute phases in order. Document all findings.
 - [ ] 100% of completed User Stories have linked test cases.
 - [ ] Critical paths (happy + error flows) validated.
 - [ ] No regressions introduced.
+- [ ] **Feature Parity:** All features in `FRD_*.md` are verified working in `TEST_REPORT.md`.
 - [ ] Coverage report generated.
 - [ ] `TEST_REPORT.md` or equivalent exists.
 

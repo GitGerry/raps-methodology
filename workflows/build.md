@@ -85,6 +85,8 @@ Execute phases in order. Document all work.
 ## 🛡️ Quality Gate (Build Integrity)
 > **All checks must be TRUE to proceed.**
 
+- [ ] **Story Completion:** All `STRY-###` assigned to this build cycle are marked `[DONE]` in `PLAN.md`.
+- [ ] **Feature Coverage:** Every User Story has corresponding implementation files.
 - [ ] 100% of API routes match `docs/api/` signatures.
 - [ ] DB migrations apply against schema constraints.
 - [ ] No `GLOSSARY.md` violations in code.

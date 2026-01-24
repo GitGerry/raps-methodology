@@ -127,14 +127,6 @@ The following templates are available in the `./templates/` directory:
 - [ ] Timeline expectations set
 
 ### Initialization Steps
-1.  [ ] Create project root folder
-2.  [ ] Create folder structure (Business, Functional, Technical, API, Decisions, Diagrams, Management, QA)
-3.  [ ] Create `/types/` and `/schemas/` directories
-4.  [ ] Create `PLAN.md` from template
-5.  [ ] Create `RAID_LOG.md` in root from `RAID_LOG_TEMPLATE.md`
-6.  [ ] Create `DECISION_LOG.md` in root from `DECISION_LOG_TEMPLATE.md`
-7.  [ ] Create `.raps/` directory (System Files)
-8.  [ ] Create `SESSION_LOG.md` in root
 9.  [ ] Create `HANDOFF_NOTES.md` in root
 10. [ ] Create `MEMORY.md` in `.raps/`
 11. [ ] Create `CHARTER.md` in root from `CHARTER_TEMPLATE.md`
